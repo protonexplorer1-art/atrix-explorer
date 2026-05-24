@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://protonexplorer1-art.github.io/atrix-explorer/sitemap.xml

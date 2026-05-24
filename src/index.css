@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  /* Brand Colors Map to Variables */
+  --color-brand-bg: var(--app-bg);
+  --color-brand-text: var(--app-text);
+  --color-brand-grey: var(--app-grey);
+  --color-brand-primary: var(--app-primary);
+  --color-brand-border: var(--app-border);
+  --color-brand-card: var(--app-card-bg);
+
+  /* Global Variables - Default Light View */
+  --app-bg: #ffffff;
+  --app-text: #09090b; /* Zinc 950 */
+  --app-grey: #52525b; /* Zinc 600 */
+  --app-primary: #18181b; /* Zinc 900 */
+  --app-border: #e4e4e7; /* Zinc 200 */
+  --app-card-bg: #f9f9fb; /* Zinc 50-ish */
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text antialiased selection:bg-brand-primary selection:text-white transition-colors duration-300 font-sans;
+    background-color: var(--app-bg);
+    color: var(--app-text);
+  }
+}
+
+.text-editorial {
+  @apply tracking-tighter leading-[0.9] font-black uppercase;
+}
+
+.glass-card {
+  @apply backdrop-blur-xl border border-zinc-200 bg-white/80 shadow-sm;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 50% 60% 55% 45% / 60% 45% 65% 40%;
+  }
+  33% {
+    border-radius: 60% 45% 60% 55% / 50% 60% 40% 65%;
+  }
+  66% {
+    border-radius: 55% 55% 45% 60% / 60% 40% 60% 50%;
+  }
+  100% {
+    border-radius: 50% 60% 55% 45% / 60% 45% 65% 40%;
+  }
+}
+
+.animate-morph {
+  animation: morph 20s ease-in-out infinite;
+}
+
+.pencil-sketch {
+  filter: url(#pencil-sketch);
+}
+
