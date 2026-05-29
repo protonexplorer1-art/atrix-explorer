@@ -1,22 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url>
     <loc>https://protonexplorer1-art.github.io/atrix-explorer/</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://protonexplorer1-art.github.io/atrix-explorer/features</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog</loc>
-    <lastmod>2026-05-24</lastmod>
+    <lastmod>2026-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/weekly-manhwa-news-updates-may-16-2026</loc>
+    <lastmod>2026-05-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/top-26-reincarnation-manhwa-2025</loc>
+    <lastmod>2025-10-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-assassin-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-gamer-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-martial-arts-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-dark-romance-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-dungeon-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-spy-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-badass-op-mc-manhwa</loc>
@@ -24,8 +67,53 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/top-26-reincarnation-manhwa-2025</loc>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-gangster-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/top-25-manhwa-2025</loc>
     <lastmod>2025-10-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-mature-romance-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-action-romance-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-completed-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-cooking-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-villain-manhwa-webtoons</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/weekly-news-intel-may-17-2026</loc>
+    <lastmod>2026-05-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/top-new-release-manhwa-2025</loc>
+    <lastmod>2026-05-28</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://protonexplorer1-art.github.io/atrix-explorer/blog/best-manhwa-like-the-greatest-estate-developer</loc>
+    <lastmod>2026-05-28</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

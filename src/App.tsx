@@ -2297,7 +2297,17 @@ const BlogPage = () => {
   const displayedPosts = otherPosts.slice(0, visibleCount);
 
   const loadMore = () => {
+    const currentCount = displayedPosts.length;
     setVisibleCount(prev => prev + 8);
+    setTimeout(() => {
+      const anchor = document.getElementById(`blog-post-card-${currentCount}`);
+      if (anchor) {
+        anchor.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -2414,15 +2424,16 @@ const BlogPage = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20 mb-20">
           {displayedPosts.map((item, i) => (
             <motion.article
+              id={`blog-post-card-${i}`}
               key={item.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i % 3 * 0.1 }}
-              className="flex flex-col group"
+              className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
             >
               <Link to={`/blog/${item.id}`} className="flex flex-col h-full">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] mb-6 sm:mb-8 bg-brand-card">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -2430,20 +2441,20 @@ const BlogPage = () => {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 left-4">
-                     <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white">
+                     <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
                         {item.category}
                      </span>
                   </div>
                 </div>
-                <div className="flex-1 flex flex-col">
-                    <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-4">{item.date}</span>
-                    <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-4 text-brand-text group-hover:text-brand-grey">
+                <div className="flex-1 flex flex-col px-2 pb-2">
+                    <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{item.date}</span>
+                    <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
                         {item.title}
                     </h3>
-                    <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm">
+                    <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
                         {item.excerpt}
                     </p>
-                    <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-text">
+                    <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
                         Read Story <ArrowRight size={18} />
                     </div>
                 </div>
@@ -2474,6 +2485,9 @@ const BlogDetail = () => {
     const item = BLOG_POSTS.find(b => b.id === id);
 
     if (!item) return <div className="pt-48 text-center font-mono text-zinc-400 bg-brand-bg h-screen">ARTICLE_NOT_FOUND</div>;
+
+    const latestNews = BLOG_POSTS.filter(post => post.category === "News" && post.id !== item.id).slice(0, 3);
+    const recommendedPosts = BLOG_POSTS.filter(post => post.category === "Recommendations" && post.id !== item.id).slice(0, 3);
 
     return (
         <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 bg-brand-bg relative overflow-hidden isolate">
@@ -2544,60 +2558,123 @@ const BlogDetail = () => {
                                 <>
                                     <p className="text-xl sm:text-2xl md:text-3xl leading-tight font-medium mb-12 text-brand-text drop-shadow-sm">{item.content.intro}</p>
 
-                                    {/* Inline Telegram */}
-                                    <motion.div 
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true }}
-                                        className="my-12 sm:my-16 p-6 sm:p-8 rounded-[2rem] border-2 border-dashed border-brand-border flex flex-col md:flex-row items-center gap-6 sm:gap-8 transition-colors bg-brand-card"
-                                    >
-                                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#229ED9] flex items-center justify-center text-white shadow-lg flex-shrink-0">
-                                            <Send size={28} />
-                                        </div>
-                                        <div className="flex-1 text-center md:text-left">
-                                            <h4 className="text-lg sm:text-xl font-black uppercase tracking-tight mb-2 text-brand-text">Daily Manhwa Updates on Telegram</h4>
-                                            <p className="text-brand-grey text-sm font-medium">
-                                                Don't wait for our reports. Get fast updates on chapter drops, season returns, and chat with other readers.
-                                            </p>
-                                        </div>
-                                        <button 
-                                            onClick={() => window.open('https://t.me/manhwa_daily', '_blank')}
-                                            className="px-8 py-4 bg-brand-primary text-brand-bg rounded-xl font-black text-[10px] sm:text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl active:scale-95 flex-shrink-0"
-                                        >
-                                            Join Now
-                                        </button>
-                                    </motion.div>
-
                                     {item.content.type === 'recommendation' ? (
-                                        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mt-12">
-                                            {item.content.items?.map((m: ManhwaItem) => (
-                                                <motion.div 
-                                                    key={m.rank} 
-                                                    initial={{ opacity: 0, y: 30 }}
-                                                    whileInView={{ opacity: 1, y: 0 }}
-                                                    viewport={{ once: true }}
-                                                    className="p-6 sm:p-8 rounded-[2rem] border border-brand-border group/item flex flex-col sm:flex-row gap-6 sm:gap-8 items-start bg-brand-card relative overflow-hidden isolate"
-                                                >
-                                                    <DecorativeOrganic className="-top-12 -right-12 opacity-10" size="w-32 h-32" color="fill-brand-primary/5" variant={1} />
-                                                    <div className="w-full sm:w-40 md:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-xl relative flex-shrink-0 z-10">
-                                                        <img src={m.image} alt={m.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" referrerPolicy="no-referrer" />
-                                                        <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-black text-xs sm:text-sm shadow-xl">
-                                                            {m.rank}
+                                        (() => {
+                                            const items = item.content.items || [];
+                                            const rawHalf = Math.floor(items.length / 2);
+                                            // Ensure even split so the 2-column grid is perfectly balanced on desktop
+                                            const half = rawHalf % 2 === 0 ? rawHalf : rawHalf + 1;
+                                            const firstHalf = items.slice(0, half);
+                                            const secondHalf = items.slice(half);
+
+                                            return (
+                                                <>
+                                                    {/* First Half of Recommendations */}
+                                                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mt-12">
+                                                        {firstHalf.map((m: ManhwaItem) => (
+                                                            <motion.div 
+                                                                key={m.rank} 
+                                                                initial={{ opacity: 0, y: 30 }}
+                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                viewport={{ once: true }}
+                                                                className="p-6 sm:p-8 rounded-[2rem] border border-brand-border group/item flex flex-col sm:flex-row gap-6 sm:gap-8 items-start bg-brand-card relative overflow-hidden isolate"
+                                                            >
+                                                                <DecorativeOrganic className="-top-12 -right-12 opacity-10" size="w-32 h-32" color="fill-brand-primary/5" variant={1} />
+                                                                {item.category !== 'Recommendations' && m.image && (
+                                                                    <div className="w-full sm:w-40 md:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-xl relative flex-shrink-0 z-10">
+                                                                        <img src={m.image} alt={m.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" referrerPolicy="no-referrer" />
+                                                                        <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-black text-xs sm:text-sm shadow-xl">
+                                                                            {m.rank}
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                                <div className="flex-1 relative z-10">
+                                                                    <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-3 tracking-tighter uppercase leading-tight text-brand-text flex items-center gap-3">
+                                                                        {item.category === 'Recommendations' && (
+                                                                            <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-black flex-shrink-0">
+                                                                                {m.rank}
+                                                                            </span>
+                                                                        )}
+                                                                        <span>{m.title}</span>
+                                                                    </h3>
+                                                                    <p className="text-brand-grey mb-6 leading-relaxed text-sm font-medium opacity-80" style={{ whiteSpace: 'pre-line' }}>{m.desc}</p>
+                                                                    <button 
+                                                                        onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(m.title)}`, '_blank')}
+                                                                        className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black transition-all uppercase tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
+                                                                    >
+                                                                        Search on web <Search size={14} />
+                                                                    </button>
+                                                                </div>
+                                                            </motion.div>
+                                                        ))}
+                                                    </div>
+
+                                                    {/* Inline Telegram promotion card positioned exactly in the middle */}
+                                                    <motion.div 
+                                                        initial={{ opacity: 0, scale: 0.95 }}
+                                                        whileInView={{ opacity: 1, scale: 1 }}
+                                                        viewport={{ once: true }}
+                                                        className="my-12 sm:my-16 p-6 sm:p-8 rounded-[2rem] border-2 border-dashed border-brand-border flex flex-col md:flex-row items-center gap-6 sm:gap-8 transition-colors bg-brand-card"
+                                                    >
+                                                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#229ED9] flex items-center justify-center text-white shadow-lg flex-shrink-0">
+                                                            <Send size={28} />
                                                         </div>
-                                                    </div>
-                                                    <div className="flex-1 relative z-10">
-                                                        <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-3 tracking-tighter uppercase leading-tight text-brand-text">{m.title}</h3>
-                                                        <p className="text-brand-grey mb-6 leading-relaxed text-sm font-medium opacity-80">{m.desc}</p>
+                                                        <div className="flex-1 text-center md:text-left">
+                                                            <h4 className="text-lg sm:text-xl font-black uppercase tracking-tight mb-2 text-brand-text">Daily Manhwa News Updates on Telegram</h4>
+                                                            <p className="text-brand-grey text-sm font-medium">
+                                                                Don't wait for our reports. Get fast updates on chapter drops, season returns, and chat with other readers.
+                                                            </p>
+                                                        </div>
                                                         <button 
-                                                            onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(m.title)}`, '_blank')}
-                                                            className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black transition-all uppercase tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
+                                                            onClick={() => window.open('https://t.me/manhwa_daily', '_blank')}
+                                                            className="px-8 py-4 bg-brand-primary text-brand-bg rounded-xl font-black text-[10px] sm:text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl active:scale-95 flex-shrink-0"
                                                         >
-                                                            Search on web <Search size={14} />
+                                                            Join Now
                                                         </button>
+                                                    </motion.div>
+
+                                                    {/* Second Half of Recommendations */}
+                                                    <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
+                                                        {secondHalf.map((m: ManhwaItem) => (
+                                                            <motion.div 
+                                                                key={m.rank} 
+                                                                initial={{ opacity: 0, y: 30 }}
+                                                                whileInView={{ opacity: 1, y: 0 }}
+                                                                viewport={{ once: true }}
+                                                                className="p-6 sm:p-8 rounded-[2rem] border border-brand-border group/item flex flex-col sm:flex-row gap-6 sm:gap-8 items-start bg-brand-card relative overflow-hidden isolate"
+                                                            >
+                                                                <DecorativeOrganic className="-top-12 -right-12 opacity-10" size="w-32 h-32" color="fill-brand-primary/5" variant={1} />
+                                                                {item.category !== 'Recommendations' && m.image && (
+                                                                    <div className="w-full sm:w-40 md:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-xl relative flex-shrink-0 z-10">
+                                                                        <img src={m.image} alt={m.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" referrerPolicy="no-referrer" />
+                                                                        <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-black text-xs sm:text-sm shadow-xl">
+                                                                            {m.rank}
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                                <div className="flex-1 relative z-10">
+                                                                    <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-3 tracking-tighter uppercase leading-tight text-brand-text flex items-center gap-3">
+                                                                        {item.category === 'Recommendations' && (
+                                                                            <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-black flex-shrink-0">
+                                                                                {m.rank}
+                                                                            </span>
+                                                                        )}
+                                                                        <span>{m.title}</span>
+                                                                    </h3>
+                                                                    <p className="text-brand-grey mb-6 leading-relaxed text-sm font-medium opacity-80" style={{ whiteSpace: 'pre-line' }}>{m.desc}</p>
+                                                                    <button 
+                                                                        onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(m.title)}`, '_blank')}
+                                                                        className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black transition-all uppercase tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
+                                                                    >
+                                                                        Search on web <Search size={14} />
+                                                                    </button>
+                                                                </div>
+                                                            </motion.div>
+                                                        ))}
                                                     </div>
-                                                </motion.div>
-                                            ))}
-                                        </div>
+                                                </>
+                                            );
+                                        })()
                                     ) : (
                                         <div className="space-y-16 sm:space-y-24 mt-16 sm:mt-20">
                                             {item.content.sections?.map((section: NewsSection, idx: number) => (
@@ -2658,6 +2735,111 @@ const BlogDetail = () => {
                             )}
                         </div>
                     </div>
+
+                    {/* Related Blog Posts (Latest & Recommendations) */}
+                    {item.content && (
+                        <div className="mt-24 sm:mt-32 pt-16 border-t border-brand-border space-y-24 sm:space-y-32">
+                            {/* Latest News Section */}
+                            {latestNews.length > 0 && (
+                                <div className="space-y-10">
+                                    <div className="text-center lg:text-left">
+                                        <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">STAY UPDATED</span>
+                                        <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-brand-text">LATEST INTEL & NEWS</h3>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+                                        {latestNews.map((post, i) => (
+                                            <motion.article
+                                                key={post.id}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: i * 0.1 }}
+                                                className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
+                                            >
+                                                <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
+                                                    <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
+                                                         <img
+                                                             src={post.image}
+                                                             alt={post.title}
+                                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                             referrerPolicy="no-referrer"
+                                                         />
+                                                         <div className="absolute top-4 left-4">
+                                                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
+                                                                 {post.category}
+                                                              </span>
+                                                         </div>
+                                                    </div>
+                                                    <div className="flex-1 flex flex-col px-2 pb-2">
+                                                        <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{post.date}</span>
+                                                        <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
+                                                            {post.title}
+                                                        </h3>
+                                                        <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
+                                                            {post.excerpt}
+                                                        </p>
+                                                        <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
+                                                            Read Story <ArrowRight size={18} />
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </motion.article>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Recommendations Section */}
+                            {recommendedPosts.length > 0 && (
+                                <div className="space-y-10">
+                                    <div className="text-center lg:text-left">
+                                        <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">EXPLORE MORE</span>
+                                        <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-brand-text">RECOMMENDED READS</h3>
+                                    </div>
+                                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+                                        {recommendedPosts.map((post, i) => (
+                                            <motion.article
+                                                key={post.id}
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: i * 0.1 }}
+                                                className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
+                                            >
+                                                <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
+                                                    <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
+                                                         <img
+                                                             src={post.image}
+                                                             alt={post.title}
+                                                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                             referrerPolicy="no-referrer"
+                                                         />
+                                                         <div className="absolute top-4 left-4">
+                                                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
+                                                                 {post.category}
+                                                              </span>
+                                                         </div>
+                                                    </div>
+                                                    <div className="flex-1 flex flex-col px-2 pb-2">
+                                                        <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{post.date}</span>
+                                                        <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
+                                                            {post.title}
+                                                        </h3>
+                                                        <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
+                                                            {post.excerpt}
+                                                        </p>
+                                                        <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
+                                                            Read Story <ArrowRight size={18} />
+                                                        </div>
+                                                    </div>
+                                                </Link>
+                                            </motion.article>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

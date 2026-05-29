@@ -4,8 +4,8 @@ export interface ManhwaItem {
   rank: number;
   title: string;
   desc: string;
-  image: string;
-  link?: string;
+  image?: string;
+
 }
 
 export interface NewsSection {
@@ -28,16 +28,82 @@ export interface BlogPost {
     items?: ManhwaItem[]; // For recommendations
     sections?: NewsSection[]; // For weekly news
     cta?: {
-        title: string;
-        desc: string;
-        link: string;
-        buttonText: string;
+      title: string;
+      desc: string;
+      link: string;
+      buttonText: string;
     };
     finalThoughts?: string;
   } | null;
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+
+  {
+    id: "weekly-manhwa-news-updates-may-16-2026",
+    title: "Weekly News: Major Returns, Hiatus Updates & ORV Anime Leak",
+    category: "News",
+    date: "May 16, 2026",
+    author: "Atrix Team",
+    excerpt: "Steel-Eating Player returns, ORV anime leak shocks fans, Blood Demon Reincarnation resumes, and multiple major manhwa announce finales, hiatuses, and new season updates.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFBcCuHzyv_7bhATXAx7THBEVFbVPWQpBwiPHR6p6WY5JcrwkA6kMPcblDjjkxTl-xrjrA0s92sGZ3ygiM5-VGlhnDwR2L_If2fMuhM7vuxN9keohD_hDJYXRHei2fWyTRtWpDX5OczHyagFKvnbRwO061KIcjELP2QeH4-v2EHZALgftelJNYk1t_1ac/s1600/Your%20paragraph%20text.webp",
+    content: {
+      type: "recommendation",
+      intro: "This week's manhwa news report covers major returns, season endings, hiatus announcements, and one of the biggest Omniscient Reader's Viewpoint anime leaks in years. Here are the biggest updates readers should know this week.",
+      items: [
+        {
+          rank: 1,
+          title: "Steel-Eating Player",
+          desc: "• Official return scheduled for May 26\n• Serialization resumes after long break\n• Fans can finally expect new chapters again",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiPepuAWI0KmmGbGFMvyAw1f4XuVIF0QXNipDXP4PfucXEvtIijIXxWxm8-Oko5oBwhm_-GCh9sy9noa7Cy27qr1gsHzODm3nyqDnifNppCtZlo1USxcjxczduLOhkf3X3mrR1ZWiD7wrr6W6yITrPgjEQ3Fj-hC2WIFaXzCQTvmj9ozliy9KQLa5Low0/s320/OIP%20%2823%29.webp"
+        },
+        {
+          rank: 2,
+          title: "Memoir of the King of War",
+          desc: "• Officially completed\n• Final chapter count: 255\n• One of the major martial arts manhwa to end this year",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhM7r9BtN8CyFFEdyeES75D4x9S4NoessVr_zFVp77v568AHzaHhGnqrcrvyBMJZMlk943Bhsr8SQ0CFLcH24-vSawtgFe47oNJ6WDrLJqZO9C54qa3KxrjvgHElCWT60tGrmFnayEZ_L5Gvp39uA0tUmcgK06IjB70T2oXcvHlJ7tdNjgPl9tL-G8XRk0/s320/OIP%20%2824%29.webp"
+        },
+        {
+          rank: 3,
+          title: "Blood Demon Reincarnation",
+          desc: "• Season 2 officially returned\n• 6 new chapters released together\n• Latest update includes Chapters 49–54",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTES7LoCS7G-oi4ieHEnjH35BUt4bnWQ-b0napqTjoJlthu6q06aXvfy0lUNPXUcBkaZyfbBBsEADMZE98506q0epwglRx_z0J0KvbwCTqSWn4YGv0pGFZSWtFMndsR1hmOYeSIGoK4189B8-fqsZbuMBrkdTRqMQBQfuvHmJ8Y19xNwrr574bju_P-PU/s320/download%20%281%29.webp"
+        },
+        {
+          rank: 4,
+          title: "Omniscient Reader's Viewpoint",
+          desc: "• Season 1 officially ended\n• Series will return after a temporary break\n• New anime leak appeared after almost 2 years\n• Com2uS report hinted at a possible 2027 anime release\n• A famous Japanese studio is reportedly involved\n• No official trailer or confirmation yet",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_iXF5XplgdZfFQ9JtRqr0_0oGhiXbK0XVaPDaxS4n1n5fGohfXF4AEl3iaWjmnjD6DED9DZ2Sv0PIf413MOExD2TAtGrIZhqjEklilwgGqWjbgkL_qIcFFxfgog13QcKa1jgcq7Ial1vzSKOqSn-Ai6X_IrB5Bvvq36H3UsLFvgYD2wAtSZO4FrfMYb4/s320/Y%27know,%20its%20been%20a%20while%20since%20we%27ve%20covered%20a%E2%80%A6%20%281%29.webp"
+        },
+        {
+          rank: 5,
+          title: "I Want to Be Fooled",
+          desc: "• Part 1 officially concluded\n• Author confirmed Part 2 is planned\n• Expected return window: Winter season\n• Break period focused on recovery and story research",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhh4KRzX2ZKKB1bB5JggOw5PIwnGtxEE0Q4JRI1KqU1ogbBqS3NSrKvoCp1Zp0J7lDFleMPr9zFufuqjivRxXeEJ2ZtoWF42IS4pD9gyk9b4-1_nYvRDqL_X0_9Gux_fYaMTt_wk54UVBPiNkWqWlKKiOymCTHxtyc5kmz6ayEBgS3iWUK8lb8nJCbV0yM/s408/OIP%20%2825%29.webp"
+        },
+        {
+          rank: 6,
+          title: "Academy's Genius Swordmaster",
+          desc: "• Season 2 officially resumed\n• Massive 7-chapter release\n• Latest update covers Chapters 130–136\n• One of the biggest chapter drops this week",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3PhwTAwo_YfQpr6izKyE8BnRzN5Sa60axaiVdChLaGLDZCeQN7nvlG6-fpxVATawtOh6uXGJF-asgn72e1OGKq2jyt8kOWbRvyAGE8PbUBeZKZz1U1HnNTb56RUJD3dBbFniNya7z9HGR29_5E6r-GJVCJpQwnH3cYmQk3C8tiwtMGgxaKqJ5JPcHFS4/s320/Academys-Genius-Swordmaster.webp"
+        },
+        {
+          rank: 7,
+          title: "After the Moonlight Falls",
+          desc: "• Official 5-week hiatus announced\n• Break period: May 8 – June 5\n• Hiatus for manuscript reorganization\n• Serialization resumes on June 12\n• Episode 31 releases June 11 at 10 PM",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqUiujOGRmj0KWAV14uwbTg3qg1bzauVdUb0jYmNByB9cClWm4_imD_UmXAV7v1tpCUlln-pH1AIoPIkKjYb48A13obOT9ggdJSTGxFJxk4ZQXw0koNKFipGxu0aV_lfp3YmuZ-tq-2U34WTaziuS1VPES2ykZfCYNu7ISZRitPnA_b7JYp4AEBe-y0e0/s855/After-the-Moonlight-Falls.webp"
+        },
+        {
+          rank: 8,
+          title: "Bizarre Restaurant",
+          desc: "• Season 3 returns on May 21\n• Episodes 83 & 84 release together\n• New schedule: 5 weeks serialization + 1 week break\n• Multiple regular hiatus dates already announced",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYNtn_P3xl_5B5QpbaM-GZzPnQDti1wbqQwX94__i6OJtbSDQll8jc52yoC91NlL2gwyfVLy5TgkLhbBaIdm7n7OSueqtTn_s6KmPWRbpuM9Vqkqdca-aBPWnZzMJTrYA7vPi4gwAZaOuzob9NmZEZPLS9He5EIgBrcdUzmyGt1RvMsc8v5gXIh91So30/s678/Bizarre%20Restaurant.webp"
+        }
+      ],
+      finalThoughts: "This week delivered major developments across the manhwa industry, including big returns, seasonal finales, hiatus announcements, and huge adaptation rumors. Readers should keep tracking updates closely as several popular series enter important new phases in 2026."
+    }
+  },
+
   {
     id: "top-26-reincarnation-manhwa-2025",
     title: "Top 26 Reincarnation Manhwa to Read - Reborn Heroes and Regression Stories (2025)",
@@ -50,36 +116,868 @@ export const BLOG_POSTS: BlogPost[] = [
       type: "recommendation",
       intro: "In this post, we’ve gathered 26 of the best reincarnation and regression manhwa that perfectly capture the thrill of second chances — from legendary mages returning after thousands of years, to fallen nobles rewriting history, to heroes reborn as villains.",
       items: [
-        { rank: 1, title: "Regressing as the Reincarnated Bastard of the Sword Clan", desc: "Theo Ragnar, a bastard born into the prestigious Ragnar sword clan, dies and regresses to his childhood with memories of his past life intact.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhabTSWFxCAvRv1kAR8DaXRJaTvUwd2jmQQgYmmgpCN1jEUo7fuO-HQdHJMZzO-FteBMSMfdUghVX8gwvHdE7RIkUyLxtUYS0daQX7YK3vDylXGKb1P1YAezY1xlNz0m0mMInmdAGk0sSH_ZMw1Qbi5cW5A2KyPa53bdBMaTqLhuJGOWVnsQT74zggGw-U/s1600/Hoegwigeomgaui%20Seojaga%20Saneun%20Beop%20%E2%80%A2%20Regressing%20as%E2%80%A6.webp" },
-        { rank: 2, title: "Margrave Bastard Son Was the Emperor", desc: "Once a powerful emperor betrayed and killed, Ian Verocian awakens a century earlier in the body of a margrave’s illegitimate son.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTee-s3uo3Zz2IKk8czQ0-oXroZKyq3QHkB9O-L0DoOMR2uWiHnd09ZzrwD2o_OTOcxA_5cA6UkFMtvTMoYT2OEaHgafknrwy5WEmpC8td2yoibFeM0LtujWBal96sCB9RKdq4WtTLggflTno8ueCvKxxClU6A4xSDZE7qrMZMazEXA5aGfLqA5Y1MHso/s1600/Margrave%E2%80%99s%20Bastard%20Son%20was%20The%20Emperor__%EB%B3%80%EA%B2%BD%EB%B0%B1%20%EC%84%9C%EC%9E%90%EB%8A%94%E2%80%A6.webp" },
-        { rank: 3, title: "Bug Player", desc: "Kim Min-jun finds himself trapped inside a virtual reality game where death is permanent. Discovering he can exploit the game’s hidden bugs, he becomes a formidable player.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHjKOUo94odsEf5S8kG0zOSMEm3IioHCzsoBViUhkt9pUZeWv0ZKuCzw63Ml4O2YcadBlOufx3ezadHvgmGFeiYtVkgJCZFtJErHuxz9wEyj3hZAOtzPj7G-my0MY0ygn6qkmnwZGkJMlQFyn8M5_nTT8Deeq490NjXqoLqcHzOoqQsZ7Pep6WgJcPr3g/s1600/I%20am%20Player%20Who%20Suck%20Alone%20%281%29.webp" },
-        { rank: 4, title: "The Lord’s Coins Aren’t Decreasing", desc: "Aaron Steelegard gains access to a mysterious book that rewards him with coins he can spend to gain abilities and power.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLBQHCDelC61mtliNd_d7wYaYbhHsIS4_CwgC5w0ofo8IyXbAQrCOcC7y5pcmLEn-Fxf8UbsEOaShkkwFbSu9VRVBnc0rTc6dFREw_UAo94AYQkUCf2S7A2Hrs-CbZ4CKMXbbXjZHNT2xVuBgnMLxi1G-ifIL4kZXWh4-MiLj19RLgnCIggm-aK6Zg36c/s1600/%EC%98%81%EC%A3%BC%EB%8B%98%EC%9D%98%20%EC%BD%94%EC%9D%B8%EC%9D%B4%20%EC%A4%84%EC%A7%80%20%EC%95%8A%EC%9D%8C_!%20_%20El%20dinero%20del%20se%C3%B1or%20no%20disminuye.webp" },
-        { rank: 5, title: "Reincarnation of the Hero Party’s Grand Mage", desc: "A legendary mage reborn centuries after his death awakens in a peaceful era as a noble boy.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA2KGr-onktmKxzWgdnKFX-6AihQ3C8gCMj_OYB9YjULqR5XS4MX7ftXX-S_CtQm3hC03rodQ0bPcZD8_9Qr9FF5_ZwNqM8Z4uDpWjo_Rn7-jcfHQ7EN55SC7VjeyoLtM7WCaR15YUR-SNI4e7rb3nNlhQx4-5whg8sah0yNe-yNi-nAtzGwtgui2QIA/s1600/The%20Rebirth%20of%20the%20Hero%27s%20Party%20Archmage.webp" },
-        { rank: 6, title: "Academy’s Undercover Professor", desc: "Ludger Cherish, a clever con artist, accidentally assumes the identity of a magic professor at an elite academy.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLJAzLtfGuOy_q6TpGu1TA3bE6EmnLbg08ZndoLHEqlFMc_lHikwIraiDnI8kUMukCDuQDz5-ZoSudrZjlqdV3EIGxzbztWqin3N61Xc1MCQt_U69-362MlV0weX95ZgoMTjdkLC_IC3ntPtjwyNe7HrZlxFgBUNTuDs4mdpj-vuGPVz18UW0zhSSp6Ns/s1600/Name%20_%20Academy%20Undercover%20professor%20%F0%9F%92%95.webp" },
-        { rank: 7, title: "The Great Mage Returns After 4000 Years", desc: "After 4000 years of imprisonment by demigods, Lucas Trowman awakens in the body of a weak academy student.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEix-aR2xl1mc1D12sL-9TYfeEXSWoe9Xt4yyo4OAlYnbws2ysrqGol9BpWm8n4p3uq87xawp4oJbXOyb6ZUSwaMTElnOjjtEprwvVV4tHrI4s19HrqDuvFalOCOlJHvjq-gGUuWKK0xkflzcZuUUy0ENH1-dw53CDH1EzBVBZ4-fxPCQdAG2HRxZgckXt0/s1600/The%20Great%20Mage%20Returns%20After%204000%20Years%20Manhwa.webp" },
-        { rank: 8, title: "The Holy Emperor’s Grandson Is a Necromancer", desc: "Reborn as the grandson of a holy emperor, the protagonist secretly wields both divine and necromantic powers.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK763hm9da4Bf30EmrEAJcABRwCYm8kyAV_deC8x1OGH238QU-AmBM9AMeueGW_znPowqRGlQ90hphm3tXXaTmEdsFpL5n2wzCCNReZtjmyq2ZixgCfjIccGPqmRaNzzD4XrwD07qYDtPpTqBzv760-Q8GctfHEMsqr_HyRYWwHv-iol6ox0cgALjQL48/s1600/The%20Holy%20Emperor%27s%20Grandson%20Is%20a%20Necromancer.webp" },
-        { rank: 9, title: "Return of the 8th-Grade Magician", desc: "Archmage Ian Page, betrayed and poisoned by his emperor, turns back time 30 years to his childhood.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4-rx3lYEMwkPMuscom00G5ivcYWAVzIp1R2s47PGoOtZAfHnPVn6ckzyp9FH1O0Nlacv39CL9Df8PiPBhfRII5MzDmSpydDlmSlPD0Ht4y_2Hxq8o14u9L5qix7aYijO0U6iy7ybryIpmuFinCtnXawJHohqSsbEn829JSB9HNtaZy7aHZvHR7_bMT2E/s1600/undefined.webp" },
-        { rank: 10, title: "Ygret: The Great Sage", desc: "After a life filled with regret, the sage Ygret reincarnates as a bullied young prince.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjECl8iTmx15pzuaFemCmQKNJSA85Jb0uIGo9PaJXDtsffaUh2A0OxIFu9_ialmg0-zpdZA68MOUYV2daSdF_JIze45R-WRzsYLjv5-iqui49mndIwMsl_3nPOIdBIJUblL14XajS3-XzjNWb5lldpKDVV2271mB8ELRtwFthU3ep4duj326ZIcHI3lHkM/s1600/%EC%9D%B4%EA%B7%B8%EB%A0%88%ED%8A%B8.webp" },
-        { rank: 11, title: "Reformation of the Lazy Noble", desc: "A once-worthless noble awakens to a new outlook on life after a mysterious dream.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhF_7U93caw_RZyGIzRCrAFipSzGbG-ip8-wkqoOKu6BYn81NwkJDtm5YGEPdG6zf8I1DAzhFAjVg7hKxcGcGunIAXlFMLHDgfyt5PMn-LI89NiPgqUsXbKGmvA8DrTSGsSbR31JWHhuby2ETZETTYZUud_M07hPhfHDltfG156JtWqjBrVFHUkdvISmN4/s1600/Reformation%20of%20the%20Deadbeat%20Noble.webp" },
-        { rank: 12, title: "Revenge of the Iron Blooded Sword Hound", desc: "Vikir, a loyal warrior of the Baskerville family, is betrayed and executed by those he trusted most.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAjWjyLczvlBEhsp5VpqF7pp-OtnAtW2K6BQlGRp679w4dPvdys1-uwHz7zLviCY3rxFbOPFo2UZhvWNwTDgGMeK2FXhR-pqz5ITRrICPFDTmnflX0MjrYP62pq7C5bUA8a6Pk6FCn_2220GSeFPAd7oN8HxAS9K-dHXP2PEZkp7cujiw459kb2zNorOU/s1600/The%20Return%20of%20the%20Iron-Blood%20Sword%20Hound.webp" },
-        { rank: 13, title: "Dark Magician Transmigrates After 66666 Years", desc: "Banished for eternity by the gods, the mighty magician Diablo Volfir reincarnates as a noble child named Jamie Welton.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrFqKqySE0Ql4KiC_6KxA5OIaXNFVVyZlNhbn-BKX2fzK23OnmgK8joZXsvvxt1eFzj-D4DBTGxQAFLVPvufdluAYWXQi-byhTarNF4f2MrAZZ6JvVVjz3sO2fIovTCKp723Ie8iiTcPmiKErSZC5B1_5LwsFQ5Ac-ss11UIG3OmpHa66YmJer2ZY8jZo/s1600/Manhwa_%20The%20Dark%20Magician%20Transmigrates%20After%E2%80%A6%20%281%29.webp" },
-        { rank: 14, title: "The Regressed Son of a Duke Is an Assassin", desc: "After regressing to his childhood, the son of a powerful duke uses the deadly skills from his future life as an assassin.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAnJaOpXBjz6VCSfR_8GzBx3FaxBUcx9oqI5NmRT_X3Y_boMmNfQSEUs8_ZzGFJsDc1DyZ2Z-xseV5FYH_GPYhKO5K07Jy8PosmE_lELoR5F7svR3DEokUn9Xl9KhAk_lD6kXz9zLKJAI9__UG22EUA4TyajP4qMd0dn90dXnkMKTrpOSfzdyPRWxLaDY/s1600/The%20Reborn%20Young%20Lord%20Is%20an%20Assassin.webp" },
-        { rank: 15, title: "I Regressed as the Duke", desc: "A loyal butler who dies in a fire awakens in the body of a young duke.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkQ68p9DWBXFcRvtTCj8KgRXErCiVGUHo0u_SVvvRA9lepIsh7OQGqg6LD84I2QXgwIpzGowzs3Zg8uACgReKcQBE0tegIbfZKjOcACWGomb8pyCahuG0mz7-lGAGGjK9o9cOOjtvjvzjp8pc-ACx-lEXDS7raG0txnOx6cLTWeTI8KFkBl4_d6dEfhN0/s1600/I%20Regressed%20As%20The%20Duke.webp" },
-        { rank: 16, title: "A Dragonslayer’s Peerless Regression", desc: "Zeke Draker, the failed heir of a dragon-slaying family, regresses to his childhood after a doomed future.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgu7LVsIt6vurtBVv4_EkMmBbEW-48QQerbIGZNL4QKscOBfX4kU5346QmJgtpkWphjyQeS38xwLXOJhkdnRnE6YA2DxOxm2TOjasB8Os0O_KmqoP2msiKVIYqu451m1Vj0nwYLurJ7EQUWAckC3izHnV-fCDBQo0IUWkivCCkE-aujvwx1EDehMzFOzAY/s1600/A%20Dragonslayer%27s%20Peerless%20Regression.webp" },
-        { rank: 17, title: "Trash of the Count’s Family", desc: "Kim Rok Soo transmigrates into the world of a novel as Cale Henituse, the notorious “trash” of a noble family.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwZ72Mp4G7V3iaFtK7kGZ0oiRQ9DRqZCZkh22TM8nRmlQkdlfHAGlPYfi-NjCNpBZGOSFa71nVZdFmzN2CErET0q9YqkgHjbSn9IRpdMCaYMR16_B2pvAnZKZLTGzrr6dfDiQaBXZTp8I0MuO9OE-TU9ptcOOW7dlK9zks6KonHqFBzF11C9i1T_HaOSQ/s1600/Trash%20of%20the%20counts%20family.webp" },
-        { rank: 18, title: "Standard of Reincarnation", desc: "Betrayed and murdered by his own kin, the one-armed warrior Davyon reincarnates as the son of his rival family.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuaHkK_CqhyphenhyphenHGVGwn16oqHoZaeiTd-n3zNUgRYdZvDLScLmfLuekFJcim-EJo8gioCaePqCDk3Qt5tV6BYQThxXqUXJ6dGVxSt0jZ4KuieqTLSgnVpJDKXqjQlmiG0gHJfoUMH9Lw3L6W_49byayOXY4DRxE_lCVPmMt_kFNim0Y7qU-8WdwX5XVhPd5M/s1600/Standard%20of%20Reincarnation.webp" },
-        { rank: 19, title: "Not Your Typical Reincarnation Story", desc: "Suna Choi awakens as Edith Righelof, a villainess forced into a political marriage with her family’s rival.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifEERymw20kS9caBVPFMv_CiEsH_e6q8nSDUocxWFs4aqM2x0_tZuyWzNeamhb8GYatVjO8SV8mR84eXNZN-nmzKtAbD1THCVhMy1-H8S2L0oK5SIsety-DYSOj2wCebePwKHhVtTCs9GxH0fuRAKBZv5kKCDtAcq2bqA5C32n4Mb-fG8BqKBrkvD6NpM/s1600/undefined%20%281%29.webp" },
-        { rank: 20, title: "Beware the Villainess", desc: "Melissa Fodderbrat, reborn as the villainess of a novel, refuses to play her scripted role.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjCvcW85DL8IQvl8IXS7OAhEWeEXqeyZDH3AMRtzGdndI-yRSO1e-cqj5WDyNA7XDZhv3A7D9DSkge2D8cZCUYxwYx0OQuUtuolw_qqjSXiWaxEUjMS0TL9kPM7nK4YJWNCKPH4D2nyf45IHhgMI-qZwgYC97EX8UN-rA1PgAJK5BnxWSSH-hSDFrPh7_w/s1600/Beware%20the%20Villainess!.webp" },
-        { rank: 21, title: "Kill the Villainess", desc: "Eris Miserian finds herself trapped as the villainess of a tragic novel, longing for freedom from her cursed fate.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig4g_-_7dH1h80HqP21xzlebRpjR_M9kAd25Q2O9rIU1r5ko8YX-O3t1TzbMrCjZp_5db6XCEbYSHRQ3a4GcR8E7X_izkaHJowK5MK_93Y7XE7IVWV9xPINNQDpYBsaFXNFSc6cVdGHHRwOSpMXr0RvEdaHQUjhdIDSjpp6LfvxRx0Fea9XN2HgjyrLXA/s320/undefined%20%282%29.webp" },
-        { rank: 22, title: "Return of the Legendary Spear Knight", desc: "Joshua Sanders, once the greatest knight betrayed by his allies, regresses to his youth.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCRy6zWwLGIsnhtuDpap3-2ML_hXJmEYEjH9urjinkbmPQ7qfBRgjw7cgX1sT37uUYBFvp5repJTlSMXBcZoxkmKFqw26Y_ACxC9E7hXRPNJpaJL-SjF7oJy-TKXP08wntZBr5cCmMhGreudJyfbcAlI5Lfm7jA65cTWm936Eup0Q2b0Ghq8Nol8WUt0g/s1600/Manhwa%20_Return%20of%20the%20legendary%20spear%20knight_,%20eu%20li%20at%C3%A9%20o%20ep_25.webp" },
-        { rank: 23, title: "I Became the Tyrant of the Defence Game", desc: "After conquering an impossible tower defense game, a gamer awakens inside its world as Prince Ash.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQVgPkLqKJmNgVA6fnDeTgWQVJSu4p035wCSHNIzIQ-BM-l9q3U0APIisUyk7QlX-Xmenahu9zYw6YAkzhGodsiSixmNm5c6e4Ul6dPK69TEoQd9paN7xjJSvqQq69S_-a8CsrRG80oghgljdHVubuDm6BJ977TDcl527RpXlEfmb2ikRqkEfJbKrUfrE/s1600/Tittle%20_%20I%20Became%20the%20Tyrant%20of%20a%20Defense%20Game.webp" },
-        { rank: 24, title: "The Greatest Estate Developer", desc: "Civil engineering student Suho Kim awakens in a fantasy world as a lazy noble’s son.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPMiIFfVEKPPz9n8sb2-c5o4ObPMS9vm-6Ya-EmUmDUliHcqRDFYxMY5KFNyoDpYe5al2t0MFtr7dUbeDW5Y2tN9bTY51fwUnsnULI0KRiqaxpXJPNtuPYJI2x0SYsaIzAoM__DWSAH96t2xpM2897YCErlvTSgXVeg0LXnNIMJo4xkpjEvxOAWH-BZwQ/s1600/The%20Greatest%20Estate%20Developer%20%281%29.webp" },
-        { rank: 25, title: "White Dragon Duke Pendragon", desc: "After dying in a conspiracy, Raven Valt awakens in the body of Duke Alan Pendragon.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi82ob9ZwKM5VTH5cU2Zi_9B6vkOCl43QBwqWcHGjCOL2fxltpSwkmFb_LLItn79qpH948epTJNaZNsqiFIQfz-4rAJxZFKQJ362p2c0BdFGiY0Zv3g3IV5rosDHnmgfyMXW8E5rlCKkoBBDalWO39OBHGPPos65bYqQal_rLnryKrBna3KeAyl5Q1mAR4/s1600/White%20Dragon%20Duke_%20Pendragon.webp" },
-        { rank: 26, title: "Damn Reincarnation", desc: "Hamel, a warrior who once fought the Demon Lord, dies in battle and reincarnates 300 years later as Eugene Lionhart.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJLUAVeE_lsO3hRJNu8HycLJdBgwLAEiK8lr341ZM1vPiticvSfbs-uObUPZMQZTH6Ndw-twZHfrbr67jqJqz6937-EKM74-indEj5r2PeHQfw7qjCO6vAbWNHKiOWVtdp4_dWUhhH0GipsHTc3GvBoOJB8u4SdDU2aEQWeG9Ktf_ggGTzjNzMHRksx58/s1600/%EB%B9%8C%EC%96%B4%EB%A8%B9%EC%9D%84%20%ED%99%98%EC%83%9D.webp" }
+        { rank: 1, title: "Regressing as the Reincarnated Bastard of the Sword Clan", desc: "Theo Ragnar, a bastard born into the prestigious Ragnar sword clan, dies and regresses to his childhood with memories of his past life intact." },
+        { rank: 2, title: "Margrave Bastard Son Was the Emperor", desc: "Once a powerful emperor betrayed and killed, Ian Verocian awakens a century earlier in the body of a margrave’s illegitimate son." },
+        { rank: 3, title: "Bug Player", desc: "Kim Min-jun finds himself trapped inside a virtual reality game where death is permanent. Discovering he can exploit the game’s hidden bugs, he becomes a formidable player." },
+        { rank: 4, title: "The Lord’s Coins Aren’t Decreasing", desc: "Aaron Steelegard gains access to a mysterious book that rewards him with coins he can spend to gain abilities and power." },
+        { rank: 5, title: "Reincarnation of the Hero Party’s Grand Mage", desc: "A legendary mage reborn centuries after his death awakens in a peaceful era as a noble boy." },
+        { rank: 6, title: "Academy’s Undercover Professor", desc: "Ludger Cherish, a clever con artist, accidentally assumes the identity of a magic professor at an elite academy." },
+        { rank: 7, title: "The Great Mage Returns After 4000 Years", desc: "After 4000 years of imprisonment by demigods, Lucas Trowman awakens in the body of a weak academy student." },
+        { rank: 8, title: "The Holy Emperor’s Grandson Is a Necromancer", desc: "Reborn as the grandson of a holy emperor, the protagonist secretly wields both divine and necromantic powers." },
+        { rank: 9, title: "Return of the 8th-Grade Magician", desc: "Archmage Ian Page, betrayed and poisoned by his emperor, turns back time 30 years to his childhood." },
+        { rank: 10, title: "Ygret: The Great Sage", desc: "After a life filled with regret, the sage Ygret reincarnates as a bullied young prince." },
+        { rank: 11, title: "Reformation of the Lazy Noble", desc: "A once-worthless noble awakens to a new outlook on life after a mysterious dream." },
+        { rank: 12, title: "Revenge of the Iron Blooded Sword Hound", desc: "Vikir, a loyal warrior of the Baskerville family, is betrayed and executed by those he trusted most." },
+        { rank: 13, title: "Dark Magician Transmigrates After 66666 Years", desc: "Banished for eternity by the gods, the mighty magician Diablo Volfir reincarnates as a noble child named Jamie Welton." },
+        { rank: 14, title: "The Regressed Son of a Duke Is an Assassin", desc: "After regressing to his childhood, the son of a powerful duke uses the deadly skills from his future life as an assassin." },
+        { rank: 15, title: "I Regressed as the Duke", desc: "A loyal butler who dies in a fire awakens in the body of a young duke." },
+        { rank: 16, title: "A Dragonslayer’s Peerless Regression", desc: "Zeke Draker, the failed heir of a dragon-slaying family, regresses to his childhood after a doomed future." },
+        { rank: 17, title: "Trash of the Count’s Family", desc: "Kim Rok Soo transmigrates into the world of a novel as Cale Henituse, the notorious “trash” of a noble family." },
+        { rank: 18, title: "Standard of Reincarnation", desc: "Betrayed and murdered by his own kin, the one-armed warrior Davyon reincarnates as the son of his rival family." },
+        { rank: 19, title: "Not Your Typical Reincarnation Story", desc: "Suna Choi awakens as Edith Righelof, a villainess forced into a political marriage with her family’s rival." },
+        { rank: 20, title: "Beware the Villainess", desc: "Melissa Fodderbrat, reborn as the villainess of a novel, refuses to play her scripted role." },
+        { rank: 21, title: "Kill the Villainess", desc: "Eris Miserian finds herself trapped as the villainess of a tragic novel, longing for freedom from her cursed fate." },
+        { rank: 22, title: "Return of the Legendary Spear Knight", desc: "Joshua Sanders, once the greatest knight betrayed by his allies, regresses to his youth." },
+        { rank: 23, title: "I Became the Tyrant of the Defence Game", desc: "After conquering an impossible tower defense game, a gamer awakens inside its world as Prince Ash." },
+        { rank: 24, title: "The Greatest Estate Developer", desc: "Civil engineering student Suho Kim awakens in a fantasy world as a lazy noble’s son." },
+        { rank: 25, title: "White Dragon Duke Pendragon", desc: "After dying in a conspiracy, Raven Valt awakens in the body of Duke Alan Pendragon." },
+        { rank: 26, title: "Damn Reincarnation", desc: "Hamel, a warrior who once fought the Demon Lord, dies in battle and reincarnates 300 years later as Eugene Lionhart." }
       ],
       finalThoughts: "These manhwa offer gripping narratives and immersive worlds. Bookmark this list and check back for weekly updates!"
     }
   },
+
+  {
+    id: "best-assassin-manhwa-webtoons",
+    title: "The 15 Best Assassin Manhwa (Webtoons) You Must Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+
+    excerpt: "Discover the best assassin manhwa and webtoons filled with deadly killers, revenge-driven protagonists, secret organizations, stealth missions, brutal sword fights, and dark action-packed storylines. These assassin webtoons are perfect for fans of intense thrillers and badass MCs.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioyuOYKWVxYxFN6JhuU3O3hIIKdhZvbgiJYWho0KLj0a-0ySLPumLvTXDstMIpxI-Zeu49qo8GQavROYgB-5hcI1cz9N-AOv0woX4lYC8F19ELbpVagugEqd3llK7fwvIaP-6sr3_Xl36jQbjsvq7C8JBmN80HqArEu96lcBq-a2fESpzXIKCEMweATOk/s1600/assissan%20manhwa%20.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Assassin manhwa are packed with stealth missions, brutal revenge plots, secret organizations, deadly martial artists, and overpowered killers lurking in the shadows. Whether you enjoy dark fantasy assassins, revenge-driven regressors, political conspiracies, or action-heavy mercenary stories, these webtoons deliver nonstop excitement and thrilling combat. Here are the best assassin manhwa and webtoons every action fan should binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Killer Peter",
+          desc: "Peter was once the world’s most feared assassin, leading the infamous Glory Club organization through countless deadly missions. After retiring and living quietly as a bookstore owner, he suddenly transforms back into his younger self and returns to the violent underworld he once ruled."
+        },
+
+        {
+          rank: 2,
+          title: "A Bona Fide Killer",
+          desc: "Yu Bona appears to be a loving wife and caring mother, but secretly she is the legendary assassin known as Kingfisher. When she returns to the criminal underworld after years of retirement, she must balance family life while hiding her deadly identity from her investigative reporter husband."
+        },
+
+        {
+          rank: 3,
+          title: "I'm Not That Kind of Talent",
+          desc: "Deon Hardt is physically weak and constantly misunderstood, yet he somehow becomes one of the most feared commanders in the demon world. As both humans and demons misunderstand his terrifying reputation, he struggles to survive dangerous battles and political conflicts."
+        },
+
+        {
+          rank: 4,
+          title: "Bloodhound’s Regression Instinct",
+          desc: "Yan served as the loyal sword of a cruel emperor, carrying out bloody missions without question until he finally rebelled and was executed. After regressing back in time, he uses his second chance to rewrite his fate and destroy the tyrant he once served."
+        },
+
+        {
+          rank: 5,
+          title: "Revenge of the Baskerville Bloodhound",
+          desc: "Bichir was the loyal hunting dog of the powerful Baskerville family, faithfully carrying out assassinations and dangerous missions. Betrayed and executed by his master, he regresses to the past and begins a ruthless journey of revenge against the clan that discarded him."
+        },
+
+        {
+          rank: 6,
+          title: "The Reaper",
+          desc: "Pyo Wol dreamed of exploring the world, but instead he was kidnapped and forced into an assassin training camp where survival meant killing others. After enduring years of suffering and brutal training, he emerges as one of the deadliest assassins in the martial world."
+        },
+
+        {
+          rank: 7,
+          title: "The Reborn Young Lord Is an Assassin",
+          desc: "Cyan Vert loyally served his older brother as the empire’s greatest assassin, only to be betrayed and murdered. Regressing back to his younger years, he decides to seize power for himself and change the tragic destiny awaiting him."
+        },
+
+        {
+          rank: 8,
+          title: "Chronicles of the Demon Faction",
+          desc: "Hajin Cheon was once the Divine Justice Alliance’s greatest assassin before betrayal led to his death. After transmigrating into the body of a weak heir from the Heavenly Demon Cult, he gains a second chance to survive and reshape the martial world."
+        },
+
+        {
+          rank: 9,
+          title: "The Frozen Player Returns",
+          desc: "Seo Junho sacrificed himself to save humanity from destruction and was frozen in magical ice for 25 years. Awakening in a changed world, he resumes his mission to clear dangerous dungeons and reunite with his fallen companions."
+        },
+
+        {
+          rank: 10,
+          title: "The Genius Assassin Who Takes It All",
+          desc: "Ganghu Shin suddenly wakes up inside the novel he once wrote and discovers he has become a doomed villain. Armed with future knowledge and assassin abilities, he decides to stop the story’s future apocalypse before it destroys everything."
+        },
+
+        {
+          rank: 11,
+          title: "The Reincarnated Assassin Is a Swordmaster",
+          desc: "Raon lived as the perfect hunting dog for House Robert, completing assassinations and monster hunts without hesitation until betrayal cost him his life. Reborn into a prestigious family, he trains relentlessly to become the strongest swordsman alive."
+        },
+
+        {
+          rank: 12,
+          title: "Legend of an Asura: The Poison Dragon",
+          desc: "After the Venom Clan massacres his family and destroys his sect, Zhen Ziqiang dedicates his life to revenge. Walking a path filled with poison, bloodshed, and martial arts, he transforms into a terrifying force feared throughout Murim."
+        },
+
+        {
+          rank: 13,
+          title: "Love Song for Illusions",
+          desc: "Wol Yeon’s peaceful life ends when the emperor massacres her entire clan. Driven by revenge, she trains as an assassin and infiltrates the palace to kill the ruler responsible for destroying her family."
+        },
+
+        {
+          rank: 14,
+          title: "In Full Bloom",
+          desc: "As the kingdom of Juushin falls into chaos under a tyrannical emperor, the crown prince secretly hires the legendary assassin Da Yang to carry out an impossible assassination. Together, they become entangled in dangerous political conspiracies and deadly betrayals."
+        },
+
+        {
+          rank: 15,
+          title: "Castle",
+          desc: "Kim Shin loses everything because of the notorious criminal organization known as Castle. Determined to take revenge, he trains himself into a deadly assassin and slowly infiltrates the violent underworld to destroy the empire responsible for ruining his life."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more dark action and revenge-filled manhwa recommendations? Follow @manhwastorys for assassin webtoons, OP MC stories, murim action series, and hidden manhwa gems updated regularly.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Assassin manhwa continue to grow in popularity because they combine brutal action, psychological tension, revenge-driven storytelling, and unforgettable anti-heroes. Whether you enjoy stealth assassins, martial arts killers, regressors seeking revenge, or criminal underworld thrillers, these webtoons offer some of the most addictive stories in the manhwa world. Bookmark this list and return anytime you need your next assassin manhwa binge."
+    }
+  },
+
+  {
+    id: "best-gamer-manhwa-webtoons",
+    title: "The 21 Best Gamer Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best gamer manhwa and webtoons packed with VRMMORPG adventures, dungeon raids, overpowered players, regression stories, crafting systems, and hilarious leveling journeys. From hardcore action to relaxing cooking simulators, these are must-read gaming webtoons for every gamer fan.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhck_LpoR3Hy7ayQEckmzkIH3xMJHrb2Zd-5Wwlz54jXMsSy5KY-tidxEjYIEnI87Jj1C_IsTkoLyo4LiiHpM9AGa8D9SbtCIfMLPFiOz0Q8BuyW8FknML1jNgQnM4S_ugIOchfFmIiuQ89hAWX0WHs1o3Shu1vi3Lb3o3FE0pPbVkKbSUD-FS8V9sX6t4/s1600/21%20Best%20Gamer%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Gaming manhwa and webtoons perfectly capture the excitement of leveling up, unlocking hidden classes, defeating bosses, grinding for legendary loot, and exploring immersive virtual worlds. Whether you enjoy VRMMORPG adventures, dungeon crawlers, tower defense systems, cooking simulators, or hilarious trolling stories, gamer manhwa deliver nonstop entertainment filled with action, comedy, and addictive progression systems. Here are the best gamer manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Pick Me Up, Infinite Gatcha",
+          desc: "Loki was once a legendary gacha-game master until he suddenly awakens inside the brutal game itself as a weak one-star character named Han Yslat. Surrounded by deadly missions, sacrifices, and endless suffering, he must use every bit of his gaming knowledge and strategy to survive the unforgiving world."
+        },
+
+        {
+          rank: 2,
+          title: "My Insanely Competent Underlings",
+          desc: "Lee Hoyeon returns to the VR game he once abandoned after receiving a new gaming headset. Instead of becoming a frontline fighter, he creates a support-focused character and builds an army of absurdly overpowered subordinates whose insane abilities constantly throw his plans into chaos."
+        },
+
+        {
+          rank: 3,
+          title: "I Became the Tyrant of a Defense Game",
+          desc: "A hardcore gamer suddenly transmigrates into the impossible tower defense game he spent years clearing. Reborn as Prince Ash, he must protect his kingdom against endless waves of monsters while managing resources, commanding armies, and preventing total destruction."
+        },
+
+        {
+          rank: 4,
+          title: "The Strongest Florist",
+          desc: "Despite his intimidating physique and terrifying appearance, Hwang Jaeho only dreams of becoming a florist. To escape his father’s expectations of becoming a fighter, he enters a virtual reality game where he builds a peaceful flower shop while accidentally becoming ridiculously overpowered."
+        },
+
+        {
+          rank: 5,
+          title: "Taming Master",
+          desc: "Top-ranked archer Jinsung abandons his hard-earned level 93 account after discovering a hidden Tamer class. Starting from scratch, he begins rebuilding his reputation by taming powerful monsters and mastering one of the rarest classes in the game."
+        },
+
+        {
+          rank: 6,
+          title: "Mystic Musketeer",
+          desc: "Former military sniper Ha Yiha loses the ability to walk after a tragic accident and turns to VR gaming to earn money for surgery. After receiving the supposedly weakest musketeer class, he uses his real-world shooting experience to dominate the battlefield in unexpected ways."
+        },
+
+        {
+          rank: 7,
+          title: "Worn Torn Newbie",
+          desc: "After wasting 15 years as a failed gamer with no future, Lee Eojin suddenly regresses back to the launch of the game that ruined his life. Armed with future knowledge, hidden strategies, and experience, he begins climbing the rankings again with overwhelming efficiency."
+        },
+
+        {
+          rank: 8,
+          title: "Overgeared",
+          desc: "Shin Youngwoo, better known as Grid, is an unlucky gamer struggling both in real life and in virtual reality. Everything changes after he obtains Pagma’s legendary blacksmith class, allowing him to craft powerful weapons, legendary gear, and eventually reshape his destiny."
+        },
+
+        {
+          rank: 9,
+          title: "Solo Glitch Player",
+          desc: "Hardcore MMO addict Shin Taepung dies unexpectedly and awakens inside his favorite game as Jared, a useless noble hated by everyone. Using his encyclopedic knowledge of exploits, bugs, and hidden mechanics, he turns himself into one of the strongest characters in the game world."
+        },
+
+        {
+          rank: 10,
+          title: "Murim Login",
+          desc: "Low-ranked hunter Jin Tae-Kyung discovers a mysterious VR capsule that transports him into a martial arts world filled with sects, cultivation, and deadly warriors. What starts as a game soon begins affecting reality itself, blurring the line between the virtual world and real life."
+        },
+
+        {
+          rank: 11,
+          title: "The Legendary Moonlight Sculptor",
+          desc: "Burdened by debt and family responsibilities, Hyun Lee enters the legendary VRMMORPG Royal Road to make money. Through endless grinding, clever scams, and creative strategies, he slowly rises to fame while using the bizarre sculptor class to carve out his future."
+        },
+
+        {
+          rank: 12,
+          title: "Ranker’s Return",
+          desc: "Legendary Arena player Kang Hyeonu once ruled the rankings before abandoning the game for military service. After returning home to financial ruin, he dives back into the VR world determined to rebuild his fame, dominate tournaments, and earn enough money to save his family."
+        },
+
+        {
+          rank: 13,
+          title: "Grand Warlock Streamer",
+          desc: "Struggling streamer Jung Hyunwoo loses access to his old account and is forced to start over in the VR game God Wars. Luckily, fate grants him a legendary Grand Warlock class along with a powerful quest-analysis ability that rapidly boosts his growth and popularity."
+        },
+
+        {
+          rank: 14,
+          title: "Dungeon Reset",
+          desc: "After being abandoned inside a deadly dungeon, Dawoon discovers he has become a glitch in the game-like dungeon system. Together with a talking rabbit companion, he survives using crafting, cooking, construction, and unconventional strategies instead of direct combat."
+        },
+
+        {
+          rank: 15,
+          title: "The Gamer",
+          desc: "Han Jee-Han suddenly gains the ability to perceive reality like a video game complete with stats, skills, quests, and leveling systems. As he uncovers the hidden supernatural side of the world, he trains his powers and becomes entangled in conflicts involving mages, demons, and secret organizations."
+        },
+
+        {
+          rank: 16,
+          title: "Hardcore Leveling Warrior",
+          desc: "Once the number one player in the lucid adventure game Lucid Adventure, Hardcore Leveling Warrior loses everything after being ambushed by rival players. Stripped of his items, levels, and reputation, he begins climbing back to the top from absolute rock bottom."
+        },
+
+        {
+          rank: 17,
+          title: "Gourmet Gaming",
+          desc: "Kang Minhyuk suffers from a rare eating disorder that constantly threatens his health. As part of his treatment, he enters a VR game where he can finally enjoy food without physical consequences and eventually becomes famous for cooking legendary dishes and discovering rare recipes."
+        },
+
+        {
+          rank: 18,
+          title: "Please Have a Meal",
+          desc: "After losing his sense of taste and smell, master chef Yi Rim falls into despair until a virtual reality game mysteriously restores his senses. Combining monster hunting with culinary mastery, he sets out to become the greatest chef in the virtual world."
+        },
+
+        {
+          rank: 19,
+          title: "Dice",
+          desc: "In a world where magical dice can alter beauty, intelligence, strength, and even destiny itself, ordinary student Dongtae discovers the dangerous truth behind these reality-changing powers. But every upgrade comes with a price, and the obsession for perfection soon spirals out of control."
+        },
+
+        {
+          rank: 20,
+          title: "The Game's Top Troll",
+          desc: "Yoon Jaeyoung is infamous for reaching top rankings in games only to troll players before deleting his accounts out of boredom. However, the release of the world’s first true full-dive VR game gives him endless possibilities to manipulate quests, players, and even the game world itself."
+        },
+
+        {
+          rank: 21,
+          title: "Return of the SSS-Class Ranker",
+          desc: "Rokan, once known as the King of Violence in the game The Lord, loses everything after being hunted down by powerful enemies. When he suddenly regresses back in time, he uses his knowledge, combat skills, and ruthless determination to reclaim his throne and crush everyone who ruined his life."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more gaming manhwa recommendations, hidden gems, and action-packed webtoon lists? Follow @manhwastorys for daily updates, trending series, and genre-based recommendation posts.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Gaming manhwa continue to dominate the webtoon community thanks to their addictive progression systems, satisfying power growth, immersive virtual worlds, and nonstop action. Whether you enjoy VRMMORPG adventures, dungeon systems, tower defense strategies, crafting mechanics, or hilarious gamer protagonists, these webtoons offer endless entertainment for every kind of reader. Bookmark this list and check back regularly for even more updated gamer manhwa recommendations."
+    }
+  },
+
+  {
+    id: "best-martial-arts-manhwa-webtoons",
+    title: "The 21 Best Martial Arts Manhwa (Webtoons) You Must Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best martial arts manhwa and webtoons filled with Murim warriors, cultivation systems, demon cults, swordmasters, revenge stories, reincarnations, overpowered martial artists, and action-packed battles. From legendary sect wars to comedy-filled Murim adventures, these are must-read series for every martial arts fan.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXP-jfI2SJIU6OqUH7pc2nSuvh1yNPz1snTrIX0506DHH7ziB9Z9NIM3NnkJm5fMb6BGXPSyNXmkLXdfFoYiK8ookCeglc6pQZ2sVb3iZNYuE9lv5vv_sob4MJVoMt7LakEK86N6xYXrIsT75OCfzJPmUbEsLa9IWKGahRYRyWMzEqRmX70XQwpf5q1_0/s1600/21%20Best%20Martial%20Arts%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Martial arts manhwa deliver some of the most exciting stories in the webtoon world with legendary warriors, Murim sects, cultivation systems, brutal revenge plots, sword battles, demon cults, and powerful martial masters. Whether you enjoy reincarnation stories, overpowered protagonists, comedy-filled adventures, emotional character growth, or intense Murim wars, these martial arts webtoons offer nonstop entertainment. Here are the best martial arts manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Murim Login",
+          desc: "Hunter Jin Tae-Kyung discovers a mysterious VR machine that transports him into the world of Murim and martial arts cultivation. As he balances life between modern dungeons and ancient martial arts, he slowly becomes stronger while uncovering secrets hidden within both worlds."
+        },
+
+        {
+          rank: 2,
+          title: "Nano Machine",
+          desc: "After suffering years of abuse and betrayal within the Demon Cult, Yeo-Woon Cheon receives futuristic nano-machines from a descendant sent back through time. Armed with advanced technology and ruthless determination, he begins his bloody rise through Murim."
+        },
+
+        {
+          rank: 3,
+          title: "Heavenly Demon Reborn",
+          desc: "After watching his master die and losing his own life, Woon-Seong is reborn inside the Demon Sect as a young trainee soldier. Determined to survive and grow stronger, he walks the dangerous line between righteous martial arts and demonic cultivation."
+        },
+
+        {
+          rank: 4,
+          title: "Undefeatable Swordsman",
+          desc: "Sung Woo-Moon dreams of becoming a martial artist despite his weak body and poor future prospects. But after receiving a mysterious painting from a wandering guest, his life changes forever as he steps into the world of Murim."
+        },
+
+        {
+          rank: 5,
+          title: "The Breaker Series",
+          desc: "Bullied student Shi-Woon discovers that his seemingly ordinary teacher Chun-Woo is actually the feared Nine-Arts Dragon of Murim. Drawn into the hidden martial arts world, Shi-Woon begins a dangerous journey of growth, survival, and revenge."
+        },
+
+        {
+          rank: 6,
+          title: "Fist Demon of Mount Hua",
+          desc: "Dam-Ho survives a tragic bandit attack but is left crippled with an injured leg. Despite endless hardship and ridicule, his unwavering determination pushes him toward becoming one of Murim’s most terrifying martial artists."
+        },
+
+        {
+          rank: 7,
+          title: "Volcanic Age",
+          desc: "After surviving Murim’s brutal wars and living a life filled with regret, Mount Hua elder Joo Seo-Cheon dies only to awaken back in the past. Armed with future knowledge, he seeks to change both his fate and the future of Murim."
+        },
+
+        {
+          rank: 8,
+          title: "Eleceed",
+          desc: "Kind-hearted Jiwoo hides his superhuman speed abilities while caring for stray cats. His peaceful life changes when he saves a powerful awakened fighter trapped inside the body of a fat talking cat named Kayden."
+        },
+
+        {
+          rank: 9,
+          title: "Return of the Mount Hua Sect",
+          desc: "Legendary swordsman Chung Myung dies after defeating the Demonic Cult leader and awakens one hundred years later in the body of a young boy. Returning to Mount Hua Sect, he discovers his once-great sect has fallen into ruin."
+        },
+
+        {
+          rank: 10,
+          title: "Legend of Asura: The Venom Dragon",
+          desc: "After his family and sect are destroyed through poison and betrayal, a young survivor endures years of suffering while consuming deadly toxins. His painful journey transforms him into a fearsome warrior seeking revenge."
+        },
+
+        {
+          rank: 11,
+          title: "I Reincarnated as the Crazed Heir",
+          desc: "Virtuous Murim prodigy Jagak Yang dies during an assassination attempt and awakens inside the body of the infamous crazed heir of the Demon Cult. Forced to live with a terrible reputation, he struggles to survive within enemy territory."
+        },
+
+        {
+          rank: 12,
+          title: "The Return of the Crazy Demon",
+          desc: "Mad Demon Jaha Lee dies after stealing a treasure from the Demon Cult and unexpectedly returns to the past as his younger self. With unmatched insanity and martial talent, he begins carving his path through Murim once again."
+        },
+
+        {
+          rank: 13,
+          title: "Father Unrivaled (Peerless Dad)",
+          desc: "Martial artist Gajang Noh lives a humble life while raising his three children alone after losing his wife. As he balances fatherhood and survival in the dangerous world of Murim, his hidden strength slowly draws attention."
+        },
+
+        {
+          rank: 14,
+          title: "Master of Lightning Knives (Lightning Decree)",
+          desc: "Ryu-Yeon hoped becoming a martial disciple would improve his life, but his eccentric master constantly drags him into deadly training and ridiculous situations. Despite the chaos, he steadily grows into a skilled martial artist."
+        },
+
+        {
+          rank: 15,
+          title: "Memoir of the King of War",
+          desc: "After years of isolated training, Dan Sa-Yu finally enters the martial world as the last successor of the Heaven Artillery Arts. His arrival quickly shakes the balance of power across the Central Plains."
+        },
+
+        {
+          rank: 16,
+          title: "Tale of a Scribe Who Retires to the Countryside",
+          desc: "Failed scholar Son Bin unexpectedly becomes the companion and chronicler of a legendary martial artist during his final journey. Along the way, the timid scholar slowly transforms into a powerful martial master himself."
+        },
+
+        {
+          rank: 17,
+          title: "Doctor’s Rebirth",
+          desc: "War doctor Jin Cheonhee dies during a medical mission and reincarnates inside a Murim novel. Using his modern medical knowledge alongside martial arts training, he begins saving lives within the dangerous martial world."
+        },
+
+        {
+          rank: 18,
+          title: "The Stormy Inn",
+          desc: "Former soldier Zhang Qilin retires from warfare hoping to live peacefully as the owner of a small inn. But between dangerous rivals, martial artists, and Murim politics, peaceful living proves far more difficult than expected."
+        },
+
+        {
+          rank: 19,
+          title: "Chronicles of the Martial God’s Return",
+          desc: "Feared Martial God Dam Woohyun is sealed away for a thousand years due to his overwhelming power. After finally being freed, his life changes when he encounters a lonely orphan girl who teaches him compassion and kindness."
+        },
+
+        {
+          rank: 20,
+          title: "The Grand Mudang Saga",
+          desc: "The infamous dark leader Jinmu reincarnates into the body of a young disciple within the righteous Mudang Sect. Surrounded by kind masters and fellow disciples, his ambitions for evil constantly clash with his new life."
+        },
+
+        {
+          rank: 21,
+          title: "The Girls of the Wild",
+          desc: "Hardworking student Song Jae-Gu receives a scholarship to Wild High, a former all-girls school famous for martial arts and combat sports. Surrounded by powerful female fighters, his ordinary school life quickly becomes chaotic."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more martial arts manhwa recommendations and hidden Murim gems? Follow @manhwastorys for daily webtoon updates, action-packed series, cultivation stories, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Martial arts manhwa continue to dominate the webtoon world with legendary Murim warriors, cultivation systems, intense revenge stories, powerful sects, and unforgettable action scenes. Whether you enjoy reincarnation stories, demon cult conflicts, emotional character journeys, comedy-filled adventures, or overpowered martial masters, these webtoons provide endless entertainment. Bookmark this list and check back regularly for more updated martial arts manhwa recommendations."
+    }
+  },
+
+  {
+    id: "best-dark-romance-manhwa-webtoons",
+    title: "The 21 Best Dark Romance Manhwa (Webtoons) You Must Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best dark romance manhwa and webtoons filled with revenge, obsession, toxic relationships, psychological drama, tragic love stories, villains, regression, reincarnation, and emotional twists that will keep you hooked until the final chapter.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYwd5fqL5JY-eOPKDbCfoS8tg5Bty3VfLl3UwvQq3TMoPsAS3bXahYZ2l7RYxZIlpeg176RMy9Cf0NOszjjPaUSBNagXBMe9Y4KR7Fc2M2NNIwCQv4cQSrkbJiT-YdzNFBWFstix6FRT1YMQtLvCHo4-eolrbTt_z-18ozVaW5ObY4we5LsViQvfUdxS0/s1600/21%20Best%20Dark%20Romance%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Dark romance manhwa are perfect for readers who enjoy intense emotions, twisted relationships, revenge-driven plots, psychological mind games, and morally grey characters. From tragic historical romances and obsessive lovers to villainess stories and emotionally devastating dramas, these webtoons explore the darker side of love in unforgettable ways. Here are the best dark romance manhwa and webtoons you absolutely need to read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Post-Possession Damage Control",
+          desc: "After returning to her original world following years in modern Korea, Kanna finds herself trapped in a toxic marriage and surrounded by enemies. Determined to reclaim her life, she begins a dark path of revenge and survival."
+        },
+
+        {
+          rank: 2,
+          title: "Finding Camellia",
+          desc: "Forced to live disguised as a boy after being separated from her mother, Camellia grows up trapped within aristocratic lies, political schemes, and forbidden romance in a dangerous noble society."
+        },
+
+        {
+          rank: 3,
+          title: "I Tamed My Ex-Husband’s Mad Dog",
+          desc: "After regressing to the past, Reinhardt plans revenge against the people who destroyed her life. While exiled in the frozen north, she encounters the future mad dog of her enemies and begins shaping him into her weapon."
+        },
+
+        {
+          rank: 4,
+          title: "The Broken Ring: This Marriage Will Fail Anyway",
+          desc: "After suffering through multiple tragic lifetimes, Inés decides to change her fate by entering a calculated marriage with her infamous fiancé, only to discover unexpected love and healing along the way."
+        },
+
+        {
+          rank: 5,
+          title: "The Villainess Tames the Beast",
+          desc: "A woman transmigrates into the body of the cruel villainess Ilyana Glayne and must survive among dangerous nobles, manipulative politics, and a terrifyingly obsessive male lead."
+        },
+
+        {
+          rank: 6,
+          title: "Red Fox",
+          desc: "An immortal fox spirit cursed with endless bloodshed encounters a young woman whose love slowly changes his fate in this haunting and tragic dark fantasy romance."
+        },
+
+        {
+          rank: 7,
+          title: "Dreaming Freedom",
+          desc: "Bullied student Jeongmin gains the ability to enter lucid dreams where she meets a mysterious and dangerously obsessive young man who slowly becomes entangled in her life."
+        },
+
+        {
+          rank: 8,
+          title: "Roxana",
+          desc: "Transmigrated into a brutal novel as Roxana Agrece, the daughter of a murderous family, Roxana must manipulate monsters and psychopaths alike in order to survive."
+        },
+
+        {
+          rank: 9,
+          title: "Villains Behind the Curtains",
+          desc: "After transmigrating into the role of a villainess, Syriana struggles to avoid the tragic future awaiting her while navigating manipulative nobles, dark family secrets, and political schemes."
+        },
+
+        {
+          rank: 10,
+          title: "How to Win My Husband Over",
+          desc: "Rudbeckia is forced into an arranged marriage with the heir of her abusive family’s greatest enemy, leading to a psychologically intense story filled with trauma, survival, and emotional healing."
+        },
+
+        {
+          rank: 11,
+          title: "Betrayal of Dignity",
+          desc: "To save her family from ruin, Chloe enters a dangerous marriage with a cold and manipulative duke whose schemes drag her into a storm of lies, obsession, and emotional conflict."
+        },
+
+        {
+          rank: 12,
+          title: "My Reason to Die",
+          desc: "Following a devastating accident, Ji-o meets a mysterious young man who slowly helps her recover from grief, guilt, and emotional trauma in this bittersweet romance drama."
+        },
+
+        {
+          rank: 13,
+          title: "The Dawn to Come",
+          desc: "A struggling girl burdened by poverty and abuse finds comfort in an abandoned place where she meets a troubled boy, forming a deeply emotional relationship built on pain and hope."
+        },
+
+        {
+          rank: 14,
+          title: "Trapped",
+          desc: "Two bitter enemies become entangled in a toxic relationship after a supernatural incident transforms one of them into a vampire, leading to a dangerous psychological battle."
+        },
+
+        {
+          rank: 15,
+          title: "Jack: The American Ghost",
+          desc: "Go-Eun joins a deadly haunted house competition to save her family’s legacy, only to uncover horrifying secrets, ghosts, and psychological mysteries hidden within the game."
+        },
+
+        {
+          rank: 16,
+          title: "Your Throne",
+          desc: "After losing her position as crown princess, Medea becomes trapped in a body-switching conflict with her former friend Psyche, igniting a brutal war of manipulation and power."
+        },
+
+        {
+          rank: 17,
+          title: "Marry My Husband",
+          desc: "After being betrayed by her husband and best friend, terminally ill Jiwon regresses to the past and begins plotting revenge by forcing the two traitors together."
+        },
+
+        {
+          rank: 18,
+          title: "Cry, or Better Yet, Beg",
+          desc: "Orphaned Layla grows up under the care of a distant relative working for a powerful dukedom, where her life slowly intertwines with the cold and dangerous Duke Matthias."
+        },
+
+        {
+          rank: 19,
+          title: "I Failed to Oust the Villain!",
+          desc: "Lady Valeta fails to stop the rise of a dangerous villain and instead becomes trapped beside a deeply broken and obsessive man capable of destroying everyone around him."
+        },
+
+        {
+          rank: 20,
+          title: "I Will Fall With the Emperor",
+          desc: "After being betrayed and executed by the empire she loyally served, Princess Larcy regresses to the past and begins a ruthless revenge campaign alongside an equally dangerous emperor."
+        },
+
+        {
+          rank: 21,
+          title: "Not Your Typical Reincarnation Story",
+          desc: "Suna Choi reincarnates as a doomed villainess and desperately fights against the novel’s predetermined plot in order to survive and change her tragic ending."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more dark romance manhwa recommendations and hidden psychological webtoon gems? Follow @manhwastorys for daily updates, revenge stories, villainess recommendations, toxic romance picks, fantasy drama lists, and binge-worthy webtoon suggestions.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Dark romance manhwa offer emotionally intense stories filled with obsession, revenge, psychological twists, tragic relationships, and morally grey characters. Whether you enjoy historical drama, villainess reincarnation stories, supernatural thrillers, or emotionally devastating romances, these webtoons deliver unforgettable experiences that stay with readers long after finishing. Bookmark this list whenever you crave darker and more addictive romance stories."
+    }
+  },
+
+  {
+    id: "best-dungeon-manhwa-webtoons",
+    title: "The 21 Best Dungeon Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best dungeon manhwa and webtoons packed with dungeon raids, monsters, leveling systems, regressions, hunters, tower climbs, necromancers, and overpowered protagonists. From dark fantasy adventures to comedy-filled dungeon chaos, these are must-read series for every action fan.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiJkpqW-uXhdciMmSoDkXAymT4IPHOlxtbmDKH2f7Lq7OTGkiM1vs0V-zEFZG2o-t7U2kfGFnTub1rVad3e8HkuIhRjAV5P3rB7on-tPczg9S7uDQdGYvW9kob2HYGgybAE5u1Ekt_LeQUKdSxr0ugszpa4-WhdSsL-I9V0b20GYw-tbAxE6uE7ZOei_wE/s1600/Your%20paragraph%20text%20%281%29.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Dungeon manhwa are filled with dangerous labyrinths, powerful hunters, mysterious towers, magical systems, terrifying monsters, and nonstop action. Whether you enjoy overpowered protagonists, regression stories, necromancers, survival games, or comedy-filled dungeon adventures, this genre offers some of the most addictive webtoons available today. Here are the best dungeon manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Tomb Raider King",
+          desc: "Mysterious tombs filled with ancient relics suddenly appear around the world, granting supernatural powers to those brave enough to conquer them. After being betrayed and killed by his employer, legendary tomb raider Joo-Heon Suh awakens 15 years in the past before the relic era even began."
+        },
+
+        {
+          rank: 2,
+          title: "The Advance Player of the Tutorial Tower",
+          desc: "Hyeonu Kim spent years trapped inside an endless tutorial tower where survival meant constant battle. After finally escaping, he returns to reality stronger than anyone imaginable and begins hunting the people responsible for his imprisonment."
+        },
+
+        {
+          rank: 3,
+          title: "After Ten Millennia in Hell",
+          desc: "Dragged into hell after a dungeon incident, Oh Kangwoo survives by fighting demons for thousands of years until he becomes the ruler of hell itself. Despite gaining unimaginable power, he longs to return to Earth and reclaim the life he lost."
+        },
+
+        {
+          rank: 4,
+          title: "The Divine Twilight’s Return",
+          desc: "After countless battles against gods and demons, the celestial warrior Lee Changseon is sentenced to death. Given a second chance by the death god Thanatos, he returns to Earth with overwhelming power and unfinished business."
+        },
+
+        {
+          rank: 5,
+          title: "I’m the Max-Level Newbie",
+          desc: "Streamer Kang Jinhyeok is the only person to clear the impossible game Tower of Trials. But when the tower suddenly appears in reality, he becomes humanity’s strongest advantage thanks to his unmatched knowledge of every floor and hidden secret."
+        },
+
+        {
+          rank: 6,
+          title: "The Hero Returns",
+          desc: "Kim Sungbin sacrificed everything as humanity’s greatest hero fighting against monsters and dungeons. After dying, he wakes up twenty years in the past and decides to rewrite his tragic future while protecting the people he once failed to save."
+        },
+
+        {
+          rank: 7,
+          title: "My S-Class Hunters",
+          desc: "Han Yoojin always lived in the shadow of his powerful S-Rank brother. But after tragedy strikes during a dungeon raid, Yoojin gains the opportunity to travel back in time and prevent the devastating future from happening again."
+        },
+
+        {
+          rank: 8,
+          title: "Solo Leveling",
+          desc: "Sung Jinwoo is the weakest hunter in a world filled with deadly dungeons and monsters. After surviving a horrific double dungeon incident, he gains access to a mysterious leveling system that allows him to grow infinitely stronger."
+        },
+
+        {
+          rank: 9,
+          title: "Dungeon Reset",
+          desc: "Abandoned inside a deadly dungeon after falling into a trap, Dawoon unexpectedly becomes a glitch within the dungeon system itself. Using crafting, creativity, and bizarre loopholes, he slowly turns survival into his greatest weapon."
+        },
+
+        {
+          rank: 10,
+          title: "The Overpowered Newbie",
+          desc: "Kim Jaeju enters dangerous dungeons hoping to save the orphanage he grew up in. Armed with a mysterious cheat ability that reveals future events, he rapidly climbs the tower while becoming absurdly overpowered."
+        },
+
+        {
+          rank: 11,
+          title: "Dungeon Odyssey",
+          desc: "In a world devastated by dungeon warfare, Kim Jinwoo is one of the rare dungeon-born humans capable of controlling his monstrous instincts. After discovering the dungeon’s hidden calling, he begins building his own terrifying underground kingdom."
+        },
+
+        {
+          rank: 12,
+          title: "SSS-Class Revival Hunter",
+          desc: "Kim Gong-ja envies powerful hunters more than anything else. One day, he gains the incredible ability to copy other people’s skills—but only after dying first. With every death, he grows stronger while uncovering the tower’s darkest secrets."
+        },
+
+        {
+          rank: 13,
+          title: "My Daughter Is the Final Boss",
+          desc: "Lee Seojun failed as both a hunter and a father, ultimately witnessing his daughter become the monster that destroys the world. After regressing back in time, he dedicates his new life to protecting her and preventing the apocalypse."
+        },
+
+        {
+          rank: 14,
+          title: "Knockin’ on the Dungeon Door",
+          desc: "Hyeonbok Kim’s ordinary life ends when opening his apartment door suddenly throws him into a goblin-filled dungeon. Weak, cowardly, and completely unprepared, he must somehow survive the chaos surrounding him."
+        },
+
+        {
+          rank: 15,
+          title: "Seoul Station’s Necromancer",
+          desc: "After surviving the brutal world of Alphen and becoming a powerful necromancer, Kang Woojin finally returns to Earth. But with monsters and dungeons now threatening humanity, he begins rebuilding his power from scratch once again."
+        },
+
+        {
+          rank: 16,
+          title: "The Return of the Disaster-Class Hero",
+          desc: "Betrayed and abandoned inside a deadly dungeon by the very zodiac heroes he fought beside, Geum Lee survives for twenty years through sheer willpower. Now he has returned stronger than ever and ready for revenge."
+        },
+
+        {
+          rank: 17,
+          title: "I Stole the Number One Ranker’s Soul",
+          desc: "Office worker Son Mo-Ah accidentally steals the soul of the world’s strongest hunter during a dungeon disaster. With the legendary hunter now bound to her side, her ordinary life transforms into nonstop chaos and adventure."
+        },
+
+        {
+          rank: 18,
+          title: "The Dungeon Cleaning Life of a Once Genius Hunter",
+          desc: "Once humanity’s greatest SSS-ranked hunter, Juhu Kim dies after living selfishly and cruelly. Regressing into the past, he discovers his powers are locked until he completes bizarre dungeon-cleaning missions and redeems himself."
+        },
+
+        {
+          rank: 19,
+          title: "The Frozen Player Returns",
+          desc: "Seo Junho sacrificed himself alongside his companions to defeat the Frost Queen threatening Earth. Twenty-five years later, he awakens alone and discovers new dungeon floors have appeared while his allies remain frozen in time."
+        },
+
+        {
+          rank: 20,
+          title: "Relife Player",
+          desc: "After dying inside the terrifying Abyss Dungeon, Noh Eunha regresses to the time before monsters invaded Earth. Armed with future knowledge, he begins preparing humanity for the disasters yet to come."
+        },
+
+        {
+          rank: 21,
+          title: "Return to Player",
+          desc: "Humanity becomes entertainment for cruel gods after Earth is transformed into a deadly survival game. After witnessing the end of the world, Sehan Kim returns to the beginning of the apocalypse determined to outplay the gods themselves."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more action-packed manhwa recommendations? Follow @manhwastorys for daily updates, hidden gems, trending webtoons, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Dungeon manhwa continue to dominate the webtoon world with addictive leveling systems, thrilling dungeon raids, powerful hunters, regressions, and overpowered protagonists. Whether you enjoy tower climbing, necromancers, crafting systems, survival adventures, or emotional family-driven stories, these webtoons deliver endless entertainment. Bookmark this list and check back regularly for more updated dungeon manhwa recommendations."
+    }
+  },
+
+  {
+    id: "best-spy-manhwa-webtoons",
+    title: "The 10 Best Spy Manhwa (Webtoons) You Must Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best spy manhwa and webtoons packed with undercover missions, secret identities, assassins, betrayal, and thrilling action. From gritty espionage stories to hilarious spy romcoms, these are must-read series for every action fan.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgn6y8mfMJgR5g1_tM2SRX326_Bghu9jsjyDu9dwe5lLYIUXS2aBRdPNY1vC6C1EeAS2m92Nj11xCy2U0C_zaNPrNGBW4MzTVQpkjxTM8h56MeBroEv6efF89XxcUXxPPN8BRD-OuZtJicjUL0JPiIs2BB-Iv2Jjekw54HRTrW6gI8ReirHDfU7l6lh7A4/s1600/spy%2010%20manhwa%20.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Spy manhwa are filled with undercover agents, secret organizations, betrayals, assassins, and intense action sequences that keep readers hooked from start to finish. Whether you enjoy psychological espionage, gangster-style revenge stories, military operations, or comedy-filled spy romances, this genre offers some of the most thrilling webtoons available today. Here are the best spy manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "I Spy a Married Life",
+          desc: "Dodam is a clumsy junior spy agent whose life changes when she is assigned a dangerous undercover mission alongside the cold and perfect spymaster Juwon Ji. To uncover corruption within the shadows, the two must pretend to be a happily married couple while balancing romance, comedy, and espionage."
+        },
+
+        {
+          rank: 2,
+          title: "Crimson Karma",
+          desc: "Kasiya Del Roman was once a ruthless soldier who lived only for war and bloodshed. After betrayal and death, she awakens in a fantasy world where she decides to live for herself instead of serving others. However, escaping her violent past proves far more difficult than expected."
+        },
+
+        {
+          rank: 3,
+          title: "Secretly, Greatly",
+          desc: "Three elite North Korean spies infiltrate a peaceful South Korean village while hiding behind ridiculous fake identities. As years pass and loyalty is tested, they receive a horrifying command that forces them to choose between survival and devotion to their homeland."
+        },
+
+        {
+          rank: 4,
+          title: "Mr. Baek",
+          desc: "Agent Baek devoted his entire life to dangerous covert operations for his country, only to be betrayed by the very organization he served. Forced to disappear, he takes over the identity of his mafia twin brother and enters the brutal underworld filled with gangs, revenge, and nonstop violence."
+        },
+
+        {
+          rank: 5,
+          title: "Murim RPG Simulation",
+          desc: "Seol Hwi is a low-ranking scout of the Demon Cult who repeatedly dies and returns through a mysterious system-like time loop. Using every failure as experience, he schemes his way through betrayals, martial arts politics, and deadly enemies to survive the murim world."
+        },
+
+        {
+          rank: 6,
+          title: "The 18-Year-Old Spy",
+          desc: "Raised as a North Korean child soldier, Im Hajin was trained only to obey and kill. During an infiltration mission in South Korea, he chooses freedom over orders and becomes a mercenary capable of manipulating both sides through intelligence, strength, and ruthless survival instincts."
+        },
+
+        {
+          rank: 7,
+          title: "Dead Mansion",
+          desc: "Dead Mansion is no ordinary orphanage. It secretly trains children into elite operatives capable of becoming assassins, spies, bodyguards, and mercenaries for hire. Filled with dark secrets, action, and emotional struggles, this series explores what happens when children are turned into weapons."
+        },
+
+        {
+          rank: 8,
+          title: "Mercilessly",
+          desc: "Do Janggon was once the nation’s greatest spy until a failed mission forced him into retirement consumed by guilt. But when an old ally drags him back into the criminal underworld, he becomes the enforcer of a rising gang while facing brutal enemies and violent conspiracies."
+        },
+
+        {
+          rank: 9,
+          title: "I’ll Be a Villain in This Life",
+          desc: "Lee Joohyuk sacrificed everything while infiltrating a corrupt corporation for the sake of his country, only to be abandoned and murdered by his superiors. After regressing back in time, he decides to become the villain himself and take revenge against everyone who betrayed him."
+        },
+
+        {
+          rank: 10,
+          title: "Absolute Sword Sense",
+          desc: "So Woonhwi dies as a disposable pawn of the Blood Cult but awakens in the past with a mysterious power that allows him to hear the voices of swords. Armed with future knowledge and a supernatural ability, he climbs the dangerous murim world while trying to avoid his tragic fate."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more action-packed manhwa recommendations? Follow @manhwastorys for daily updates, hidden gems, trending webtoons, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Spy manhwa may still be an underrated niche, but the genre continues to grow with fresh concepts, thrilling undercover missions, revenge-driven plots, and unforgettable characters. Whether you prefer military espionage, assassin stories, murim spies, or comedy-filled undercover romance, these webtoons deliver nonstop entertainment. Bookmark this list and check back regularly for more updated spy manhwa recommendations."
+    }
+  },
+
   {
     id: "best-badass-op-mc-manhwa",
     title: "Explore The Best Badass OP MC Manhwa Recommendations",
@@ -92,36 +990,36 @@ export const BLOG_POSTS: BlogPost[] = [
       type: "recommendation",
       intro: "Non-Cliché storyline manhwa that defy cliches, offering fresh narratives and unique perspectives. They challenge traditional tropes and engage readers with unexpected plot twists, complex characters, and thought-provoking themes.",
       items: [
-        { rank: 1, title: "SSS-Class Suicide Hunter", desc: "Kim Gong ja envy all the star hunters. One day, he was granted with a legendary skill to copy others’ abilities at the cost of his life.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdgVU3MGQKXX6NPbfuBkF_ravo7dipP1xBdCda9TM9UBxBbNJder6I_ahQk-KVfNeArYLj-HxSOGXine00zRMnVf5fZPeDHKSYq9H4oJf8k5b2mcqv17EX6P_1ChAYIna55LbzZw7w7M_rLX-r1y9avUHQKx2g4foF6gCWjrQReixt7HtqHzW68FFkE18/s1600/0a4394df-0995-4a28-9714-ef56f7d86cfd.jfif" },
-        { rank: 2, title: "World's Strongest Troll", desc: "Dex is a legendary chaotic gamer. In Arcadia, he was given a class that cannot level up but has a special power called Plausibility.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiUfSM6S9E6VRl5aXSiFVyeAYp55HEe5eOPvIdTnnOpLqL8qJ6YQhRoZquMahXGkM-JZsIek5159dRE6A6PL4tu1PXKRTczU53c20x75IhhGQ6LzjxLtrBLTu1LnVcCjmcBCxcA4hwaQIzAP75W9P0C43gsnrByCryN1rtbf7POYswVWTL6duWyN3HzFVo/s1600/8859326e-f27c-4199-adba-4a00308bcf1f.jfif" },
-        { rank: 3, title: "The Greatest Estate Developer", desc: "Engineering student Suho wakes up as Lloyd Frontera, a lazy noble in debt. He uses his knowledge to avoid a terrible future.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiPJ1G3328JwQCrGI6PtlTrGFxYnnXTWdq093fZgRZ5E1OWwXloIUnDVp_0HGC__auhxmxA6JTR35wmJhzQ8gj_z5Hl8h8y4ZbhHMmC5jxu1JFLctXi4lUrAaKK7nyXrUeM4I_XTmeV-bY48TYaphAelzDt6fvVLQjLHVtBoUEFEqw2_7xS4ihQUyaloFQ/s1600/d5bc745a-78a9-418e-be29-8144138c87ad.jfif" },
-        { rank: 4, title: "Overgeared", desc: "Grid is an unlucky man both in real life and game. But he encountered a rare legendary class which let him forge unique weapons.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBGYqQjqVT4j5mkVtSV-dHCmd8as3ifzBDU6q9wyZ06srT8R7TvzabS3-BPGMrsczYQdYOugoLa5mtuISIqEl5U-GUHsbdJ0JKqP6oqSos31YnCJWZUZ4zuOPOTPTQuOrCfgZsax0ZfmAVfEwJ4CsKKgOfTkSPIdCR0sIHd5Lq5CF9bfszP2BGgcdQ0JQ/s1600/383a17f1-d5e6-4ec0-b4e4-e91865a573e8.jfif" },
-        { rank: 5, title: "Ranker's Return", desc: "The world's top ranker Meleegod returns to the game using a new character to help his family with financial problems.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgDVOht2ui8KJ9CgBEVhqOJGRyO_-MExXIbSnMnnEEARNEzwe3qi2eE62fRD4Fzi3rayc8WlCnEZ-pJ9C0FRJXGb7tARrXtCzPtH5vUG2IenBSE4NwFoj7ssKKOQT49aqyp93ObQbkfU-GIRcg27gn9u3nSnXC-Vh-UIbx0A-hFCgYxZu8EoViQLKZbkmk/s1600/f3e55baf-0305-4bb5-a477-5dec86803c0d.jfif" },
-        { rank: 6, title: "The World After the End", desc: "Jaehwan realized the Tower was an illusion and engaged in a war with its creators to demolish the system.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP1_bxKmRg7Y8rjG6F-SMANgMMPXYeAZPEiqyWKiUZJye54ia3TCwq7drwHI3VjYHWffQryG-7BJc389jqv1m4VBrFrSljuMvEjZxCSvBcsO3vAHxx7oQCbQxsw084u6IdR3EpSNT-4YODAMXRopSR3Jxja8S2TwS-Uvl8Yga7l7q0AomTxZPPu0l_Krk/s1600/Jaehwan%27s%20long%20struggle%20in%20the%20vast%20realm%20of%20Chaos%E2%80%A6.jfif" },
-        { rank: 7, title: "Talent Swallowing Magician", desc: "Elric Melvinger is the sole heir of a powerful magicians family. He wishes to restore his family despite his disease.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOu9uVQPKm5hBBg0B8wxKkDcva4j4who1fRJFApeuQABGY9guirrwn_vDGcLfIigFPCwWa_RK_kaGw-cfMokW507_5AxtOyKxtuJiq2b787W5rnS0U95iC5nj6aOfPTAR57ifD2NwdSofLPl3Fx9_QQu1a9oY1B3axCG7fnYlJGtsjXRnso7HWviKoFrg/s1600/e944f456-64ed-477c-96ad-c747375cb6b7.jfif" },
-        { rank: 8, title: "Boundless Necromancer", desc: "Seong Hyun receives an invitation to the Tower of Trials and gets the Necromancer class to climb to the top.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxK_qLu6Ay900pkkJSSxN4YOqSjQ5-wRSMI6X3brpsxndU7-qKQETPvylUcqMUv0PYG8fkV_TfUpCRgp7vd-ms0nu98L37PZrg5xIWfqQ7OS3Wn_ewRhrf4RhkpQQ45HloxwpJuoUfPvMDzJnLcZ8F2gAy1-iz4pZDX-rhjUhdIbF-WPAAbjQLHOSIKaY/s1600/936bc360-d826-4773-afce-3a3e8c2fcfec.jfif" },
-        { rank: 9, title: "Omniscient Reader Viewpoint", desc: "The MC is trapped in the world of his favorite webnovel, knowing the plot from beginning to end.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWdpzKSe1XmGrJcbc7cMl1e7eINvrLVeItoPkeewJpvG7dssy65fuMKuLOyHrP5B-6zviz7PxObbVzKcNCufBQI7s8URbOxrCIrkmZ5OXVT8NBCbseErgCNa6v3UKfUnIbj-KuLIMj4knRcZUSIzSiMbhvK8Vmz6hEnVjaFLcg5fFrGSHXWgX9xT19H-M/s1600/Y%27know,%20its%20been%20a%20while%20since%20we%27ve%20covered%20a%E2%80%A6.jfif" },
-        { rank: 10, title: "Superhuman battlefield", desc: "Moon Yeob returns 17 years after saving humanity to a world where superhuman sports have become famous.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtZI7EMY6X3olWokD1bH8I10fmtIa0glBHIuhWr4EH_LYvXOyq5l-VKJ3i1I1D4Kj_Q5BqCpw77FCTbNnV7NaS-82lhm6Xdot8tFt9yEnrMf0VIrXfYMKGK3OfBgPZ_MqGLiN_QhL3JyuJ1tdrFHdiuLFW3qAbC9ueUU_hESM6CviU2Q5Zt8-y9aRFt7E/s1600/Superhuman%20Battlefield.jfif" },
-        { rank: 11, title: "Reformation of the Deadbeat Noble", desc: "Irene dreams of an old man swinging a sword, which changes his view of life and he decides to face reality.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiitAAQ_ECn1ujV2aZwmZiIjTbo8UdKCe5rKLKmYzMnFEKZMxLVaDRc-c0SFV9d0PVxAp4743Nm460aDutjrwHoMFGCoqT7K_Al1f4I23QxxB2k-I2AI3AW4a6qqix43STTq9zuEGeyeZPNeatxn9mkUMrqQMZjk5qFFg78jp7XjkaMtxE-WXX9D8gYtJ0/s1600/After%20witnessing%20the%20shocking%20death%20of%20his%20mother%E2%80%A6.jfif" },
-        { rank: 12, title: "The Book Eating Magician", desc: "Miller encounters a grimoire called 'Gluttony' which allows him to use magic as he pleases.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEideW8GsE8Pw4zrcOLkfDxurgRqVFDOAIDo7dCosfQSFlaHI2blYEOFYO3lyt4rCRr3IemF_p83YC-7uONdnOy3glo6_9pJ7I9LYosrSuASvo2V2ckz6466qikUrw4gfJvJ56y5O15PulK6z9H6w6LDeVr155oV6r4B84vjjYoc2MaMbHhyphenhyphenKOf3Di45xtE/s1600/3576d20a-6303-419d-a0a4-9adc991787a3.jfif" },
-        { rank: 13, title: "The Dark Mage's Return to Enlistment", desc: "Minjun returns from another world where he was a dark mage, only to enlist in the military during a dungeon break.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOYPKV3_er4L-du7TP15jZUSrHGdRVhv0OSQf10cmmlf6N6KejXcLzt3cRRdzZycV0af2MtsZ7lbS8-NyYrmSNgDngJdUJyYhkai4F3s9nSq8iVsRRG6mMi1xy-EP_xsW8Y7IaM4Oa1ZpaI5gzbDNDxtFfAkgBqUGuOfAj6Qvy-UKCrpHA8SZ5esUyjfw/s1600/%EA%B7%80%ED%99%98%ED%96%88%EB%8A%94%EB%8D%B0%20%EC%9E%85%EB%8C%80%20%EC%A0%84%EB%82%A0%EC%9D%B4%EB%8B%A4.jfif" },
-        { rank: 14, title: "Is This Hero for Real?", desc: "Hansoo is chosen as a hero in a fantasy world. When he refuses to risk his life, the goddess abandons him.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3Z3B7GwWFhGIb_fr611qGonyWnjiSW-a8y4-kEQqaECTZUktGHePETGgftBPe6sZHXLFy6bk2MvC_-Oxku-AINfQRfPxVRAoLtPS340PQKUUXJiUUV9F_zv91cWbEefb6iZqwwqnXiZX347bLVfKPzaTffrRFb0QB6NON5cv1vYxaZA7nDp4qvQvrZ5c/s1600/92a39c4a-caca-4325-b07a-a414ddf85615.jfif" },
-        { rank: 15, title: "Existence", desc: "Ja in has been through thousands of reincarnations. In the last cycle as a human, he decides humanity must perish.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEje8LMG_YhDKPDLm7RxGbszglQE5FQ2_4_l4i0ZJ0RPyCisGSD85jGna3mOJa6DzdOUCxk7vuT5TT6zCld5UG7P0TPqeTSb20ZbB7aYXv13jTKZlxC_vbPbKuY2vxfqCGDVyLYEnzwyfpCwwFiVKnOfQcOabVbTLjub7XQ8ujwXqP2dzSy_oYtF8GB25lI/s1600/Sinopsis_%20One%20day,%20it%20was%20a%20swarm%20of%20ants,%20and%E2%80%A6.jpg" },
-        { rank: 16, title: "Pick Me Up, Infinite Gacha", desc: "Top ranker 'Loki' is transported into a gacha game as Han Yslat. He must clear 100 floors to return home.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg24cyX9ernVadMuzJ_vj7PHkKITezpm7ScMWIMYPUi4yglHl9ZCCWgE2cCB3eoBoq1T81ju0IBElEZqYa1jLrz2E5jo0kprKnmBwI8bigr1pElxddnUpsShgIcly8LKZF5MzI5t2GXDtyXZewDYvlfgN1_KATxPpaXFjqsrIQ97wlznUL8XI4tI_YvLqs/s1600/c4c97fe0-1167-48b9-9844-977110931566.jfif" },
-        { rank: 17, title: "Memoir of The King Of War", desc: "Sa Yu is saved by a Martial master and becomes his disciple, learning the strongest martial arts in the world.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYYPqTLaX2JQ3NUg6cwsW6ZtjGD38LzDc-7Y2j4Suw8iKMHqhn89HUuX7F_cCC88ycaRWXyB4RAirmEVPu3VPY6hDK2dgmRFrCBv2-NwGHWjFyeVK5Ssg6DA-oSqJPeJgtCtrCjzZcAOXqZq0dTFXzPSRAMr2CP2KbMXHlxjGvW_US1pwf1Ue8LnIy7NU/s1600/69d7a012-9a1e-4a8b-b4ec-ac968d6e23e2.jfif" },
-        { rank: 18, title: "The Priest of Corruption", desc: "Main Character is transported to a game as a follower of the Mother of Corruption, seeking to resurrect her.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9HuuofbKxvM7VYVl4PUQyN93u7y3xYhm9_9P61wsX9zL6U7UbH2cyDiRK3BuV-iDCScs-J3qrymmflB3hUlPrCdPqJbZHdJmOgv4QWuNyJcyW4Sa5XNpXgADfAnhvBmWbFilm1rfkGAC-ZDr_JQWg1SN3SwxQJOUU7hBC6bkyTpD_Wm5eQ8KrLJ6iiSU/s1600/f5236932-7e9a-4b1f-b1fa-dc72d8d2af52.jfif" },
-        { rank: 19, title: "Dungeon Reset", desc: "Dawoon finds a bug in the system when he falls into a trap, becoming creative to survive as things reset.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhuclZDn2hIgksrwQJYUNvDh2mTJDsc9TZ0FSivob9uTcDjz6Jq5akt9LJxR8KLPeZ1l4hkFi1w2MX4qtz0lsHm2kR-K9G9eBEQDB9El8xc18to0aW1UBFAN9QLpi9Jc27jyx6zyT5eEFm5vMLBydJ8dryQaFlxQZN2N3lkhPld-BEUuI0a-iwjt4z-i8c/s320/Dungeon-Reset.jpg" },
-        { rank: 20, title: "Doctor's Rebirth", desc: "A doctor reincarnates in the Murim world with the knowledge of his past life, now inside a novel.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiY3qSfO9xR9W79whnE3EpXJhoc5APOU6Fo-hRzLH-EVmdIddwz3i6wsaYC0F6jyy6TK8Osc0bIM5Dtj713NYbPBW3g5vIjRRUkA7knTFsIJ5kzC2svwemIoGn3cG64H6GOto4jftVo0_q2CdCVO2bkzb1J9kojwM19uEQk_4C3mBX7R0XE9mLVmic7wE/s1600/e0e67d4f-e78b-4224-a146-149ce2554a4d.jfif" },
-        { rank: 21, title: "Taming Master", desc: "Sung decides to delete his level 93 archer and become a Tamer, encountering a hidden power class.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheMhf5b2wdvaH82fsSG0OBbpxZ5IFfg4Xvdd7gzDxDkmgNM8BljmM7lYH3hJUQ7F2OKKcp5TIFRvmVxFLPcHWH4ZBNctKQwhzCS1oM9LJ0mZSaasN5-Ymw0hGCHTSqnyY96xktq57ClJJFIw7-wsSZ0KBsePnvQZw8mohK488-hLTipx5HgpYYWwZHT6k/s1600/0a755f42-7a2b-4a3b-a1f1-36d58953b7ca.jfif" },
-        { rank: 22, title: "I'm Destined For Greatness!", desc: "Taehyun wants to be the best in a VR game. Despite wanting no class, his luck earns him the title 'God of Luck'.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCQYbqlJTwFEAfaNOgNf1AG7bL753xauk_GDEAuVkdFuwsY26VDwJqdBgvNEqqtWkER1gpGT9qsiS3l9ZYHSlBLuOCBvzA1OlnjDP_jOA_YiUChR1swl_aPmrTZsmEWKxT_3-9R_pBRcNPyVCNWkIahsuzg3S65dN_KjMZMODIX3cNVizrB5KMA-6aC8M/s1600/61981897-d48c-4155-b914-4a49d54edc73.jfif" },
-        { rank: 23, title: "A Returner's Magic Should Be Special", desc: "Desir regressed to prepare for an upcoming disaster after failing to prevent the end of the world.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqrELB8k4y2dfryWKTIX-89ISe53X2jo0Wh90RYnXYCvb4Bnl9WvMwu5rkgZmCv-5LOmNztxqaADjOzlEjX1PFK0qdFKx7xjLHrwHo5q8JY97JV6mXSNs_R37FKLXGmowM6lW1pOVk3MONhZBAEoamECSdV7UPA74qgLGtpDQfKxetirkSUJLBMbCcgzs/s1600/A%20Returners%20Magic%20Should%20Be%20Special%20Characters%E2%80%A6.jfif" },
-        { rank: 24, title: "The Beginning After the End", desc: "King Grey reincarnates in a new world of magic. He must protect it from an entity trying to destroy everything.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1WZkhckLkyYiDI6ZZz68IqHcEpJmwuqHGyvuLWniPgQGzFyzJlBiNIgyV-ESrVilO0z39TfEyrNWgqz9GFwDp_4eMR4oB1KJhUmSdiJa-jNzVKVgkaX5B4vKdTJ2SoaOCtElK_TJ3WRqyf1RChy-UPgoIVOfOMNXTNIwyXx2psvjzitVI28gux8aCrug/s1600/ae9df8cc-a2f1-4cd6-94da-f706793c67d0.jfif" },
-        { rank: 25, title: "Tower of God", desc: "Bam follows Rachel into the Tower, a place that promises to fulfill deepest wishes of those who reach the top.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTKEDDOld9sT9deoAROQarVd5TKFGy_SP3W_ox-ciBgufAyfOJZDH-ZmIJs0KNS81SiWGHfiKgnUDtFdJRrY5T2hXdtLMyAAYcHNlAHOn6Cvmiye5zlZsjsngwEA0fS2PCjo4A_FWL3Jmt3lATozSFQoBF0C9E-5n7xpOEayHmfbi-ErF9GqavW2zUu48/s1600/40c9fc14-9fb0-41a9-9b58-c246ef0d1d3f.jfif" },
-        { rank: 26, title: "Becoming the Monarch", desc: "Chris a one-armed mercenary returns to when he was 15 years old. This time he aims for the top with his expertise.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQmVSUBd7pTPZA5UpfnbRGmpRY8c7idTjXhAAPc9X3irP04pVSmjS6br4ZVtq73HFxL7WEfDTf5Imb74oYN7TFzo5hJCXsKNQ4ojYP3bXyHqM6JTgiKvN4bUtfvde0Rq4ceA6v5VGPuj_43unhWbqYNX8-iwVgriGQYgak4-YtKCH3_RRquSF5OGZMW1A/s1600/81e9b9dd-564d-4ad8-93a9-a69a1ae1c034.jfif" },
-        { rank: 27, title: "Legends of the Swordsman scholar", desc: "Woon Hyun is a scholar who picks up his brush to conquer the Murim world through his love for martial arts.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiBT9a8-1uXuky8W4LKyaqwTc79QQpe_yo49F-2X107Fnd4DWIMLNmDzNFKa7MCtitci-jfHtwfaMzh-2MPo_eS2MkCPRqzyg4Cf_qExk64Utrcc-IxSfA1qbMuQ8pU-rZHejNr7PiU3fY7Tjs-k9qFAdr62-ohK4xfP7DpYPI8W62R3JLHxkEWY2eVZ0/s1600/161cd9ae-1934-41ea-a687-dc0a6fe9f81a.jfif" },
-        { rank: 28, title: "Worthless Regression", desc: "Lee Sungmin regressed with no talent. He determines to struggle and move forward until the end despite his lack of gift.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjl4E11iyBI41K-ypm04dZsyh8RnrMkQc0pTwHZCRgsodf5jdzWgJFj2xj7PQChckCGC-B09s8K05VrBOTdEqH6j2_aG0BDZdtjWD6HLngdYXSP9a1crL1_ZbipIJzKbEqUFNUUjtcrbg2mexAI6XUNwdbXSo9eZnJ41Va9tPXRMRWBluK3IxxA0DWcano/s1600/c5cb36c4-184e-4d8b-bc9e-c5cc636bbabb.jfif" },
-        { rank: 29, title: "I Became the Tyrant of a Defense Game", desc: "A man awakens as a villainous prince in a strategy game. He must use his expert knowledge to survive.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjn1uUu7DsWeRCCoB1miQjn0UZJqaMXQeyx086EIwz7E54a6u_UNWo0VWrV3wP7IEA-HypyuZmC3I_F4SHKMSF6uRft2wxeXHbpY-px-UKX8rMJoiFTltoOhiFOYU-Qr74XF_S0LP0pQr1kn2tfMQW2G-Op6Dv0d3g-u5jrkfAAfrUz1xDD-Zt-_kObnk/s1600/90be6860-ecc0-426f-9ff3-0be7f8e93832.jfif" },
-        { rank: 30, title: "Second Life Ranker", desc: "Yeon-woo follows his brother's diary into the Tower of the Sun God to get revenge for his brother's betrayal and death.", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBGHETnQAvNhKiI-GRkm3t3iBLZaH3DppCM4VgcE6CbveiqKfFc54I1FwTlM0XYksPxjBKWhFbCYWvkH5iizrC6GNIq65XVLwTViPuOnjLVGMGuRSgG_X1InnFjBaFp7yYKmI6pPJ1TzdjVYGQ0vjRaOigGFCzb_UPiqqcxCLsJUuZrZgHfa8So4ep2HU/s1600/Second%20Life%20Ranker%20S3%20Cover%204k%20resolution.jfif" }
+        { rank: 1, title: "SSS-Class Suicide Hunter", desc: "Kim Gong ja envy all the star hunters. One day, he was granted with a legendary skill to copy others’ abilities at the cost of his life." },
+        { rank: 2, title: "World's Strongest Troll", desc: "Dex is a legendary chaotic gamer. In Arcadia, he was given a class that cannot level up but has a special power called Plausibility." },
+        { rank: 3, title: "The Greatest Estate Developer", desc: "Engineering student Suho wakes up as Lloyd Frontera, a lazy noble in debt. He uses his knowledge to avoid a terrible future." },
+        { rank: 4, title: "Overgeared", desc: "Grid is an unlucky man both in real life and game. But he encountered a rare legendary class which let him forge unique weapons." },
+        { rank: 5, title: "Ranker's Return", desc: "The world's top ranker Meleegod returns to the game using a new character to help his family with financial problems." },
+        { rank: 6, title: "The World After the End", desc: "Jaehwan realized the Tower was an illusion and engaged in a war with its creators to demolish the system." },
+        { rank: 7, title: "Talent Swallowing Magician", desc: "Elric Melvinger is the sole heir of a powerful magicians family. He wishes to restore his family despite his disease." },
+        { rank: 8, title: "Boundless Necromancer", desc: "Seong Hyun receives an invitation to the Tower of Trials and gets the Necromancer class to climb to the top." },
+        { rank: 9, title: "Omniscient Reader Viewpoint", desc: "The MC is trapped in the world of his favorite webnovel, knowing the plot from beginning to end." },
+        { rank: 10, title: "Superhuman battlefield", desc: "Moon Yeob returns 17 years after saving humanity to a world where superhuman sports have become famous." },
+        { rank: 11, title: "Reformation of the Deadbeat Noble", desc: "Irene dreams of an old man swinging a sword, which changes his view of life and he decides to face reality." },
+        { rank: 12, title: "The Book Eating Magician", desc: "Miller encounters a grimoire called 'Gluttony' which allows him to use magic as he pleases." },
+        { rank: 13, title: "The Dark Mage's Return to Enlistment", desc: "Minjun returns from another world where he was a dark mage, only to enlist in the military during a dungeon break." },
+        { rank: 14, title: "Is This Hero for Real?", desc: "Hansoo is chosen as a hero in a fantasy world. When he refuses to risk his life, the goddess abandons him." },
+        { rank: 15, title: "Existence", desc: "Ja in has been through thousands of reincarnations. In the last cycle as a human, he decides humanity must perish." },
+        { rank: 16, title: "Pick Me Up, Infinite Gacha", desc: "Top ranker 'Loki' is transported into a gacha game as Han Yslat. He must clear 100 floors to return home." },
+        { rank: 17, title: "Memoir of The King Of War", desc: "Sa Yu is saved by a Martial master and becomes his disciple, learning the strongest martial arts in the world." },
+        { rank: 18, title: "The Priest of Corruption", desc: "Main Character is transported to a game as a follower of the Mother of Corruption, seeking to resurrect her." },
+        { rank: 19, title: "Dungeon Reset", desc: "Dawoon finds a bug in the system when he falls into a trap, becoming creative to survive as things reset." },
+        { rank: 20, title: "Doctor's Rebirth", desc: "A doctor reincarnates in the Murim world with the knowledge of his past life, now inside a novel." },
+        { rank: 21, title: "Taming Master", desc: "Sung decides to delete his level 93 archer and become a Tamer, encountering a hidden power class." },
+        { rank: 22, title: "I'm Destined For Greatness!", desc: "Taehyun wants to be the best in a VR game. Despite wanting no class, his luck earns him the title 'God of Luck'." },
+        { rank: 23, title: "A Returner's Magic Should Be Special", desc: "Desir regressed to prepare for an upcoming disaster after failing to prevent the end of the world." },
+        { rank: 24, title: "The Beginning After the End", desc: "King Grey reincarnates in a new world of magic. He must protect it from an entity trying to destroy everything." },
+        { rank: 25, title: "Tower of God", desc: "Bam follows Rachel into the Tower, a place that promises to fulfill deepest wishes of those who reach the top." },
+        { rank: 26, title: "Becoming the Monarch", desc: "Chris a one-armed mercenary returns to when he was 15 years old. This time he aims for the top with his expertise." },
+        { rank: 27, title: "Legends of the Swordsman scholar", desc: "Woon Hyun is a scholar who picks up his brush to conquer the Murim world through his love for martial arts." },
+        { rank: 28, title: "Worthless Regression", desc: "Lee Sungmin regressed with no talent. He determines to struggle and move forward until the end despite his lack of gift." },
+        { rank: 29, title: "I Became the Tyrant of a Defense Game", desc: "A man awakens as a villainous prince in a strategy game. He must use his expert knowledge to survive." },
+        { rank: 30, title: "Second Life Ranker", desc: "Yeon-woo follows his brother's diary into the Tower of the Sun God to get revenge for his brother's betrayal and death." }
       ],
       cta: {
         title: "Follow Us on Instagram!",
@@ -132,6 +1030,162 @@ export const BLOG_POSTS: BlogPost[] = [
       finalThoughts: "These manhwa offer gripping narratives and immersive worlds. Bookmark this list and check back for weekly updates!"
     }
   },
+
+  {
+    id: "best-gangster-manhwa-webtoons",
+    title: "The 21 Best Gangster Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best gangster manhwa and webtoons filled with school fights, gang wars, brutal revenge stories, underground organizations, delinquents, street brawls, and adrenaline-packed action. From bullied underdogs to legendary gang bosses, these are must-read series for every action fan.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0ZgEKtxkzrGM9HmqJ_3bEf-IV4MoB4dklarsM_c5v8kkpbMbzTIk7mFyISw8Tt2fMZ44dCO5cWsBl6jal0Rj_T4NgGjZ921tjnz1xG9HtN9w4RpdxU5DGU1-4P04dEJm-aaBmWFqU-CR5JrptJP-W8bICLx9sHcwrqTWvvrByQPDkw0LIxtXe757IE_w/s1600/21%20Best%20Gangster%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Gangster manhwa are packed with brutal street fights, school delinquents, underground organizations, revenge-driven protagonists, and nonstop action. Whether you enjoy bullying revenge stories, gang wars, martial arts brawls, psychological thrillers, or overpowered fighters crushing their enemies, this genre offers some of the most addictive webtoons available today. Here are the best gangster manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Viral Hit",
+          desc: "Hobin Yoo is constantly bullied because of his weak physique and poor social standing. Desperate to change his life, he discovers a mysterious fighting channel online and begins learning combat techniques through videos, eventually becoming one of the internet’s most unexpected rising fighters."
+        },
+
+        {
+          rank: 2,
+          title: "Weak Hero",
+          desc: "Gray Yeon may look like a weak and fragile student, but behind his calm appearance lies a terrifying genius fighter. Using intelligence, strategy, and ruthless precision, he takes on the violent bullies and gangsters dominating Eunjang High."
+        },
+
+        {
+          rank: 3,
+          title: "Castle",
+          desc: "After losing everything to the powerful underground mafia organization known as Castle, Kim Shin dedicates his life to revenge. Moving through the criminal underworld like a silent predator, he slowly hunts down everyone responsible for destroying his life."
+        },
+
+        {
+          rank: 4,
+          title: "Reawakened Man",
+          desc: "Hwan Seok dies while trying to help someone being harassed by gangsters, only to mysteriously awaken three days later completely alive. Armed with his strange resurrection ability, he throws himself into dangerous battles against criminals and corruption."
+        },
+
+        {
+          rank: 5,
+          title: "Questism",
+          desc: "After years of being bullied, Suhyeon Kim suddenly gains access to a game-like system filled with quests, stats, and rewards. With each completed mission, he becomes stronger and starts climbing through the violent hierarchy of school gangs."
+        },
+
+        {
+          rank: 6,
+          title: "Study Group",
+          desc: "Youn Gamin dreams of becoming a successful student, but he attends one of the most violent schools filled with future criminals and delinquents. Though terrible at studying, his incredible fighting skills make him a nightmare for every bully around him."
+        },
+
+        {
+          rank: 7,
+          title: "To Not Die",
+          desc: "After suffering relentless bullying and abuse, Yim Dajun reaches his breaking point. Guided by a hardened street fighter, he learns how to survive in a brutal world where weakness only leads to despair."
+        },
+
+        {
+          rank: 8,
+          title: "Hanlim Gym",
+          desc: "Once a victim of bullying, Yeongha Jeon discovers his natural talent for fighting and enters the ruthless underground world of combat sports. Inside Hanlim Gym, survival depends entirely on strength and determination."
+        },
+
+        {
+          rank: 9,
+          title: "Designated Bully",
+          desc: "Kwon Daegun becomes part of a secret project designed to eliminate school violence. His mission is simple: transfer into schools overrun by bullies and crush every delinquent standing at the top."
+        },
+
+        {
+          rank: 10,
+          title: "Daddy Goes to School",
+          desc: "After dying in a tragic accident, a hardworking father unexpectedly possesses the body of a high school student. Discovering his daughter is being bullied, he decides to use his second chance to protect her at all costs."
+        },
+
+        {
+          rank: 11,
+          title: "Devil Returns to School Days",
+          desc: "Kim Hyunsung’s life is destroyed by brutal bullying that leaves him in a coma. Given a second chance through regression, he returns to the past with only one goal—to become the devil that destroys everyone who ruined his life."
+        },
+
+        {
+          rank: 12,
+          title: "Mr. Baek",
+          desc: "After being betrayed by his own government, elite undercover agent Baek finds himself dragged into Seoul’s dangerous criminal underworld. There, he discovers his twin brother is one of the city’s most infamous gang leaders."
+        },
+
+        {
+          rank: 13,
+          title: "Lookism",
+          desc: "Daniel Park’s miserable life changes overnight when he mysteriously gains a second body—one tall, handsome, and physically perfect. As he navigates two completely different lives, he uncovers the dark realities behind beauty, gangs, and social hierarchy."
+        },
+
+        {
+          rank: 14,
+          title: "Blood Rain",
+          desc: "Undercover agent Kang Hyuk infiltrates violent gangs in an attempt to destroy organized crime from the inside. But the deeper he sinks into the criminal world, the harder it becomes to protect his humanity."
+        },
+
+        {
+          rank: 15,
+          title: "Juvenile Offender",
+          desc: "After losing his family and future to relentless bullying, Yunseong Lee embraces the path of revenge. Becoming a ruthless vigilante, he hunts down every person responsible for ruining his life."
+        },
+
+        {
+          rank: 16,
+          title: "Guard Pass",
+          desc: "Lim Sejun appears harmless and overweight, but when his childhood friend becomes a victim of gang violence, his hidden rage awakens. Determined to protect the people he cares about, he steps into a brutal world of revenge and street fighting."
+        },
+
+        {
+          rank: 17,
+          title: "Hectopascal",
+          desc: "Once feared as a legendary delinquent, Hanjun Park falls from power and loses everything. Offered a chance at revenge by a wealthy CEO, he returns to the streets ready to reclaim his place through blood and violence."
+        },
+
+        {
+          rank: 18,
+          title: "Boss in School",
+          desc: "Seth Kwon suppresses his monstrous fighting instincts because of a promise to his mother. But after reaching his limit, he unleashes overwhelming strength and quickly rises through the ranks of violent school gangs."
+        },
+
+        {
+          rank: 19,
+          title: "Second Life of a Gangster",
+          desc: "After dying as one of the most powerful gang bosses in Korea, Oh Joong Seok is sent back to his younger days. Determined to live differently this time, he tries to walk a more righteous path while confronting his criminal past."
+        },
+
+        {
+          rank: 20,
+          title: "Manager Kim",
+          desc: "Manager Kim appears to be an ordinary office worker struggling with daily life. But when his daughter is kidnapped, his terrifying past as a deadly black-ops agent resurfaces, turning the city upside down in a violent rescue mission."
+        },
+
+        {
+          rank: 21,
+          title: "I’ll Be a Villain This Life",
+          desc: "After being betrayed during a dangerous undercover mission inside a gangster organization, Lee Joohyuk regresses back in time. Refusing to trust anyone again, he decides to rise through the criminal underworld and become the ultimate villain himself."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more action-packed manhwa recommendations? Follow @manhwastorys for daily updates, hidden gems, trending webtoons, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Gangster manhwa continue to dominate the action webtoon genre with brutal fights, revenge stories, school delinquents, underground crime organizations, and intense character rivalries. Whether you enjoy psychological thrillers, martial arts brawls, redemption arcs, or nonstop street action, these webtoons deliver endless entertainment. Bookmark this list and check back regularly for more updated gangster manhwa recommendations."
+    }
+  },
+
   {
     id: "top-25-manhwa-2025",
     title: "Top 25 Best Leveling System Manhwa to Binge in 2025",
@@ -141,182 +1195,919 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: "Looking for manhwa with leveling systems, game mechanics, and overpowered MCs? From cult classics like Solo Leveling to rising gems like Return to Player, this list features the best character growth stories.",
     image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBzz2jsdp9ir1BpZan30l-J6OChz4sAAEiPO2NqmGRJPrqJlaeS8isg80msqjR44MS8P1VQv5TYy-AO_fHi7CNWs-PTPRYxnwOYyOtxj9c73ylCiJIAYdmrlVNmUwCkEWNFxjjGzc_0VbyspokHGc3lbiJdU_lCI_AMM7OjHja_9dtS5ci1w-Kpe_xs0s/s1600/Your%20paragraph%20text%20%2818%29.webp",
     content: {
-        type: "recommendation",
-        intro: "Looking for manhwa (Korean webtoons) with leveling systems, game mechanics, and overpowered MCs? Whether you're a fan of dungeon crawling, tower climbing, or skill-building stories, leveling system manhwa deliver all the action, strategy, and RPG vibes you're craving.",
-        items: [
-            {
-                rank: 1,
-                title: "Solo Leveling",
-                desc: "E-rank hunter Jinwoo lives at the bottom of society with no skills or future. After barely surviving a deadly dungeon raid, he awakens a mysterious system only he can access. Now able to grow stronger with every quest and kill, he begins a thrilling journey to become the strongest hunter.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg2PCZWIs9iTfDEiyWa0YU9rVIG7j_-vBdUGMBTAloURIU366GmXO2JRXczDZf_aJR9yZmmeqldAyqxnmbVeBumwqh-dH1_NTQB9NOL-emfoGa5jw4VzkM-rdKyB12Iby71GqJrBgvy2aR29nv-XEmw4dsUMR1_UAmODt8eEieg5g-7UERTwTDuI5IQVd4/s1600/Solo%20leveling%20-%201%20-%20Dubu,%20Chugong%20%281%29.webp",
-                link: "https://www.tappytoon.com/en/book/solo-leveling-official"
-            },
-            {
-                rank: 2,
-                title: "The Legendary Moonlight Sculptor",
-                desc: "Hyun Lee, a broke and desperate student, joins a VR MMORPG to support his family. With a weak sculpting class and sharp wits, he scams NPCs and players alike while rising to glory. The manhwa blends humor, grind, and economic strategy.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXEiwoXIRjtrdXQ_GuIKhXrvxltO_0r4dbnwtpnCVybMOAr9mreiW1rgRDjR2-SW27UOjNE2hQUbLlqYGxIRROxvf_oNYbai6GFzlmgD-TpLIRaqMq5yZPO3dG00FogUvxBc8_UXIO3MRErP9ETHm7O8_Wa78r8dtcupZajlOfBj2Rq9zryDX0SGsipO4/s1600/a234f4c6-b8eb-43a0-a401-c39ea1b71a42.webp",
-                link: "https://tapas.io/series/legendarymoonlightsculptor/info"
-            },
-            {
-                rank: 3,
-                title: "Second Life Ranker",
-                desc: "After discovering his twin brother died in a brutal tower challenge, Yeonwoo inherits his memories and gear through a magical watch. Enraged and determined, he climbs the Obelisk to take revenge and learn the truth.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsiJbNtICyLq2E5JJ1hneaees59wVPhLH0dvgZLPhaQKMQcZv_JBpfNBAMWABnh5rkEctnfQBA1G_gwKwNdRoD-Rs7lMh8rMWbZ5UXgzrGIpa9dgsPyetPDU24Y7-Hvsdqe4k23BA95VAgOmEgU36xtLm9vav8WfrnNW70Kj_rzOrI32KkLNbHG_6TcyE/s1600/Second%20Life%20Ranker%20S3%20Cover%204k%20resolution%20%281%29.webp",
-                link: "https://tapas.io/series/second-life-ranker/info"
-            },
-            {
-                rank: 4,
-                title: "Skeleton Soldier Couldn’t Protect the Dungeon",
-                desc: "A loyal skeleton dies failing to protect his master—but wakes up moments before her death. Stuck in a tragic loop, he keeps trying to change the future. Each failure brings new skills and scars.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEim3DEFZzx7secG8dGKeThZZ8zk_xM0mnUQWbX9mqeJQvVCO2LUMkMpgWbySYCHcQOpigC_s4mU-hYAFplkAVnXmwnnAI7bIXWtDpe3-lXrCzoI5GPdLe7c2BJvIhgG3LaejJfDgrCjupUFFqcSBmmin5SObQjrdGgRjFp_Vj8jyFCXscWwy9zRLjG7QGs/s1600/d0e5a2ff-17dc-433f-9228-5f3dfa9da14e.webp",
-                link: "https://www.tappytoon.com/en/book/skeleton-soldier-failed-defend-dungeon"
-            },
-            {
-                rank: 5,
-                title: "The Gamer",
-                desc: "One day, student Han Jee-Han wakes with the power to live life like a video game. With stats, skills, and quest logs, he begins training like an RPG hero. But darker secrets lurk under the surface.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsO8FIrpfY7YTR3VNb0ZWwQNmwGdVs9MSk40_ArorsSIfrBiUD9i8ds4VTyCuj8Bh03uSbzHWukrvHNA3lsu_da4p1CJFMYez65KcXQlEvmkQNAUNPRlGANgg-jSOhZNYN-xb-JiopJJR8hq151zQKeEazNPlohiIntXe1qp4TNawSXybFW1UI3m4U_0Y/s1600/63f4a7bf-aeaf-4248-84d3-2c4c1af65138.webp",
-                link: "https://www.webtoons.com/en/action/the-gamer/list?title_no=88"
-            },
-            {
-                rank: 6,
-                title: "Overgeared",
-                desc: "Grid is a clueless loser both IRL and in-game—until he gains a rare crafting class. With the power of unlimited forging and broken gear, he becomes Overgeared.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjL-ObpuyU4SJxPvv5EmyXDJuDorEydixGRYocbbtxK25mcn9dJ8akHzBywWYATS8bluy0UxfA7nH5ozjeVTKYIIPyXLyKR800E9UpLwpKTEDHbi4hDQAVp9IKaHho7EjHe7tzHd8iFdllaTiSb0Dpk8PdfmWdL54FKceVdkwrHaxX-TDLTqHXbgfyfC3M/s1600/383a17f1-d5e6-4ec0-b4e4-e91865a573e8.webp"
-            },
-            {
-                rank: 7,
-                title: "Solo Max-Level Newbie",
-                desc: "Kang Jinhyeok is the only player to clear the Tower of Trials — and when the game merges with reality, his decade of grind becomes humanity’s secret weapon.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrqR4MF9YPTCAYLVsMnWp9ZkQM4ifirYTIfUBJkuhLTlw0f_3y8_4zvvbe3WofJ3UKqzBX0fSsKJefkwvUEJVcgdpwdEp7QPB-fB1pp0JAZ02o2JIdl1l4u-uPvOOqv0SSGPosL4IgpmDz79GScDj2RZ95sP52LgAbT9to1M7TvJF92Pqrxt3cu9b0SEU/s16000/No%202%20manga%20%F0%9F%91%91.webp",
-                link: "https://www.webtoons.com/en/action/im-the-max-level-newbie/list?title_no=3915"
-            },
-            {
-                rank: 8,
-                title: "Leveling With the Gods",
-                desc: "After a war against ancient gods ends in ruin, Kim Yuwon is sent back to the past. With future knowledge and unmatched skills, he enters the tower again.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWwXxXHeS256PibWm1i2D_AXZrSlNUz60_SwSx6L834P0iRlkl1vgqF1OO43ftNTcok4Ye-mwrhH7vgfQERGPu6-zpcG80Nf3yAHE_wBgXEop30z-ZaOwRhVaI6Y_AnjcYlmlMvV6kXKDrLx0SfEpaUEe0vXB7JVR22Yi3Vgu2ivdpEAb1_8c_RsNFUZ0/s1600/6b1142c2-be23-40f5-9aac-5eeb806f5770%20%281%29.webp"
-            },
-            {
-                rank: 9,
-                title: "I Am the Sorcerer King",
-                desc: "Struggling to support his sick mother, Sunghoon takes risky jobs. But after a near-fatal event, he awakens memories of his past life as a powerful Sorcerer King.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIxMmr9e6lKfTcslSxJXecOkuZUFcxvK6crQ3aukSdfrMcBCyHejwvh_RmfA9jkgXz98BY3EKF3Su9DNjWJcZiSaeuG-Ul7KiaERb4W_Nn7C1yAqE6IF-BxE97-ad-0j4nCLpwekv8IXJ69OngTezQwVkghMSaFknCBJgSULFW01NBVsXVecwd14NBhLQ/s1600/I%20am%20the%20Sorcerer%20King.webp"
-            },
-            {
-                rank: 10,
-                title: "The Tutorial Tower Is Too Tough",
-                desc: "Lee Honjae chooses “Hell Mode” in a mysterious tower dungeon—and gets trapped for hundreds of years. When he escapes, he's maxed out and furious.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhRZz-Zk_xVgOWQtridwI3-PPXGi9mdn1Fs_dfvcRg97E5jjTKR8ZNXlJPSiINsIEENLyjd2rigNlkUkA9PsCvxsUm9_ItqiNOHNhyphenhyphenRcQ55cH_WGenfhZi-Cl1EzmFoO5qldTmaAPu1eGO1h9TUXfAUsKg1sNIGHFLifz9PpxZDJire2EoO0Tk9w9FCldo/s1600/2c82e2d2-81ae-493b-bed1-691196552fe2.webp"
-            },
-            {
-                rank: 11,
-                title: "The Player Who Can't Level Up",
-                desc: "Kim Kigyu is stuck at level 1 despite joining the player ranks — until he discovers “Ego Linking,” a system that redefines progression.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6g8-mQM0_E4anHPxrLhkOlvrNW_sTniZ8OHtj33883NGIeKRzD2XZmgocd2gKIM7qwGrN6khMU_v4lCF0gRRl09KktzUs4I7geaB3ykdsbCWsLvza3MtkwQWOip7WsMtPDeagIoZIGlgSdZ41Czm2kpyTxO01kM9MwUh2RNpknXVQgYEI3w6dRuft5wM/s16000/64e25b46-899d-41dd-9710-77e227b05695.webp",
-                link: "https://tapas.io/series/the-player-who-cant-level-up/info"
-            },
-            {
-                rank: 12,
-                title: "Murim Login",
-                desc: "Jin Tae-Kyung enters a mysterious VR capsule and finds himself reborn in a Murim world. But when he leaves the simulation, he keeps the skills!",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwY9WbHxgO5K6KAUwsr6h1kDSqwNd011T1QKeFGQZr7gI6nL41BPAXDA5vBaPAULn1u_dYjNCij84RCZhV3k-ZpXpBtQSvKMlse0Jt-syjogMMTp7-nO5HekiyMsnzdHInKG8nMFjbvGNTLsaLOadc2c2_7GA2Li3OqBLKPiqHmDlWcfnIyFD3X3VCih0/s1600/650c86e9-aefa-42ad-9668-23de9a10b03b.webp"
-            },
-            {
-                rank: 13,
-                title: "Worn Torn Newbie",
-                desc: "After wasting 15 years on a game, Lee Eojin suddenly returns to the beginning—with all his knowledge intact. This time, it’s personal.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMOsrr5iX5GB-H_U5dAttdzgd-0MDFjZ-r3AFtw1z6KupaJvHrqYMPL6K6M8hMtvEXONWmOBH71UqoPP2tKmmagoxzAjpJGXpNzk2QTLZ42cXq1SOxfGR8vW3mqztM2SR5gCDn0qGYSxOWNbSG8f_VSy3mYCZwgCIfXkFIqlQnC2N6YQ0rZnRcjm_gfmA/s1600/Worn%20and%20Torn%20Newbie%20%28A%20Newbie%20Who%E2%80%99s%20Nobody%E2%80%99s%E2%80%A6.webp"
-            },
-            {
-                rank: 14,
-                title: "Taming Master",
-                desc: "Jinsung deletes his high-level archer for a weak Tamer class. With rare pets and deep game knowledge, he becomes a beast master.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEibT3zldUlsd0xUoXCLIEzD5MbxkKL2fLqNKS7Ql4sfAvjN7krIksA0a2ojeeV7SbSz-KmLL_HoIrRwIxV76fMtZxMr4jHtwtQtJ2lwyPCwBOrEotjqUJGnZPo1rmdwEQA5O_0bJIkdi9IJpFTglXvIVnG8N-zVVjOOjsqSkmHC5bA5BAe9Y86_elrdKEA/s1600/f5cd352f-c03c-4ef4-83d5-3d3064c2a160.webp"
-            },
-            {
-                rank: 15,
-                title: "Dimensional Mercenary",
-                desc: "Faced with mounting debt, Chul Ho signs a shady contract that sends his soul into alternate realities to complete missions.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgP_6eKPqnn2LHGefTgYsjUxzV-UyjYKi5er0kMTl7T3WbIGTvgzX05iNWU1esYVdC95RVz15Z_HQwJhmwYszf5hT-oZlxYpQLCZbZFcr_dxphZccQDfJ09bY0JtCUet0ApnWO63NhLeGsDFW2jEvRq6vSS98se9OtSiWJOsHl_ti9EBGTCOni27X0zLOE/s1600/Other%20World%20Warrior%20The%20Dimensional%20Mercenary%E2%80%A6.webp"
-            },
-            {
-                rank: 16,
-                title: "Seoul Station Necromancer",
-                desc: "Returning from another planet as “The Immortal,” the protagonist wields an endless army of undead against enemies in modern Seoul.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXthCHWiyKJwoPtbRwlNiMpLJZ0JLT93BKg4-a3hm7VEiOB9yS2Tohxy9clWlpZ9lHEJsH7MSI-V16pHw3M0jEI7s3J-8qhCtpjk3sdYB2dukDD8ICgkwnLcQYC2i-17gNSs8OT1sUZmo3y-8lVtJq9Gh1uSScHvS_aq4g_yBF-e0_xUNPrAcqBxRycaA/s16000/a1ba4c07-0614-44a1-8b37-d0a7f542ac63.webp",
-                link: "https://tapas.io/series/seoul-stations-necromancer/info"
-            },
-            {
-                rank: 17,
-                title: "Quest Supremacy",
-                desc: "Kim Suhyeon is your typical punching bag—until he receives a strange quest system that turns everyday life into a literal game.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Vlo5_BufkhKnZ-hjjpJ7fcPULjK6W1icKfis-hczQFHDGfcW25VO6Fd9U843Wk57aeKHyTnP3JXUPobSC_ZFDhyphenhyphenRltDkV8VLxqU-uGNDxPndhnGdrB8A_AJM57lOCbIcCSkro23dnsSYVx3uvGrrvcCp0K39XJFMnZD54dmHlR8B_KZwgK7HJcU2TLs/s1600/Origination_%20Manwha%20Demographic_%20Shounen%20%20Status%E2%80%A6.webp"
-            },
-            {
-                rank: 18,
-                title: "Dungeon Reset",
-                desc: "When his teammates leave him for dead, Dawoon becomes a glitch in the dungeon system, respawning with crafting cheats.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBuGe3q0UR4SNkuecGl-C9BoEYbFesjqOrmMDlUVgavrR4oLQqmikf9rMVrfcuGmvIMQfxpoEL8ssTnFZzuCaXNpkYbIZq4zEEioxbzT23LDeCzysJHZYUDWkCU3V1XIMkPI4c-66prtcqzJwzen9NX_7wRHtT3QOuYmMywqf_E-dccJh4eCVmzxynBjA/s1600/aafd4bb5-b2dd-442d-8728-173c208c9477.webp"
-            },
-            {
-                rank: 19,
-                title: "Latna Saga",
-                desc: "Hanbin is trapped in a broken tutorial for 20 years, leveling endlessly but stuck at level 1. He finally escapes as a god-tier warrior.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFWzUVSgYZjpUfmSfWzU0AQoQP9JkS8ZxKVlldsIxu2aPdebWmUFjSucYq5BVbGdENoOBqhjV-ZTma1Q33r4g47FOWdSnV-iNKG0DsBD9yC85aziWBm34QL3rD55xNHTuTyfYuOwVKEDVpO8rHdqHAJyMHDA4y-wP0rih6IXrSzOQfu6hasCbenWhy1lE/s1600/06a24e00-b139-4e0a-900d-55360029878c%20%281%29.webp"
-            },
-            {
-                rank: 20,
-                title: "Return to Player",
-                desc: "After humanity's fall in a death game, Sehan Kim is the last one left. Rewinding time, he plays the game smarter and deadlier.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSirVZXYUAS8XW0m5KcI__1vYQJAXxLyEPVABrwYpSiLPd_b_GvRTYxQ6XTmRpb3E9d9p1ZzZXNC0V4MLWrx1gnnBgL9jTwR1di_11xrmD5w3hM7lPWhXe1TDSEJSQRMnx7QsdLZh_abYjKhm0X1oVBTktZRg-ImkZVvTrIKJB1_EaO_KNnoVWmmMGHlA/s1600/16c4a2ca-fbfd-45ab-a202-8ea8d264a03d.webp"
-            },
-            {
-                rank: 21,
-                title: "Return of the Disaster-Class Hero",
-                desc: "After betrayal and presumed death, Geon Lee returns 20 years later as a force beyond saints and gods, hunting those who abandoned him.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVG37UhP5gcQFP45ic039CMi8dbH1QTOZCLe7Cd28qpdzEs9VOZnCTmcCrfEL_co2gdq_1p3w4eaQr2SQFn1iOzjWM-BlqYi4JWN0ZJJBygrQ0LP0NDgCx1e4FheC-yE0SeTB43ArSjwrGj8Z577P_m9mQvMyBJg0ggtlFI7uXY0qe_qPgJST_Ak_MbDg/s16000/13805306-cbaa-422a-9be1-a97908deafc4.webp",
-                link: "https://tapas.io/series/the-return-of-the-disaster-class-hero/info"
-            },
-            {
-                rank: 22,
-                title: "Rise From The Rubble",
-                desc: "Branded the traitor’s son, Zuo Fan awakens a Super Warrior System and rises from despair after a cataclysmic starfall destroys his city.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhXdPdDSI7fwjq_xPur-yIrCohpbfen_1fmFIT5jXkWRTEXJ7UkmodYBxdXQz1WrfMJDvketk7gMwtGE1r0NE8rIvzN_ZEe2WExKeGFQwCEgRDVGvZJBrGOggguGF2a8HrPW0I_tSMBVTvuVf9Sc341FD0roybz_3owHHhZ7IufFY_hi49rzb5ibKaB1Xo/s16000/WhatsApp%20Image%202025-10-14%20at%205.27.34%20PM.webp",
-                link: "https://tapas.io/series/the-warrior-ascends-from-the-rubble/info"
-            },
-            {
-                rank: 23,
-                title: "The Hero Returns",
-                desc: "After humanity falls, the last hero wakes 20 years earlier in a new body determined to rewrite his failure.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU7rknjeZLzyJxykn0LZOJOlcj3rzdevmGm20XaOMD9KAznyxSQAE2RLMwTaPyKFmFOqkIsfhjVbWjf7vZVTfqadc6oxIF4x0Lx3Ut_kj6Uf25Iunho6i_S9soKmH33gjczAs4kEtUQVP-uuTPTHwX0RHD2urFxdi6t-Sg2z1gnEP4iIkfbAn5QEwgF1o/s16000/4704095d-3295-4696-8a36-553727026943%20(1).webp",
-                link: "https://tapas.io/series/the-hero-returns/info"
-            },
-            {
-                rank: 24,
-                title: "Villain to Kill",
-                desc: "Cassian Lee, a heroic man killed in a conspiracy, awakens in the body of a young villain. His second life becomes a quest for justice.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe0NhfLZDqxVQmwOQRXq82PJMbf8EB0_FyOaKi2SVECgnOPzzYdWPLTapLOFSy7rRNmo97nqFzWArFu0NONU-dyuDYsihDSKCVbhV87HTjhlPy4sHX2fvjDR9q6h7ZMYEYYbIFVy-3WafjGGK84egwhg0uXo6kmAurlnd1W3mJQgl22g1pJUwyJVprDYM/s16000/Source_%20Villain%20To%20Kill%20(1).webp",
-                link: "https://www.webtoons.com/en/action/villain-to-kill/list?title_no=2857"
-            },
-            {
-                rank: 25,
-                title: "Mythic Item Obtained",
-                desc: "Only a few humans gain the System. Min JaeHyun struggles to endure—until he acquires the world’s only Mythic item.",
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgFO93OuNnG62I0JB6dN7YzsLFedz-s7RB0Em930lqVVd1c_-dU468znv-C8ch0wqT4Yq5zB2a3h_UyikOOvQwXRIyfeYwelI23zYk3pe-2fxaPvn2RaR-sRKeVI6MDp5MlmXjOQUkScQ80Kt8mTHUQPPGfmSg1GXEgqYVgfqKljnKi72NDb6J3TXjE4jM/s16000/726c8076-6751-4a2d-a6eb-f503e49ab1bd.webp",
-                link: "https://www.webtoons.com/en/fantasy/mythic-item-obtained/list?title_no=4582"
-            }
-        ],
-        cta: {
-            title: "Follow Us on Instagram!",
-            desc: "Interested in more? Our Instagram @manhwastorys already has 20+ genre-based manhwa recommendations waiting for you.",
-            link: "https://www.instagram.com/manhwastorys",
-            buttonText: "Visit Instagram"
+      type: "recommendation",
+      intro: "Looking for manhwa (Korean webtoons) with leveling systems, game mechanics, and overpowered MCs? Whether you're a fan of dungeon crawling, tower climbing, or skill-building stories, leveling system manhwa deliver all the action, strategy, and RPG vibes you're craving.",
+      items: [
+        {
+          rank: 1,
+          title: "Solo Leveling",
+          desc: "E-rank hunter Jinwoo lives at the bottom of society with no skills or future. After barely surviving a deadly dungeon raid, he awakens a mysterious system only he can access. Now able to grow stronger with every quest and kill, he begins a thrilling journey to become the strongest hunter."
         },
-        finalThoughts: "These manhwa offer gripping revenge arcs, powerful protagonists, and immersive fantasy worlds. Bookmark this list and check back for weekly updates — we add new recommendations and reviews regularly."
+        {
+          rank: 2,
+          title: "The Legendary Moonlight Sculptor",
+          desc: "Hyun Lee, a broke and desperate student, joins a VR MMORPG to support his family. With a weak sculpting class and sharp wits, he scams NPCs and players alike while rising to glory. The manhwa blends humor, grind, and economic strategy."
+        },
+        {
+          rank: 3,
+          title: "Second Life Ranker",
+          desc: "After discovering his twin brother died in a brutal tower challenge, Yeonwoo inherits his memories and gear through a magical watch. Enraged and determined, he climbs the Obelisk to take revenge and learn the truth."
+        },
+        {
+          rank: 4,
+          title: "Skeleton Soldier Couldn’t Protect the Dungeon",
+          desc: "A loyal skeleton dies failing to protect his master—but wakes up moments before her death. Stuck in a tragic loop, he keeps trying to change the future. Each failure brings new skills and scars."
+        },
+        {
+          rank: 5,
+          title: "The Gamer",
+          desc: "One day, student Han Jee-Han wakes with the power to live life like a video game. With stats, skills, and quest logs, he begins training like an RPG hero. But darker secrets lurk under the surface."
+        },
+        {
+          rank: 6,
+          title: "Overgeared",
+          desc: "Grid is a clueless loser both IRL and in-game—until he gains a rare crafting class. With the power of unlimited forging and broken gear, he becomes Overgeared."
+        },
+        {
+          rank: 7,
+          title: "Solo Max-Level Newbie",
+          desc: "Kang Jinhyeok is the only player to clear the Tower of Trials — and when the game merges with reality, his decade of grind becomes humanity’s secret weapon."
+        },
+        {
+          rank: 8,
+          title: "Leveling With the Gods",
+          desc: "After a war against ancient gods ends in ruin, Kim Yuwon is sent back to the past. With future knowledge and unmatched skills, he enters the tower again."
+        },
+        {
+          rank: 9,
+          title: "I Am the Sorcerer King",
+          desc: "Struggling to support his sick mother, Sunghoon takes risky jobs. But after a near-fatal event, he awakens memories of his past life as a powerful Sorcerer King."
+        },
+        {
+          rank: 10,
+          title: "The Tutorial Tower Is Too Tough",
+          desc: "Lee Honjae chooses “Hell Mode” in a mysterious tower dungeon—and gets trapped for hundreds of years. When he escapes, he's maxed out and furious."
+        },
+        {
+          rank: 11,
+          title: "The Player Who Can't Level Up",
+          desc: "Kim Kigyu is stuck at level 1 despite joining the player ranks — until he discovers “Ego Linking,” a system that redefines progression."
+        },
+        {
+          rank: 12,
+          title: "Murim Login",
+          desc: "Jin Tae-Kyung enters a mysterious VR capsule and finds himself reborn in a Murim world. But when he leaves the simulation, he keeps the skills!"
+        },
+        {
+          rank: 13,
+          title: "Worn Torn Newbie",
+          desc: "After wasting 15 years on a game, Lee Eojin suddenly returns to the beginning—with all his knowledge intact. This time, it’s personal."
+        },
+        {
+          rank: 14,
+          title: "Taming Master",
+          desc: "Jinsung deletes his high-level archer for a weak Tamer class. With rare pets and deep game knowledge, he becomes a beast master."
+        },
+        {
+          rank: 15,
+          title: "Dimensional Mercenary",
+          desc: "Faced with mounting debt, Chul Ho signs a shady contract that sends his soul into alternate realities to complete missions."
+        },
+        {
+          rank: 16,
+          title: "Seoul Station Necromancer",
+          desc: "Returning from another planet as “The Immortal,” the protagonist wields an endless army of undead against enemies in modern Seoul."
+        },
+        {
+          rank: 17,
+          title: "Quest Supremacy",
+          desc: "Kim Suhyeon is your typical punching bag—until he receives a strange quest system that turns everyday life into a literal game."
+        },
+        {
+          rank: 18,
+          title: "Dungeon Reset",
+          desc: "When his teammates leave him for dead, Dawoon becomes a glitch in the dungeon system, respawning with crafting cheats."
+        },
+        {
+          rank: 19,
+          title: "Latna Saga",
+          desc: "Hanbin is trapped in a broken tutorial for 20 years, leveling endlessly but stuck at level 1. He finally escapes as a god-tier warrior."
+        },
+        {
+          rank: 20,
+          title: "Return to Player",
+          desc: "After humanity's fall in a death game, Sehan Kim is the last one left. Rewinding time, he plays the game smarter and deadlier."
+        },
+        {
+          rank: 21,
+          title: "Return of the Disaster-Class Hero",
+          desc: "After betrayal and presumed death, Geon Lee returns 20 years later as a force beyond saints and gods, hunting those who abandoned him."
+        },
+        {
+          rank: 22,
+          title: "Rise From The Rubble",
+          desc: "Branded the traitor’s son, Zuo Fan awakens a Super Warrior System and rises from despair after a cataclysmic starfall destroys his city."
+        },
+        {
+          rank: 23,
+          title: "The Hero Returns",
+          desc: "After humanity falls, the last hero wakes 20 years earlier in a new body determined to rewrite his failure."
+        },
+        {
+          rank: 24,
+          title: "Villain to Kill",
+          desc: "Cassian Lee, a heroic man killed in a conspiracy, awakens in the body of a young villain. His second life becomes a quest for justice."
+        },
+        {
+          rank: 25,
+          title: "Mythic Item Obtained",
+          desc: "Only a few humans gain the System. Min JaeHyun struggles to endure—until he acquires the world’s only Mythic item."
+        }
+      ],
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Interested in more? Our Instagram @manhwastorys already has 20+ genre-based manhwa recommendations waiting for you.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+      finalThoughts: "These manhwa offer gripping revenge arcs, powerful protagonists, and immersive fantasy worlds. Bookmark this list and check back for weekly updates — we add new recommendations and reviews regularly."
     }
   },
+
+  {
+    "id": "best-mature-romance-manhwa-webtoons",
+    "title": "The 21 Best Mature Romance Manhwa (Webtoons) You Must Read",
+    "category": "Recommendations",
+    "date": "May 28, 2026",
+    "author": "Manhwa Story",
+    "excerpt": "Discover the best mature romance manhwa and webtoons filled with passionate relationships, political intrigue, fantasy romance, psychological drama, revenge plots, historical settings, and emotionally intense love stories perfect for binge-reading.",
+
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiryD_LnQagJDUiVKSJcpj31hGMYeRgsLS1Y1rB6PemIVYZHxPcgsQrvxYIEYn8-U6fqb3_QFB1AvMTa52l6mpok22xFM7k_hcheuSdq7FSbLUxO-AkxjyvwMGiclhzPsf36Ra3w1T-AhiUrA1N0-4J5bqF1zyjbd6NjbKGQGC1Q1RbbAsr6dlLlcwgcSc/s1600/21%20Best%20Mature%20Romance%20Manhwa.webp",
+
+    "content": {
+      "type": "recommendation",
+
+      "intro": "Mature romance manhwa go far beyond simple love stories. These webtoons combine emotional depth, intense chemistry, political drama, fantasy worlds, revenge, psychological conflicts, and unforgettable relationships. Whether you enjoy historical romance, reverse harems, dark fantasy, steamy relationships, or emotionally complex couples, these mature romance webtoons deliver gripping stories from beginning to end.",
+
+      "items": [
+
+        {
+          "rank": 1,
+          "title": "Lucia",
+          "desc": "After learning about her tragic future, Lucia decides to change her fate by entering a contract marriage with the infamous Northern Duke. What begins as a calculated arrangement slowly evolves into a deeply emotional and realistic romance."
+        },
+
+        {
+          "rank": 2,
+          "title": "Marriage of Convenience",
+          "desc": "Bianca de Arno regrets wasting her life as a selfish noblewoman after losing everything following her husband’s death. Given a second chance through regression, she works to repair her marriage and secure a better future."
+        },
+
+        {
+          "rank": 3,
+          "title": "Under the Oak Tree",
+          "desc": "Shy noblewoman Maximilian is forced into marriage with the knight Riftan Calypse. Years later, the two reunite and slowly build trust, love, and understanding in this emotional medieval fantasy romance."
+        },
+
+        {
+          "rank": 4,
+          "title": "Villainess in Love",
+          "desc": "A woman reincarnates as Yunifer Magnolia, the doomed villainess of a romance novel. Hoping to avoid her death flags, she accidentally spends a night with the male lead and changes the story completely."
+        },
+
+        {
+          "rank": 5,
+          "title": "Predatory Marriage",
+          "desc": "Princess Leah is betrayed by her own family and sold into a political marriage. But a mysterious man appears before her, changing the course of her tragic destiny and igniting a passionate romance."
+        },
+
+        {
+          "rank": 6,
+          "title": "Sultan's Love",
+          "desc": "Sayeh has quietly survived within the royal harem for years until her childhood friend ascends the throne as the new sultan. His decision to keep her by his side sparks a fiery palace romance."
+        },
+
+        {
+          "rank": 7,
+          "title": "I Fell Into a Reverse Harem Game!",
+          "desc": "A woman awakens inside a reverse harem game as the empire’s infamous princess. Surrounded by powerful men, political conspiracies, and dangerous secrets, she must survive while navigating complicated relationships."
+        },
+
+        {
+          "rank": 8,
+          "title": "The Elixir of the Sun",
+          "desc": "Discriminated against because of her appearance, Bayan is sent as a sacrifice to Emperor Dhan, a ruler cursed by dark powers. Surprisingly, her mysterious blood may be the key to saving him."
+        },
+
+        {
+          "rank": 9,
+          "title": "Like Wind on a Dry Branch",
+          "desc": "After losing her family and freedom, grieving widow Rieta Tristi is rescued by an exiled prince. Slowly, the two heal from their emotional scars while navigating court politics and war."
+        },
+
+        {
+          "rank": 10,
+          "title": "Your Throne",
+          "desc": "Medea Solon loses her position as Crown Princess to Psyche Callista, but a mysterious body swap changes both of their lives forever. This psychological political drama is filled with manipulation, revenge, and power struggles."
+        },
+
+        {
+          "rank": 11,
+          "title": "How to Win My Husband Over",
+          "desc": "After reincarnating into an abusive noble family, Rudbeckia is forced into a political marriage with a cold northern prince. Determined to survive, she slowly begins changing both her fate and her husband’s heart."
+        },
+
+        {
+          "rank": 12,
+          "title": "Baroness Goes on Strike",
+          "desc": "Cassia dies from overwork after spending years saving her struggling territory and careless husband. Given another chance at life, she decides to prioritize herself and rebuild her marriage differently."
+        },
+
+        {
+          "rank": 13,
+          "title": "Another Love",
+          "desc": "While traveling alone in Spain after a painful breakup, Jaehui Han unexpectedly meets a mysterious man through a hotel booking mistake, leading to a mature and emotional romance."
+        },
+
+        {
+          "rank": 14,
+          "title": "50 Tea Recipes From the Duchess",
+          "desc": "An overworked office worker reincarnates as the neglected wife of a duke and uses her knowledge of tea-making to transform her reputation, business prospects, and marriage."
+        },
+
+        {
+          "rank": 15,
+          "title": "The Glamorous Life of the Fake Mistress",
+          "desc": "After becoming the fake mistress of a powerful duke, Sally is dragged into dangerous schemes and betrayal. Armed with knowledge from her previous life, she fights to escape her tragic destiny."
+        },
+
+        {
+          "rank": 16,
+          "title": "The Tainted Half",
+          "desc": "After being taken as a concubine by a cruel emperor, Seolha loses everything and becomes entangled in dangerous palace politics alongside the emperor’s mysterious twin brother."
+        },
+
+        {
+          "rank": 17,
+          "title": "The Secret Bedroom of the Abandoned Princess",
+          "desc": "Princess Llewelyn is cursed after her mother’s execution and becomes the center of attention for several dangerous yet charming men in this dramatic reverse harem fantasy romance."
+        },
+
+        {
+          "rank": 18,
+          "title": "The Blood of Madam Giselle",
+          "desc": "Trapped in an abusive marriage, Giselle Nathan discovers a mysterious vampire imprisoned beneath her mansion. Their encounter slowly changes both of their lives forever."
+        },
+
+        {
+          "rank": 19,
+          "title": "‘Til Debt Do Us Part",
+          "desc": "Subin reluctantly agrees to a fake marriage proposal from her longtime frenemy in exchange for financial stability, leading to a realistic slow-burn romance filled with comedy and emotional growth."
+        },
+
+        {
+          "rank": 20,
+          "title": "The Dilettante",
+          "desc": "Counterterrorism agent Hana Lee dives into the criminal underworld after hearing news of her twin brother’s death, crossing paths with dangerous mafiosos and uncovering shocking secrets."
+        },
+
+        {
+          "rank": 21,
+          "title": "Men of the Harem",
+          "desc": "After betrayal nearly destroys her empire, Empress Latil builds her own harem while navigating politics, revenge, romance, and power struggles among several ambitious men."
+        }
+
+      ],
+
+      "cta": {
+        "title": "Follow Us on Instagram!",
+        "desc": "Want more mature romance manhwa recommendations, fantasy romance webtoons, historical drama series, reverse harem stories, and emotional binge-worthy reads? Follow @manhwastorys for daily updates, hidden gems, and genre-based recommendation lists.",
+        "link": "https://www.instagram.com/manhwastorys",
+        "buttonText": "Visit Instagram"
+      },
+
+      "finalThoughts": "Mature romance manhwa continue to grow in popularity because they combine emotional storytelling with deeper themes, complex relationships, political intrigue, fantasy worlds, and passionate character development. Whether you enjoy slow-burn romances, revenge stories, historical drama, or steamy fantasy relationships, these webtoons deliver unforgettable reading experiences. Bookmark this list whenever you need your next mature romance obsession."
+    }
+  },
+
+  {
+    "id": "best-action-romance-manhwa-webtoons",
+    "title": "The 21 Best Action Romance Manhwa (Webtoons) You Must Read",
+    "category": "Recommendations",
+    "date": "May 28, 2026",
+    "author": "Manhwa Story",
+    "excerpt": "Discover the best action romance manhwa and webtoons packed with epic battles, fantasy adventures, powerful female leads, dungeon hunters, regression stories, martial arts, supernatural powers, and unforgettable romances.",
+    "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_oAuThHrNh-3OUjUMmubJWnS9HglIvkSD0t91BXdw_UaghARIOsTsyGc7sajiu2WTS11C21u_tq_tGIsi-yC9BzTSvw8LrLJuyFP2PAGK2pEuKn54J91TXmgsrmlQW_niYnMYjWJ_UdB0Wia6ccW04B6GMVsk9uEu_ugpuuqo_zQkUhreDpTgyYcVTjA/s1600/21%20Best%20Action%20Romance%20Manhwa.webp",
+
+    "content": {
+      "type": "recommendation",
+
+      "intro": "Action romance manhwa combine explosive battles, thrilling adventures, emotional relationships, and unforgettable characters into one addictive experience. Whether you enjoy fantasy worlds, dungeon hunters, martial arts, reincarnation stories, strong female leads, or slow-burn romances mixed with intense action, these webtoons deliver the perfect balance of adrenaline and heartfelt moments. Here are the best action romance manhwa and webtoons you absolutely need to read.",
+
+      "items": [
+
+        {
+          "rank": 1,
+          "title": "Charlotte and Her 5 Disciples",
+          "desc": "After defeating the Demon Lord, legendary archmage Charlotte Eleonor prepares for death but instead awakens in a younger and powerless body. As she reunites with her chaotic disciples, comedy, magic, and romance begin unfolding once again."
+        },
+
+        {
+          "rank": 2,
+          "title": "Ending Maker",
+          "desc": "Rival gamers Kang Jin-ho and Hong Yoo-hee suddenly transmigrate into their favorite game as characters who are destined to marry. Together, they must survive dangerous adventures while slowly developing an entertaining romance."
+        },
+
+        {
+          "rank": 3,
+          "title": "Sigrid",
+          "desc": "After living her entire life as a loyal knight and dying tragically, Sigrid regresses to the past and decides to live differently. This time, she seeks freedom, humanity, and perhaps even love."
+        },
+
+        {
+          "rank": 4,
+          "title": "Regina Rena: To the Unforgiven",
+          "desc": "Sacrificed to black magic by her own father, Rena survives years of suffering and becomes a legendary warrior. Returning to the mainland, she begins a brutal path of revenge filled with bloodshed and political conflict."
+        },
+
+        {
+          "rank": 5,
+          "title": "The Huntress and the Mad Scientist",
+          "desc": "Virtual reality gamer Esperanza suddenly finds herself trapped inside a fantasy game world where she encounters a mysterious mad scientist hiding dangerous secrets inside his mansion."
+        },
+
+        {
+          "rank": 6,
+          "title": "SSS-Class Revival Hunter",
+          "desc": "Kim Gong-ja gains a unique hunter ability that allows him to copy other powers after dying. As he climbs the tower and faces deadly enemies, the story evolves into one of the best action romance arcs in modern manhwa."
+        },
+
+        {
+          "rank": 7,
+          "title": "Unholy Blood",
+          "desc": "Pure-blood vampire Hayan Park tries to live peacefully among humans until tragedy forces her to hunt down the vampires terrorizing society and avenge the death of her loved ones."
+        },
+
+        {
+          "rank": 8,
+          "title": "Villain With a Crush",
+          "desc": "After a disastrous confession and an unexpected accident, Rosa Park accidentally becomes a supervillain while obsessively trying to win the attention of the handsome police officer who saved her."
+        },
+
+        {
+          "rank": 9,
+          "title": "The Dilettante",
+          "desc": "Elite counterterrorism agent Hana Lee investigates her twin brother’s death and becomes entangled with dangerous criminals, mafia organizations, and a dangerously attractive man named Eunseong Yoo."
+        },
+
+        {
+          "rank": 10,
+          "title": "This Girl Is a Little Wild",
+          "desc": "After dying in battle, legendary knight Roel reincarnates into the body of a noble girl named Sila. Now trapped in an unfamiliar life, she experiences romance, comedy, and chaos while adjusting to her new identity."
+        },
+
+        {
+          "rank": 11,
+          "title": "Girls of the Wild’s",
+          "desc": "Struggling student Song Jae-Gu receives a scholarship to an elite martial arts school filled with powerful female fighters, leading to hilarious rivalries, intense combat, and unexpected romance."
+        },
+
+        {
+          "rank": 12,
+          "title": "Shadowless Night",
+          "desc": "After surviving an assassination attempt, knight Rosalyn loses her memories and begins acting completely differently. As mysteries unravel, political intrigue and romance slowly bloom around her."
+        },
+
+        {
+          "rank": 13,
+          "title": "Reminiscence Adonis",
+          "desc": "Former battlefield enemies Ianna and Arhad share a mysterious bond that transcends war and time. Through regression and fate, their complicated relationship slowly transforms into romance."
+        },
+
+        {
+          "rank": 14,
+          "title": "Doom Breaker",
+          "desc": "Humanity’s strongest hero Zephyr dies fighting the god of destruction but receives a second chance to return to the past. Armed with future knowledge, he attempts to stop the apocalypse once again."
+        },
+
+        {
+          "rank": 15,
+          "title": "Caught by the Villain",
+          "desc": "After reincarnating into a fantasy world, Eunha disguises herself as her missing brother and joins the military to survive. Her dangerous secret soon entangles her with powerful nobles and romance."
+        },
+
+        {
+          "rank": 16,
+          "title": "The Lazy Lord Masters the Sword",
+          "desc": "Traumatized noble Airen Farreira spends his days sleeping until a mysterious dream inspires him to pursue swordsmanship and become a warrior capable of defeating demons."
+        },
+
+        {
+          "rank": 17,
+          "title": "I Stole the First Ranker’s Soul",
+          "desc": "Ordinary office worker Son Mo-Ah accidentally acquires the soul of humanity’s strongest hunter after surviving deadly dungeon incidents, changing her life forever."
+        },
+
+        {
+          "rank": 18,
+          "title": "Player",
+          "desc": "Socially awkward Seol-Jin Heo suddenly enters the world of his favorite webtoon and is immediately thrown into deadly battles, powerful enemies, and an epic fantasy adventure."
+        },
+
+        {
+          "rank": 19,
+          "title": "Teenage Mercenary",
+          "desc": "After surviving a plane crash and growing up as a child mercenary, Ijin Yu finally returns to civilian life and reunites with his family while confronting dangerous enemies from his violent past."
+        },
+
+        {
+          "rank": 20,
+          "title": "The Beginning After the End",
+          "desc": "King Grey dies and reincarnates into a magical world filled with monsters, kingdoms, and powerful races. With memories of his past life, he begins a new journey toward strength and redemption."
+        },
+
+        {
+          "rank": 21,
+          "title": "Jungle Juice",
+          "desc": "College student Suchan Jang gains insect-like wings after using a mysterious bug spray. Forced into a hidden society of insect humans, he fights to survive while uncovering dark conspiracies."
+        }
+
+      ],
+
+      "cta": {
+        "title": "Follow Us on Instagram!",
+        "desc": "Want more action romance manhwa recommendations and hidden webtoon gems? Follow @manhwastorys for daily updates, fantasy adventures, dungeon hunters, romance webtoons, strong female leads, and genre-based recommendation lists.",
+        "link": "https://www.instagram.com/manhwastorys",
+        "buttonText": "Visit Instagram"
+      },
+
+      "finalThoughts": "Action romance manhwa continue to grow in popularity because they perfectly combine thrilling battles with emotional storytelling and unforgettable relationships. From dungeon hunters and martial arts legends to fantasy knights and supernatural heroes, these webtoons offer nonstop excitement alongside satisfying romance. Bookmark this list and come back anytime you need your next action-packed binge-read."
+    }
+  },
+
+  {
+    id: "best-completed-manhwa-webtoons",
+    title: "The 21 Best Completed Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best completed manhwa and webtoons packed with action, romance, psychological thrillers, fantasy adventures, reincarnation stories, martial arts, and emotional drama. These finished series are perfect for binge-reading without waiting for weekly chapters.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6lKqkNsfaKdYoAfjCKgOhjztaBO_-GSYY7xY-UwELe1e5LKdjsKgcgGUR-f85w3LdSTyAasEVjjbG_PSVXmZortwOK6_5h3M3y_z2Syzw-4GFs7DZIUweJuBUCNB_VQ0KGyELg50B-b9HPLLFaGsYdQ1V_9YFogOzLPyA0pftHjZKGHuvRGVlKuN-pys/s1600/21%20Best%20Completed%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Completed manhwa are perfect for readers who hate cliffhangers and endless waiting. Whether you enjoy action-packed adventures, emotional romances, psychological thrillers, fantasy worlds, or heartwarming slice-of-life stories, finished webtoons let you binge everything from start to ending in one go. Here are the best completed manhwa and webtoons you absolutely need to read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "Miss Not-So Sidekick",
+          desc: "After suddenly transmigrating into her favorite romance novel as the minor villain Latte Eclair, Hyejung avoids the main drama and instead becomes a hilarious spectator watching the chaos unfold around her."
+        },
+
+        {
+          rank: 2,
+          title: "The God of High School",
+          desc: "Martial artists from across Korea enter an intense tournament where the winner can have any wish granted. As the battles escalate, hidden powers, ancient gods, and world-shaking conspiracies begin to emerge."
+        },
+
+        {
+          rank: 3,
+          title: "If AI Ruled the World",
+          desc: "This interconnected sci-fi anthology explores a future where artificial intelligence has become deeply integrated into society, forcing humanity to confront morality, emotions, technology, and survival."
+        },
+
+        {
+          rank: 4,
+          title: "Noblesse",
+          desc: "After sleeping for over 800 years, the powerful noble vampire Cadis Etrama Di Raizel awakens in the modern world and enrolls in high school while uncovering dangerous supernatural threats."
+        },
+
+        {
+          rank: 5,
+          title: "The Boxer",
+          desc: "Yu is a boxing prodigy blessed with overwhelming talent but cursed with emotional emptiness. As he rises through the brutal boxing world, he searches for meaning in life and battle."
+        },
+
+        {
+          rank: 6,
+          title: "Positively Yours",
+          desc: "After heartbreak and a drunken one-night stand, Jang Heewon unexpectedly becomes pregnant. What follows is a surprisingly mature romance filled with healing, family, and emotional growth."
+        },
+
+        {
+          rank: 7,
+          title: "The Breaker Series",
+          desc: "Bullied student Shi-Woon discovers that his mysterious teacher is actually a legendary martial artist feared throughout the Murim world, dragging him into dangerous conflicts and martial arts battles."
+        },
+
+        {
+          rank: 8,
+          title: "Daytime Star",
+          desc: "Aspiring actress Yura Hwang finally gets her big break and slowly grows closer to top actor Seunghyeon Kang in this wholesome and realistic celebrity romance story."
+        },
+
+        {
+          rank: 9,
+          title: "Solo Leveling",
+          desc: "Weak E-rank hunter Sung Jinwoo gains a mysterious leveling ability after surviving a deadly dungeon incident. With his newfound power, he begins evolving into humanity’s strongest hunter."
+        },
+
+        {
+          rank: 10,
+          title: "Unholy Blood",
+          desc: "Pure-blood vampire Hayan hides her true identity while living among humans. But after tragedy strikes, she begins hunting the vampires terrorizing society and seeks revenge for her family."
+        },
+
+        {
+          rank: 11,
+          title: "Bastard",
+          desc: "Jin Seon is forced to help his serial killer father commit horrific crimes. When his father targets the only girl who ever cared for him, Jin risks everything to fight back."
+        },
+
+        {
+          rank: 12,
+          title: "Sweet Home",
+          desc: "After losing his family, Hyun Cha isolates himself inside an apartment complex. But when humans begin transforming into horrifying monsters, he must fight to survive alongside other desperate residents."
+        },
+
+        {
+          rank: 13,
+          title: "My Royal Awakening",
+          desc: "A modern man suddenly awakens inside Korea’s Joseon Dynasty as a royal prince during the reign of a tyrannical king, forcing him to navigate politics, survival, and looming disaster."
+        },
+
+        {
+          rank: 14,
+          title: "Her Summon",
+          desc: "Social recluse Jin Kyung is summoned to another world where he gains overwhelming magical abilities and slowly learns to confront his trauma while protecting his new companions."
+        },
+
+        {
+          rank: 15,
+          title: "ReLife",
+          desc: "Failed adult Arata Kaizaki is given a second chance at life through a mysterious experiment that transforms him into a teenager and sends him back to high school for one year."
+        },
+
+        {
+          rank: 16,
+          title: "Leviathan",
+          desc: "After a comet floods the Earth, humanity survives on ships while terrifying sea monsters dominate the oceans. In this brutal world, every journey across the sea is a fight for survival."
+        },
+
+        {
+          rank: 17,
+          title: "Season of Blossom",
+          desc: "Several students experience friendship, love, heartbreak, grief, and personal struggles across different seasons in this emotional and realistic school-life romance drama."
+        },
+
+        {
+          rank: 18,
+          title: "The Villainess Turns the Hourglass",
+          desc: "After being betrayed and executed by her manipulative stepsister, Aria gains the power to rewind time using a magical hourglass and begins plotting her revenge."
+        },
+
+        {
+          rank: 19,
+          title: "The Reason Why Raeliana Ended up at the Duke's Mansion",
+          desc: "After reincarnating into a doomed side character from a novel, Raeliana forms a fake engagement with the dangerous Duke Noah Wynknight to avoid her tragic fate."
+        },
+
+        {
+          rank: 20,
+          title: "See You in My 19th Life",
+          desc: "Ban Jieum remembers all her past lives and decides to reunite with the boy she loved in her previous life, leading to a deeply emotional romance filled with destiny and healing."
+        },
+
+        {
+          rank: 21,
+          title: "Who Made Me a Princess?",
+          desc: "A woman reincarnates as Princess Athanasia, a doomed royal child destined for execution. To survive, she must repair her relationship with her cold and feared father, Emperor Claude."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more completed manhwa recommendations and hidden webtoon gems? Follow @manhwastorys for daily updates, binge-worthy series, romance picks, action manhwa, fantasy stories, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Completed manhwa are perfect for readers who want full stories without waiting months or years for new chapters. From emotional romances and psychological thrillers to action-packed fantasy adventures and dark horror stories, these finished webtoons offer unforgettable binge-reading experiences from beginning to end. Bookmark this list and come back anytime you need your next completed manhwa obsession."
+    }
+  },
+
+  {
+    id: "best-cooking-manhwa-webtoons",
+    title: "The 20 Best Cooking Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best cooking manhwa and foodie webtoons packed with chefs, magical dishes, fantasy restaurants, baking, virtual reality cooking, healing food, romance, and mouthwatering meals. These are must-read webtoons for every food lover and slice-of-life fan.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhiH7Px37-ZJXMtikOrlNRh1ZmsjwUmxjZTLGhxlfc2yOGGrTZom25w71NG84F8U0ZF-SIdDMA8dhqoeHG7K6GxCo26-KUhAQ_YBxZR_6H6vjwdx41EYMdrBTn_mbZbnQpJ7fxj61KeqzyIDJH7g_HZyVUIKfNhsKWS7la2PEbDykTohYN65grXMXC6vcQ/s1600/20%20Best%20Cooking%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Cooking manhwa combine delicious food, passionate chefs, wholesome slice-of-life moments, fantasy kitchens, magical recipes, and emotional storytelling into one addictive reading experience. Whether you enjoy restaurant dramas, baking stories, VR cooking adventures, or fantasy chefs creating legendary dishes, these foodie webtoons are guaranteed to make you hungry. Here are the best cooking manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "The Cook’s Hidden Blessing",
+          desc: "After receiving a mysterious blessing from the goddess Ceres, Jungdong discovers that his cooking can heal illnesses. Determined to spread delicious miracle food, he begins his journey toward becoming the world’s first miracle chef."
+        },
+
+        {
+          rank: 2,
+          title: "Bizarre Restaurant",
+          desc: "After defeating the Demon Lord in another world, Yoo Seungwoo returns to Earth and opens a strange restaurant serving bizarre dishes infused with supernatural power-ups. The food tastes terrible, but it makes people stronger."
+        },
+
+        {
+          rank: 3,
+          title: "God of Cooking",
+          desc: "Minjun abandons his ordinary teaching career to pursue his dream of becoming a professional chef. After receiving a mysterious cooking system, he gains a second chance to rise through the brutal culinary world."
+        },
+
+        {
+          rank: 4,
+          title: "Please Have a Meal (Gourmet Gamer)",
+          desc: "Famous chef Yi Rim loses his senses of taste and smell, causing his life to collapse. Seeking comfort in virtual reality gaming, he discovers he can finally cook and enjoy food again inside the game world."
+        },
+
+        {
+          rank: 5,
+          title: "I Became the Chef of the Dragon King",
+          desc: "Chong Shim sacrifices herself to the Dragon King in hopes of curing her father’s blindness. Instead of dying, she begins cooking delicious meals for a lazy and gluttonous dragon ruler deep beneath the sea."
+        },
+
+        {
+          rank: 6,
+          title: "Michelin Star",
+          desc: "After working in elite Michelin-starred restaurants overseas, chef Ryu returns to Korea determined to transform a small ordinary restaurant into a world-class dining establishment through pure skill and dedication."
+        },
+
+        {
+          rank: 7,
+          title: "The Legendary Moonlight Sculptor",
+          desc: "Weed survives the virtual reality game Royal Road through cheap cooking, monster ingredients, clever tricks, and his bizarre sculpting abilities. His hilarious adventures blend gaming, survival, and food perfectly."
+        },
+
+        {
+          rank: 8,
+          title: "Rookie Chef With the Magic Touch",
+          desc: "Young chef Seonghoon Kang possesses the supernatural ability to see the memories of ingredients through touch. Using this talent, he slowly climbs the culinary ladder and proves his worth as a professional chef."
+        },
+
+        {
+          rank: 9,
+          title: "The Evil Princess Dreams of a Gingerbread House",
+          desc: "After reincarnating into the body of a cursed princess, Asya dreams of living peacefully while baking delicious desserts and pastries. Armed with charm and magical baking skills, she struggles to survive her dangerous fate."
+        },
+
+        {
+          rank: 10,
+          title: "Gourmet Gaming",
+          desc: "Kang Minhyuk suffers from a rare eating disorder that pushes him toward virtual reality gaming as treatment. Inside the game, he discovers endless delicious meals that slowly help heal his condition."
+        },
+
+        {
+          rank: 11,
+          title: "50 Tea Recipes From the Duchess",
+          desc: "A modern office worker transmigrates into the body of Duchess Chloé Battenberg and uses her extensive tea knowledge to transform her social standing, business prospects, and personal relationships."
+        },
+
+        {
+          rank: 12,
+          title: "Kitchen Soldier",
+          desc: "Army cook assistant Kang Sung-Jae gains access to a mysterious cooking system during his military service. Using newfound skills, he attempts to impress hungry soldiers and survive army life."
+        },
+
+        {
+          rank: 13,
+          title: "A DeadbEAT's Meal",
+          desc: "After a painful breakup, unemployed foodie Jaeho copes with heartbreak through cooking and eating nostalgic dishes tied to memories of his former relationship and personal growth."
+        },
+
+        {
+          rank: 14,
+          title: "Delicious Scandal",
+          desc: "An unpopular singer joins a cooking competition to revive her struggling career while navigating romance, scandals, and complicated relationships inside the culinary industry."
+        },
+
+        {
+          rank: 15,
+          title: "Heavenly Demon Bakery",
+          desc: "A legendary heavenly demon regresses to modern Earth and decides to open a bakery using martial arts techniques and supernatural baking methods to create extraordinary breads and desserts."
+        },
+
+        {
+          rank: 16,
+          title: "What Should We Eat?",
+          desc: "Workaholic Mia has little interest in real food until circumstances force her to live with a talented cooking streamer who slowly changes her lifestyle through delicious homemade meals."
+        },
+
+        {
+          rank: 17,
+          title: "The Greatest Chicken",
+          desc: "After his father’s fried chicken business falls apart, Sang Wook takes over the struggling restaurant and begins a hilarious journey to create the ultimate fried chicken recipe."
+        },
+
+        {
+          rank: 18,
+          title: "The Celestial Returned From Hell",
+          desc: "After surviving thousands of years in the Abyss, Yeonseung Choi returns to Earth with monstrous powers and a bizarre obsession with cooking monsters, demons, and anything remotely edible."
+        },
+
+        {
+          rank: 19,
+          title: "Cooking Wizard",
+          desc: "Tattoo artist Yoo Jung reincarnates as a plant mage in a fantasy world and uses magical ingredients and cooking skills to help a cold prince recover his appetite and emotional wounds."
+        },
+
+        {
+          rank: 20,
+          title: "Lady Chef Royale",
+          desc: "After transmigrating into the body of a hated noble girl, Sena uses her modern cooking knowledge to win over nobles, transform her reputation, and navigate royal politics through food."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more foodie webtoon recommendations, fantasy cooking stories, slice-of-life manhwa, and hidden gems? Follow @manhwastorys for daily updates, trending webtoons, and genre-based recommendation lists.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Cooking manhwa continue to grow in popularity thanks to their relaxing atmosphere, mouthwatering food art, wholesome storytelling, fantasy kitchens, and emotional character journeys. Whether you enjoy magical chefs, restaurant dramas, baking stories, VR cooking adventures, or food-centered romance, these webtoons deliver some of the most satisfying binge-reading experiences available. Bookmark this list and check back regularly for more updated cooking manhwa recommendations."
+    }
+  },
+
+  {
+    id: "best-villain-manhwa-webtoons",
+    title: "The 21 Best Villain Manhwa (Webtoons) You Must Binge Read",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best villain manhwa and webtoons packed with ruthless anti-heroes, revenge-driven masterminds, manipulative villains, psychopaths, regressors, demon sect warriors, and morally gray protagonists. These are must-read series for fans of dark and chaotic stories.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCC08MCQrbh-3BVt_Qojfgq4h69cccr4Lsm9peC-kzINmNYQEIt6A3k6AFIhJwm0vJ0_CcFD79BdwNN85dq0O2xtnNHMdWWIEO4WkWzMv8XBuBhRr7uDgZtQ3gSSUG26o77IMKnif6CpvfXon7kk7B_HOhodtM1Tdzn1PlHi8jNJOGYpKTqXe50JPRDc4/s1600/21%20Best%20Villain%20Manhwa.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "Villain manhwa offer a refreshing twist from traditional hero stories by placing ruthless anti-heroes, psychopaths, manipulators, and revenge-driven characters at the center of the action. Whether it’s a regressor seeking vengeance, a demon sect martial artist, or a cold-blooded mastermind willing to sacrifice everything for power, these stories deliver nonstop chaos, brutality, and high-stakes drama. Here are the best villain manhwa and webtoons you absolutely need to binge read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "How to Live as a Villain",
+          desc: "Seonghoon is transported into a deadly god succession game where billions compete for survival. Lacking talent or powerful abilities, he survives through manipulation, betrayal, lies, and ruthless decision-making."
+        },
+
+        {
+          rank: 2,
+          title: "How to Use a Returner",
+          desc: "Lee Giyoung is summoned into a dangerous fantasy world with only a weak ability that reveals player stats. To survive, he relies on cunning schemes, manipulation, and attaching himself to a powerful regressor."
+        },
+
+        {
+          rank: 3,
+          title: "Boss in School",
+          desc: "Seth Kwon suppresses his violent instincts despite constant bullying. But after tragedy strikes his family, he unleashes his overwhelming strength and becomes a terrifying force feared by everyone around him."
+        },
+
+        {
+          rank: 4,
+          title: "Rooftop Swordmaster",
+          desc: "After brutal bullying destroys his life and family, Seo-kyong receives a mysterious heavenly sword that grants him immense power. Consumed by rage and revenge, he begins a horrifying massacre against society itself."
+        },
+
+        {
+          rank: 5,
+          title: "Heavenly Demon Reborn!",
+          desc: "Woon-Seong is betrayed and murdered by the orthodox sects he once trusted. Reborn inside the Demon Sect, he trains relentlessly and embraces ruthless methods to achieve revenge against his enemies."
+        },
+
+        {
+          rank: 6,
+          title: "Bastard",
+          desc: "Jin Seon is forced to assist his serial killer father in horrifying murders. But when his father targets the only girl who ever showed him kindness, Jin must decide whether to continue living in fear or fight back."
+        },
+
+        {
+          rank: 7,
+          title: "The Boxer",
+          desc: "Yu possesses monstrous boxing talent but struggles with emptiness and a lack of purpose in life. His journey through the brutal boxing world slowly transforms him into a terrifying and emotionally complex fighter."
+        },
+
+        {
+          rank: 8,
+          title: "Return of the Mad Demon",
+          desc: "Known throughout the martial world as the infamous Mad Demon, Jahan Lee regresses into the past after stealing a sacred artifact. Armed with insanity, overwhelming martial arts, and dark humor, he begins rewriting his fate."
+        },
+
+        {
+          rank: 9,
+          title: "The Reaper of the Drifting Moon",
+          desc: "Pyo Wol is kidnapped and trained as a deadly assassin in a brutal survival program. Forced to abandon his innocence, he evolves into a cold-blooded killer feared across the martial world."
+        },
+
+        {
+          rank: 10,
+          title: "Villain to Kill",
+          desc: "Hero Cassian Lee dies after uncovering a conspiracy and unexpectedly awakens inside the body of a villainous high-schooler. Trapped between heroism and villainy, he fights against corrupt heroes while gaining terrifying powers."
+        },
+
+        {
+          rank: 11,
+          title: "I Woke Up as the Villain",
+          desc: "An ordinary office worker transmigrates into a novel as a doomed third-rate villain destined to die early. To survive, he uses every trick possible to manipulate the story and avoid his tragic fate."
+        },
+
+        {
+          rank: 12,
+          title: "FFF-Class Trashero",
+          desc: "After spending ten years defeating the Demon Lord, Hansoo Kang fails his hero evaluation due to his brutal methods and selfish personality. Forced to restart his journey, he becomes even more chaotic and unhinged."
+        },
+
+        {
+          rank: 13,
+          title: "Worn and Torn Newbie",
+          desc: "Lee Eojin regresses after wasting years as an unsuccessful VR gamer. With future knowledge and endless sarcasm, he returns to dominate the game while trolling both enemies and allies alike."
+        },
+
+        {
+          rank: 14,
+          title: "The Legend of an Asura: The Venom Dragon",
+          desc: "After witnessing the destruction of his sect and enduring years of torture and poison experiments, an innocent martial artist transforms into a vengeful asura obsessed with revenge."
+        },
+
+        {
+          rank: 15,
+          title: "Tomb Raider King",
+          desc: "Joo-Heon Suh dies after being betrayed during dangerous tomb expeditions but regresses into the past before relics appeared worldwide. This time, he plans to steal every powerful relic before anyone else can."
+        },
+
+        {
+          rank: 16,
+          title: "I’ll Be a Villain This Life",
+          desc: "After being betrayed while infiltrating a dangerous mafia organization, Lee Joohyuk regresses into the past. Determined to survive, he chooses to become a villain feared even by criminals themselves."
+        },
+
+        {
+          rank: 17,
+          title: "Devil Returns to School Days",
+          desc: "Kim Hyunsung is driven into a coma after relentless bullying destroys his life and family. When he regresses into the past, he abandons mercy entirely and begins his brutal revenge against everyone responsible."
+        },
+
+        {
+          rank: 18,
+          title: "Hero Has Returned",
+          desc: "After returning from another world as a celebrated hero, Minsu Kim realizes he has lost everything important to him. Consumed by grief and madness, he becomes one of humanity’s greatest threats."
+        },
+
+        {
+          rank: 19,
+          title: "I Was the Final Boss",
+          desc: "Baphomet, the terrifying final boss of the Abyssal Tower, dies fighting humanity’s strongest hunter. But after wishing to become human, he reincarnates into the body of a weak human and starts life anew."
+        },
+
+        {
+          rank: 20,
+          title: "I’ll Be Taking a Break for Personal Reasons",
+          desc: "Overworked web novelist Yoo Ilshin gains a bizarre smartphone ability that allows him to evolve into an evil god. With absurd powers and chaotic situations, his ordinary life quickly spirals out of control."
+        },
+
+        {
+          rank: 21,
+          title: "A Dance of Swords in the Night",
+          desc: "After surviving years of poisoning and brutal training under his tormentors, Jin Sohan returns home seeking his family, only to discover their destruction. Fueled by vengeance, he begins a deadly journey across the martial world."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more dark manhwa recommendations, anti-hero stories, revenge webtoons, and villain-themed reading lists? Follow @manhwastorys for daily updates, hidden gems, trending releases, and genre-based recommendations.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "Villain manhwa continue to grow in popularity because of their ruthless anti-heroes, morally gray characters, revenge-driven plots, psychological tension, and chaotic action. Whether you enjoy manipulative masterminds, overpowered regressors, demon sect warriors, or pure psychopaths, these webtoons deliver some of the most addictive and intense stories in the manhwa world. Bookmark this list and keep checking back for more updated villain manhwa recommendations."
+    }
+  },
+
+
+
   {
     id: "weekly-news-intel-may-17-2026",
     title: "Weekly News: Massive Intel on Returns & Finales",
@@ -329,116 +2120,396 @@ export const BLOG_POSTS: BlogPost[] = [
       type: "recommendation",
       intro: "This week's intelligence report brings major updates on ongoing serializations, season finales, and long-awaited returns. Stay informed to optimize your library.",
       items: [
-        { 
-          rank: 1, 
-          title: "Past Life Returner", 
-          desc: "Season 4 has officially ended with 173 chapters. The studio confirmed the series will return for Season 5 after a reorganization period.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhabTSWFxCAvRv1kAR8DaXRJaTvUwd2jmQQgYmmgpCN1jEUo7fuO-HQdHJMZzO-FteBMSMfdUghVX8gwvHdE7RIkUyLxtUYS0daQX7YK3vDylXGKb1P1YAezY1xlNz0m0mMInmdAGk0sSH_ZMw1Qbi5cW5A2KyPa53bdBMaTqLhuJGOWVnsQT74zggGw-U/s1600/Hoegwigeomgaui%20Seojaga%20Saneun%20Beop%20%E2%80%A2%20Regressing%20as%E2%80%A6.webp" 
+        {
+          rank: 1,
+          title: "Past Life Returner",
+          desc: "Season 4 has officially ended with 173 chapters. The studio confirmed the series will return for Season 5 after a reorganization period.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhabTSWFxCAvRv1kAR8DaXRJaTvUwd2jmQQgYmmgpCN1jEUo7fuO-HQdHJMZzO-FteBMSMfdUghVX8gwvHdE7RIkUyLxtUYS0daQX7YK3vDylXGKb1P1YAezY1xlNz0m0mMInmdAGk0sSH_ZMw1Qbi5cW5A2KyPa53bdBMaTqLhuJGOWVnsQT74zggGw-U/s1600/Hoegwigeomgaui%20Seojaga%20Saneun%20Beop%20%E2%80%A2%20Regressing%20as%E2%80%A6.webp"
         },
-        { 
-          rank: 2, 
-          title: "The Ex-Mercenary Prosecutor", 
-          desc: "Season 1 has ended with 51 chapters. Currently waiting for official updates regarding the next season's production.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTee-s3uo3Zz2IKk8czQ0-oXroZKyq3QHkB9O-L0DoOMR2uWiHnd09ZzrwD2o_OTOcxA_5cA6UkFMtvTMoYT2OEaHgafknrwy5WEmpC8td2yoibFeM0LtujWBal96sCB9RKdq4WtTLggflTno8ueCvKxxClU6A4xSDZE7qrMZMazEXA5aGfLqA5Y1MHso/s1600/Margrave%E2%80%99s%20Bastard%20Son%20was%20The%20Emperor__%EB%B3%80%EA%B2%BD%EB%B0%B1%20%EC%84%9C%EC%9E%90%EB%8A%94%E2%80%A6.webp" 
+        {
+          rank: 2,
+          title: "The Ex-Mercenary Prosecutor",
+          desc: "Season 1 has ended with 51 chapters. Currently waiting for official updates regarding the next season's production.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTee-s3uo3Zz2IKk8czQ0-oXroZKyq3QHkB9O-L0DoOMR2uWiHnd09ZzrwD2o_OTOcxA_5cA6UkFMtvTMoYT2OEaHgafknrwy5WEmpC8td2yoibFeM0LtujWBal96sCB9RKdq4WtTLggflTno8ueCvKxxClU6A4xSDZE7qrMZMazEXA5aGfLqA5Y1MHso/s1600/Margrave%E2%80%99s%20Bastard%20Son%20was%20The%20Emperor__%EB%B3%80%EA%B2%BD%EB%B0%B1%20%EC%84%9C%EC%9E%90%EB%8A%94%E2%80%A6.webp"
         },
-        { 
-          rank: 3, 
-          title: "Why I Quit Being the Demon King", 
-          desc: "Season 2 is officially scheduled to return on May 22. Prepare for the next chapter of the dark throne.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOu9uVQPKm5hBBg0B8wxKkDcva4j4who1fRJFApeuQABGY9guirrwn_vDGcLfIigFPCwWa_RK_kaGw-cfMokW507_5AxtOyKxtuJiq2b787W5rnS0U95iC5nj6aOfPTAR57ifD2NwdSofLPl3Fx9_QQu1a9oY1B3axCG7fnYlJGtsjXRnso7HWviKoFrg/s1600/e944f456-64ed-477c-96ad-c747375cb6b7.jfif" 
+        {
+          rank: 3,
+          title: "Why I Quit Being the Demon King",
+          desc: "Season 2 is officially scheduled to return on May 22. Prepare for the next chapter of the dark throne.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiOu9uVQPKm5hBBg0B8wxKkDcva4j4who1fRJFApeuQABGY9guirrwn_vDGcLfIigFPCwWa_RK_kaGw-cfMokW507_5AxtOyKxtuJiq2b787W5rnS0U95iC5nj6aOfPTAR57ifD2NwdSofLPl3Fx9_QQu1a9oY1B3axCG7fnYlJGtsjXRnso7HWviKoFrg/s1600/e944f456-64ed-477c-96ad-c747375cb6b7.jfif"
         },
-        { 
-          rank: 4, 
-          title: "The Reincarnated Assassin Is A Genius Swordsman", 
-          desc: "Back from hiatus! Released 1 new chapter: Ch.85. The journey of the shadow blade continues.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAnJaOpXBjz6VCSfR_8GzBx3FaxBUcx9oqI5NmRT_X3Y_boMmNfQSEUs8_ZzGFJsDc1DyZ2Z-xseV5FYH_GPYhKO5K07Jy8PosmE_lELoR5F7svR3DEokUn9Xl9KhAk_lD6kXz9zLKJAI9__UG22EUA4TyajP4qMd0dn90dXnkMKTrpOSfzdyPRWxLaDY/s1600/The%20Reborn%20Young%20Lord%20Is%20an%20Assassin.webp" 
+        {
+          rank: 4,
+          title: "The Reincarnated Assassin Is A Genius Swordsman",
+          desc: "Back from hiatus! Released 1 new chapter: Ch.85. The journey of the shadow blade continues.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAnJaOpXBjz6VCSfR_8GzBx3FaxBUcx9oqI5NmRT_X3Y_boMmNfQSEUs8_ZzGFJsDc1DyZ2Z-xseV5FYH_GPYhKO5K07Jy8PosmE_lELoR5F7svR3DEokUn9Xl9KhAk_lD6kXz9zLKJAI9__UG22EUA4TyajP4qMd0dn90dXnkMKTrpOSfzdyPRWxLaDY/s1600/The%20Reborn%20Young%20Lord%20Is%20an%20Assassin.webp"
         },
-        { 
-          rank: 5, 
-          title: "Reincarnated Escort Warrior", 
-          desc: "Officially Completed. The series has reached its final destination with 153 chapters.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYYPqTLaX2JQ3NUg6cwsW6ZtjGD38LzDc-7Y2j4Suw8iKMHqhn89HUuX7F_cCC88ycaRWXyB4RAirmEVPu3VPY6hDK2dgmRFrCBv2-NwGHWjFyeVK5Ssg6DA-oSqJPeJgtCtrCjzZcAOXqZq0dTFXzPSRAMr2CP2KbMXHlxjGvW_US1pwf1Ue8LnIy7NU/s1600/69d7a012-9a1e-4a8b-b4ec-ac968d6e23e2.jfif" 
+        {
+          rank: 5,
+          title: "Reincarnated Escort Warrior",
+          desc: "Officially Completed. The series has reached its final destination with 153 chapters.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYYPqTLaX2JQ3NUg6cwsW6ZtjGD38LzDc-7Y2j4Suw8iKMHqhn89HUuX7F_cCC88ycaRWXyB4RAirmEVPu3VPY6hDK2dgmRFrCBv2-NwGHWjFyeVK5Ssg6DA-oSqJPeJgtCtrCjzZcAOXqZq0dTFXzPSRAMr2CP2KbMXHlxjGvW_US1pwf1Ue8LnIy7NU/s1600/69d7a012-9a1e-4a8b-b4ec-ac968d6e23e2.jfif"
         },
-        { 
-          rank: 6, 
-          title: "Helmut: The Forsaken Child", 
-          desc: "Temporary Hiatus Notice. Studio K-Hit announced a regrouping period to return with better serialization soon.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqrELB8k4y2dfryWKTIX-89ISe53X2jo0Wh90RYnXYCvb4Bnl9WvMwu5rkgZmCv-5LOmNztxqaADjOzlEjX1PFK0qdFKx7xjLHrwHo5q8JY97JV6mXSNs_R37FKLXGmowM6lW1pOVk3MONhZBAEoamECSdV7UPA74qgLGtpDQfKxetirkSUJLBMbCcgzs/s1600/A%20Returners%20Magic%20Should%20Be%20Special%20Characters%E2%80%A6.jfif" 
+        {
+          rank: 6,
+          title: "Helmut: The Forsaken Child",
+          desc: "Temporary Hiatus Notice. Studio K-Hit announced a regrouping period to return with better serialization soon.",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqrELB8k4y2dfryWKTIX-89ISe53X2jo0Wh90RYnXYCvb4Bnl9WvMwu5rkgZmCv-5LOmNztxqaADjOzlEjX1PFK0qdFKx7xjLHrwHo5q8JY97JV6mXSNs_R37FKLXGmowM6lW1pOVk3MONhZBAEoamECSdV7UPA74qgLGtpDQfKxetirkSUJLBMbCcgzs/s1600/A%20Returners%20Magic%20Should%20Be%20Special%20Characters%E2%80%A6.jfif"
         },
-        { 
-          rank: 7, 
-          title: "Academy's Genius Swordmaster", 
-          desc: "Season 2 is back! Released 7 new chapters: Ch.130–136. A massive drop for the fans.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLJAzLtfGuOy_q6TpGu1TA3bE6EmnLbg08ZndoLHEqlFMc_lHikwIraiDnI8kUMukCDuQDz5-ZoSudrZjlqdV3EIGxzbztWqin3N61Xc1MCQt_U69-362MlV0weX95ZgoMTjdkLC_IC3ntPtjwyNe7HrZlxFgBUNTuDs4mdpj-vuGPVz18UW0zhSSp6Ns/s1600/Name%20_%20Academy%20Undercover%20professor%20%F0%9F%92%95.webp" 
-        },
-        { 
-          rank: 8, 
-          title: "After the Moonlight Falls", 
-          desc: "5-Week Hiatus Notice. Reorganization from May 8 to June 5. Resumes on June 12.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifEERymw20kS9caBVPFMv_CiEsH_e6q8nSDUocxWFs4aqM2x0_tZuyWzNeamhb8GYatVjO8SV8mR84eXNZN-nmzKtAbD1THCVhMy1-H8S2L0oK5SIsety-DYSOj2wCebePwKHhVtTCs9GxH0fuRAKBZv5kKCDtAcq2bqA5C32n4Mb-fG8BqKBrkvD6NpM/s1600/undefined%20%281%29.webp" 
-        },
-        { 
-          rank: 9, 
-          title: "Bizarre Restaurant", 
-          desc: "Season 3 returns on May 21! Ep 83 & 84 will release together with a new 5-on-1-off schedule.", 
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrFqKqySE0Ql4KiC_6KxA5OIaXNFVVyZlNhbn-BKX2fzK23OnmgK8joZXsvvxt1eFzj-D4DBTGxQAFLVPvufdluAYWXQi-byhTarNF4f2MrAZZ6JvVVjz3sO2fIovTCKp723Ie8iiTcPmiKErSZC5B1_5LwsFQ5Ac-ss11UIG3OmpHa66YmJer2ZY8jZo/s1600/Manhwa_%20The%20Dark%20Magician%20Transmigrates%20After%E2%80%A6%20%281%29.webp" 
-        }
       ],
       finalThoughts: "The ecosystem is shifting rapidly. Stay tracking and keep your library optimized!"
     }
   },
   {
-    id: "weekly-intel-issue-01",
-    title: "Weekly News: The Rise of Solo Leveling Arise & New Manhwa Adaptations",
-    category: "News",
-    date: "May 17, 2026",
-    author: "Atrix Team",
-    excerpt: "This week's intel covers the massive success of the Solo Leveling game, three new anime announcements for popular webtoons, and what to expect in June.",
-    image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2000&auto=format&fit=crop",
+    id: "top-new-release-manhwa-2025",
+    title: "Top 25+ New Release Manhwa You Must Read in 2025",
+    category: "Recommendations",
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Discover the best new release manhwa and manhua of 2025 featuring reincarnation, martial arts, fantasy worlds, regression, cultivation, revenge stories, supernatural powers, and action-packed webtoons with unforgettable protagonists.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQpqL1jjtaZnyOVAwLL6HUEeNbT1PmRLdlDGrj7s5gcaxK1TtKN5nE-OB4EQsG5BDIwzSvu3nNDLDK187WpJyo5O8wszhhuhz6RWeuJLKTFbSQvKoYEUb7QBfF-KVtXTF1_zsenDer-RE-n6wH0E5dGaN6KERIBYhkIc4WGncH-wMy0JSrr2tan0muZfA/s1600/Your%20paragraph%20text%20%285%29%20%281%29.webp",
+
     content: {
       type: "recommendation",
-      intro: "Welcome to the first issue of Weekly Intel. We are tracking the most explosive shifts in the Manhwa ecosystem this week, focusing on game launches and the 'Anime Renaissance' of Korean webtoons.",
+
+      intro: "If you're searching for the best new release manhwa and webtoons to binge-read in 2025, this list is packed with everything fans love — reincarnation, martial arts, regression, cultivation, revenge, fantasy worlds, supernatural systems, and overpowered protagonists. From dark fantasy revenge stories to emotional rebirth journeys and action-packed murim adventures, these new manhwa and manhua are dominating readers worldwide. Here are the top new release manhwa you absolutely should not miss this year.",
+
       items: [
+
         {
           rank: 1,
-          title: "The Gaming Frontier: Arise Dominates",
-          desc: "Solo Leveling: Arise has officially crossed 50 million global players. The impact on the original manhwa's readership has been unprecedented, with a 300% surge in digital sales.",
-          image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2000&auto=format&fit=crop"
+          title: "Using My Cooking Skills in a Murim World",
+          desc: "A modern chef is transported to the Song Dynasty where martial artists replace food critics. Using legendary cooking skills, he wins over the murim world through flavor, creativity, and heartwarming culinary adventures."
         },
+
         {
           rank: 2,
-          title: "Three New Adaptations Confirmed",
-          desc: "Inside sources confirm that 'The Greatest Estate Developer' and 'Pick Me Up, Infinite Gacha' have been greenlit for major studio animations.",
-          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPMiIFfVEKPPz9n8sb2-c5o4ObPMS9vm-6Ya-EmUmDUliHcqRDFYxMY5KFNyoDpYe5al2t0MFtr7dUbeDW5Y2tN9bTY51fwUnsnULI0KRiqaxpXJPNtuPYJI2x0SYsaIzAoM__DWSAH96t2xpM2897YCErlvTSgXVeg0LXnNIMJo4xkpjEvxOAWH-BZwQ/s1600/The%20Greatest%20Estate%20Developer%20%281%29.webp"
+          title: "Trump Card",
+          desc: "After being diagnosed with a terminal illness, Chen Qi receives a mysterious Mirror Poker card that drags him into a supernatural survival game filled with deadly risks, strange powers, and psychological tension."
         },
+
         {
           rank: 3,
-          title: "Industry Shifts to Personalization",
-          desc: "Readers are moving away from mainstream aggregator apps and towards personalized sanctuary platforms like Atrix Explorer for better tracking and experience.",
-          image: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2000&auto=format&fit=crop"
+          title: "The Tale of the Skeleton Messenger",
+          desc: "Benrira awakens as a skeletal messenger carrying her Emperor’s final words across a corrupted land. This haunting dark fantasy explores loyalty, rebellion, vengeance, and sacrifice."
+        },
+
+        {
+          rank: 4,
+          title: "I’d Rather Live as a Villain",
+          desc: "Following corporate betrayal, Yoon Tae-sik enters a dangerous contract marriage with his ruthless boss for billions of won. A dark romance thriller of manipulation, revenge, and power struggles."
+        },
+
+        {
+          rank: 5,
+          title: "Classmate",
+          desc: "Lonely student Eunha Joo befriends a mysterious ghostly boy named Haesu Lee, leading her into eerie supernatural incidents filled with suspense, emotional tension, and chilling twists."
+        },
+
+        {
+          rank: 6,
+          title: "I Alone Cut Down the Chaotic World",
+          desc: "In a collapsing world consumed by madness, Lin Fan quietly follows the rules while unknowingly becoming humanity’s strongest hope for survival through overwhelming power and bizarre logic."
+        },
+
+        {
+          rank: 7,
+          title: "The Former Mercenary’s Life as a Prosecutor",
+          desc: "Legendary mercenary Lee Jung-hwan returns as a prosecutor determined to uncover the truth behind his mother’s death while delivering brutal justice both inside and outside the courtroom."
+        },
+
+        {
+          rank: 8,
+          title: "Rebirth of the Divine Demon",
+          desc: "The feared Divine Demon reincarnates into the body of a weak noble and begins reclaiming his former glory through ruthless martial arts mastery, revenge, and cultivation."
+        },
+
+        {
+          rank: 9,
+          title: "Reborn on the Demonic Cult Battlefield",
+          desc: "A disgraced martial artist regresses with perfect memory and unmatched skill, climbing the ranks of a demonic cult to obtain the power once stolen from him."
+        },
+
+        {
+          rank: 10,
+          title: "Heavenly Martial God 2",
+          desc: "Reborn into a weak and cursed body, Ha Huyeong seeks revenge against the heavenly beings who denied him immortality in this intense continuation of the martial god saga."
+        },
+
+        {
+          rank: 11,
+          title: "The Mad Dog of the Duke’s Estate",
+          desc: "A slave bound by suffering and chains finally gains control over his fate in this emotional dark fantasy centered around freedom, loyalty, pain, and survival."
+        },
+
+        {
+          rank: 12,
+          title: "The Eldest Son of the Marquis House is a Martial Artist",
+          desc: "In a noble family obsessed with martial strength, the eldest son uses overwhelming murim skills to reshape his destiny and rise through power and honor."
+        },
+
+        {
+          rank: 13,
+          title: "Spirit Realm Walker",
+          desc: "A scholar discovers the hidden Spirit Realm and embarks on a mystical journey between life and death filled with ancient secrets, supernatural forces, and dangerous mysteries."
+        },
+
+        {
+          rank: 14,
+          title: "Breakers",
+          desc: "Joo In-gong awakens inside his favorite game as an overlooked character and must rewrite fate using mysterious powers, strategy, and survival instincts within the Demon Realm."
+        },
+
+        {
+          rank: 15,
+          title: "The Back-Alley Mage’s Return",
+          desc: "After dying as a forgotten vagrant, Aster regresses to his youth and vows to create the world’s greatest magical library while rebuilding his life through knowledge and ambition."
+        },
+
+        {
+          rank: 16,
+          title: "Chronicle of Runes",
+          desc: "Cursed with the Asura Rune, Van spends centuries mastering vengeance before returning as a living calamity fueled by rage, runecraft, and overwhelming power."
+        },
+
+        {
+          rank: 17,
+          title: "Zombie Papa",
+          desc: "Ryu Min-Seok receives 100 chances to save his daughter during a zombie apocalypse, eventually awakening as a zombie with human consciousness in a desperate fight against fate."
+        },
+
+        {
+          rank: 18,
+          title: "After the School Belle Dumped Me, I Became a Martial Arts God",
+          desc: "Abandoned after transmigrating into a dangerous world, Fang Yi unlocks a powerful martial arts system and rises as humanity’s strongest protector during an approaching apocalypse."
+        },
+
+        {
+          rank: 19,
+          title: "Awakening the Purple Thunder at the Beginning",
+          desc: "Starting with a weak E-rank ability, Xu Jingming uses the Deep Blue System to evolve into a terrifying superpowered warrior through endless battles and growth."
+        },
+
+        {
+          rank: 20,
+          title: "Reincarnation of the Fist King",
+          desc: "Legendary fighter Dan Woosung awakens inside the body of a wealthy heir and uses unmatched martial arts talent to settle old grudges and dominate his enemies."
+        },
+
+        {
+          rank: 21,
+          title: "God-Tier Extra’s Ultimate Guide",
+          desc: "An ordinary gamer wakes up as the weakest NPC in his favorite game and uses meta-knowledge, clever strategies, and survival instincts to become a god-tier existence."
+        },
+
+        {
+          rank: 22,
+          title: "A Regressor’s Tale of Cultivation",
+          desc: "Seo Eunhyun is trapped in endless regression loops and begins a relentless cultivation journey to escape fate, gain enlightenment, and finally break free."
+        },
+
+        {
+          rank: 23,
+          title: "The Third Prince of the Fallen Kingdom Has Regressed",
+          desc: "After witnessing his kingdom’s destruction, Prince Yuri regresses to childhood and sets out to rebuild the empire while preventing its tragic collapse."
+        },
+
+        {
+          rank: 24,
+          title: "The Cold-Blooded Warrior",
+          desc: "A failed gamer awakens inside his favorite RPG with zero stats and must climb from absolute weakness to reclaim his freedom and survive impossible challenges."
+        },
+
+        {
+          rank: 25,
+          title: "Return of the Apocalypse-Class Death Knight",
+          desc: "Damian Haxen regresses after being forced to slaughter his own family and begins a ruthless quest for revenge against the dark mage who ruined his life."
+        },
+
+        {
+          rank: 26,
+          title: "Fog Land",
+          desc: "Trapped inside a mysterious international prison during a deadly riot, science teacher Dante Kang must survive through leadership, strategy, and courage."
+        },
+
+        {
+          rank: 27,
+          title: "The Swordmaster Who Leapt Through Time",
+          desc: "The last prince of a fallen kingdom travels 10,000 years into the past through an ancient relic and returns with overwhelming swordsmanship to rewrite history."
+        },
+
+        {
+          rank: 28,
+          title: "The Genius Blacksmith's Game",
+          desc: "After losing his hands in a tragic accident, a legendary blacksmith enters a VR game where his crafting genius allows him to break limits and dominate the virtual world."
+        },
+
+        {
+          rank: 29,
+          title: "The Divine Demon's Grand Ascension",
+          desc: "After losing his grandfather to a mysterious killer, Bu Eunseol trains through brutal bloodshed and demonic martial arts to become the strongest cultivator in existence."
         }
+
       ],
-      finalThoughts: "The industry is moving faster than ever. Stay optimized, stay tracking, and we'll see you in the next issue of Weekly Intel."
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more new manhwa recommendations, fantasy webtoons, reincarnation stories, murim adventures, regression manhwa, cultivation series, and hidden binge-worthy releases? Follow @manhwastorys for daily updates and recommendations.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "The world of manhwa continues to evolve in 2025 with incredible new releases filled with reincarnation, revenge, martial arts, fantasy kingdoms, supernatural systems, and unforgettable protagonists. Whether you love dark fantasy, murim action, regression stories, game systems, or emotional character journeys, these new webtoons deliver some of the most addictive reading experiences available right now. If you enjoy action-packed storytelling, strategic protagonists, and epic world-building, these manhwa deserve a spot on your reading list."
     }
   },
   {
-    id: "manhwa-to-read-2025-special",
-    title: "NEW Manhwa to Read in 2025 | Latest Releases",
-    category: "News",
-    date: "Oct 15, 2025",
-    author: "Manhwa Story",
-    excerpt: "Stay ahead of the curve with our latest picks of newly released manhwa for the remaining part of 2025.",
-    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQpqL1jjtaZnyOVAwLL6HUEeNbT1PmRLdlDGrj7s5gcaxK1TtKN5nE-OB4EQsG5BDIwzSvu3nNDLDK187WpJyo5O8wszhhuhz6RWeuJLKTFbSQvKoYEUb7QBfF-KVtXTF1_zsenDer-RE-n6wH0E5dGaN6KERIBYhkIc4WGncH-wMy0JSrr2tan0muZfA/s1600/Your%20paragraph%20text%20%285%29%20%281%29.webp",
-    content: null
-  },
-  {
-    id: "estate-developer-lookalike-2",
-    title: "Top 20 greatest Estate Developer likes",
+    id: "best-manhwa-like-the-greatest-estate-developer",
+    title: "Top 20 Manhwa Like The Greatest Estate Developer You Must Read",
     category: "Recommendations",
-    date: "Oct 16, 2025",
-    author: "Lee Sang",
-    excerpt: "Lloyd Frontera fans rejoice! Here are 20 similar titles with wit and grind.",
-    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuov423wgzU2OyCXkDFriX6ZK1dgNzvfw11FFwkyjg11nsRCYFd6XmokQ-vvbHE7_cy3R8uXNLcIyjlwdtCGwSM-MWUjfc2s-l5Fas1546De40FKdwuBBRCJ4pVQdL_CpeynGNKsdhVHFEBVr-96FqIG9Qy6H2piF8xH8ERME049Vx1j9jRsCz2J_RV7k/s1600/Your%20paragraph%20text%20%2813%29.webp",
-    content: null
+    date: "May 28, 2026",
+    author: "Manhwa Story",
+    excerpt: "Looking for manhwa like The Greatest Estate Developer? Discover the best kingdom-building, reincarnation, strategy, engineering, and world-building manhwa packed with clever protagonists, political schemes, humor, and satisfying progression stories.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1d-NNqw6K-PmhQY1WopjOTXehApUtZ3j26cuUtO10q7vpTLO1Qf6rpap0LDFfDdv5pqnT8waEoAPqPT725dbA3myL__eVWornSroTxsWmJCIStHvU5UMxX3vHrPjhJAc-SgpOAn8v3q_1uG5IhMh4JJWFiTW2CMIliUkZOflhco7db-ZgkfWqmKAXFcM/s16000/Your%20paragraph%20text%20(13).webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "If you loved The Greatest Estate Developer, then you probably enjoy clever protagonists, kingdom-building, engineering, political strategy, and hilarious problem-solving. Whether it’s rebuilding nations, modern knowledge transforming fantasy worlds, or underdogs rising through intelligence instead of brute force, these manhwa deliver the same addictive feeling. Here are the best manhwa like The Greatest Estate Developer that you absolutely need to binge-read.",
+
+      items: [
+
+        {
+          rank: 1,
+          title: "I Dominate a Magical Continent with an Industrial Revolution",
+          desc: "After dying from overwork, Larsen reincarnates as a spoiled noble in a magical world. Using engineering knowledge and industrial innovation, he begins transforming society and launching a fantasy industrial revolution."
+        },
+
+        {
+          rank: 2,
+          title: "Lout of Count’s Family",
+          desc: "Kim Roksu wakes up as Cale Henituse, a lazy noble destined for disaster. Armed with knowledge of the future, he cleverly manipulates events, builds alliances, and avoids danger while pretending to stay uninvolved."
+        },
+
+        {
+          rank: 3,
+          title: "Release That Witch",
+          desc: "A modern engineer reincarnates as a prince in a medieval fantasy world and begins modernizing civilization through science, technology, and magic while building a powerful kingdom."
+        },
+
+        {
+          rank: 4,
+          title: "Give Me Money",
+          desc: "A discharged soldier gains mysterious missions capable of multiplying his wealth. As he chases money and power, he uses strategy and intelligence to dominate increasingly dangerous situations."
+        },
+
+        {
+          rank: 5,
+          title: "It Starts with a Mountain",
+          desc: "Reborn into a chaotic dynasty, a brilliant tactician starts with almost nothing and slowly builds an army, expands his influence, and rises toward becoming a legendary ruler."
+        },
+
+        {
+          rank: 6,
+          title: "A Flame Reborn",
+          desc: "After betrayal destroys his future, Logan awakens years in the past and uses experience, strategy, and leadership to rebuild his forces and rewrite destiny."
+        },
+
+        {
+          rank: 7,
+          title: "Become the Castellan in Another World",
+          desc: "Transported into a fantasy world, a gamer must manage cities, command armies, and develop his territory using modern knowledge and tactical thinking."
+        },
+
+        {
+          rank: 8,
+          title: "The Apothecary Prince",
+          desc: "A genius doctor reincarnates as a weak crown prince in a declining empire and uses medicine, innovation, and political reforms to change the future of the kingdom."
+        },
+
+        {
+          rank: 9,
+          title: "I Became the Genius Bastard of a Noble Dark Clan",
+          desc: "Chris is reborn into a notorious dark mage family and must use cunning, intelligence, and modern thinking to survive deadly noble politics and reshape his fate."
+        },
+
+        {
+          rank: 10,
+          title: "What a Bountiful Harvest, Demon Lord!",
+          desc: "Instead of conquering the world through war, a newly reincarnated demon lord uses farming, science, and creativity to build a thriving territory in hilarious ways."
+        },
+
+        {
+          rank: 11,
+          title: "+99 Reinforced Wooden Stick",
+          desc: "A weak gamer mocked for his terrible weapon accidentally upgrades it into something absurdly overpowered, turning him into a chaotic underdog legend."
+        },
+
+        {
+          rank: 12,
+          title: "Return of the Mad Demon",
+          desc: "After dying while pursuing martial arts supremacy, a notorious martial artist returns to his younger self and begins reshaping the martial world through overwhelming talent and insanity."
+        },
+
+        {
+          rank: 13,
+          title: "Lord Hero of House Remes",
+          desc: "A disgraced noble suddenly gains the memories and abilities of a legendary hero, using them to seek revenge, rebuild his influence, and change the empire’s future."
+        },
+
+        {
+          rank: 14,
+          title: "Omniscient Reader’s Viewpoint",
+          desc: "When a web novel suddenly becomes reality, Dokja is the only person who knows how the apocalypse unfolds and uses his knowledge to manipulate fate and survive."
+        },
+
+        {
+          rank: 15,
+          title: "Duke Pendragon: Master of the White Dragon",
+          desc: "A loyal warrior reincarnates into a noble heir’s body and must navigate politics, dragons, and war to restore honor to his fallen family."
+        },
+
+        {
+          rank: 16,
+          title: "Solo Glitch Player",
+          desc: "A gamer awakens inside his favorite MMO as a struggling lord and exploits every bug, loophole, and hidden mechanic to rebuild his territory and become unstoppable."
+        },
+
+        {
+          rank: 17,
+          title: "The Lord of Coins",
+          desc: "After betrayal and death, Aaron returns to the past with a magical trading book that allows him to build wealth, manipulate markets, and pursue revenge."
+        },
+
+        {
+          rank: 18,
+          title: "I’m Destined to Greatness",
+          desc: "A lazy gamer somehow turns ridiculous luck and accidental genius into overwhelming success, dominating challenges through unconventional methods and comedy-filled strategies."
+        },
+
+        {
+          rank: 19,
+          title: "How to Use a Returner",
+          desc: "Weak but highly intelligent, Giyoung survives a deadly fantasy world by exploiting his ability to analyze others and strategically manipulating allies and enemies alike."
+        },
+
+        {
+          rank: 20,
+          title: "I Became the Tyrant of a Defense Game",
+          desc: "After waking up inside a brutally difficult strategy game as the doomed villain prince, a man uses expert knowledge, tactics, and resource management to survive impossible odds."
+        }
+
+      ],
+
+      cta: {
+        title: "Follow Us on Instagram!",
+        desc: "Want more manhwa recommendations like The Greatest Estate Developer? Follow @manhwastorys for daily updates on kingdom-building manhwa, reincarnation stories, strategy webtoons, fantasy adventures, overpowered protagonists, and hidden binge-worthy gems.",
+        link: "https://www.instagram.com/manhwastorys",
+        buttonText: "Visit Instagram"
+      },
+
+      finalThoughts: "The Greatest Estate Developer became popular because it perfectly blends comedy, intelligence, kingdom-building, engineering, and satisfying character progression. These manhwa deliver similar experiences through clever protagonists, strategic growth, fantasy politics, world-building, and innovative storytelling. Whether you enjoy reincarnation, tactical warfare, modern knowledge changing fantasy worlds, or hilarious underdog journeys, these recommendations will keep you binge-reading for hours."
+    }
   }
 ];
