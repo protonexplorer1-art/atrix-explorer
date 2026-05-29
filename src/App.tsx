@@ -2284,7 +2284,7 @@ const FreedomPage = () => {
 }
 
 const BlogPage = () => {
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(9);
   const [filter, setFilter] = useState<"All" | "News" | "Recommendations">("All");
 
   const filteredPosts = useMemo(() => {
@@ -2298,13 +2298,18 @@ const BlogPage = () => {
 
   const loadMore = () => {
     const currentCount = displayedPosts.length;
-    setVisibleCount(prev => prev + 8);
+    setVisibleCount(prev => prev + 9);
     setTimeout(() => {
       const anchor = document.getElementById(`blog-post-card-${currentCount}`);
       if (anchor) {
-        anchor.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
+        // Height of sticky navbar + top padding buffer
+        const headerOffset = 140; 
+        const elementPosition = anchor.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
         });
       }
     }, 100);
@@ -2368,7 +2373,7 @@ const BlogPage = () => {
               key={cat}
               onClick={() => {
                 setFilter(cat);
-                setVisibleCount(8);
+                setVisibleCount(9);
               }}
               className={cn(
                 "px-6 sm:px-8 py-3 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all active:scale-95",
