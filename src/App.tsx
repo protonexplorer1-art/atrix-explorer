@@ -16,7 +16,7 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = '/atrixexplorer.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer.apk';
     link.download = 'atrixexplorer.apk';
     document.body.appendChild(link);
     link.click();
@@ -28,7 +28,7 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = '/atrixexplorer.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer.apk';
       link.download = 'atrixexplorer.apk';
       document.body.appendChild(link);
       link.click();
@@ -2452,7 +2452,7 @@ const DownloadPage = () => {
               </div>
               <div className="shrink-0">
                 <a
-                  href="/atrixexplorer.apk"
+                  href="https://download.atrixexplorer.com/atrixexplorer.apk"
                   download="atrixexplorer.apk"
                   className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
                 >
@@ -2573,7 +2573,7 @@ const DownloadPage = () => {
                               SHA256: {rel.checksum}
                             </div>
                             <a
-                              href="/atrixexplorer.apk"
+                              href="https://download.atrixexplorer.com/atrixexplorer.apk"
                               download={`atrixexplorer-${rel.version}.apk`}
                               className="inline-flex h-11 px-6 items-center justify-center rounded-xl bg-brand-card border border-brand-border hover:bg-brand-primary hover:text-brand-bg font-black text-xs uppercase tracking-widest transition-all gap-2 self-start sm:self-auto"
                             >
