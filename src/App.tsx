@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } 
 import React, { useEffect, useState, useMemo, useRef, createContext, useContext, ReactNode } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
-import { Menu, X, Github as GithubIcon, Download, ChevronRight, Search, BookOpen, Clock, User, ArrowRight, Layers, Zap, Globe, Shield, Bell, CheckCircle, Heart, Wind, Lock, Star, ExternalLink, Instagram, Send, MoreVertical, Plus, ShoppingCart, Library, Tv, ShieldCheck, Cloud } from "lucide-react";
+import { Menu, X, Github as GithubIcon, Download, ChevronRight, ChevronDown, Search, BookOpen, Clock, User, ArrowRight, Layers, Zap, Globe, Shield, Bell, CheckCircle, Heart, Wind, Lock, Star, ExternalLink, Instagram, Send, MoreVertical, Plus, ShoppingCart, Library, Tv, ShieldCheck, Cloud } from "lucide-react";
 import { BLOG_POSTS, ManhwaItem, NewsSection } from "./data/blogPosts";
 import { cn } from "./lib/utils";
 
@@ -16,8 +16,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = '/atrix-beta.apk';
-    link.download = 'atrix-beta.apk';
+    link.href = '/atrixexplorer.apk';
+    link.download = 'atrixexplorer.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +28,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = '/atrix-beta.apk';
-      link.download = 'atrix-beta.apk';
+      link.href = '/atrixexplorer.apk';
+      link.download = 'atrixexplorer.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -61,6 +61,7 @@ const Navbar = () => {
     { name: "HOME", path: "/" },
     { name: "FEATURES", path: "/features" },
     { name: "BLOG", path: "/blog" },
+    { name: "DOWNLOAD", path: "/download" },
   ];
 
   return (
@@ -200,6 +201,7 @@ const Footer = () => {
             <h4 className="font-bold mb-8 uppercase tracking-widest text-xs opacity-50 text-brand-text">Platform</h4>
             <ul className="space-y-4">
               <li><button onClick={handleDownload} className="text-brand-grey hover:text-brand-text transition-colors">Android (Direct)</button></li>
+              <li><Link to="/download" className="text-brand-grey hover:text-brand-text transition-colors">All Releases</Link></li>
               <li className="text-brand-grey/40 cursor-not-allowed">iOS (Pending)</li>
               <li><Link to="/freedom" className="text-brand-grey hover:text-brand-text transition-colors">OS Sovereignty</Link></li>
             </ul>
@@ -2283,6 +2285,315 @@ const FreedomPage = () => {
   )
 }
 
+const DownloadPage = () => {
+  const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.0.0");
+
+  const toggleExpand = (version: string) => {
+    setExpandedVersion(prev => (prev === version ? null : version));
+  };
+
+  const releases = {
+    stable: [
+      {
+        version: "v1.0.0",
+        type: "Stable",
+        date: "June 2026",
+        size: "18.4 MB",
+        reqs: "Android 8.0+",
+        checksum: "4f89d38c6428cda49e9bf3d2b271d490cf5a7c29e2f9d863f2d29487c674251a",
+        features: ["Core engine stability", "Glassmorphic UI polish"],
+        fixes: ["Smooth scroll load-more coordinate snapping"],
+        perf: []
+      }
+    ],
+    beta: [
+      {
+        version: "v0.9.5-beta",
+        type: "Beta",
+        date: "May 2026",
+        size: "18.1 MB",
+        reqs: "Android 8.0+",
+        checksum: "8e92a76f23c7b901bc09a25b2938a1cd928f6e2b1029c87f10b271e847c231bf",
+        features: ["Reading insights improvements"],
+        fixes: ["Celebration card interface updates"],
+        perf: []
+      },
+      {
+        version: "v0.9.0-beta",
+        type: "Beta",
+        date: "April 2026",
+        size: "17.9 MB",
+        reqs: "Android 8.0+",
+        checksum: "7bc3a19b88c2e01a8f90b274e1d90c58e2a10b9bf281d7f1bb6571fa08d23d8c",
+        features: ["New weekly news section", "Official publisher details section"],
+        fixes: [],
+        perf: ["Core memory footprint reduction", "Overall bug resolutions"]
+      },
+      {
+        version: "v0.8.0-alpha",
+        type: "Alpha",
+        date: "March 2026",
+        size: "16.8 MB",
+        reqs: "Android 8.0+",
+        checksum: "5fa23d18e0a1a5b8bfd90c5a271de38e88ff2bb08a1c8b7ff27c62d08a4f6be5",
+        features: ["Export personal library data", "Import library backup lists from spreadsheet files"],
+        fixes: ["Information screen usability enhancements"],
+        perf: []
+      }
+    ]
+  };
+
+  const currentVersion = releases.stable[0];
+
+  return (
+    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen bg-brand-bg relative overflow-hidden isolate text-brand-text">
+      <DecorativeOrganic className="top-10 -left-32 rotate-45 opacity-20" size="w-96 h-96" color="fill-brand-primary/5" variant={1} />
+      <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-20" size="w-[500px] h-[500px]" color="fill-brand-grey/5" variant={2} />
+      <BackgroundBlob className="top-20 -left-20" color="bg-brand-primary/20" size="w-[600px] h-[600px]" variant={3} />
+      <BackgroundBlob className="bottom-20 -right-20" color="bg-brand-grey/28" size="w-[600px] h-[600px]" variant={1} />
+
+      <Helmet>
+        <title>Download Atrix Explorer | Releases & Version History</title>
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.0.0), view full release notes, changelogs, and download history." />
+      </Helmet>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
+        <header className="mb-16 text-center lg:text-left">
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-xs font-mono uppercase tracking-[0.5em] mb-6 block text-brand-grey opacity-60"
+          >
+            ATRIX HUB — RELEASES
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tighter mb-8 uppercase"
+          >
+            Atrix Releases
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-brand-grey max-w-2xl text-lg sm:text-xl font-light leading-relaxed mb-10"
+          >
+            Download previous and current Atrix Explorer releases. By default, the application auto-updates to the latest version.
+          </motion.p>
+
+          {/* Android & iOS Platform Status Note */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="p-5 rounded-[1.5rem] border border-brand-border bg-brand-card flex flex-col sm:flex-row items-center gap-5 text-left shadow-lg backdrop-blur-md mb-12"
+          >
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-brand-primary/10 text-brand-primary shrink-0">
+              <Globe size={24} />
+            </div>
+            <div>
+              <h4 className="font-bold text-sm tracking-tight mb-1">Platform Availability</h4>
+              <p className="text-xs text-brand-grey leading-relaxed">
+                Atrix Explorer is currently fully optimized and available for <span className="font-bold text-brand-text">Android devices</span>. We are actively working on the <span className="font-bold text-brand-text">iOS edition</span>, and it will be released soon. Stay tuned!
+              </p>
+            </div>
+          </motion.div>
+        </header>
+
+        {/* Current Active Release Showcase */}
+        <section className="mb-20">
+          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight mb-6">Latest Stable Release</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="p-6 sm:p-8 rounded-[2rem] border border-brand-border bg-brand-card/90 shadow-2xl relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-brand-primary/10 to-transparent blur-[80px] pointer-events-none rounded-full" />
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-2xl sm:text-3xl font-black tracking-tight">{currentVersion.version}</span>
+                  <span className="px-3.5 py-1 bg-brand-primary text-brand-bg rounded-full text-[10px] font-black uppercase tracking-widest">
+                    {currentVersion.type}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-2 text-xs">
+                  <div>
+                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Release Date</span>
+                    <span className="font-bold">{currentVersion.date}</span>
+                  </div>
+                  <div>
+                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">File Size</span>
+                    <span className="font-bold">{currentVersion.size}</span>
+                  </div>
+                  <div>
+                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Platform</span>
+                    <span className="font-bold">Android APK</span>
+                  </div>
+                  <div>
+                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Target OS</span>
+                    <span className="font-bold">{currentVersion.reqs}</span>
+                  </div>
+                </div>
+                <div className="pt-2">
+                  <span className="block text-brand-grey font-mono text-[9px] uppercase opacity-55 mb-1">SHA-256 Checksum</span>
+                  <span className="block text-[10px] font-mono break-all opacity-70 bg-brand-bg/60 p-2.5 rounded-lg border border-brand-border">
+                    {currentVersion.checksum}
+                  </span>
+                </div>
+              </div>
+              <div className="shrink-0">
+                <a
+                  href="/atrixexplorer.apk"
+                  download="atrixexplorer.apk"
+                  className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
+                >
+                  Download APK <Download size={20} />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Accordion Release History (Matching shared example) */}
+        <section className="space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-brand-border pb-4">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Version Archives</h2>
+            
+            {/* Category Toggle Tabs */}
+            <div className="flex p-1 bg-brand-card border border-brand-border rounded-xl w-fit">
+              <button
+                onClick={() => {
+                  setActiveTab("stable");
+                  setExpandedVersion("1.0.0");
+                }}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
+                  activeTab === "stable" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
+                )}
+              >
+                Stable Releases
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab("beta");
+                  setExpandedVersion("0.9.5-beta");
+                }}
+                className={cn(
+                  "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
+                  activeTab === "beta" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
+                )}
+              >
+                Beta Builds
+              </button>
+            </div>
+          </div>
+
+          <div className="space-y-4">
+            {releases[activeTab].map((rel) => {
+              const isExpanded = expandedVersion === rel.version;
+              return (
+                <div
+                  key={rel.version}
+                  className="rounded-2xl border border-brand-border bg-brand-card/60 backdrop-blur-md overflow-hidden transition-all duration-300"
+                >
+                  <button
+                    onClick={() => toggleExpand(rel.version)}
+                    className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-brand-primary/5 transition-colors"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className="font-bold text-sm text-brand-grey">Version</span>
+                      <span className="font-black text-lg text-brand-text">{rel.version}</span>
+                      <span className="text-[10px] text-brand-grey/60 font-mono">({rel.date})</span>
+                    </div>
+                    <div className={cn("transition-transform duration-300", isExpanded ? "rotate-180 text-brand-primary" : "text-brand-grey")}>
+                      <ChevronDown size={20} />
+                    </div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden border-t border-brand-border/40 bg-brand-bg/40"
+                      >
+                        <div className="p-6 sm:p-8 space-y-6">
+                          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-xs border-b border-brand-border/40 pb-6">
+                            <div>
+                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Size</span>
+                              <span className="font-bold">{rel.size}</span>
+                            </div>
+                            <div>
+                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Target OS</span>
+                              <span className="font-bold">{rel.reqs}</span>
+                            </div>
+                            <div>
+                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Platform</span>
+                              <span className="font-bold">Android (APK)</span>
+                            </div>
+                          </div>
+
+                          <div className="space-y-4">
+                            <h4 className="text-xs font-black uppercase tracking-widest text-brand-grey">Changelog</h4>
+                            <ul className="space-y-3 text-sm">
+                              {rel.features.map((feat, i) => (
+                                <li key={i} className="flex items-start gap-3">
+                                  <span className="text-xs mt-0.5">🚀</span>
+                                  <span className="leading-relaxed opacity-95">{feat}</span>
+                                </li>
+                              ))}
+                              {rel.fixes.map((fix, i) => (
+                                <li key={i} className="flex items-start gap-3">
+                                  <span className="text-xs mt-0.5">🛠️</span>
+                                  <span className="leading-relaxed opacity-95">{fix}</span>
+                                </li>
+                              ))}
+                              {rel.perf.map((pe, i) => (
+                                <li key={i} className="flex items-start gap-3">
+                                  <span className="text-xs mt-0.5">⚡</span>
+                                  <span className="leading-relaxed opacity-95">{pe}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                            <div className="text-[10px] font-mono opacity-50 truncate max-w-md">
+                              SHA256: {rel.checksum}
+                            </div>
+                            <a
+                              href="/atrixexplorer.apk"
+                              download={`atrixexplorer-${rel.version}.apk`}
+                              className="inline-flex h-11 px-6 items-center justify-center rounded-xl bg-brand-card border border-brand-border hover:bg-brand-primary hover:text-brand-bg font-black text-xs uppercase tracking-widest transition-all gap-2 self-start sm:self-auto"
+                            >
+                              Download v{rel.version.replace('v', '')} APK <Download size={14} />
+                            </a>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
 const BlogPage = () => {
   const [visibleCount, setVisibleCount] = useState(9);
   const [filter, setFilter] = useState<"All" | "News" | "Recommendations">("All");
@@ -2900,6 +3211,7 @@ function AppContent() {
             <Route path="/features" element={<PageWrapper><FeaturesPage /></PageWrapper>} />
             <Route path="/blog" element={<PageWrapper><BlogPage /></PageWrapper>} />
             <Route path="/blog/:id" element={<PageWrapper><BlogDetail /></PageWrapper>} />
+            <Route path="/download" element={<PageWrapper><DownloadPage /></PageWrapper>} />
             <Route path="/privacy" element={<PageWrapper><PrivacyPage /></PageWrapper>} />
             <Route path="/terms" element={<PageWrapper><TermsPage /></PageWrapper>} />
             <Route path="/freedom" element={<PageWrapper><FreedomPage /></PageWrapper>} />
