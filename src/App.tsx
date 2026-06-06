@@ -3033,9 +3033,9 @@ const BlogDetail = () => {
                           </p>
 
                           <div className="flex flex-col sm:flex-row gap-4">
-                            <Link to="/" className="h-16 px-10 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-bg text-brand-text">
+                            <button onClick={handleDownload} className="h-16 px-10 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-bg text-brand-text">
                               Download APK <Download size={18} />
-                            </Link>
+                            </button>
                             <Link to="/features" className="h-16 px-10 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 border border-brand-bg/20 hover:bg-brand-bg/10 transition-all backdrop-blur-sm">
                               See Features <ChevronRight size={18} />
                             </Link>
