@@ -192,7 +192,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-1 text-sm">
             <h4 className="font-bold mb-8 uppercase tracking-widest text-xs opacity-50 text-brand-text">App</h4>
             <ul className="space-y-4">
-              {["Hybrid Engine", "Hybrid Reminders", "Manual Entry", "Global Hub"].map(i => (
+              {["Hybrid Engine", "Hybrid Reminders", "Browser Tracking", "Global Hub"].map(i => (
                 <li key={i}><Link to="/features" className="text-brand-grey hover:text-brand-text transition-colors">{i}</Link></li>
               ))}
             </ul>
@@ -623,10 +623,10 @@ const HomePage = () => {
             </motion.span>
 
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Track manhwa <br />
-              <span className="text-brand-text/40">easily.</span> <br />
-              Never lose <br />
-              <span className="text-brand-text/40">progress</span> again.
+              BROWSE MANHWA <br />
+              <span className="text-brand-text/40">freely.</span> <br />
+              WE TRACK <br />
+              <span className="text-brand-text/40">the</span> rest.
             </h1>
 
             <p className="text-brand-grey text-sm md:text-lg max-w-lg mb-8 font-normal leading-relaxed text-balance mx-auto lg:mx-0">
@@ -860,7 +860,7 @@ const HomePage = () => {
               Instant Tracking, <br /> Zero Manual Effort.
             </h2>
             <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
-              Our architecture does the hard work for you. The moment a translation is available, our system syncs your library and sends a notification. You focus on reading; we focus on the search.
+              Our architecture does the hard work for you. The moment a translation is available, our system syncs your library and sends a notification. You focus on browsing; we focus on managing your library.
             </p>
             <ul className="space-y-6 text-left inline-block lg:block">
               {[
@@ -917,10 +917,10 @@ const HomePage = () => {
           <div className="order-1 lg:order-1 text-center lg:text-left">
             <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Discovery Hub</span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Search Smarter. <br /> <span className="text-brand-grey/40">Story-First Discovery.</span>
+              Filter Smarter. <br /> <span className="text-brand-grey/40">Story-First Discovery.</span>
             </h2>
             <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
-              Don't get distracted by flashy cover art or posters. Describe the vibe, trope, or storyline in plain English. Our natural language engine generates content-first result cards so you find stories you'll actually love based on substance, not clickbait.
+              Don't get distracted by flashy cover art or posters. Filter by genre, tags, and story type. Our discovery engine helps you find stories you'll actually love based on substance, not clickbait.
             </p>
 
             <div className="space-y-6 text-left inline-block lg:block mb-8">
@@ -929,8 +929,8 @@ const HomePage = () => {
                   <Search size={12} className="text-brand-grey" />
                 </div>
                 <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Natural Language Search</div>
-                  <div className="text-xs sm:text-sm opacity-50">Search in natural language (e.g. <i>"Reincarnation manhwa"</i>) to get highly relevant, story-centric results.</div>
+                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Genre & Tag Filters</div>
+                  <div className="text-xs sm:text-sm opacity-50">Filter by genre, tags, and story type to find exactly what you're looking for — instantly.</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -954,7 +954,7 @@ const HomePage = () => {
             </div>
 
             <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-              {["Natural Language", "Content-Based", "Story-First", "Reader Metrics"].map(tag => (
+              {["Genre Filters", "Tag Search", "Story-First", "Reader Metrics"].map(tag => (
                 <span key={tag} className="px-3 py-1.5 rounded-xl text-[9px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
                   {tag}
                 </span>
@@ -1459,7 +1459,7 @@ const GuestFreedomPanelUI = () => (
             { text: "No signup or account required", desc: "Open the app and track immediately." },
             { text: "100% local private library", desc: "No tracker tracking you. Your data is private." },
             { text: "Offline progress tracking", desc: "Works perfectly without an active internet connection." },
-            { text: "Full manual tracking support", desc: "Custom titles, chapters, notes, and local covers." },
+            { text: "Automatic browser tracking", desc: "Works on 99% of manhwa sites — we detect chapters and save progress." },
           ].map((item, i) => (
             <div key={i} className="flex gap-3">
               <CheckCircle size={16} className="text-brand-primary shrink-0 mt-0.5" />
@@ -1887,10 +1887,10 @@ const FeaturesPage = () => {
                   DISCOVER YOUR NEXT<br />FAVORITE SERIES.
                 </h2>
                 <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Search trending titles, hidden gems, and community favorites — all from one powerful discovery hub.
+                  Filter trending titles, hidden gems, and community favorites — all from one powerful discovery hub.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Fast global search", "Trending recommendations", "Discover hidden gems", "Explore community favorites"].map((pt, i) => (
+                  {["Filter by genre & tags", "Trending recommendations", "Discover hidden gems", "Explore community favorites"].map((pt, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
                       <CheckCircle size={14} className="text-brand-primary shrink-0" />
                       <span>{pt}</span>
@@ -2039,7 +2039,7 @@ const FeaturesPage = () => {
                   From custom posters to private notes, Atrix Explorer gives you the freedom to build a library that feels personal.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Upload custom posters", "Add private notes", "Set custom reminders", "Edit progress manually", "Personalize your collection"].map((pt, i) => (
+                  {["Upload custom posters", "Add private notes", "Set custom reminders", "Auto-detect while browsing", "Personalize your collection"].map((pt, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
                       <CheckCircle size={14} className="text-brand-primary shrink-0" />
                       <span>{pt}</span>
@@ -2222,21 +2222,77 @@ const PrivacyPage = () => {
   return (
     <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-10 tracking-tighter uppercase text-brand-text">Privacy Policy</h1>
-      <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl h-full prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: May 07, 2026</p>
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. The Atrix Freedom Clause</h2>
-        <p>Atrix Explorer is built on the principle of local privacy. Most of your library data, including custom notes and posters, is processed locally or stored securely in your synchronized cloud vault. We do not sell your reading or watching habits.</p>
+      <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: June 15, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Data Collection</h2>
-        <p>We collect minimal data required for synchronization and core library functions:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. Our Approach to Privacy</h2>
+        <p>Atrix Explorer is built on a local-first principle. Your library data, reading insights, search history, and browsing history live primarily on your device. Cloud sync is optional and only used to back up your library and profile. We do not sell your data, show ads, or track you across the web.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Data We Collect</h2>
+        <p>We collect only the data necessary for the app to function and sync:</p>
         <ul>
-          <li>Account Credentials: To secure your synchronized vault.</li>
-          <li>Library Metadata: Title IDs, progress status, and your manual entries.</li>
-          <li>Technical Logs: Latency reports and system health to ensure the Global Hub remains online.</li>
+          <li><strong>Account Data:</strong> When you sign in via Google or GitHub, we receive your email address and a unique user ID. This is used for authentication and cloud sync.</li>
+          <li><strong>Library Data:</strong> Title IDs, reading progress (chapter/season), custom status (plan/reading/completed/dropped), personal ratings (art & story), private notes, and reminder settings. This data syncs to our cloud only if you create an account.</li>
+          <li><strong>Profile Data:</strong> Username, bio, and avatar image. Stored locally and synced to cloud for account portability.</li>
+          <li><strong>Push Notification Tokens:</strong> Your device token is stored to send chapter alerts via Firebase Cloud Messaging.</li>
+          <li><strong>Crash Reports:</strong> Anonymous crash diagnostics via Firebase Crashlytics to help us fix bugs.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Zero-Knowledge Library</h2>
-        <p>We do not "scrape" your content. Our search metadata pulls from public Manhwa/Manhua databases. Your manual custom entries are yours alone.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Data That Stays on Your Device</h2>
+        <p>The following data is stored locally and never sent to our servers:</p>
+        <ul>
+          <li>Search history and search result cache</li>
+          <li>In-app browser history and visit history</li>
+          <li>Reading insights (activity log, streaks, reading time estimates)</li>
+          <li>Notification inbox history</li>
+          <li>Trending and discovery caches</li>
+        </ul>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. How We Handle Images</h2>
+        <p>Custom posters and avatar images that you upload are stored locally on your device. If you have an account, a compressed copy is uploaded to Cloudflare R2 object storage for cross-device sync. These images are private to your account. No other user can see your custom posters or avatar unless we introduce a sharing feature in the future.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">5. Third-Party Services</h2>
+        <p>Atrix Explorer uses the following third-party services. Each has its own privacy policy governing data handling:</p>
+        <ul>
+          <li><strong>Supabase</strong> — Cloud database, authentication, and storage. Stores your account info, library data, and profile data.</li>
+          <li><strong>Firebase (Google)</strong> — Crashlytics for error reporting and Cloud Messaging for push notifications.</li>
+          <li><strong>Cloudflare</strong> — R2 object storage for user-uploaded images and Workers for API proxying.</li>
+          <li><strong>MeiliSearch</strong> — Search engine for comic metadata. Search queries are sent to return results; no personal data is stored.</li>
+          <li><strong>Google & GitHub</strong> — Authentication providers. Only an ID token is exchanged; no profile data is stored client-side.</li>
+        </ul>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">6. No Copyrighted Content Hosting</h2>
+        <p>Atrix Explorer does not host, store, distribute, or stream any copyrighted media files (images, videos, audio, or full-text content). The app exclusively uses text-based metadata — titles, descriptions, author names, genre tags, and user-submitted notes. All comic cover images displayed in the app are sourced from third-party public databases or uploaded by the user as custom posters for personal tracking purposes only.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">7. DMCA & Copyright Concerns</h2>
+        <p>Because we do not host any copyrighted content, DMCA takedown requests for infringing files do not apply to our service. If you believe that any metadata displayed in the app infringes on your intellectual property rights, or that a user-uploaded custom poster violates your copyright, please contact us at <strong>support@atrixexplorer.com</strong> and we will review and address your concern promptly.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">8. Data Security</h2>
+        <p>All data transmitted between the app and our servers is encrypted in transit (HTTPS / TLS). Database access is restricted by row-level security — each user can only access their own data. Poster uploads are rate-limited to prevent abuse. We follow industry best practices to protect your information.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">9. Data Retention & Deletion</h2>
+        <p>Your library and profile data are retained for as long as your account is active. You can delete your account at any time from the app settings. Upon deletion, all cloud-stored data — library entries, profile info, and uploaded images — are permanently removed. Local data on your device must be deleted manually by clearing app data or uninstalling the app.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">10. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> — View all data associated with your account.</li>
+          <li><strong>Export</strong> — Export your library as CSV or JSON from the app.</li>
+          <li><strong>Correct</strong> — Edit your library entries and profile at any time.</li>
+          <li><strong>Delete</strong> — Delete your account and all associated cloud data.</li>
+        </ul>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">11. Children's Privacy</h2>
+        <p>Atrix Explorer is not intended for users under the age of 13. We do not knowingly collect data from children. If you believe a child has provided us with personal data, contact us and we will delete it.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">12. International Users</h2>
+        <p>Your data may be processed on servers located in the United States and Europe, depending on the third-party service provider (Supabase, Google Cloud, Cloudflare). By using the app, you consent to this transfer.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">13. Changes to This Policy</h2>
+        <p>We may update this policy from time to time. Changes will be posted here and reflected in the "Effective" date at the top. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">14. Contact</h2>
+        <p>For questions, concerns, or data requests, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
   )
@@ -2247,19 +2303,51 @@ const TermsPage = () => {
     <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
       <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-10 tracking-tighter uppercase text-brand-text">Terms of Service</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: May 2026</p>
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: June 15, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. Usage Rights</h2>
-        <p>Atrix Explorer is a content tracking tool. You are responsible for ensuring that the posters you upload and the metadata you track comply with your local copyright laws.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. What Atrix Explorer Is</h2>
+        <p>Atrix Explorer is a personal library tracking application with a built-in browser. It allows users to track their reading progress across manhwa, manga, anime, novels, web series, and custom media types. The app provides text-based metadata (titles, descriptions, genre tags) and does not host, stream, or distribute any copyrighted media files.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Automated Features</h2>
-        <p>Our search functionality is designed to provide quick access to tracking metadata for Manhwa and Manhua. We do not guarantee the 100% accuracy of third-party database information.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. No Copyrighted Content</h2>
+        <p>Atrix Explorer does not host, store, or serve any copyrighted images, videos, audio, or full-text content. All metadata displayed in the app is sourced from third-party public databases. User-uploaded custom posters are stored for personal tracking purposes only and are not publicly shared. If you believe any metadata or user content infringes your copyright, contact us at <strong>support@atrixexplorer.com</strong> and we will review the concern promptly.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Account Responsibility</h2>
-        <p>Your library is your personal space. Protect your access credentials. We are not responsible for data loss resulting from unauthorized account access.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. User Responsibilities</h2>
+        <p>You agree to:</p>
+        <ul>
+          <li>Use the app for lawful purposes only.</li>
+          <li>Not upload infringing, abusive, or illegal content as custom posters or notes.</li>
+          <li>Not attempt to access another user's account or data.</li>
+          <li>Not abuse the app's APIs, services, or infrastructure.</li>
+        </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. Beta Scope</h2>
-        <p>Atrix Explorer is currently in a high-performance Beta state. Features may be tuned for better efficiency during this development phase.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. User Content Ownership</h2>
+        <p>Your library data — including titles, progress, notes, ratings, reminders, and custom posters — belongs to you. Atrix Explorer claims no ownership over your personal data. You retain full rights to your content and can export or delete it at any time.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">5. Third-Party Services</h2>
+        <p>Atrix Explorer integrates with third-party services to function (Supabase, Firebase, Cloudflare, MeiliSearch, Google, GitHub). We are not responsible for the uptime, security, or data practices of these third parties. Each service operates under its own terms and privacy policy.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">6. Disclaimer of Warranties</h2>
+        <p>Atrix Explorer is provided "as is" and "as available." We do not guarantee that:</p>
+        <ul>
+          <li>The metadata (titles, descriptions, genre tags) is 100% accurate or complete.</li>
+          <li>The app will be uninterrupted or error-free.</li>
+          <li>Third-party databases or APIs will remain accessible.</li>
+        </ul>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">7. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Atrix Explorer and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app — including but not limited to data loss, metadata inaccuracies, or third-party service interruptions.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">8. Account Termination</h2>
+        <p>We reserve the right to suspend or terminate accounts that violate these terms — including abuse of the service, uploading illegal content, or attempting to compromise the platform. You may delete your account at any time from the app settings.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">9. Governing Law</h2>
+        <p>These terms shall be governed by and construed in accordance with the laws applicable to the developer's jurisdiction. Any disputes shall be resolved through informal negotiation before seeking legal remedies.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">10. Changes to These Terms</h2>
+        <p>We may update these terms as the app evolves. Continued use after changes are posted constitutes acceptance of the new terms. We will notify users of significant changes via the app or email.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">11. Contact</h2>
+        <p>For questions about these terms, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
   )
@@ -2273,13 +2361,16 @@ const FreedomPage = () => {
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">The Library Without Borders</p>
 
         <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. Neutral Platform</h2>
-        <p>Atrix Explorer does not discriminate against media types. Whether you track a blockbuster movie or an obscure indie webserial, the infrastructure treated them with equal fidelity.</p>
+        <p>Atrix Explorer does not discriminate against media types. Whether you track a blockbuster movie or an obscure indie webserial, the infrastructure treats them with equal fidelity.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Manual Sovereignty</h2>
-        <p>We believe the user should never be blocked by a missing database entry. If a title doesn't exist in our Manhwa metadata search, you have the absolute right and capability to create it manually with your own titles, notes, and artwork. Atrix Explorer is for collectors who want full control.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Your Data, Your Rules</h2>
+        <p>You own your library. Every title, note, rating, and custom poster belongs to you. We believe you should never be blocked by a missing database entry — if a title doesn't exist in our metadata search, you have the absolute right to create it yourself with your own titles, notes, and artwork. You can export your data anytime in CSV or JSON format.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Local-First Export</h2>
-        <p>Your library data belongs to you. We are committed to providing tools that allow you to export your data, ensuring you aren't locked into our system if you choose to move your logs elsewhere.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Local-First by Default</h2>
+        <p>Your library lives primarily on your device. Search history, reading insights, visit history, and browser history never leave your phone unless you choose to sync. Cloud features are optional and opt-in.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. No Vendor Lock-In</h2>
+        <p>Your library data belongs to you, not to us. We provide export tools (CSV and JSON) so you can move your data elsewhere at any time. Atrix Explorer is designed to be a tool you control, not a platform that controls you.</p>
       </section>
     </div>
   )
