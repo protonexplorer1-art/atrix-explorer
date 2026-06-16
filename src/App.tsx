@@ -16,8 +16,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.0.apk';
-    link.download = 'atrixexplorer-1.1.0.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk';
+    link.download = 'atrixexplorer-1.1.1.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +28,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.0.apk';
-      link.download = 'atrixexplorer-1.1.0.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk';
+      link.download = 'atrixexplorer-1.1.1.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -2378,7 +2378,7 @@ const FreedomPage = () => {
 
 const DownloadPage = () => {
   const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
-  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.0.0");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.1");
 
   const toggleExpand = (version: string) => {
     setExpandedVersion(prev => (prev === version ? null : version));
@@ -2387,12 +2387,26 @@ const DownloadPage = () => {
   const releases = {
     stable: [
       {
+        version: "v1.1.1",
+        type: "Stable",
+        date: "June 2026",
+        size: "67 MB",
+        reqs: "Android 8.0+",
+        features: [
+          "App no longer crashes if you tap the image picker button twice"
+        ],
+        fixes: [
+          "Fixed a rare crash when switching pages or closing the browser",
+          "Improved handling of temporary network issues — no more random errors when uploading posters or syncing notifications"
+        ],
+        perf: []
+      },
+      {
         version: "v1.0.0",
         type: "Stable",
         date: "June 2026",
         size: "18.4 MB",
         reqs: "Android 8.0+",
-        checksum: "4f89d38c6428cda49e9bf3d2b271d490cf5a7c29e2f9d863f2d29487c674251a",
         features: ["Core engine stability", "Glassmorphic UI polish"],
         fixes: ["Smooth scroll load-more coordinate snapping"],
         perf: []
@@ -2446,7 +2460,7 @@ const DownloadPage = () => {
 
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
-        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.0.0), view full release notes, changelogs, and download history." />
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.1), view full release notes, changelogs, and download history." />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2534,17 +2548,11 @@ const DownloadPage = () => {
                     <span className="font-bold">{currentVersion.reqs}</span>
                   </div>
                 </div>
-                <div className="pt-2">
-                  <span className="block text-brand-grey font-mono text-[9px] uppercase opacity-55 mb-1">SHA-256 Checksum</span>
-                  <span className="block text-[10px] font-mono break-all opacity-70 bg-brand-bg/60 p-2.5 rounded-lg border border-brand-border">
-                    {currentVersion.checksum}
-                  </span>
-                </div>
               </div>
               <div className="shrink-0">
                 <a
-                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.0.apk"
-                  download="atrixexplorer-1.1.0.apk"
+                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk"
+                  download="atrixexplorer-1.1.1.apk"
                   className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
                 >
                   Download APK <Download size={20} />
@@ -2564,7 +2572,7 @@ const DownloadPage = () => {
               <button
                 onClick={() => {
                   setActiveTab("stable");
-                  setExpandedVersion("1.0.0");
+                  setExpandedVersion("1.1.1");
                 }}
                 className={cn(
                   "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
@@ -2657,19 +2665,6 @@ const DownloadPage = () => {
                                 </li>
                               ))}
                             </ul>
-                          </div>
-
-                          <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                            <div className="text-[10px] font-mono opacity-50 truncate max-w-md">
-                              SHA256: {rel.checksum}
-                            </div>
-                            <a
-                              href="https://download.atrixexplorer.com/atrixexplorer-1.1.0.apk"
-                              download={`atrixexplorer-${rel.version}.apk`}
-                              className="inline-flex h-11 px-6 items-center justify-center rounded-xl bg-brand-card border border-brand-border hover:bg-brand-primary hover:text-brand-bg font-black text-xs uppercase tracking-widest transition-all gap-2 self-start sm:self-auto"
-                            >
-                              Download v{rel.version.replace('v', '')} APK <Download size={14} />
-                            </a>
                           </div>
                         </div>
                       </motion.div>
