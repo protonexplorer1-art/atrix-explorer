@@ -16,8 +16,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk';
-    link.download = 'atrixexplorer-1.1.1.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk';
+    link.download = 'atrixexplorer-1.1.2.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +28,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk';
-      link.download = 'atrixexplorer-1.1.1.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk';
+      link.download = 'atrixexplorer-1.1.2.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -184,8 +184,14 @@ const Footer = () => {
               The ultimate hybrid tracking experience. Your personalized digital library for everything you watch and read.
             </p>
             <div className="flex gap-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl transition-all border bg-brand-card border-brand-border hover:opacity-80">
+              <a href="https://github.com/atrixexplorer/Atrix-Explorer" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl transition-all border bg-brand-card border-brand-border hover:opacity-80">
                 <GithubIcon size={24} className="text-brand-text" />
+              </a>
+              <a href="https://www.instagram.com/atrixexplorer/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl transition-all border bg-brand-card border-brand-border hover:opacity-80">
+                <Instagram size={24} className="text-brand-text" />
+              </a>
+              <a href="https://www.instagram.com/manhua_edits/" target="_blank" rel="noopener noreferrer" className="p-4 rounded-2xl transition-all border bg-brand-card border-brand-border hover:opacity-80">
+                <Instagram size={24} className="text-brand-text" />
               </a>
             </div>
           </div>
@@ -2378,7 +2384,7 @@ const FreedomPage = () => {
 
 const DownloadPage = () => {
   const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
-  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.1");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.2");
 
   const toggleExpand = (version: string) => {
     setExpandedVersion(prev => (prev === version ? null : version));
@@ -2386,6 +2392,22 @@ const DownloadPage = () => {
 
   const releases = {
     stable: [
+      {
+        version: "v1.1.2",
+        type: "Stable",
+        date: "June 2026",
+        size: "67.27 MB",
+        reqs: "Android 8.0+",
+        features: [
+          "Complete local device mode — run the entire app on-device with optional cloud sync",
+          "Browser filter to hide social media and shopping sites from search results",
+          "Guest users can now view insights"
+        ],
+        fixes: [
+          "Fixed image picker 'already_active' crash on rapid double-tap"
+        ],
+        perf: []
+      },
       {
         version: "v1.1.1",
         type: "Stable",
@@ -2460,7 +2482,7 @@ const DownloadPage = () => {
 
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
-        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.1), view full release notes, changelogs, and download history." />
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.2), view full release notes, changelogs, and download history." />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2551,8 +2573,8 @@ const DownloadPage = () => {
               </div>
               <div className="shrink-0">
                 <a
-                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.1.apk"
-                  download="atrixexplorer-1.1.1.apk"
+                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk"
+                  download="atrixexplorer-1.1.2.apk"
                   className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
                 >
                   Download APK <Download size={20} />
@@ -2572,7 +2594,7 @@ const DownloadPage = () => {
               <button
                 onClick={() => {
                   setActiveTab("stable");
-                  setExpandedVersion("1.1.1");
+                  setExpandedVersion("1.1.2");
                 }}
                 className={cn(
                   "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
