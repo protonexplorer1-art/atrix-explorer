@@ -255,6 +255,28 @@ const NotificationMockup = ({ isStatic }: { isStatic?: boolean }) => (
   </motion.div>
 );
 
+const ProgressUpdateMockup = ({ title, chapter, isSaved }: { title: string, chapter: number, isSaved?: boolean }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 20 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    className="relative z-10 p-4 rounded-2xl shadow-2xl border flex items-center gap-4 max-w-xs bg-brand-card border-brand-border w-full text-left"
+  >
+    <div className="w-10 h-10 rounded-xl flex items-center justify-center bg-brand-primary text-brand-bg shadow-lg shadow-brand-primary/10 shrink-0">
+      {isSaved ? <CheckCircle size={20} className="text-brand-bg" /> : <Plus size={20} className="text-brand-bg" />}
+    </div>
+    <div className="flex-1 min-w-0">
+      <div className="text-[9px] font-black uppercase tracking-widest opacity-40 mb-0.5 text-brand-text">
+        {isSaved ? "Progress Saved" : "New Detected"}
+      </div>
+      <div className="text-sm font-bold tracking-tight text-brand-text truncate">{title}</div>
+      <div className="text-[10px] opacity-60 text-brand-grey font-medium">
+        {isSaved ? `Chapter ${chapter} saved to phone` : `Chapter ${chapter} detected on page`}
+      </div>
+    </div>
+  </motion.div>
+);
+
 const LibraryItemMockup = ({ title, progress, subtitle }: { title: string, progress: number, subtitle?: string }) => (
   <div className="relative z-10 p-4 rounded-xl border border-brand-border flex items-center gap-4 transition-all hover:translate-y-[-2px] w-full bg-brand-card shadow-sm">
     <div className="w-14 h-20 rounded-lg bg-brand-primary/5 flex-shrink-0 relative overflow-hidden ring-1 ring-brand-border">
@@ -524,8 +546,8 @@ const HomePage = () => {
   return (
     <div className="relative overflow-hidden bg-brand-bg text-brand-text isolate">
       <Helmet>
-        <title>Atrix Explorer | Your Simple Manhwa Tracker</title>
-        <meta name="description" content="Stop forgetting where you left off. Atrix Explorer helps you track your library with zero effort and lightning fast updates." />
+        <title>Atrix Explorer | Mobile Web Browser for Manga & Novel Readers</title>
+        <meta name="description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
       </Helmet>
 
       {/* Flowing Pencil Sketch Connectors */}
@@ -629,14 +651,13 @@ const HomePage = () => {
             </motion.span>
 
             <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              BROWSE MANHWA <br />
-              <span className="text-brand-text/40">freely.</span> <br />
-              WE TRACK <br />
-              <span className="text-brand-text/40">the</span> rest.
+              BROWSE THE WEB. <br />
+              <span className="text-brand-text/40">WE SAVE YOUR</span> <br />
+              PROGRESS.
             </h1>
 
             <p className="text-brand-grey text-sm md:text-lg max-w-lg mb-8 font-normal leading-relaxed text-balance mx-auto lg:mx-0">
-              Organize your library, get chapter alerts, and discover new stories in one place. Simple, fast, and free.
+              A mobile web browser designed for readers. Read your favorite stories, automatically save where you left off, and block annoying ads — all without creating an account.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -680,7 +701,7 @@ const HomePage = () => {
 
               <MobileFrame className="z-20">
                 <img
-                  src="/hero-preview.jpg"
+                  src="/hero-preview.webp"
                   alt="Atrix Explorer Home Screen"
                   className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
                 />
@@ -744,7 +765,204 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Narrative Section 2 - The Problem */}
+      {/* Narrative Section 2 - The Solution */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-8 overflow-hidden bg-brand-bg isolate">
+        <BackgroundBlob
+          className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          color="bg-brand-grey/20"
+          size="w-full h-full"
+          animateProps={{ opacity: [0.3, 0.45, 0.3] }}
+          variant={1}
+        />
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+          <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0 order-2 lg:order-2">
+            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Solution</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
+              Saves your progress, <br /> automatically.
+            </h2>
+            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
+              Atrix knows when you're reading a chapter. Spend a minute or two on a page, and the browser automatically remembers your position. When you move to the next chapter, your progress is updated. No manual logs or spreadsheets needed.
+            </p>
+            <ul className="space-y-6 text-left inline-block lg:block">
+              {[
+                { title: "No account required", desc: "Start reading instantly. Your list is saved directly on your phone." },
+                { title: "Automatic chapter detection", desc: "The app remembers which chapter you're on, so you don't have to." }
+              ].map((item, i) => (
+                <li key={i} className="flex gap-4">
+                  <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border">
+                    <CheckCircle size={12} className="text-brand-grey" />
+                  </div>
+                  <div>
+                    <div className="font-bold text-sm tracking-tight text-brand-text">{item.title}</div>
+                    <div className="text-sm opacity-50">{item.desc}</div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative flex justify-center order-1 lg:order-1">
+            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
+            <div className="relative w-full max-w-[220px] sm:max-w-[280px] z-10">
+              <DecorativeOrganic className="-top-16 -left-24 rotate-12" size="w-48 h-48" color="fill-brand-primary/5" variant={1} />
+              <DecorativeOrganic className="bottom-0 -right-20 -rotate-45 opacity-30" size="w-40 h-40" color="fill-brand-grey/5" delay={0.4} variant={2} />
+              <DecorativeOrganic className="top-1/2 -right-32 rotate-90" size="w-32 h-32" color="fill-brand-primary/10" delay={0.6} variant={0} />
+              <FloatingDot className="top-20 -right-20" delay={0.3} size="w-10 h-10" />
+
+              {/* Flow path between notifications */}
+              <DottedPath
+                className="top-40 -left-20 rotate-[130deg] scale-[2]"
+                d="M10 10 Q 50 90 90 10"
+              />
+              <DottedPath className="-top-10 -right-24 scale-75 opacity-10" />
+
+              <MobileFrame>
+                <img
+                  src="/solution-preview-4.webp"
+                  alt="Atrix Explorer Auto Save Progress Screen"
+                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </MobileFrame>
+
+              {/* Floating Mockup Cards */}
+              <div className="absolute -top-6 -left-16 z-30 w-[240px] hidden sm:block">
+                <ProgressUpdateMockup title="The Novel's Extra" chapter={160} isSaved={true} />
+              </div>
+              <div className="absolute top-[45%] -right-16 z-30 w-[240px] hidden sm:block">
+                <ProgressUpdateMockup title="Regressing as the Sword Clan" chapter={42} isSaved={false} />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Narrative Section 3 - Discovery Hub */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-8 transition-colors bg-brand-bg/50 border-y border-brand-border overflow-hidden isolate">
+        <BackgroundBlob
+          className="-bottom-20 -right-20"
+          color="bg-brand-primary/20"
+          size="w-96 h-96"
+          variant={3}
+        />
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+          <div className="order-1 lg:order-1 text-center lg:text-left">
+            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Reader Features</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
+              Comfortable reading, <br /> <span className="text-brand-grey/40">built-in.</span>
+            </h2>
+            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
+              Manga and novel websites can be full of clutter. Atrix has built-in features to make reading clean and easy.
+            </p>
+
+            <div className="space-y-6 text-left inline-block lg:block mb-8">
+              <div className="flex items-start gap-4">
+                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
+                  <Search size={12} className="text-brand-grey" />
+                </div>
+                <div>
+                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Blocks popups and ads</div>
+                  <div className="text-xs sm:text-sm opacity-50">Interacts with sites to block annoying popups and banners so you can read without interruptions.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
+                  <BookOpen size={12} className="text-brand-grey" />
+                </div>
+                <div>
+                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Hands-free auto-scroll</div>
+                  <div className="text-xs sm:text-sm opacity-50">Automatically scrolls down the page at your preferred speed so you can read comfortably.</div>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
+                  <User size={12} className="text-brand-grey" />
+                </div>
+                <div>
+                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Cleaner search</div>
+                  <div className="text-xs sm:text-sm opacity-50">Hides shopping and social media noise, showing you only the stories you search for.</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+              {["Block Ads", "Auto-Scroll", "Fast Loading", "Clean Search"].map(tag => (
+                <span key={tag} className="px-3 py-1.5 rounded-xl text-[9px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="order-2 lg:order-2 relative flex justify-center">
+            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
+            <div className="relative w-full max-w-[220px] sm:max-w-[300px] z-20">
+              <DecorativeOrganic className="-top-12 -right-16" size="w-40 h-40" color="fill-brand-grey/5" variant={0} />
+              <DecorativeOrganic className="bottom-0 -left-20 rotate-45 opacity-40" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
+              <DecorativeOrganic className="top-1/2 -right-24 -rotate-12" size="w-32 h-32" color="fill-brand-grey/10" delay={0.4} variant={2} />
+              <FloatingDot className="bottom-1/4 -left-16 opacity-20" size="w-12 h-12" />
+              <DottedPath className="-bottom-10 -right-20 -rotate-12 scale-125" d="M20 20 Q 100 90 180 20" />
+
+              <MobileFrame>
+                <img
+                  src="/reader-feature-preview.webp"
+                  alt="Atrix Explorer Reading Feature Screen"
+                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </MobileFrame>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Narrative Section 4 - Library Management */}
+      <section className="relative py-20 sm:py-32 px-4 sm:px-8 bg-brand-bg overflow-hidden isolate">
+        <BackgroundBlob
+          className="top-0 right-0"
+          color="bg-brand-grey/28"
+          size="w-96 h-96"
+          variant={2}
+        />
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
+          <div className="relative isolate">
+            <DecorativeOrganic className="-top-10 -left-12 opacity-20" size="w-32 h-32" color="fill-brand-grey/5" variant={2} />
+            <DecorativeOrganic className="-bottom-12 -right-16 rotate-12 opacity-30" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
+            <DecorativeOrganic className="top-1/2 -right-20 -rotate-45" size="w-36 h-36" color="fill-brand-grey/10" delay={0.4} variant={0} />
+            <FloatingDot className="bottom-12 -right-10" delay={0.4} size="w-10 h-10" />
+
+            <div className="relative w-full max-w-[220px] sm:max-w-[300px] mx-auto z-10">
+              <MobileFrame>
+                <img
+                  src="/library-preview.webp"
+                  alt="Atrix Explorer Library Screen"
+                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
+                  referrerPolicy="no-referrer"
+                />
+              </MobileFrame>
+            </div>
+          </div>
+          <div className="text-center lg:text-left">
+            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Your Library</span>
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text break-words">
+              Access your library, <br className="hidden sm:block" /> anywhere.
+            </h2>
+            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
+              Organize your collection into lists like Plan, Reading, or Completed. Your history is stored on your device, keeping your reading completely private. If you want to access your library on another phone, simply sign in with a free account to back it up.
+            </p>
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              {["Saved on your phone", "Optional backup", "Export lists", "Private notes"].map(tag => (
+                <span key={tag} className="px-4 py-2 rounded-xl text-[10px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Narrative Section 5 - The Problem */}
       <section className="relative py-20 sm:py-32 border-y border-brand-border transition-colors overflow-hidden bg-brand-bg/50 isolate">
         <BackgroundBlob
           className="top-1/4 -right-20"
@@ -759,7 +977,7 @@ const HomePage = () => {
           variant={0}
         />
         <div className="max-w-7xl mx-auto px-4 sm:px-8 grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="order-2 lg:order-1 relative isolate">
+          <div className="order-2 lg:order-2 relative isolate">
             {/* Layer 1: Background flow/decorative elements (placed behind the grid) */}
             <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none z-0">
               <div className="relative w-full max-w-[260px] sm:max-w-xs">
@@ -789,7 +1007,7 @@ const HomePage = () => {
                     <img
                       src={src}
                       alt={`App Screenshot Mockup ${i + 1}`}
-                      className="w-full h-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                      className="w-full h-full object-cover opacity-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -804,7 +1022,7 @@ const HomePage = () => {
                     <img
                       src={src}
                       alt={`App Screenshot Mockup ${i + 3}`}
-                      className="w-full h-full object-cover opacity-90 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
+                      className="w-full h-full object-cover opacity-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
                       referrerPolicy="no-referrer"
                     />
                   </div>
@@ -822,7 +1040,7 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="order-1 lg:order-2 text-center lg:text-left">
+          <div className="order-1 lg:order-1 text-center lg:text-left">
             <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Problem</span>
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
               Why does tracking <br /> feel like a chore?
@@ -845,191 +1063,6 @@ const HomePage = () => {
                   <div className="text-sm opacity-50">Stop checking sites every hour for updates.</div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Narrative Section 3 - The Solution */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 overflow-hidden bg-brand-bg isolate">
-        <BackgroundBlob
-          className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          color="bg-brand-grey/20"
-          size="w-full h-full"
-          animateProps={{ opacity: [0.3, 0.45, 0.3] }}
-          variant={1}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Solution</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Instant Tracking, <br /> Zero Manual Effort.
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
-              Our architecture does the hard work for you. The moment a translation is available, our system syncs your library and sends a notification. You focus on browsing; we focus on managing your library.
-            </p>
-            <ul className="space-y-6 text-left inline-block lg:block">
-              {[
-                { title: "Quantum Sync", desc: "Your position is saved across all devices instantly." },
-                { title: "Low-Latency Alerts", desc: "Direct-to-device notifications and telegram integration." }
-              ].map((item, i) => (
-                <li key={i} className="flex gap-4">
-                  <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border">
-                    <CheckCircle size={12} className="text-brand-grey" />
-                  </div>
-                  <div>
-                    <div className="font-bold text-sm tracking-tight text-brand-text">{item.title}</div>
-                    <div className="text-sm opacity-50">{item.desc}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative flex justify-center">
-            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
-            <div className="relative z-10 flex flex-col gap-6 items-center">
-              <DecorativeOrganic className="-top-16 -left-24 rotate-12" size="w-48 h-48" color="fill-brand-primary/5" variant={1} />
-              <DecorativeOrganic className="bottom-0 -right-20 -rotate-45 opacity-30" size="w-40 h-40" color="fill-brand-grey/5" delay={0.4} variant={2} />
-              <DecorativeOrganic className="top-1/2 -right-32 rotate-90" size="w-32 h-32" color="fill-brand-primary/10" delay={0.6} variant={0} />
-              <FloatingDot className="top-20 -right-20" delay={0.3} size="w-10 h-10" />
-
-              {/* Flow path between notifications */}
-              <DottedPath
-                className="top-40 -left-20 rotate-[130deg] scale-[2]"
-                d="M10 10 Q 50 90 90 10"
-              />
-              <DottedPath className="-top-10 -right-24 scale-75 opacity-10" />
-
-              <NotificationMockup />
-              <div className="sm:translate-x-[-20px]">
-                <NotificationMockup />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Narrative Section 4 - Discovery Hub */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 transition-colors bg-brand-bg/50 border-y border-brand-border overflow-hidden isolate">
-        <BackgroundBlob
-          className="-bottom-20 -right-20"
-          color="bg-brand-primary/20"
-          size="w-96 h-96"
-          variant={3}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="order-1 lg:order-1 text-center lg:text-left">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Discovery Hub</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Filter Smarter. <br /> <span className="text-brand-grey/40">Story-First Discovery.</span>
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
-              Don't get distracted by flashy cover art or posters. Filter by genre, tags, and story type. Our discovery engine helps you find stories you'll actually love based on substance, not clickbait.
-            </p>
-
-            <div className="space-y-6 text-left inline-block lg:block mb-8">
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <Search size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Genre & Tag Filters</div>
-                  <div className="text-xs sm:text-sm opacity-50">Filter by genre, tags, and story type to find exactly what you're looking for — instantly.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <BookOpen size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Story-First Result Cards</div>
-                  <div className="text-xs sm:text-sm opacity-50">Result cards present key descriptions and details upfront. Read basic info and storylines to find your favorite content.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <User size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Community-Backed Popularity</div>
-                  <div className="text-xs sm:text-sm opacity-50">See exactly how popular a title is by checking the precise number of readers (e.g., 837.9M readers) right on the card.</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-              {["Genre Filters", "Tag Search", "Story-First", "Reader Metrics"].map(tag => (
-                <span key={tag} className="px-3 py-1.5 rounded-xl text-[9px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="order-2 lg:order-2 relative flex justify-center">
-            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
-            <div className="relative w-full max-w-[220px] sm:max-w-[300px] z-20">
-              <DecorativeOrganic className="-top-12 -right-16" size="w-40 h-40" color="fill-brand-grey/5" variant={0} />
-              <DecorativeOrganic className="bottom-0 -left-20 rotate-45 opacity-40" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
-              <DecorativeOrganic className="top-1/2 -right-24 -rotate-12" size="w-32 h-32" color="fill-brand-grey/10" delay={0.4} variant={2} />
-              <FloatingDot className="bottom-1/4 -left-16 opacity-20" size="w-12 h-12" />
-              <DottedPath className="-bottom-10 -right-20 -rotate-12 scale-125" d="M20 20 Q 100 90 180 20" />
-
-              <MobileFrame>
-                <img
-                  src="/discovery-preview.jpg"
-                  alt="Atrix Explorer Natural Language Search Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </MobileFrame>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Narrative Section 5 - Library Management */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 bg-brand-bg overflow-hidden isolate">
-        <BackgroundBlob
-          className="top-0 right-0"
-          color="bg-brand-grey/28"
-          size="w-96 h-96"
-          variant={2}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="relative isolate">
-            <DecorativeOrganic className="-top-10 -left-12 opacity-20" size="w-32 h-32" color="fill-brand-grey/5" variant={2} />
-            <DecorativeOrganic className="-bottom-12 -right-16 rotate-12 opacity-30" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
-            <DecorativeOrganic className="top-1/2 -right-20 -rotate-45" size="w-36 h-36" color="fill-brand-grey/10" delay={0.4} variant={0} />
-            <FloatingDot className="bottom-12 -right-10" delay={0.4} size="w-10 h-10" />
-
-            <div className="relative w-full max-w-[220px] sm:max-w-[300px] mx-auto z-10">
-              <MobileFrame>
-                <img
-                  src="/library-preview.jpg"
-                  alt="Atrix Explorer Library Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </MobileFrame>
-            </div>
-          </div>
-          <div className="text-center lg:text-left">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Organization</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text break-words">
-              Your reading life, <br className="hidden sm:block" /> Perfectly Organized.
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
-              Group your library into Plan, Ongoing, or Completed statuses. Our interface is designed for speed—so you can spend less time managing and more time reading.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              {["Categorize", "Cloud Sync", "Offline Access", "Custom Notes"].map(tag => (
-                <span key={tag} className="px-4 py-2 rounded-xl text-[10px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
-                  {tag}
-                </span>
-              ))}
             </div>
           </div>
         </div>
@@ -1462,10 +1495,10 @@ const GuestFreedomPanelUI = () => (
         <div className="space-y-3.5">
           <div className="text-[10px] font-black uppercase tracking-widest text-brand-grey opacity-60 mb-1">AVAILABLE OFFLINE</div>
           {[
-            { text: "No signup or account required", desc: "Open the app and track immediately." },
-            { text: "100% local private library", desc: "No tracker tracking you. Your data is private." },
-            { text: "Offline progress tracking", desc: "Works perfectly without an active internet connection." },
-            { text: "Automatic browser tracking", desc: "Works on 99% of manhwa sites — we detect chapters and save progress." },
+            { text: "No account needed", desc: "Open the app and start reading immediately." },
+            { text: "100% private library", desc: "No one tracking your habits. Your history is stored only on your phone." },
+            { text: "Works without internet", desc: "Perfect for reading on the go. Your progress is saved offline." },
+            { text: "Smart reading progress", desc: "We automatically detect when you finish a chapter and update your list." },
           ].map((item, i) => (
             <div key={i} className="flex gap-3">
               <CheckCircle size={16} className="text-brand-primary shrink-0 mt-0.5" />
@@ -1507,10 +1540,10 @@ const GuestFreedomPanelUI = () => (
         <div className="space-y-3.5">
           <div className="text-[10px] font-black uppercase tracking-widest text-brand-grey opacity-60 mb-1">CLOUD EXTENSIONS</div>
           {[
-            { text: "Secure cloud sync & backups", desc: "Safeguard your progress in your personal cloud vault." },
-            { text: "Switch devices without losing data", desc: "Sync between your primary and backup phones instantly." },
-            { text: "Chapter release notifications", desc: "Get pinged immediately when a new chapter drops." },
-            { text: "Reading statistics & insights", desc: "Unlock streak calendars and category distributions." },
+            { text: "Free cloud backups", desc: "Save your library to the cloud so you never lose it." },
+            { text: "Sync across phones", desc: "Read on one phone, continue on another without missing a page." },
+            { text: "Chapter alerts", desc: "Get notified as soon as a new chapter is out." },
+            { text: "Reading habits overview", desc: "See how much you read, your active streaks, and reading history." },
           ].map((item, i) => (
             <div key={i} className="flex gap-3">
               <CheckCircle size={16} className="text-brand-primary shrink-0 mt-0.5" />
@@ -1632,8 +1665,8 @@ const FeaturesPage = () => {
       />
 
       <Helmet>
-        <title>Features | Atrix Explorer Overview</title>
-        <meta name="description" content="Discover how Atrix Explorer provides a flexible personal library system with smart tracking, optional cloud sync, and guest freedom." />
+        <title>Features | Atrix Explorer Browser</title>
+        <meta name="description" content="Explore all features built for reading comfort: auto-save progress, popup blocking, auto-scroll, customizable library, and optional cloud backups." />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
@@ -1695,7 +1728,7 @@ const FeaturesPage = () => {
 
                   <MobileFrame>
                     <img
-                      src="/library-preview.jpg"
+                      src="/library-preview.webp"
                       alt="Library Mockup Screen"
                       className="w-full h-full object-cover"
                     />
@@ -1745,7 +1778,42 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 3. INSTANT UPDATES (Notifications) */}
+          {/* 3. READING INSIGHTS (Statistics, Streaks, Progress Dashboard) */}
+          <div className="flex flex-col gap-12 sm:gap-16 pt-8 relative isolate">
+            <BackgroundBlob
+              className="-top-20 -left-20"
+              color="bg-brand-primary/20"
+              size="w-[500px] h-[500px]"
+              variant={1}
+              style={{ zIndex: -1 }}
+            />
+            <BackgroundBlob
+              className="bottom-0 -right-20"
+              color="bg-brand-grey/28"
+              size="w-[450px] h-[450px]"
+              variant={2}
+              style={{ zIndex: -1 }}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">TRACK YOUR READING LIFE</span>
+              <span className="text-xs font-bold text-brand-grey block mb-2">SEE YOUR READING JOURNEY.</span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1] text-brand-text mb-6">
+                VISUALIZE YOUR PROGRESS OVER TIME.
+              </h2>
+              <p className="text-lg leading-relaxed text-brand-grey font-light">
+                View your reading activity, completed titles, progress streaks, and personal statistics over time.
+              </p>
+            </motion.div>
+            <StatsDashboardUI />
+          </div>
+
+          {/* 4. INSTANT UPDATES (Notifications) */}
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32 relative isolate">
             <BackgroundBlob
               className="-top-20 -right-20"
@@ -1832,7 +1900,7 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 4. DISCOVERY (Search & Recommendations) */}
+          {/* 5. DISCOVERY (Search & Recommendations) */}
           <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-32 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
@@ -1863,7 +1931,7 @@ const FeaturesPage = () => {
 
                   <MobileFrame>
                     <img
-                      src="/discovery-preview.jpg"
+                      src="/discovery-preview.webp"
                       alt="Discovery Mockup Screen"
                       className="w-full h-full object-cover"
                     />
@@ -1913,7 +1981,7 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 5. CLOUD SYNC SYSTEM (Optional Cloud Integration) */}
+          {/* 6. CLOUD SYNC SYSTEM (Optional Cloud Integration) */}
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
@@ -1970,7 +2038,7 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 6. GUEST FREEDOM (Local vs Cloud Comparative Panel) */}
+          {/* 7. GUEST FREEDOM (Local vs Cloud Comparative Panel) */}
           <div className="flex flex-col gap-12 sm:gap-16 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
@@ -2005,7 +2073,7 @@ const FeaturesPage = () => {
             <GuestFreedomPanelUI />
           </div>
 
-          {/* 7. PERSONALIZATION (Custom covers, journals, counters) */}
+          {/* 8. PERSONALIZATION (Custom covers, journals, counters) */}
           <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-32">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
@@ -2056,7 +2124,7 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 8. UNLIMITED CATEGORIES (Manga, Anime, Novels...) */}
+          {/* 9. UNLIMITED CATEGORIES (Manga, Anime, Novels...) */}
           <div className="flex flex-col gap-12 sm:gap-16 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
@@ -2091,7 +2159,7 @@ const FeaturesPage = () => {
             <CategoryGridUI />
           </div>
 
-          {/* 9. IMPORT & EXPORT (CSV / JSON Backups) */}
+          {/* 10. IMPORT & EXPORT (CSV / JSON Backups) */}
           <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
@@ -2140,41 +2208,6 @@ const FeaturesPage = () => {
                 </ul>
               </motion.div>
             </div>
-          </div>
-
-          {/* 10. READING INSIGHTS (Statistics, Streaks, Progress Dashboard) */}
-          <div className="flex flex-col gap-12 sm:gap-16 pt-8 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/20"
-              size="w-[500px] h-[500px]"
-              variant={1}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="bottom-0 -right-20"
-              color="bg-brand-grey/28"
-              size="w-[450px] h-[450px]"
-              variant={2}
-              style={{ zIndex: -1 }}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">TRACK YOUR READING LIFE</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">SEE YOUR READING JOURNEY.</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1] text-brand-text mb-6">
-                VISUALIZE YOUR PROGRESS OVER TIME.
-              </h2>
-              <p className="text-lg leading-relaxed text-brand-grey font-light">
-                View your reading activity, completed titles, progress streaks, and personal statistics over time.
-              </p>
-            </motion.div>
-            <StatsDashboardUI />
           </div>
         </div>
 
