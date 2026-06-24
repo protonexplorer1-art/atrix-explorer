@@ -16,8 +16,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk';
-    link.download = 'atrixexplorer-1.1.2.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk';
+    link.download = 'atrixexplorer-1.1.5.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +28,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk';
-      link.download = 'atrixexplorer-1.1.2.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk';
+      link.download = 'atrixexplorer-1.1.5.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -2417,7 +2417,7 @@ const FreedomPage = () => {
 
 const DownloadPage = () => {
   const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
-  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.2");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.5");
 
   const toggleExpand = (version: string) => {
     setExpandedVersion(prev => (prev === version ? null : version));
@@ -2425,6 +2425,21 @@ const DownloadPage = () => {
 
   const releases = {
     stable: [
+      {
+        version: "v1.1.5",
+        type: "Stable",
+        date: "June 2026",
+        size: "67.81 MB",
+        reqs: "Android 8.0+",
+        features: [
+          "Direct access to your regular reader source",
+          "Direct resume reading from home screen"
+        ],
+        fixes: [
+          "Fixed retry resilience for network errors"
+        ],
+        perf: []
+      },
       {
         version: "v1.1.2",
         type: "Stable",
@@ -2515,7 +2530,7 @@ const DownloadPage = () => {
 
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
-        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.2), view full release notes, changelogs, and download history." />
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.5), view full release notes, changelogs, and download history." />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2606,8 +2621,8 @@ const DownloadPage = () => {
               </div>
               <div className="shrink-0">
                 <a
-                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.2.apk"
-                  download="atrixexplorer-1.1.2.apk"
+                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk"
+                  download="atrixexplorer-1.1.5.apk"
                   className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
                 >
                   Download APK <Download size={20} />
@@ -2627,7 +2642,7 @@ const DownloadPage = () => {
               <button
                 onClick={() => {
                   setActiveTab("stable");
-                  setExpandedVersion("1.1.2");
+                  setExpandedVersion("1.1.5");
                 }}
                 className={cn(
                   "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
