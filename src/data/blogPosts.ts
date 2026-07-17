@@ -40,6 +40,350 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
 
   {
+    id: "weekly-manhwa-news-july-17-2026",
+    title: "Weekly News: Major Hiatuses, Season Returns & Shadow Slave Webtoon Launch",
+    category: "News",
+    date: "July 17, 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week's biggest updates include several returning manhwa, two hiatus announcements, and the long-awaited Shadow Slave webtoon preview.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwisCzKHoGQrQBVaLvTbBIia9wyd9IPdZu-_WtGv6-N_zlRtH3zXf4cpulGt6fN_1To9i_B3bArLmiYZKfEQod-SEYGNijL7rg0iMdkozJyVgHUftS6S5lCiCGK5WWTIuUEhlCyvvFY6GZoQIjBn5C1-chkyHaoCXxcvwqEUwv7geSD2ST6_R5KsvnBSs/s1600/heavenly%20demon%20can%27t%20live%20a%20Normal%20life.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "Several popular series are returning with new seasons, while others are taking short breaks before their next arcs. Here's everything that happened this week.",
+
+      items: [
+        {
+          rank: 1,
+          title: "The Heavenly Demon Can't Live a Normal Life",
+          desc:
+            "• Season 4 officially concluded with Chapter 209\n• The series has entered a short maintenance hiatus\n• Scheduled to return on October 13 with Chapter 210\n• Readers now await the beginning of the next major arc",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwisCzKHoGQrQBVaLvTbBIia9wyd9IPdZu-_WtGv6-N_zlRtH3zXf4cpulGt6fN_1To9i_B3bArLmiYZKfEQod-SEYGNijL7rg0iMdkozJyVgHUftS6S5lCiCGK5WWTIuUEhlCyvvFY6GZoQIjBn5C1-chkyHaoCXxcvwqEUwv7geSD2ST6_R5KsvnBSs/s1600/heavenly%20demon%20can%27t%20live%20a%20Normal%20life.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Dungeon Odyssey",
+          desc:
+            "• Officially returned after nearly a 2-month hiatus\n• Chapter 159 is now available\n• The break was caused by the artist's health\n• Fans can finally continue one of the most popular dungeon fantasy series",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgwa9gMrfcP9x9sczdumYGyb9GxbqCroMPZEEPQYx-JdAPhs_Dg-oQO2ddIY3UFSX_Rq0xYQSQeXBGltq-a8K9JS7QKzkfaxIaP6g_DrLcW2VU6lw8OzE_POLwfiPDS2FuC9NZhzd6n6R045iGKVXMRknPIR5b8LXllwuspjXDeU3xJH1H6Bm9u9cLL3Nk/s1600/dungeon%20odyssey.webp"
+        },
+
+        {
+          rank: 3,
+          title: "Genius Archer's Livestreaming",
+          desc:
+            "• Season 3 officially begins\n• Returns with 2 brand-new chapters\n• Marks the end of a long seasonal break\n• Readers can jump straight into the newest arc",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBUgqgbSAsVHC5Ph937oWJnq-BjSwz_E8JaiIuFu0Jn4ATInjPV_kUgh9-j6twV21aU8h5d2TtFpfxjjW3ToPBIMj41VH67NVFvHCAGt6toJpByD2yI3TOK7YveEOKL1BjNkvgTVWiLPOzOosShwQF6Ntv4MyWei4V2nGgmcH-3it7DIgoYlIwkTS49Nc/s1600/genius%20archer%20livestreaming.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Best Teacher Baek",
+          desc:
+            "• Officially returns with Season 4\n• 7 new chapters have been released\n• Chapters 146-147 conclude Season 3\n• The latest releases officially begin the next season",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEnn1pbfKM0VW5MsG0PZYB4qRpstcukvI8fQtUxVzztLRWDdZcNc1MkjEgVXRcXxJmJF1ewm8xVY-W9AiI3eYuT-0m5PSpUg9_RdFIBDpBOuw5KyGCM6uXcvdeYf1SCW_ydv6AWCqhx7DT5uWTt2BNLy3m6exOcyHQ68vXm5icJEgSQMYwlnCrKJP8_50/s1600/best%20teacher%20baek.webp"
+        },
+
+        {
+          rank: 5,
+          title: "A Modern Man Who Got Transmigrated Into the Murim World",
+          desc:
+            "• Officially entered hiatus after Chapter 190\n• The break is intended for rest and production reorganization\n• Expected to return on September 23, 2026\n• Fans will have to wait before the next arc begins",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjHfSCQtMl4oMrX10UhoqT0lRKh7kh_dw1SwI64vw7b18_D1o11UqJmlJrTjuiwbc99BQlDLK2zgIIhvQQVoLyt-yuLbqN7wQjPEIb-3-clpMN-a4OF4sYiAQGeuuZoKV5Xkc2AMkhj6aeLi-JgKxhfqKhB8IUNrfgM9NM6UVGad0xDXkY7DocoDeqMxo/s1600/modern%20man%20who%20got%20transmigrated.webp"
+        },
+
+        {
+          rank: 6,
+          title: "Shadow Slave",
+          desc:
+            "• The official webtoon launches on August 19\n• A complete preview of Chapter 1 is already available\n• Gives readers a first look before the official release\n• One of the most anticipated web novel adaptations of the year",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg56YZcZwtOXyMc5_G-uTBsW07fRo3RRfpTHSA7pdiAQ-dHU78Z6Oc9u3QdcSpEJqBAtHNpzWi14UceAgULWmJNiB72VVguJdh-k3d1f2ze_E352fXoS6ogJ65YOpJPB37UjQAEbo3V0pF6JgUaME5T0cG6KlTU-8_PKP_NYrvkB22TU-xP8TBJ_8-J7zA/s1600/shadow%20slave.webp"
+        }
+      ],
+
+      finalThoughts:
+        "This week brought a healthy mix of exciting season returns, temporary hiatus announcements, and one of the year's biggest adaptation news with Shadow Slave's upcoming webtoon debut. Whether you're catching up on returning series or preparing for upcoming releases, there's plenty to look forward to over the next few months."
+    }
+  },
+
+  {
+    id: "weekly-manhwa-news-july-15-2026",
+    title: "Weekly News: Major Returns, Completed Series & Killer Pietro's Biggest Twist",
+    category: "News",
+    date: "July 15, 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week features several long-awaited manhwa returns, two major series reaching their finales, and one of the biggest plot twists in Killer Pietro.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggMYV0i12UM5gZESjJj_H3Q94ctQyxwGs2E9weJ6Z9q5KYaXD8mUfmrJdb8tkKqjB3xvl1ekXfiNGs4I5-oxdcy1fqwRTpPWxuLNLziyiDRYu5-reF0YGDE-4AWXl4JZ6L7Wqj-G1hLQ-NuALwQzvuX6fCBFPF6h5-0ELise0mAqxKmyKGEPdIfamt8wg/s1600/return%20of%20the%20sss%20class%20ranker.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "From highly anticipated comebacks to shocking story revelations, this week's roundup has plenty for manhwa readers. Here's everything you need to know.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Return of the SSS-Class Ranker",
+          desc:
+            "• Officially completed with Episode 200\n• The original web novel contains over 500 chapters\n• Many readers are debating whether the adaptation covered the complete story or rushed its ending\n• Marks the conclusion of one of the popular action-fantasy series",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggMYV0i12UM5gZESjJj_H3Q94ctQyxwGs2E9weJ6Z9q5KYaXD8mUfmrJdb8tkKqjB3xvl1ekXfiNGs4I5-oxdcy1fqwRTpPWxuLNLziyiDRYu5-reF0YGDE-4AWXl4JZ6L7Wqj-G1hLQ-NuALwQzvuX6fCBFPF6h5-0ELise0mAqxKmyKGEPdIfamt8wg/s1600/return%20of%20the%20sss%20class%20ranker.webp"
+        },
+
+        {
+          rank: 2,
+          title: "The Genius of Magical Mastery",
+          desc:
+            "• Officially returns from hiatus\n• Season 2 begins on July 26\n• Fans can finally continue the story after the seasonal break\n• One of this week's major comeback announcements",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjP3hvQ_FIobVkmg516PIvCrFHBfeJkm2MOiKpwQ1MTvj3sR0W778GhTH1Q59EZPuvkht2W10PybAjlikg0Snp1LS0K1piLIDueL2Q9vMBG_CSR0LvUTtrVDxpSKpO00TfndO5-Xm8FadVAcYrH2yccGp2rNk9yaPr0p80XR22H-aN4lw2g1BkpWQ8dJ4k/s1600/genius%20of%20magical%20mastery.webp"
+        },
+
+        {
+          rank: 3,
+          title: "The Skeleton Soldier Failed to Defend the Dungeon",
+          desc:
+            "• Officially returns after hiatus\n• Season 6 launches with 5 brand-new chapters\n• Readers have plenty of new content to binge immediately\n• Marks the continuation of the long-running fantasy series",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgElP9ErMlQ-zxOjULomodlvot3zSmhZiqwYKxHyILFE60glLvSleFgbAMHtsNn_k9ZLw4e0sFIZZGJAq4KLUQTn2tEjE5k0ftXJwXi3EjhUt3Kewqm4MspsFEtOLpRPpXYFJ8QZS-HWC2DXcjQgz1z2WGgyCXrg3ckMxe7bgoQVx-KWEiRVtByPhDiWKU/s1600/skeleton%20so;ldier%20failed%20to%20defend.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Killer Pietro",
+          desc:
+            "• Major spoiler revealed in the latest chapter\n• Disciple Thomas is confirmed to be a Bio Homunculus clone\n• Created using Pietro's DNA together with previous Thomas specimens\n• His mission is to eradicate the Old Relics, completely changing the story's direction",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi24KNhxGb0zYdQhdL2zMS0uI6ls3MF3XYueI2HTUr2fyGSnb2CeeNq28x-dsUKnH70q_Av4AVWzH5mi3DEag41kezJlz1MtU215PpMm1MnMRIpDxsTfMFXYjRsP6dQJlHunHjnUKTUjJN6PY-f013MsXtuM-4ZJ49Dl9QF823UBuNHDz87Ls3vF2y7DqQ/s1600/pietro.webp"
+        },
+
+        {
+          rank: 5,
+          title: "Villains Are Destined to Die",
+          desc:
+            "• The main story officially concludes with Chapter 214\n• Also known as Death Is the Only Ending for the Villainess\n• Readers now await possible side stories and epilogue chapters\n• One of the biggest romance fantasy finales this year",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgPZxtp8LBdh_8hdPI7_YqM9CGBk0DrlXvWqnZt3GUd7KfxX05r1qbX4Ms5vfRg4jMYf6RugQoQdaJmIDJ28aDT7drsZDrR6xXbVA-wWNbHKjusL1Wx84YMyAuCRGtDl3y3KqK1_ILSFIO6uf4SUyFKM6pdzkMLgpvVxODcurc6r-GWOnBMRg6qqJ5ClRY/s1600/villain%20are%20destined%20to%20die.webp"
+        },
+
+        {
+          rank: 6,
+          title: "The Dungeon Cleaning Life of a Once Genius Hunter",
+          desc:
+            "• Returns with Season 4\n• Launches with 6 brand-new chapters\n• Readers can binge several new updates immediately\n• Another highly anticipated comeback after its break",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgT0bxZtw6v-PvF2dB9zgDIRwHWClxHcQF2hdkZbeFu6Q5orSjXCJWbKSJp0qTO7HA0XjaIC0TG5ddRBw_IUr-8JZ-1Jpf5s9j433Fn4IzYDVD6epovPKVxMnRbsuPWfWR0g__yg_2jR5B79h-1uwS57GSfwoWBossVHkkPa19Bu-zYQf4ovfLtyUAA35w/s1600/dungeon%20cleaning%20lif%20of%20a%20once%20geniun%20hunter.webp"
+        }
+      ],
+
+      finalThoughts:
+        "This week delivered an exciting mix of season returns, completed series, and major story revelations. Whether you're catching up with returning favorites like Skeleton Soldier and The Genius of Magical Mastery or discussing the finales of Return of the SSS-Class Ranker and Villains Are Destined to Die, there are plenty of new chapters and discussions waiting for fans."
+    }
+  },
+
+  {
+    id: "weekly-manhwa-news-june-13-2026",
+    title: "Weekly News: Nano Machine Finale, Tomb Raider King Returns & Major Story Updates",
+    category: "News",
+    date: "July 13, 2026",
+    author: "Atrix Team",
+    excerpt: "Nano Machine enters its final chapters, Tomb Raider King returns with 16 chapters, Infinite Mage reaches a major milestone, and several popular series deliver huge story developments.",
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_v-gEqSyYlsoakpPtBZjwPsZ0BjnBzz7ioydoVDHNNxOlB_kpRWAUl51m0tUd-v-LHIF4ewUEs_Ax3I_65gmrNT-ffU3BuhttD9b8kwhXkkP0Xuh6Pk_EObU75FLIUU8D6fFNDC3U3IwgZUsXYn43331IXSFvkGVEOSxyeRaGolIwq-wYL1jhJIBndC8/s1600/Nano%20Machine.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "This week's biggest manhwa news includes major finales, long-awaited returns, incredible battle chapters, and shocking story developments. Here's everything readers shouldn't miss this week.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Nano Machine",
+          desc: "• Officially entering its final arc\n• Series is expected to conclude in around 10 chapters\n• The story will soon transition into Myst, Might, Mayhem\n• Fans may later see Descent of the Demon God adapted as a manhwa",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_v-gEqSyYlsoakpPtBZjwPsZ0BjnBzz7ioydoVDHNNxOlB_kpRWAUl51m0tUd-v-LHIF4ewUEs_Ax3I_65gmrNT-ffU3BuhttD9b8kwhXkkP0Xuh6Pk_EObU75FLIUU8D6fFNDC3U3IwgZUsXYn43331IXSFvkGVEOSxyeRaGolIwq-wYL1jhJIBndC8/s1600/Nano%20Machine.webp"
+        },
+        {
+          rank: 2,
+          title: "Tomb Raider King",
+          desc: "• Officially returned after a long break\n• 16 new chapters released together\n• Anime adaptation is also now available on Crunchyroll\n• One of the biggest comeback releases of the week",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfA_pNI2g-7wboPS-wASOQUIoURr5fBosVSyH5fiAmsXkswOkVocVH6iY10vg9oHWj_-w7f-NxpSRWqC69BZ7Xol9f0gU0Eoz-YbVZwrgLXzCtGPmsFOxqRpyKWMJBfl0g6CJmQlMKEctIW5PS7B53It6LjUNBvQQFhe8NyZikMqlKKevh72SAbTFM0jE/s1600/Tomb%20Raider%20King.webp"
+        },
+        {
+          rank: 3,
+          title: "High Class",
+          desc: "• Latest chapter amazed readers with its artwork\n• Fans praised the incredible character anatomy and muscle details\n• One of the most talked-about art showcases this week",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5g3hrtUwqATq6Al4fvV8KF9pyMRQ1xrD3DYVzfduuejWG1DncUKb2bl2iB9Czfdf-7vYPu-2F5NJawzTJGzRD0d9Ad5y_r3wccy5Tz4AncSxiicQSvBZaeOKHzry6Vb1FRXxqxKQSIht1y5dBYgFv8F6bAB1GqkBMKfpz5ZgxqVukn1-NTTTFw_eoC7M/s1600/high%20class.webp"
+        },
+        {
+          rank: 4,
+          title: "Reformation of the Deadbeat Noble",
+          desc: "• The long-running final battle has officially concluded\n• Airen and Ignet's fight reached its climax\n• Readers praised the chapter for its stunning action sequences and artwork",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz1pvrcOwSBzoTwgbBT_UxJXABwdv2uJOODikbZJfpAvqSLFCJqjcnVmlhd6eQkQu7oSvGhGjsnElQyGSk1jG6_9mYp-FWHB9XXEc3pmT5Q24fld9CZvU6vWW_sklhk4CZQ6qNmczb9su0SVWRDM7Hx_pTpxRNvm4dhewAw-KS8Mn7CbO6lI_LOWxL3Cg/s1600/Reformation%20of%20the%20Deadbeat%20Noble.webp"
+        },
+        {
+          rank: 5,
+          title: "I Killed an Academy Player",
+          desc: "• Colin delivered one of the biggest moments of the series\n• After piercing through Valhalla, he landed a devastating finishing attack\n• Latest chapter quickly became one of the week's biggest discussion topics",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDElMaQvA28sFRmrZRqevTouo5NRomv0VtN9jcFmJ1qiunB2LOty-jH3C7Xui7v0baCSsr8PniJNB8O9d_0LrIHwqiG5wf9NWDBbxFdDb6ocrEAFkkSF4ouXX7BBtr9dda8fUglHC_t60U1kzEuPm43PkgiYF9y2t9lpE7x_z8M3SVX9aG3gDpLn01qsE/s1600/the%20academy%20player.webp"
+        },
+        {
+          rank: 6,
+          title: "Infinite Mage",
+          desc: "• Shirone finally meets the Arch Angel Ikael\n• One of the series' most anticipated moments has finally happened\n• Latest chapter marks a major turning point in the story",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijBXO7NGyzf3SDne-bqV7P_OHaW7j3poJYah_LUupc9SdmpaZcUUDh3lwRwECBazBSNbiAKajgzcqmaesL-K7jUQLqi-zODtWO32P1SJuPluc6P_OZZUucVvsOA_8m2Vil_iVSbQ0d_XD80yO-Zzf_J8wd5rie2cg-crQEjAtPrZUw0GJYGoaXFsiCUn8/s1600/infinity%20mage.webp"
+        }
+      ],
+
+      finalThoughts: "This week delivered one of the strongest lineups of manhwa updates in recent months. Nano Machine is approaching its conclusion, Tomb Raider King made a massive comeback, while Infinite Mage, Reformation of the Deadbeat Noble, High Class, and I Killed an Academy Player all released chapters that generated huge discussions across the community."
+    }
+  },
+
+  {
+    id: "weekly-manhwa-news-july-6-2026",
+    title: "Weekly News: Major Hiatuses, Series Finale & Huge Story Developments",
+    category: "News",
+    date: "July 6, 2026",
+    author: "Atrix Team",
+    excerpt: "The Max-Level Player's 100th Regression enters a long hiatus, Reloaded Into the Other World officially concludes, and several fan-favorite series reach major story milestones this week.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhua3ByLO1oGU3cgkZgzTn86Q-Co8xsbeXsD8yqdceaXvVMUKmB4ncPsvqaAz6wTVnzjfE2gWN9GrpgZevQFX17Hj1NxfyrOiPYyPmHV60kSLHvcenAjNxthXKChyZ2MSDg2vbrRwp53wJtm2B3gEF-1pqwBMAxSnftGL3D5Pz5dzeyUXu4OWZ5jbuOOLY/s1600/The%20Max-Level%20Player%27s%20100th%20Regression.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "This week's manhwa roundup features unexpected hiatus announcements, an official series finale, and several major story developments that have readers talking. Here are the biggest updates you shouldn't miss.",
+
+      items: [
+        {
+          rank: 1,
+          title: "The Max-Level Player's 100th Regression",
+          desc: "• Officially entered a long-term hiatus\n• Artist announced their departure after Episode 89 due to internal company circumstances\n• KakaoPage confirmed the hiatus, though it did not mention the artist's departure\n• The series' return schedule has not yet been announced",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhua3ByLO1oGU3cgkZgzTn86Q-Co8xsbeXsD8yqdceaXvVMUKmB4ncPsvqaAz6wTVnzjfE2gWN9GrpgZevQFX17Hj1NxfyrOiPYyPmHV60kSLHvcenAjNxthXKChyZ2MSDg2vbrRwp53wJtm2B3gEF-1pqwBMAxSnftGL3D5Pz5dzeyUXu4OWZ5jbuOOLY/s1600/The%20Max-Level%20Player%27s%20100th%20Regression.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Sand Mage of the Scorched Desert",
+          desc: "• Official 4-week hiatus announced\n• Break is due to the artist's health\n• Serialization is scheduled to resume on August 4\n• Readers will have to wait one month for new chapters",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8XZZc99IPrNt8E2CMgXz4Uv19LFJB0ZsvUWkLXBws-U-o2jGVJ2w4bq0MztKKOrDvzqwD5_9rXaqrhD0KcqfXUFDBeTluTI2TZpP-Yo0CewpxkPpsGmPYYDGgGh7nWmRmpJG9mCg7hGbgEDXc_igDinADyX96CCZJr6n5q5wp5tTz2SChyphenhyphen255R2EPvAQ/s1600/Sandmancer%20of%20the%20Scorched%20Desert.webp"
+        },
+
+        {
+          rank: 3,
+          title: "Reloaded Into the Other World",
+          desc: "• Officially completed\n• The series concluded with Episode 155\n• Marks the end of its serialization after a successful run\n• Fans are now waiting for the creators' next project",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4wy_8-x40W-TU3JF5qAEwKNxo5W7AqkNZJaHn_LirN5_nPEQV0sWbpqSGH6ZLNfp3jabVpezd9sGXKb9eqPSW9YMyn1AwSei4-agmZ6p0LKnUt0Sk7UNxV6mFUpiucpsh2zLfJW5czsoW2BdopBXm3zCXaYgUVf4xG9ZNhINNWIf4fvfrzRa8AHUzELo/s1600/reloaded%20into%20the%20other%20world.webp"
+        },
+
+        {
+          rank: 4,
+          title: "The Beginning After the End",
+          desc: "• The long-awaited war has officially begun\n• Arthur and Tessia finally confessed their feelings before the conflict started\n• The latest chapter marks the beginning of a major new story arc\n• Fans are expecting one of the biggest battles in the series",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiaJRgfrmcgROxNagGjM9A2W50FQbuj8ksPMQ9QndXlYEeflV4xoVVeezhH5J4p8B4GdwlOvTfGjdIT6iO0iSJAp308fBa5LCtYLoGwlchosIcwHLxOuKMGuCkrNN3OWxhv0M08Us5yaWd8YPIjw8ZDKJqub1adsHBBmlZGOzy_0synTFoAe5k7POgFfIk/s1600/the%20beggining%20after%20the%20end.webp"
+        },
+
+        {
+          rank: 5,
+          title: "I Became the First Prince",
+          desc: "• The battlefield has finally been set\n• The Orcs' full army has arrived under the Warlord's command\n• Winter Castle prepares for an all-out defensive war\n• The latest chapter officially begins the large-scale conflict",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgSFf37qLT0l-YHoMg27ahl4EZuoXPNxYcqPa04046IvNKJ8E-RRPs3mtgoaOkx4wMMMpav9YrisUt6ScEgaS6y51d9Zlurtj7aeZsGqRi81Dl2LBMFNzvRrfyBiYQSU-23G4_qK7HbRBtPkJfc6lUqx_R089NA1g5t3ydqP4Lz_rhR5t2GViuxrCaspUk/s1600/i%20become%20first%20princ.webp"
+        },
+
+        {
+          rank: 6,
+          title: "Regressing as the Reincarnated Bastard of the Sword Clan",
+          desc: "• The latest chapter leaves the protagonist in a desperate situation\n• Readers are waiting to see whether he can escape with Cassandra\n• Chapter 102 ends on a major cliffhanger\n• One of this week's most discussed action chapters",
+          image: "YOUR_IMAGE_URL_FOR_REGRESSING_AS_THE_REINCARNATED_BASTARD_OF_THE_SWORD_CLAN"
+        }
+      ],
+
+      finalThoughts: "This week brought several major developments across the manhwa industry, including unexpected hiatuses, an official series ending, and huge story progression for several popular titles. With multiple series entering new arcs while others pause or conclude, readers have plenty to look forward to in the coming weeks."
+    }
+  },
+
+  {
+    id: "weekly-manhwa-news-july-2-2026",
+    title: "Weekly News: Major Returns, Season Finales & Lord of Mysteries Update",
+    category: "News",
+    date: "July 2, 2026",
+    author: "Atrix Team",
+    excerpt: "Swordmaster's Youngest Son returns after hiatus, Solo Glitch Player ends Season 3, Lord of Mysteries reveals Season 2 plans, and several popular series announce exciting updates.",
+
+    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioMkYCrzcBNP21ysrjkrvD608dz5vDC3h8gZPK8ADIgfK31PqGPDrfSmRAnOhJNZXGkYWZASsmDEOBDa-Ba0rGoLIbpgOna78EYTrkmFBfLmIkiwlSndc-bjeP89d1AhZQuacOErKJWODk79ROMN1qRnAf-wfhQXjQMcGluoltIOMeAa-LsdHDg0a_CZ4/s1600/swordmaster%20younest%20son.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro: "This week's roundup features long-awaited manhwa returns, completed seasons, exciting sequel announcements, and new information about one of the most anticipated donghua adaptations. Here are the biggest updates of the week.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Swordmaster's Youngest Son",
+          desc: "• Officially returns after a four-month hiatus\n• Season 3 resumes on July 18 at 10 PM (KST)\n• Jin Runcandel's journey continues with a brand-new season\n• One of the most anticipated returns of the year",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioMkYCrzcBNP21ysrjkrvD608dz5vDC3h8gZPK8ADIgfK31PqGPDrfSmRAnOhJNZXGkYWZASsmDEOBDa-Ba0rGoLIbpgOna78EYTrkmFBfLmIkiwlSndc-bjeP89d1AhZQuacOErKJWODk79ROMN1qRnAf-wfhQXjQMcGluoltIOMeAa-LsdHDg0a_CZ4/s1600/swordmaster%20younest%20son.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Kim Ohjin's Adventures With Strange Animals",
+          desc: "• Season 2 officially returns\n• New season begins on July 8\n• Readers can finally continue Kim Ohjin's adventure\n• Marks the end of the series' seasonal break",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn6OI5_ZeOIrIy5H636Ve3MnOOiK5N7oPwOpEZ6_noGR13ILY0IuO1OB7pZrxCi6AnDAvkctq5s6gmwK_phJFbMjpaLW2cSvAYYZNimbsHs2nuBM8GwMcCR7shvpO4sNLaoaXPNgT111FHXg6ZJOhL_soc84dftKIT2T2vvwMfuTQjvflRjNwtJXUwBaY/s1600/kim%20ohjin%20adventures%20with%20strange%20animals.webp"
+        },
+
+        {
+          rank: 3,
+          title: "Legend of the Holy Sword",
+          desc: "• Officially completed\n• Side Story Part 2 concludes the entire series\n• Final episode count reached 117 chapters\n• The long-running fantasy series has come to an end",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJQAFQvzPqcBfoty4LA-Siy_T-5K0dt7AW2AQ8uzDTfF3cJ5XMqaUSnr3G7Puw1rtYe-xSQgU3Z1yqHNMOPyKuzmvmGb84Hh_vt7UlD6S8X2mVkoTwhskliq347diNUJGdh4oGLWq1sTkRRAUSbPgT2yIztHCym3ncGlK7AUVZ6_WgBesafexUi4DwXgM/s1600/legend%20of%20the%20holy%20sword.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Lord of Mysteries",
+          desc: "• Season 2 is reportedly planned for 40 episodes\n• Season 1 consists of 13 episodes\n• The reported expansion suggests a much larger adaptation\n• Official confirmation is still awaited",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYVrd-g4cMU7dB4AL9keZz_9-gmy3ZqA9JDRUP6MSXEsebL5HEQRj9tmWEKyMOWbaZOab23E_XaNv4E16jK0CehAGll7EKI0Eh5v2Ph_O8vov5xG8jhJldfiXzwdKG_2ykN1LfEpXojXs-mU68VDRmJMMBppiLdQlLNCcF70vW2NxJ7m0sSJQr4PRx1y4/s1600/lord%20of%20mysteries.webp"
+        },
+
+        {
+          rank: 5,
+          title: "Solo Glitch Player",
+          desc: "• Season 3 officially concluded\n• The season ends with Episode 198\n• The series is expected to return after an approximately four-month hiatus\n• Fans can look forward to the next season following the break",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivvWIzeIxE-y9Vk6mbNf92suPfnJUiJ3jybHW-snlFSWQRuDQi4BTU8znxzNPJiUCUDvb9qAlNdLnKueLbparujqcErv0RcfgeINXHbcviszQQaH7eqq9aqAg5I-0l4h3b74ot_KXr_8Hy5aQ11QU0Y8HvLNfQxByGBXYMTt-YQQZO7vQAJQ-lB2pabdI/s1600/solo%20glitch%20player.webp"
+        },
+
+        {
+          rank: 6,
+          title: "Genius Archer's Streaming",
+          desc: "• Officially returning with Season 3\n• New season begins on July 17\n• Readers can expect the continuation of the story after the seasonal break\n• Another major return for fans this month",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEQjYHNzfLC_htT-TXqnAVMurFkRBuINcZV1SIPXHERV82TdUhcuxG9Q245vU1FaXHIDvjkxHiXTaRAqj16060c4R_4Ugib1VNACVmFWJOg2Lu69PkjBAfL0f9ytKvNl8LmFzcsAowFKeKtp-lopVJBkvm3E3_hAN4LHAhsaNAenSBzk5jW2RWWnli2TY/s1600/genius%20archer%20streaming.webp"
+        }
+      ],
+
+      finalThoughts: "This week was packed with exciting announcements, featuring long-awaited returns, completed series, upcoming new seasons, and fresh adaptation news. With Swordmaster's Youngest Son, Genius Archer's Streaming, and Kim Ohjin's Adventures all returning, while Solo Glitch Player and Legend of the Holy Sword wrap up major milestones, readers have plenty to look forward to in the coming weeks."
+    }
+  },
+
+
+  {
     id: "weekly-manhwa-news-updates-may-16-2026",
     title: "Weekly News: Major Returns, Hiatus Updates & ORV Anime Leak",
     category: "News",

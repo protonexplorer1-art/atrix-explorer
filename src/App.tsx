@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams } 
 import React, { useEffect, useState, useMemo, useRef, createContext, useContext, ReactNode } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
-import { Menu, X, Github as GithubIcon, Download, ChevronRight, ChevronDown, Search, BookOpen, Clock, User, ArrowRight, Layers, Zap, Globe, Shield, Bell, CheckCircle, Heart, Wind, Lock, Star, ExternalLink, Instagram, Send, MoreVertical, Plus, ShoppingCart, Library, Tv, ShieldCheck, Cloud } from "lucide-react";
+import { Menu, X, Github as GithubIcon, Download, ChevronRight, ChevronDown, Search, BookOpen, Clock, User, ArrowRight, ArrowDown, Layers, Zap, Globe, Shield, Bell, CheckCircle, Heart, Wind, Lock, Star, ExternalLink, Instagram, Send, MoreVertical, Plus, ShoppingCart, Library, Tv, ShieldCheck, Cloud } from "lucide-react";
 import { BLOG_POSTS, ManhwaItem, NewsSection } from "./data/blogPosts";
 import { cn } from "./lib/utils";
 
@@ -16,8 +16,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk';
-    link.download = 'atrixexplorer-1.1.5.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.9.apk';
+    link.download = 'atrixexplorer-1.1.9.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +28,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk';
-      link.download = 'atrixexplorer-1.1.5.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.9.apk';
+      link.download = 'atrixexplorer-1.1.9.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -80,9 +80,9 @@ const Navbar = () => {
       )}>
         <Link to="/" className="flex items-center gap-3 group shrink-0">
           <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all group-hover:rotate-6 shadow-lg bg-brand-primary">
-            <span className="font-black text-xl italic tracking-tighter text-brand-bg">A</span>
+            <span className="font-bold text-xl italic tracking-tighter text-brand-bg">A</span>
           </div>
-          <span className="text-xl font-black tracking-tighter transition-colors whitespace-nowrap text-brand-text">ATRIX EXPLORER</span>
+          <span className="text-xl font-bold tracking-tighter transition-colors whitespace-nowrap text-brand-text">ATRIX EXPLORER</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -95,7 +95,7 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={cn(
-                    "text-xs font-black tracking-widest transition-all",
+                    "text-xs font-bold tracking-widest transition-all",
                     isActive
                       ? "text-brand-text"
                       : "text-brand-grey/40 hover:text-brand-text"
@@ -110,7 +110,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={handleDownload}
-              className="h-11 px-6 rounded-2xl bg-brand-primary text-brand-bg font-black text-xs uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center gap-2"
+              className="h-11 px-6 rounded-2xl bg-brand-primary text-brand-bg font-bold text-xs tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center gap-2"
             >
               GET APK <ArrowRight size={18} />
             </button>
@@ -145,7 +145,7 @@ const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     className={cn(
-                      "text-2xl font-black transition-colors uppercase tracking-widest",
+                      "text-2xl font-bold transition-colors uppercase tracking-widest",
                       isActive ? "text-brand-text" : "text-brand-grey/40 hover:text-brand-text"
                     )}
                   >
@@ -156,7 +156,7 @@ const Navbar = () => {
               <div className="h-px bg-brand-border" />
               <button
                 onClick={handleDownload}
-                className="w-full flex items-center justify-between p-4 rounded-2xl bg-brand-primary text-brand-bg font-black uppercase tracking-widest shadow-xl"
+                className="w-full flex items-center justify-between p-4 rounded-2xl bg-brand-primary text-brand-bg font-bold tracking-widest shadow-xl"
               >
                 GET APK <ArrowRight size={20} />
               </button>
@@ -176,7 +176,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-3">
             <Link to="/" className="flex items-center gap-3 mb-8">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all bg-brand-primary">
-                <span className="font-black italic tracking-tighter text-brand-bg">A</span>
+                <span className="font-bold italic tracking-tighter text-brand-bg">A</span>
               </div>
               <span className="text-xl font-bold tracking-tighter text-brand-text">ATRIX EXPLORER</span>
             </Link>
@@ -196,7 +196,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-1 md:col-span-1 text-sm">
-            <h4 className="font-bold mb-8 uppercase tracking-widest text-xs opacity-50 text-brand-text">App</h4>
+            <h4 className="font-bold mb-8 tracking-widest text-xs opacity-50 text-brand-text">App</h4>
             <ul className="space-y-4">
               {["Hybrid Engine", "Hybrid Reminders", "Browser Tracking", "Global Hub"].map(i => (
                 <li key={i}><Link to="/features" className="text-brand-grey hover:text-brand-text transition-colors">{i}</Link></li>
@@ -204,7 +204,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-span-1 md:col-span-1 text-sm">
-            <h4 className="font-bold mb-8 uppercase tracking-widest text-xs opacity-50 text-brand-text">Platform</h4>
+            <h4 className="font-bold mb-8 tracking-widest text-xs opacity-50 text-brand-text">Platform</h4>
             <ul className="space-y-4">
               <li><button onClick={handleDownload} className="text-brand-grey hover:text-brand-text transition-colors">Android (Direct)</button></li>
               <li><Link to="/download" className="text-brand-grey hover:text-brand-text transition-colors">All Releases</Link></li>
@@ -213,7 +213,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-span-1 md:col-span-1 text-sm">
-            <h4 className="font-bold mb-8 uppercase tracking-widest text-xs opacity-50 text-brand-text">Legal</h4>
+            <h4 className="font-bold mb-8 tracking-widest text-xs opacity-50 text-brand-text">Legal</h4>
             <ul className="space-y-4">
               <li><Link to="/privacy" className="text-brand-grey hover:text-brand-text transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="text-brand-grey hover:text-brand-text transition-colors">Terms of Service</Link></li>
@@ -225,7 +225,7 @@ const Footer = () => {
           <p className="text-brand-grey/40 text-xs font-mono">© 2026 ATRIX EXPLORER. THE FLEXIBLE LIBRARY SYSTEM.</p>
           <div className="flex items-center gap-6">
             <div className="w-2 h-2 rounded-full animate-pulse bg-brand-primary" />
-            <span className="text-brand-grey/40 text-xs font-mono uppercase">System Online</span>
+            <span className="text-brand-grey/40 text-xs font-mono ">System Online</span>
           </div>
         </div>
       </div>
@@ -248,7 +248,7 @@ const NotificationMockup = ({ isStatic }: { isStatic?: boolean }) => (
       <Bell size={20} />
     </div>
     <div className="flex-1">
-      <div className="text-[10px] font-black uppercase tracking-widest opacity-40 mb-0.5 text-brand-text">Instant Alert</div>
+      <div className="text-[10px] font-bold tracking-widest opacity-40 mb-0.5 text-brand-text">Instant Alert</div>
       <div className="text-sm font-bold tracking-tight text-brand-text">New Chapter: Regression</div>
       <div className="text-[10px] opacity-60 text-brand-grey font-medium">Chapter 142 is now live!</div>
     </div>
@@ -266,7 +266,7 @@ const ProgressUpdateMockup = ({ title, chapter, isSaved }: { title: string, chap
       {isSaved ? <CheckCircle size={20} className="text-brand-bg" /> : <Plus size={20} className="text-brand-bg" />}
     </div>
     <div className="flex-1 min-w-0">
-      <div className="text-[9px] font-black uppercase tracking-widest opacity-40 mb-0.5 text-brand-text">
+      <div className="text-[9px] font-bold tracking-widest opacity-40 mb-0.5 text-brand-text">
         {isSaved ? "Progress Saved" : "New Detected"}
       </div>
       <div className="text-sm font-bold tracking-tight text-brand-text truncate">{title}</div>
@@ -287,7 +287,7 @@ const LibraryItemMockup = ({ title, progress, subtitle }: { title: string, progr
         <div className="text-sm font-bold truncate tracking-tight text-brand-text/90">{title}</div>
         <MoreVertical size={14} className="opacity-40 flex-shrink-0 text-brand-text" />
       </div>
-      <div className="text-[10px] mb-3 uppercase tracking-wider font-semibold text-brand-grey opacity-60">{subtitle || "manhwa • Today"}</div>
+      <div className="text-[10px] mb-3 tracking-wider font-semibold text-brand-grey opacity-60">{subtitle || "manhwa • Today"}</div>
       <div className="flex items-center gap-3">
         <div className="flex-1 h-1 bg-brand-primary/10 rounded-full overflow-hidden">
           <motion.div
@@ -308,7 +308,7 @@ const LibraryItemMockup = ({ title, progress, subtitle }: { title: string, progr
 const LibraryHeaderMockup = () => (
   <div className="mb-8 text-brand-text">
     <div className="flex items-center justify-between mb-6">
-      <h4 className="text-2xl font-black tracking-tight">Your Library</h4>
+      <h4 className="text-2xl font-bold tracking-tight">Your Library</h4>
       <div className="flex items-center gap-4 opacity-60">
         <Plus size={20} />
         <Layers size={20} />
@@ -541,617 +541,464 @@ const PencilConnector = ({
   );
 };
 
+const FAQItem = ({ faq }: { faq: {q: string, a: string} }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="p-6 bg-[var(--app-card-dark)] rounded-2xl border border-[var(--app-border)] shadow-sm cursor-pointer hover:bg-[var(--app-card-dark)]/80 transition-colors" onClick={() => setOpen(!open)}>
+       <h3 className="text-lg font-bold text-white flex items-center justify-between gap-4">
+         <span>{faq.q}</span>
+         <ChevronDown size={20} className={cn("text-[var(--app-accent-neon)] transition-transform shrink-0", open ? "rotate-180" : "")} />
+       </h3>
+       <AnimatePresence>
+         {open && (
+           <motion.div 
+             initial={{ height: 0, opacity: 0 }}
+             animate={{ height: "auto", opacity: 1 }}
+             exit={{ height: 0, opacity: 0 }}
+             className="overflow-hidden"
+           >
+             <p className="text-[var(--app-grey)] font-light pt-4 leading-relaxed">{faq.a}</p>
+           </motion.div>
+         )}
+       </AnimatePresence>
+    </div>
+  );
+};
 
 const HomePage = () => {
   return (
-    <div className="relative overflow-hidden bg-brand-bg text-brand-text isolate">
+    <div className="w-full bg-brand-bg text-brand-text font-sans relative">
       <Helmet>
         <title>Atrix Explorer | Mobile Web Browser for Manga & Novel Readers</title>
         <meta name="description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
       </Helmet>
 
-      {/* Flowing Pencil Sketch Connectors */}
-      <div className="absolute inset-y-0 left-0 right-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
-        {/* Connector 1: Hero Section (Right) -> Problem Section (Left) */}
-        <PencilConnector
-          className="hidden lg:block top-[11%] right-[5%] w-[400px] h-[600px]"
-          viewBox="0 0 400 600"
-          d="M380,50 C300,200 150,400 30,550"
-        />
-        <PencilConnector
-          className="lg:hidden top-[14%] left-[50%] -translate-x-1/2 w-[80px] h-[300px]"
-          viewBox="0 0 80 300"
-          d="M40,0 C20,100 60,200 40,300"
-        />
-
-        {/* Connector 2: Problem Section (Left) -> Solution Section (Right) */}
-        <PencilConnector
-          className="hidden lg:block top-[27%] left-[5%] w-[450px] h-[600px]"
-          viewBox="0 0 450 600"
-          d="M30,50 C120,220 280,380 420,550"
-        />
-        <PencilConnector
-          className="lg:hidden top-[31%] left-[50%] -translate-x-1/2 w-[80px] h-[300px]"
-          viewBox="0 0 80 300"
-          d="M40,0 C60,100 20,200 40,300"
-        />
-
-        {/* Connector 3: Solution Section (Right) -> Discovery Hub (Left) */}
-        <PencilConnector
-          className="hidden lg:block top-[43%] right-[5%] w-[450px] h-[650px]"
-          viewBox="0 0 450 650"
-          d="M420,50 C320,250 180,420 30,600"
-        />
-        <PencilConnector
-          className="lg:hidden top-[47%] left-[50%] -translate-x-1/2 w-[80px] h-[300px]"
-          viewBox="0 0 80 300"
-          d="M40,0 C20,100 60,200 40,300"
-        />
-
-        {/* Connector 4: Discovery Hub (Left) -> Library Organization (Right) */}
-        <PencilConnector
-          className="hidden lg:block top-[59%] left-[5%] w-[450px] h-[650px]"
-          viewBox="0 0 450 650"
-          d="M30,50 C120,250 280,420 420,600"
-        />
-        <PencilConnector
-          className="lg:hidden top-[64%] left-[50%] -translate-x-1/2 w-[80px] h-[300px]"
-          viewBox="0 0 80 300"
-          d="M40,0 C60,100 20,200 40,300"
-        />
-
-        {/* Connector 5: Library Organization (Right) -> Insights Blog (Center) */}
-        <PencilConnector
-          className="hidden lg:block top-[74%] right-[10%] w-[500px] h-[600px]"
-          viewBox="0 0 500 600"
-          d="M450,50 C350,220 200,380 50,550"
-        />
-        <PencilConnector
-          className="lg:hidden top-[79%] left-[50%] -translate-x-1/2 w-[80px] h-[300px]"
-          viewBox="0 0 80 300"
-          d="M40,0 C20,100 60,200 40,300"
-        />
+      {/* Global Dotted Connectors */}
+      <div className="absolute inset-0 pointer-events-none z-0 hidden lg:block overflow-hidden">
+         {/* Vertical line running down the center-left */}
+         <div className="absolute left-[15%] top-0 bottom-0 w-px border-l-2 border-dotted border-brand-grey/10" />
+         {/* Vertical line running down the center-right */}
+         <div className="absolute right-[15%] top-0 bottom-0 w-px border-l-2 border-dotted border-brand-grey/10" />
       </div>
 
-      {/* Hero Section - Visual Storytelling */}
-      <section className="relative flex items-center pt-20 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-8 overflow-hidden isolate">
-        {/* Abstract Background Elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden isolate">
-          <BackgroundBlob
-            className="top-[-10%] right-[-5%]"
-            color="bg-brand-primary/20"
-            size="w-[600px] h-[600px]"
-            animateProps={{ x: [0, 50, 0], y: [0, -30, 0] }}
-            variant={3}
-          />
-          <BackgroundBlob
-            className="bottom-[5%] left-[5%]"
-            color="bg-brand-grey/28"
-            size="w-[400px] h-[400px]"
-            animateProps={{ scale: [1, 1.2, 1], x: [0, -30, 0] }}
-            variant={1}
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
-          {/* Left Side: Content */}
+      {/* 1. Hero Section (White Background) */}
+      <section className="relative pt-32 pb-24 px-4 sm:px-8 bg-brand-bg overflow-hidden isolate">
+        <BackgroundBlob className="-top-20 -left-20" color="bg-brand-grey/[0.06]" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" variant={1} />
+        <BackgroundBlob className="bottom-0 right-0" color="bg-brand-grey/[0.04]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={2} />
+        
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7 }}
             className="text-center lg:text-left"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-block text-[10px] font-black uppercase tracking-[0.4em] mb-4 text-brand-grey"
-            >
-              TRACK YOUR READING LIFE
-            </motion.span>
-
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              BROWSE THE WEB. <br />
-              <span className="text-brand-text/40">WE SAVE YOUR</span> <br />
-              PROGRESS.
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight text-brand-text">
+              Browse the web. <br />
+              <span className="text-zinc-600">We save your progress.</span>
             </h1>
-
-            <p className="text-brand-grey text-sm md:text-lg max-w-lg mb-8 font-normal leading-relaxed text-balance mx-auto lg:mx-0">
-              A mobile web browser designed for readers. Read your favorite stories, automatically save where you left off, and block annoying ads — all without creating an account.
+            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
+              Built specifically for manga, manhwa, and novel readers who want automatic progress tracking without creating an account.
             </p>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="https://github.com/atrixexplorer/Atrix-Explorer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="h-14 px-8 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 border-2 border-brand-border bg-brand-bg text-brand-text hover:bg-brand-card shadow-sm"
+              >
+                <GithubIcon size={18} /> GitHub
+              </a>
               <button
                 onClick={handleDownload}
-                className="h-14 px-8 font-black text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 bg-brand-primary text-brand-bg uppercase tracking-widest"
+                className="h-14 px-8 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 bg-brand-primary text-white"
               >
                 Download APK <ArrowRight size={18} />
               </button>
-              <Link
-                to="/features"
-                className="h-14 px-8 font-black text-sm rounded-2xl border border-brand-border transition-all flex items-center justify-center gap-3 bg-brand-card text-brand-text hover:bg-brand-primary hover:text-brand-bg uppercase tracking-widest"
-              >
-                Explore Features
-              </Link>
             </div>
           </motion.div>
 
-          {/* Right Side: Screenshot Showcase */}
-          <div className="relative flex justify-center lg:justify-end items-center py-6 sm:py-10 lg:pr-16 xl:pr-8 isolate">
-            {/* Background Glow/Blob */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] pointer-events-none opacity-30" style={{ zIndex: -1 }}>
-              <div className="w-full h-full bg-gradient-to-tr from-brand-primary/20 via-transparent to-brand-grey/5 blur-3xl rounded-[4rem]" />
-            </div>
-
-            {/* Main Screenshot Container (Scaled Down) */}
+          <div className="relative flex justify-center lg:justify-end items-center py-10 isolate">
             <motion.div
               initial={{ opacity: 0, scale: 0.94, y: 24 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.25, type: "spring", stiffness: 60, damping: 15, mass: 0.9 }}
-              className="relative w-full max-w-[220px] sm:max-w-[300px] z-20"
+              transition={{ delay: 0.25, type: "spring", stiffness: 60 }}
+              className="relative w-full max-w-[300px] z-20 glow-cyan rounded-[2rem]"
             >
-              {/* Decorative Support Elements */}
-              <DecorativeOrganic className="top-10 -right-20 rotate-45" size="w-48 h-48" color="fill-brand-grey/10" delay={0.6} variant={0} />
-              <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12" size="w-64 h-64" color="fill-brand-primary/5" delay={0.8} variant={1} />
-              <DecorativeOrganic className="top-1/2 -left-20 rotate-12 opacity-30" size="w-32 h-32" color="fill-brand-grey/10" delay={1} variant={2} />
-              <FloatingDot className="top-1/4 -right-16" delay={1} size="w-8 h-8" />
-              <FloatingDot className="bottom-1/3 -left-16" delay={1.2} size="w-12 h-12" />
-              <FloatingDot className="top-2/3 -right-10" delay={1.4} size="w-6 h-6" />
-              <DottedPath className="-top-12 -left-20 rotate-[15deg] scale-150" d="M10 90 Q 100 10 190 90" />
-
-              <MobileFrame className="z-20">
+              <MobileFrame className="z-20 border-brand-border">
                 <img
                   src="/hero-preview.webp"
                   alt="Atrix Explorer Home Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover"
                 />
               </MobileFrame>
 
-              {/* Floating Support Elements - Refined Positions */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 0.5, type: "spring", stiffness: 60, damping: 15, mass: 0.9 }}
-                className="absolute -top-4 -right-8 sm:-right-10 z-30 hidden sm:block"
-              >
-                <div className="p-2 sm:p-3 rounded-2xl shadow-xl glass-card border border-brand-border backdrop-blur-2xl flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-brand-primary flex items-center justify-center text-brand-bg shadow-lg">
-                    <Bell size={16} />
-                  </div>
-                  <div>
-                    <div className="text-[9px] font-black uppercase tracking-widest opacity-40">Alert</div>
-                    <div className="text-[10px] font-bold whitespace-nowrap">Chapter 142 Live</div>
-                  </div>
-                </div>
-              </motion.div>
+              {/* Floating UI Cards */}
+              <div className="absolute -top-4 -right-10 z-30 hidden sm:flex items-center gap-2 bg-white rounded-2xl p-3 shadow-xl border border-zinc-200">
+                 <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                    <Star size={16} />
+                 </div>
+                 <div className="text-sm font-bold text-brand-text">Reading Streak</div>
+              </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9, y: 10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ delay: 0.6, type: "spring", stiffness: 60, damping: 15, mass: 0.9 }}
-                className="absolute bottom-16 left-0 sm:-left-20 z-30"
-              >
-                <div className="p-2 sm:p-3 rounded-2xl shadow-xl glass-card border border-brand-border backdrop-blur-2xl">
+              <div className="absolute bottom-16 -left-16 z-30 hidden sm:flex flex-col bg-white rounded-2xl p-3 shadow-xl border border-zinc-200">
                   <div className="flex items-center gap-2 mb-2">
-                    <div className="w-6 h-6 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-500">
-                      <CheckCircle size={14} />
-                    </div>
-                    <div className="text-[10px] font-bold text-brand-text">Synced</div>
+                    <CheckCircle size={14} className="text-brand-primary" />
+                    <div className="text-xs font-bold text-brand-text">Auto Saved</div>
                   </div>
-                  <div className="w-20 sm:w-24 h-1 bg-white/5 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ delay: 0.9, duration: 1 }}
-                      className="h-full bg-brand-primary"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7, type: "spring", stiffness: 60, damping: 15, mass: 0.9 }}
-                className="absolute -bottom-2 right-6 sm:right-12 z-30"
-              >
-                <div className="px-3 py-1.5 rounded-full shadow-lg bg-brand-card border border-brand-border flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-                  <span className="text-[9px] font-black uppercase tracking-widest text-brand-grey">Online</span>
-                </div>
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Narrative Section 2 - The Solution */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 overflow-hidden bg-brand-bg isolate">
-        <BackgroundBlob
-          className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-          color="bg-brand-grey/20"
-          size="w-full h-full"
-          animateProps={{ opacity: [0.3, 0.45, 0.3] }}
-          variant={1}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="max-w-xl text-center lg:text-left mx-auto lg:mx-0 order-2 lg:order-2">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Solution</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Saves your progress, <br /> automatically.
+      {/* 2. The Problem Section */}
+      <section className="relative py-24 px-4 sm:px-8 border-y border-brand-border bg-brand-bg/50 isolate overflow-hidden">
+         <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" color="bg-brand-grey/[0.05]" size="w-[400px] sm:w-[800px] h-[400px] sm:h-[800px]" variant={3} />
+         
+         <div className="max-w-7xl mx-auto text-center relative z-10">
+            <h2 className="text-3xl md:text-5xl font-bold mb-16 text-brand-text">
+              Stop managing spreadsheets. <br /> Start reading.
             </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
-              Atrix knows when you're reading a chapter. Spend a minute or two on a page, and the browser automatically remembers your position. When you move to the next chapter, your progress is updated. No manual logs or spreadsheets needed.
-            </p>
-            <ul className="space-y-6 text-left inline-block lg:block">
-              {[
-                { title: "No account required", desc: "Start reading instantly. Your list is saved directly on your phone." },
-                { title: "Automatic chapter detection", desc: "The app remembers which chapter you're on, so you don't have to." }
-              ].map((item, i) => (
-                <li key={i} className="flex gap-4">
-                  <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border">
-                    <CheckCircle size={12} className="text-brand-grey" />
+
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
+               {/* Left: The Mess */}
+               <div className="flex relative">
+                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[-6deg] bg-white relative z-10">
+                     <img src="/problem-screenshot-2.webp" alt="Messy tabs" className="w-full h-full object-cover opacity-80" />
+                     <div className="absolute inset-0 bg-red-500/10" />
                   </div>
-                  <div>
-                    <div className="font-bold text-sm tracking-tight text-brand-text">{item.title}</div>
-                    <div className="text-sm opacity-50">{item.desc}</div>
+                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[6deg] -ml-16 bg-white relative z-20">
+                     <img src="/problem-screenshot-1.webp" alt="Spreadsheet" className="w-full h-full object-cover opacity-80" />
+                     <div className="absolute inset-0 bg-red-500/10" />
                   </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+               </div>
 
-          <div className="relative flex justify-center order-1 lg:order-1">
-            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
-            <div className="relative w-full max-w-[220px] sm:max-w-[280px] z-10">
-              <DecorativeOrganic className="-top-16 -left-24 rotate-12" size="w-48 h-48" color="fill-brand-primary/5" variant={1} />
-              <DecorativeOrganic className="bottom-0 -right-20 -rotate-45 opacity-30" size="w-40 h-40" color="fill-brand-grey/5" delay={0.4} variant={2} />
-              <DecorativeOrganic className="top-1/2 -right-32 rotate-90" size="w-32 h-32" color="fill-brand-primary/10" delay={0.6} variant={0} />
-              <FloatingDot className="top-20 -right-20" delay={0.3} size="w-10 h-10" />
+               {/* Center: Arrow */}
+               <div className="hidden lg:flex items-center justify-center">
+                  <ArrowRight size={48} className="text-brand-primary opacity-80" />
+               </div>
+               <div className="flex lg:hidden items-center justify-center my-4">
+                  <ArrowDown size={40} className="text-brand-primary opacity-80" />
+               </div>
 
-              {/* Flow path between notifications */}
-              <DottedPath
-                className="top-40 -left-20 rotate-[130deg] scale-[2]"
-                d="M10 10 Q 50 90 90 10"
-              />
-              <DottedPath className="-top-10 -right-24 scale-75 opacity-10" />
-
-              <MobileFrame>
-                <img
-                  src="/solution-preview-4.webp"
-                  alt="Atrix Explorer Auto Save Progress Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </MobileFrame>
-
-              {/* Floating Mockup Cards */}
-              <div className="absolute -top-6 -left-16 z-30 w-[240px] hidden sm:block">
-                <ProgressUpdateMockup title="The Novel's Extra" chapter={160} isSaved={true} />
-              </div>
-              <div className="absolute top-[45%] -right-16 z-30 w-[240px] hidden sm:block">
-                <ProgressUpdateMockup title="Regressing as the Sword Clan" chapter={42} isSaved={false} />
-              </div>
+               {/* Right: The Solution */}
+               <div className="w-[200px] sm:w-[240px] aspect-[3/4] rounded-2xl border-2 border-brand-primary shadow-2xl glow-cyan overflow-hidden bg-white relative z-30">
+                  <img src="/library-preview.webp" alt="Clean Library" className="w-full h-full object-cover" />
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg border border-brand-border flex items-center gap-2 whitespace-nowrap">
+                     <CheckCircle size={16} className="text-brand-primary" />
+                     <span className="text-xs font-bold text-brand-text">Organized Library</span>
+                  </div>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </section>
 
-
-      {/* Narrative Section 3 - Discovery Hub */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 transition-colors bg-brand-bg/50 border-y border-brand-border overflow-hidden isolate">
-        <BackgroundBlob
-          className="-bottom-20 -right-20"
-          color="bg-brand-primary/20"
-          size="w-96 h-96"
-          variant={3}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="order-1 lg:order-1 text-center lg:text-left">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Reader Features</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Comfortable reading, <br /> <span className="text-brand-grey/40">built-in.</span>
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
-              Manga and novel websites can be full of clutter. Atrix has built-in features to make reading clean and easy.
-            </p>
-
-            <div className="space-y-6 text-left inline-block lg:block mb-8">
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <Search size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Blocks popups and ads</div>
-                  <div className="text-xs sm:text-sm opacity-50">Interacts with sites to block annoying popups and banners so you can read without interruptions.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <BookOpen size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Hands-free auto-scroll</div>
-                  <div className="text-xs sm:text-sm opacity-50">Automatically scrolls down the page at your preferred speed so you can read comfortably.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 w-5 h-5 rounded-full flex items-center justify-center border border-brand-border shrink-0">
-                  <User size={12} className="text-brand-grey" />
-                </div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text uppercase tracking-wider">Cleaner search</div>
-                  <div className="text-xs sm:text-sm opacity-50">Hides shopping and social media noise, showing you only the stories you search for.</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-              {["Block Ads", "Auto-Scroll", "Fast Loading", "Clean Search"].map(tag => (
-                <span key={tag} className="px-3 py-1.5 rounded-xl text-[9px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
-                  {tag}
-                </span>
-              ))}
-            </div>
+      {/* 3. "Why ATRIX Explorer" Section (Dark Background) */}
+      <section className="relative py-24 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why ATRIX Explorer?</h2>
+            <p className="text-[var(--app-grey)] text-lg max-w-2xl mx-auto font-light">Built from the ground up for a seamless reading experience.</p>
           </div>
-
-          <div className="order-2 lg:order-2 relative flex justify-center">
-            <div className="absolute -inset-10 blur-3xl opacity-10 rounded-full bg-brand-primary" />
-            <div className="relative w-full max-w-[220px] sm:max-w-[300px] z-20">
-              <DecorativeOrganic className="-top-12 -right-16" size="w-40 h-40" color="fill-brand-grey/5" variant={0} />
-              <DecorativeOrganic className="bottom-0 -left-20 rotate-45 opacity-40" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
-              <DecorativeOrganic className="top-1/2 -right-24 -rotate-12" size="w-32 h-32" color="fill-brand-grey/10" delay={0.4} variant={2} />
-              <FloatingDot className="bottom-1/4 -left-16 opacity-20" size="w-12 h-12" />
-              <DottedPath className="-bottom-10 -right-20 -rotate-12 scale-125" d="M20 20 Q 100 90 180 20" />
-
-              <MobileFrame>
-                <img
-                  src="/reader-feature-preview.webp"
-                  alt="Atrix Explorer Reading Feature Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </MobileFrame>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Narrative Section 4 - Library Management */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 bg-brand-bg overflow-hidden isolate">
-        <BackgroundBlob
-          className="top-0 right-0"
-          color="bg-brand-grey/28"
-          size="w-96 h-96"
-          variant={2}
-        />
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="relative isolate">
-            <DecorativeOrganic className="-top-10 -left-12 opacity-20" size="w-32 h-32" color="fill-brand-grey/5" variant={2} />
-            <DecorativeOrganic className="-bottom-12 -right-16 rotate-12 opacity-30" size="w-48 h-48" color="fill-brand-primary/5" delay={0.2} variant={1} />
-            <DecorativeOrganic className="top-1/2 -right-20 -rotate-45" size="w-36 h-36" color="fill-brand-grey/10" delay={0.4} variant={0} />
-            <FloatingDot className="bottom-12 -right-10" delay={0.4} size="w-10 h-10" />
-
-            <div className="relative w-full max-w-[220px] sm:max-w-[300px] mx-auto z-10">
-              <MobileFrame>
-                <img
-                  src="/library-preview.webp"
-                  alt="Atrix Explorer Library Screen"
-                  className="w-full h-full object-cover opacity-95 group-hover:scale-105 transition-transform duration-700"
-                  referrerPolicy="no-referrer"
-                />
-              </MobileFrame>
-            </div>
-          </div>
-          <div className="text-center lg:text-left">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">Your Library</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text break-words">
-              Access your library, <br className="hidden sm:block" /> anywhere.
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-10">
-              Organize your collection into lists like Plan, Reading, or Completed. Your history is stored on your device, keeping your reading completely private. If you want to access your library on another phone, simply sign in with a free account to back it up.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-              {["Saved on your phone", "Optional backup", "Export lists", "Private notes"].map(tag => (
-                <span key={tag} className="px-4 py-2 rounded-xl text-[10px] font-bold border border-brand-border uppercase tracking-widest bg-brand-card text-brand-text">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Narrative Section 5 - The Problem */}
-      <section className="relative py-20 sm:py-32 border-y border-brand-border transition-colors overflow-hidden bg-brand-bg/50 isolate">
-        <BackgroundBlob
-          className="top-1/4 -right-20"
-          color="bg-brand-grey/28"
-          size="w-96 h-96"
-          variant={2}
-        />
-        <BackgroundBlob
-          className="bottom-1/4 -left-20"
-          color="bg-brand-primary/20"
-          size="w-80 h-80"
-          variant={0}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 grid lg:grid-cols-2 gap-12 sm:gap-20 items-center relative z-10">
-          <div className="order-2 lg:order-2 relative isolate">
-            {/* Layer 1: Background flow/decorative elements (placed behind the grid) */}
-            <div className="absolute inset-0 flex items-center justify-center p-4 pointer-events-none z-0">
-              <div className="relative w-full max-w-[260px] sm:max-w-xs">
-                <FloatingDot className="-top-16 -left-12" delay={0.5} size="w-12 h-12" />
-                <DecorativeOrganic className="-bottom-16 -right-12" size="w-48 h-48" color="fill-brand-grey/5" delay={0.9} variant={0} />
-                <DecorativeOrganic className="-top-12 right-0 rotate-12" size="w-32 h-32" color="fill-brand-primary/5" delay={1.1} variant={1} />
-                <DecorativeOrganic className="bottom-0 -left-12 -rotate-12 opacity-40" size="w-24 h-24" color="fill-brand-grey/10" delay={1.3} variant={2} />
-
-                <DottedPath
-                  className="-bottom-40 right-20 rotate-45"
-                  width={300}
-                  height={200}
-                  viewBox="0 0 300 200"
-                  d="M20 20 Q 150 180 280 20"
-                />
-              </div>
-            </div>
-
-            {/* Layer 2: Grid of Colorful, Opaque Screenshots */}
-            <div className="grid grid-cols-2 gap-4 relative z-10">
-              <div className="space-y-4 pt-12">
-                {[
-                  "/problem-screenshot-1.webp", // Slot 1: Cluttered Track List Spreadsheet
-                  "/problem-screenshot-2.webp"  // Slot 2: 59 Inactive Mobile Tabs
-                ].map((src, i) => (
-                  <div key={i} className="aspect-[3/4] rounded-2xl bg-brand-card border border-brand-border overflow-hidden relative group shadow-md">
-                    <img
-                      src={src}
-                      alt={`App Screenshot Mockup ${i + 1}`}
-                      className="w-full h-full object-cover opacity-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                ))}
-              </div>
-              <div className="space-y-4">
-                {[
-                  "/problem-screenshot-3.webp", // Slot 3: Huge Manual Manga Tracker Spreadsheet
-                  "/problem-screenshot-4.webp"  // Slot 4: 403 Forbidden Server Error Page
-                ].map((src, i) => (
-                  <div key={i + 2} className="aspect-[3/4] rounded-2xl bg-brand-card border border-brand-border overflow-hidden relative group shadow-md">
-                    <img
-                      src={src}
-                      alt={`App Screenshot Mockup ${i + 3}`}
-                      className="w-full h-full object-cover opacity-95 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Layer 3: Foreground Overlay Card (fully interactive, z-20) */}
-            <div className="absolute inset-0 flex items-center justify-center p-4 z-20 pointer-events-none">
-              <div className="relative w-full max-w-[260px] sm:max-w-xs pointer-events-auto">
-                <div className="relative z-10 p-5 sm:p-8 rounded-3xl border shadow-2xl text-center bg-brand-bg/95 border-brand-border glass-card">
-                  <h4 className="text-base sm:text-xl font-bold mb-2 text-brand-text">Lost Progress?</h4>
-                  <p className="text-[10px] sm:text-sm text-brand-grey opacity-60">Manhwa lists are hard to manage. Tabs close, bookmarks get lost, and memories fade.</p>
+          
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
+            {[
+              { icon: BookOpen, title: "Never lose your place again", desc: "Spend a minute on a page, and the browser automatically remembers your position. No manual logs needed." },
+              { icon: Globe, title: "Read comfortably without interruptions", desc: "Enjoy hands-free auto-scrolling, powerful ad-blocking, and clean search filters designed for novels and manga." },
+              { icon: Lock, title: "Your history stays private", desc: "100% local-first privacy. Your reading library lives entirely on your device unless you actively choose to back it up." }
+            ].map((item, i) => (
+              <div key={i} className="p-8 rounded-3xl bg-[var(--app-card-dark)] border border-[var(--app-border)] shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-brand-primary/30 transition-all duration-300 cursor-default">
+                <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-6">
+                  <item.icon size={24} />
                 </div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p className="text-[var(--app-grey)] font-light leading-relaxed">{item.desc}</p>
               </div>
-            </div>
-          </div>
-          <div className="order-1 lg:order-1 text-center lg:text-left">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">The Problem</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Why does tracking <br /> feel like a chore?
-            </h2>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
-              Existing platforms are bloated, ads-heavy, or just plain boring. We built Atrix Explorer to be a clean, personal space—a place where your library feels alive and respected.
-            </p>
-            <div className="space-y-4 text-left inline-block lg:block">
-              <div className="flex items-start gap-4">
-                <div className="mt-1 text-brand-grey"><X size={18} /></div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text">No more lost tabs</div>
-                  <div className="text-sm opacity-50">Browser history is not a reading list.</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 text-brand-grey"><X size={18} /></div>
-                <div>
-                  <div className="font-bold text-sm text-brand-text">No manual reminders</div>
-                  <div className="text-sm opacity-50">Stop checking sites every hour for updates.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section - Community Insights */}
-      <section className="relative py-20 sm:py-32 px-4 sm:px-8 bg-brand-bg transition-colors border-t border-brand-border overflow-hidden isolate">
-        <BackgroundBlob
-          className="-top-20 -left-20"
-          color="bg-brand-grey/28"
-          size="w-80 h-80"
-          variant={0}
-        />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <DecorativeOrganic className="top-0 -left-32 opacity-10" size="w-64 h-64" color="fill-brand-primary/5" variant={0} />
-          <DecorativeOrganic className="bottom-0 -right-32 rotate-12 opacity-10" size="w-72 h-72" color="fill-brand-grey/10" variant={1} />
-          <div className="text-center mb-16 px-4">
-            <span className="text-brand-grey text-xs font-black uppercase tracking-[0.3em] mb-4 block">BLOG & COMMUNITY</span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black mb-6 leading-[1.1] tracking-tighter uppercase text-brand-text">
-              Weekly Manhwa <span className="text-brand-grey/40">News & Picks.</span>
-            </h2>
-            <p className="text-brand-grey text-base md:text-lg max-w-xl mx-auto font-light leading-relaxed">
-              Discover new manhwa, trending chapters, anime updates, and community stories every week.
-            </p>
-            <DottedPath
-              className="top-full left-1/2 -translate-x-1/2 mt-4 rotate-180 opacity-5"
-              d="M10 10 Q 50 90 90 10"
-            />
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {BLOG_POSTS.slice(0, 3).map((post, i) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="p-6 border border-brand-border rounded-[2rem] text-left transition-all hover:translate-y-[-8px] shadow-sm hover:shadow-xl bg-brand-card"
-              >
-                <div className="aspect-video rounded-2xl overflow-hidden mb-6 bg-zinc-500/10">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                </div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-brand-grey mb-2">{post.category}</div>
-                <h3 className="text-lg font-bold mb-4 tracking-tight line-clamp-2 text-brand-text">{post.title}</h3>
-                <Link to={`/blog/${post.id}`} className="text-xs font-black uppercase tracking-widest hover:gap-2 transition-all flex items-center gap-1 text-brand-text group/btn">
-                  Read More <ChevronRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
-              </motion.div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="mt-16 text-center">
-            <Link to="/blog" className="inline-flex h-14 px-8 items-center justify-center rounded-2xl border border-brand-border bg-brand-card text-brand-text font-black uppercase tracking-widest text-xs hover:bg-brand-primary hover:text-brand-bg transition-all">
-              View All Posts
-            </Link>
+      {/* 4. Features Breakdown (White Background) */}
+      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg isolate overflow-hidden">
+        <BackgroundBlob className="top-[10%] right-[-10%]" color="bg-brand-grey/[0.04]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={0} />
+        <BackgroundBlob className="bottom-[10%] left-[-10%]" color="bg-brand-grey/[0.04]" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" variant={1} />
+        
+        <div className="max-w-7xl mx-auto space-y-32 relative z-10">
+          {/* Feature 1 */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+             <div className="relative flex justify-center">
+                <div className="w-full max-w-[300px] relative">
+                   <img src="/reader-feature-preview.webp" alt="Reader Feature" className="w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-brand-card" />
+                </div>
+             </div>
+             <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-text">Comfortable reading, built-in.</h2>
+                <p className="text-brand-grey text-lg font-light mb-8">
+                  Manga and novel websites can be full of clutter. Atrix has built-in features to make reading clean and easy.
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "Blocks popups and ads instantly.",
+                    "Hands-free auto-scroll at your preferred speed.",
+                    "Cleaner search hiding shopping noise."
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle size={18} className="text-brand-primary" />
+                      <span className="font-semibold text-brand-text">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+             </div>
+          </div>
+
+          {/* Feature 2 */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+             <div className="order-2 lg:order-1">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-text">Access your library, anywhere.</h2>
+                <p className="text-brand-grey text-lg font-light mb-8">
+                  Organize your collection into lists like Plan, Reading, or Completed. Your history is stored on your device, keeping your reading completely private.
+                </p>
+                <ul className="space-y-4">
+                  {[
+                    "Saved completely offline on your phone.",
+                    "Optional free cloud backup across devices.",
+                    "Export lists to standard formats easily."
+                  ].map((text, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <CheckCircle size={18} className="text-brand-primary" />
+                      <span className="font-semibold text-brand-text">{text}</span>
+                    </li>
+                  ))}
+                </ul>
+             </div>
+             <div className="order-1 lg:order-2 relative flex justify-center">
+                <div className="w-full max-w-[300px] relative">
+                   <img src="/library-preview.webp" alt="Library View" className="w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-brand-card" />
+                </div>
+             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section - Warmer and Softer */}
-      <section className="pb-20 sm:pb-32 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-[2.5rem] sm:rounded-[3rem] p-8 sm:p-12 md:p-24 flex flex-col items-center text-center shadow-2xl transition-colors border-2 border-brand-border bg-brand-primary text-brand-bg">
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter leading-[0.9] mb-8 uppercase text-balance">
-                Ready to take back <br /> control of your library?
-              </h2>
-              <p className="text-lg md:text-xl font-light max-w-xl mx-auto mb-12 leading-relaxed text-balance opacity-80">
-                Downloading Atrix Explorer is the first step towards a better reading habit. It’s free, fast, and built for you.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button
-                  onClick={handleDownload}
-                  className="h-16 px-12 font-black text-lg rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl bg-brand-bg text-brand-text"
-                >
-                  Download APK
-                </button>
-                <a href="https://t.me/manhwa_daily" target="_blank" rel="noreferrer" className="h-16 px-12 font-black text-lg rounded-2xl border border-brand-bg/20 hover:bg-brand-bg/10 transition-all flex items-center justify-center gap-3 backdrop-blur-sm">
-                  <Send size={20} /> Join Telegram
-                </a>
+      {/* 5. How It Works (Dark Background Rhythm Breaker) */}
+      <section className="relative py-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-20">How it works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-12 sm:gap-8">
+            {[
+              { icon: Search, title: "Search", desc: "Find any novel or manga via the built-in browser." },
+              { icon: BookOpen, title: "Read", desc: "Enjoy a clean, ad-free reading experience." },
+              { icon: CheckCircle, title: "Progress Saved", desc: "We automatically log your chapter." },
+              { icon: Globe, title: "Resume Anywhere", desc: "Open the app and jump right back in." }
+            ].map((step, i) => (
+              <div key={i} className="flex flex-col items-center relative">
+                <div className="w-24 h-24 rounded-3xl bg-[var(--app-card-dark)] border border-[var(--app-border)] flex items-center justify-center text-[var(--app-accent-neon)] mb-8 z-10 relative shadow-xl hover:scale-105 transition-transform">
+                  <step.icon size={48} />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                <p className="text-[var(--app-grey)] font-light text-lg max-w-[200px]">{step.desc}</p>
+                
+                {/* Connecting Line */}
+                {i !== 3 && (
+                  <div className="hidden sm:block absolute top-12 left-[60%] w-[80%] h-[2px] bg-[var(--app-border)] z-0" />
+                )}
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* Visual Flair */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-              <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full blur-3xl" />
-              <div className="absolute bottom-10 right-10 w-64 h-64 bg-black rounded-full blur-3xl opacity-20" />
+      {/* 6. Screenshots Carousel (White Background) */}
+      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+             <h2 className="text-3xl md:text-5xl font-bold text-brand-text">Beautiful inside and out.</h2>
+          </div>
+          <div className="flex overflow-x-auto pt-8 pb-12 snap-x no-scrollbar px-4 md:px-8 w-full">
+            <div className="flex gap-6 mx-auto">
+              {[
+                { src: "/hero-preview.webp", label: "Home" },
+                { src: "/reading-tab-preview.webp", label: "Browser" },
+                { src: "/library-preview.webp", label: "Library" },
+                { src: "/Deatilescreen-preview.webp", label: "Detail" },
+                { src: "/profile-preview.webp", label: "Profile" },
+                { src: "/insight-preview.webp", label: "Insight" },
+              ].map((item, i) => (
+                <div key={i} className="shrink-0 snap-center group rounded-3xl transition-all duration-300 hover:-translate-y-4 cursor-pointer flex flex-col items-center justify-center">
+                  <div className="bg-white rounded-3xl p-3 shadow-sm border border-brand-border group-hover:glow-cyan group-hover:shadow-2xl transition-all duration-300 w-[240px] md:w-[260px]">
+                     <img src={item.src} alt={`${item.label} Mockup`} className="w-full rounded-2xl overflow-hidden" />
+                  </div>
+                  <div className="text-center mt-6 text-brand-grey font-bold tracking-widest text-xs uppercase opacity-70 group-hover:opacity-100 group-hover:text-brand-primary transition-colors">
+                     {item.label}
+                  </div>
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6.5 Built for readers (Dark Background) */}
+      <section className="relative py-24 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
+         <div className="max-w-7xl mx-auto text-center">
+            <h2 className="text-3xl md:text-5xl font-bold mb-16">Built for readers, not browsers.</h2>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+               {/* Chrome */}
+               <div className="bg-[var(--app-card-dark)] p-8 rounded-3xl border border-[var(--app-border)] w-full max-w-sm">
+                  <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
+                     <Globe size={24} />
+                     <h3 className="text-xl font-bold">Generic Browser</h3>
+                  </div>
+                  <ul className="space-y-4 text-left">
+                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> Generic web browser</li>
+                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> No reading memory</li>
+                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> No library organization</li>
+                  </ul>
+               </div>
+
+               <div className="hidden md:block">
+                  <ArrowRight size={32} className="text-[var(--app-grey)] opacity-30" />
+               </div>
+               <div className="md:hidden my-4">
+                  <ArrowDown size={32} className="text-[var(--app-grey)] opacity-30" />
+               </div>
+
+               {/* ATRIX Explorer */}
+               <div className="bg-[var(--app-card-dark)] p-8 rounded-3xl border-2 border-[var(--app-accent-neon)] w-full max-w-sm glow-cyan relative shadow-xl">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--app-accent-neon)] text-[#09090b] px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
+                     YOUR NEW HOME
+                  </div>
+                  <div className="flex items-center justify-center gap-3 mb-6">
+                     <div className="w-8 h-8 rounded-lg bg-[var(--app-accent-neon)] flex items-center justify-center text-[#09090b] font-bold text-lg">A</div>
+                     <h3 className="text-xl font-bold text-white">ATRIX Explorer</h3>
+                  </div>
+                  <ul className="space-y-4 text-left">
+                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Built specifically for manga & novels</li>
+                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Remembers where you stopped</li>
+                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Organizes your reading automatically</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 7. Comparison Table (White Background) */}
+      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg">
+         <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-text">Why switch to ATRIX Explorer?</h2>
+            
+            <div className="bg-white rounded-3xl border border-brand-border shadow-sm overflow-hidden">
+               <div className="grid grid-cols-3 bg-brand-card p-6 border-b border-brand-border">
+                  <div className="font-bold text-brand-text">Feature</div>
+                  <div className="font-bold text-brand-grey text-center">Chrome</div>
+                  <div className="font-bold text-brand-primary text-center">ATRIX Explorer</div>
+               </div>
+               
+               {[
+                 { feat: "Saves reading progress", normal: false, atrix: true },
+                 { feat: "Reading library", normal: false, atrix: true },
+                 { feat: "Auto-scroll", normal: false, atrix: true },
+                 { feat: "Optional backup", normal: false, atrix: true },
+               ].map((row, i) => (
+                 <div key={i} className="grid grid-cols-3 p-6 border-b border-brand-border last:border-0 hover:bg-brand-card/50 transition-colors items-center">
+                    <div className="text-brand-text font-medium">{row.feat}</div>
+                    <div className="text-center text-brand-grey flex justify-center">
+                       {row.normal === false ? <X size={20} /> : <span className="text-sm">{row.normal}</span>}
+                    </div>
+                    <div className="text-center flex justify-center text-brand-primary">
+                       <CheckCircle size={24} className="glow-cyan rounded-full" />
+                    </div>
+                 </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 8. Social Proof (White Background) */}
+      <section className="relative py-20 px-4 sm:px-8 bg-brand-bg text-center">
+         <div className="max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-brand-text">Join thousands of readers keeping track of everything they read.</h2>
+            <p className="text-brand-grey mb-8 font-light text-lg">
+               Get chapter updates, feature announcements, and reading recommendations.
+            </p>
+            <div className="flex justify-center">
+               <a href="https://t.me/manhwa_daily" target="_blank" rel="noreferrer" className="px-8 py-4 rounded-2xl border border-brand-border bg-white shadow-sm hover:shadow-md transition-all flex items-center gap-3 text-brand-text font-bold">
+                  <Send size={20} className="text-[#0088cc]" /> Join the Telegram Community
+               </a>
+            </div>
+         </div>
+      </section>
+
+      {/* 9. FAQ Section (Dark Background) */}
+      <section className="relative py-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)] border-t border-[var(--app-border)]">
+         <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {[
+                { q: "Is this just a reading app?", a: "No, it's a fully functional mobile web browser that specifically detects and enhances manga and novel websites." },
+                { q: "Is it available on iOS?", a: "Currently, ATRIX Explorer is only available for Android via APK download. We are actively exploring an iOS release in the future." },
+                { q: "Do I need to create an account?", a: "Absolutely not. You can download the app and start reading immediately. Accounts are only needed if you want cloud backups." },
+                { q: "Is my reading data private?", a: "Yes. By default, your entire reading history and library are stored exclusively on your local device." },
+                { q: "Does it work offline?", a: "Your library and progress tracking work offline. However, since it is a web browser, you will need an internet connection to load and read new chapters." },
+                { q: "Is cloud backup optional?", a: "Yes! Cloud backup is entirely optional and free. You never have to use it if you prefer 100% local storage." },
+                { q: "Will it sync across devices?", a: "Yes, if you choose to create a free account, you can sync your library seamlessly across multiple Android devices." },
+              ].map((faq, i) => (
+                <div key={i}>
+                  <FAQItem faq={faq} />
+                </div>
+              ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 10. Compact News (White Background) */}
+      <section className="relative py-16 px-4 sm:px-8 bg-brand-bg">
+         <div className="max-w-7xl mx-auto">
+            <div className="flex justify-between items-end mb-8">
+               <div>
+                  <h2 className="text-2xl font-bold text-brand-text">Latest News</h2>
+                  <p className="text-brand-grey text-sm">Updates from the community</p>
+               </div>
+               <Link to="/blog" className="text-sm font-bold text-brand-primary hover:underline">View All &rarr;</Link>
+            </div>
+            
+            <div className="grid sm:grid-cols-3 gap-6">
+               {BLOG_POSTS.slice(0, 3).map((post, i) => (
+                  <Link key={i} to={`/blog/${post.id}`} className="group block border border-brand-border rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
+                     <div className="h-32 bg-zinc-100 overflow-hidden">
+                        <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                     </div>
+                     <div className="p-4">
+                        <div className="text-[10px] font-bold text-brand-grey mb-1 uppercase tracking-widest">{post.category}</div>
+                        <h3 className="text-sm font-bold text-brand-text line-clamp-2">{post.title}</h3>
+                     </div>
+                  </Link>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 11. Big Download CTA (Dark Background) */}
+      <section className="relative pt-24 sm:pt-40 pb-16 sm:pb-24 md:pb-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-white overflow-hidden text-center">
+        {/* Glow behind text */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-[var(--app-accent-neon)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
+        
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8">
+            Ready to organize <br /> everything you read?
+          </h2>
+          <p className="text-[var(--app-grey)] text-lg md:text-xl font-light mb-12">
+            Download ATRIX Explorer today.
+          </p>
+          <div className="flex justify-center">
+             <button
+               onClick={handleDownload}
+               className="h-16 px-12 font-bold text-lg rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl bg-white text-zinc-900 flex items-center gap-3"
+             >
+               Download APK <ArrowRight size={20} />
+             </button>
           </div>
         </div>
       </section>
@@ -1160,8 +1007,8 @@ const HomePage = () => {
 };
 
 const MobileFrame = ({ children, className }: { children: ReactNode, className?: string }) => (
-  <div className={cn("relative z-10 aspect-[9/18.5] rounded-[2rem] p-2 border border-brand-border bg-brand-bg shadow-[0_24px_48px_-12px_rgba(0,0,0,0.4)] overflow-hidden", className)}>
-    <div className="w-full h-full rounded-[1.4rem] overflow-hidden bg-brand-card border border-brand-border relative group">
+  <div className={cn("relative z-10 aspect-[9/18.5] rounded-[1.75rem] p-1.5 border border-brand-border bg-brand-bg shadow-[0_24px_48px_-12px_rgba(0,0,0,0.4)] overflow-hidden", className)}>
+    <div className="w-full h-full rounded-[1.5rem] overflow-hidden bg-brand-card border border-brand-border relative group">
       {children}
     </div>
   </div>
@@ -1177,7 +1024,7 @@ const ExportWorkflowUI = () => (
     <div className="relative z-10 flex-1 w-full p-4 rounded-2xl bg-brand-bg border border-brand-border text-left">
       <div className="flex items-center gap-2 mb-3">
         <BookOpen size={14} className="text-brand-primary" />
-        <span className="text-[9px] font-black tracking-widest text-brand-text">DATABASE</span>
+        <span className="text-[9px] font-bold tracking-widest text-brand-text">DATABASE</span>
       </div>
       <div className="space-y-1.5">
         <div className="flex justify-between items-center px-2 py-1.5 rounded bg-brand-card text-[9px] font-mono border border-brand-border">
@@ -1200,13 +1047,13 @@ const ExportWorkflowUI = () => (
       >
         <Download size={16} />
       </motion.div>
-      <span className="text-[8px] font-black uppercase tracking-widest text-brand-grey">EXPORT DATA</span>
+      <span className="text-[8px] font-bold tracking-widest text-brand-grey">EXPORT DATA</span>
     </div>
 
     <div className="relative z-10 flex-1 w-full p-4 rounded-2xl bg-brand-bg border border-brand-border text-left">
       <div className="flex items-center gap-2 mb-3">
         <CheckCircle size={14} className="text-emerald-600" />
-        <span className="text-[9px] font-black tracking-widest text-brand-text">DOWNLOAD SUCCESS</span>
+        <span className="text-[9px] font-bold tracking-widest text-brand-text">DOWNLOAD SUCCESS</span>
       </div>
       <div className="border border-brand-border rounded overflow-hidden">
         <div className="grid grid-cols-3 gap-1 bg-brand-card p-1 text-[7px] font-mono font-bold text-brand-grey">
@@ -1256,7 +1103,7 @@ const CategoryGridUI = () => {
               <item.icon size={18} />
             </div>
             <div>
-              <div className="text-[10px] font-black tracking-widest text-brand-text">{item.name}</div>
+              <div className="text-[10px] font-bold tracking-widest text-brand-text">{item.name}</div>
               <div className="text-[9px] font-medium text-brand-grey opacity-60 mt-0.5">{item.count}</div>
             </div>
           </motion.div>
@@ -1276,13 +1123,13 @@ const CollagePersonalizationUI = () => (
       >
         <div className="flex-1 w-full rounded-xl bg-zinc-200/50 relative overflow-hidden flex items-center justify-center group/poster border border-brand-border">
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/poster:opacity-100 transition-opacity flex items-center justify-center z-10">
-            <span className="text-[8px] font-black tracking-widest text-white uppercase border border-white/40 px-1.5 py-0.5 rounded">Change Cover</span>
+            <span className="text-[8px] font-bold tracking-widest text-white border border-white/40 px-1.5 py-0.5 rounded">Change Cover</span>
           </div>
           <div className="absolute inset-1.5 border border-dashed border-white/20 pointer-events-none" />
           <BookOpen size={20} className="opacity-20 text-brand-primary" />
         </div>
         <div className="mt-2 text-left">
-          <span className="text-[7px] font-black uppercase tracking-widest text-brand-grey block">UPLOAD POSTER</span>
+          <span className="text-[7px] font-bold tracking-widest text-brand-grey block">UPLOAD POSTER</span>
           <div className="text-[9px] font-bold text-brand-text truncate">solo_leveling_v2.jpg</div>
         </div>
       </motion.div>
@@ -1295,7 +1142,7 @@ const CollagePersonalizationUI = () => (
         <div className="flex items-center justify-between border-b border-brand-border pb-1.5">
           <div className="flex items-center gap-1.5">
             <div className="w-1.5 h-1.5 rounded-full bg-brand-primary" />
-            <span className="text-[8px] font-black tracking-widest text-brand-text uppercase">Private Notes</span>
+            <span className="text-[8px] font-bold tracking-widest text-brand-text ">Private Notes</span>
           </div>
           <span className="text-[7px] font-mono text-brand-grey opacity-50">MANUAL ENTRY</span>
         </div>
@@ -1310,7 +1157,7 @@ const CollagePersonalizationUI = () => (
         className="absolute top-[20%] right-0 p-2.5 rounded-xl border border-brand-border bg-brand-card shadow-lg z-10 flex items-center gap-3"
       >
         <div className="text-left">
-          <div className="text-[7px] font-black tracking-widest text-brand-grey uppercase">PROGRESS</div>
+          <div className="text-[7px] font-bold tracking-widest text-brand-grey ">PROGRESS</div>
           <div className="text-[10px] font-bold text-brand-text">Chapter 142</div>
         </div>
         <div className="flex gap-1">
@@ -1340,7 +1187,7 @@ const SyncConnectionsUI = () => (
         <Cloud size={20} className="relative z-10 mb-0.5" />
         <Shield size={8} className="relative z-10 opacity-80" />
       </motion.div>
-      <span className="text-[7px] font-black uppercase tracking-[0.2em] text-brand-text">Sync Vault</span>
+      <span className="text-[7px] font-bold tracking-[0.2em] text-brand-text">Sync Vault</span>
     </div>
 
     {/* Left: Phone A (Primary Phone) */}
@@ -1371,7 +1218,7 @@ const SyncConnectionsUI = () => (
         <div className="w-4 h-0.5 bg-brand-primary/60 rounded-full mx-auto mt-0.5 shrink-0" />
       </motion.div>
       <div className="text-center">
-        <div className="text-[8px] font-black uppercase tracking-widest text-brand-text">Phone A</div>
+        <div className="text-[8px] font-bold tracking-widest text-brand-text">Phone A</div>
         <div className="text-[6px] font-mono text-brand-grey">Primary</div>
       </div>
     </div>
@@ -1404,7 +1251,7 @@ const SyncConnectionsUI = () => (
         <div className="w-4 h-0.5 bg-brand-border rounded-full mx-auto mt-0.5 shrink-0" />
       </motion.div>
       <div className="text-center">
-        <div className="text-[8px] font-black uppercase tracking-widest text-brand-text">Phone B</div>
+        <div className="text-[8px] font-bold tracking-widest text-brand-text">Phone B</div>
         <div className="text-[6px] font-mono text-brand-grey">Synced</div>
       </div>
     </div>
@@ -1466,45 +1313,50 @@ const SyncConnectionsUI = () => (
 );
 
 const GuestFreedomPanelUI = () => (
-  <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mx-auto px-4">
-    {/* Guest Mode Card */}
+  <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mx-auto px-4 items-stretch">
+    {/* Local-First Card (Primary) */}
     <motion.div
       whileHover={{ y: -6, scale: 1.01 }}
-      className="p-8 sm:p-10 rounded-[2.5rem] border border-brand-border bg-brand-card flex flex-col gap-6 text-left shadow-md hover:shadow-xl transition-all relative overflow-hidden isolate"
+      className="p-5 sm:p-8 md:p-10 rounded-[2.5rem] border-2 border-brand-primary bg-brand-card flex flex-col gap-6 text-left shadow-2xl hover:shadow-3xl transition-all relative overflow-hidden isolate"
     >
       <DecorativeOrganic className="-top-12 -right-12 rotate-12 opacity-30" size="w-48 h-48" color="fill-brand-primary/5" variant={0} style={{ zIndex: -1 }} />
       <DecorativeOrganic className="bottom-[-30px] left-[-30px] rotate-[45deg] opacity-20" size="w-40 h-40" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
+      
+      <div className="absolute top-6 right-6 px-3 py-1 bg-brand-primary text-brand-bg text-[10px] font-bold tracking-widest rounded-full shadow-md">
+        DEFAULT EXPERIENCE
+      </div>
 
       <div className="flex flex-col gap-6 relative z-10 w-full h-full">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-            <Lock size={22} />
+          <div className="w-14 h-14 rounded-2xl bg-brand-primary flex items-center justify-center text-brand-bg shadow-lg">
+            <Lock size={26} />
           </div>
           <div>
-            <div className="text-[9px] font-black uppercase tracking-widest text-brand-primary">LOCAL-FIRST PRIVACY</div>
-            <h3 className="text-xl font-black text-brand-text uppercase tracking-tight">Guest Mode</h3>
+            <div className="text-[10px] font-bold tracking-widest text-brand-primary">MAXIMUM PRIVACY</div>
+            <h3 className="text-2xl font-bold text-brand-text tracking-tight">Local-First Mode</h3>
           </div>
         </div>
 
-        <p className="text-xs sm:text-sm text-brand-grey font-light leading-relaxed">
-          Start instantly without sharing a single byte of personal data. Your library lives entirely on your device—fully private, fast, and completely yours.
+        <p className="text-sm text-brand-grey font-medium leading-relaxed">
+          The complete, uncompromising ATRIX Explorer experience. Start instantly without onboarding friction. Your entire library, history, and notifications live securely on your device.
         </p>
 
         <div className="h-px bg-brand-border/50 my-2" />
 
-        <div className="space-y-3.5">
-          <div className="text-[10px] font-black uppercase tracking-widest text-brand-grey opacity-60 mb-1">AVAILABLE OFFLINE</div>
+        <div className="space-y-4">
+          <div className="text-[10px] font-bold tracking-widest text-brand-grey opacity-60 mb-2">FULL FEATURE ACCESS</div>
           {[
-            { text: "No account needed", desc: "Open the app and start reading immediately." },
-            { text: "100% private library", desc: "No one tracking your habits. Your history is stored only on your phone." },
-            { text: "Works without internet", desc: "Perfect for reading on the go. Your progress is saved offline." },
-            { text: "Smart reading progress", desc: "We automatically detect when you finish a chapter and update your list." },
+            { text: "Frictionless start", desc: "No sign-ups or onboarding hurdles." },
+            { text: "100% private library", desc: "Your data never leaves your phone." },
+            { text: "Smart reading progress", desc: "Automatic chapter tracking and history." },
+            { text: "Instant chapter alerts", desc: "Get notified immediately when new chapters drop." },
+            { text: "Advanced reader tools", desc: "Unrestricted access to ad-block and auto-scroll." },
           ].map((item, i) => (
             <div key={i} className="flex gap-3">
-              <CheckCircle size={16} className="text-brand-primary shrink-0 mt-0.5" />
+              <CheckCircle size={18} className="text-brand-primary shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-bold text-brand-text leading-tight">{item.text}</h4>
-                <p className="text-[10px] text-brand-grey font-light leading-normal opacity-85">{item.desc}</p>
+                <h4 className="text-sm font-bold text-brand-text leading-tight">{item.text}</h4>
+                <p className="text-[11px] text-brand-grey font-light leading-normal opacity-85">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -1512,44 +1364,41 @@ const GuestFreedomPanelUI = () => (
       </div>
     </motion.div>
 
-    {/* Account Mode Card */}
+    {/* Cloud Sync Card (Optional) */}
     <motion.div
       whileHover={{ y: -6, scale: 1.01 }}
-      className="p-8 sm:p-10 rounded-[2.5rem] border border-brand-border bg-brand-card flex flex-col gap-6 text-left shadow-md hover:shadow-xl transition-all relative overflow-hidden isolate"
+      className="p-5 sm:p-8 md:p-10 rounded-[2.5rem] border border-brand-border/50 bg-brand-bg flex flex-col gap-6 text-left shadow-sm hover:shadow-md transition-all relative overflow-hidden isolate opacity-90 hover:opacity-100"
     >
-      <DecorativeOrganic className="-top-12 -right-12 rotate-45 opacity-30" size="w-48 h-48" color="fill-brand-grey/5" variant={2} style={{ zIndex: -1 }} />
-      <DecorativeOrganic className="bottom-[-30px] left-[-30px] rotate-[15deg] opacity-20" size="w-40 h-40" color="fill-brand-primary/5" variant={3} style={{ zIndex: -1 }} />
-
       <div className="flex flex-col gap-6 relative z-10 w-full h-full">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-            <User size={22} />
+        <div className="flex items-center gap-4 opacity-80">
+          <div className="w-12 h-12 rounded-2xl bg-brand-grey/10 flex items-center justify-center text-brand-text/60">
+            <Cloud size={22} />
           </div>
           <div>
-            <div className="text-[9px] font-black uppercase tracking-widest text-brand-primary">OPTIONAL UPGRADE</div>
-            <h3 className="text-xl font-black text-brand-text uppercase tracking-tight">Account Mode</h3>
+            <div className="text-[9px] font-bold tracking-widest text-brand-grey">CROSS-DEVICE CONVENIENCE</div>
+            <h3 className="text-xl font-bold text-brand-text/80 tracking-tight">Cloud Sync</h3>
           </div>
         </div>
 
         <p className="text-xs sm:text-sm text-brand-grey font-light leading-relaxed">
-          Create an account only when you want to extend your library across mobile devices. Back up your history and receive real-time updates seamlessly.
+          Designed specifically for users who need to manage their library across multiple devices. A seamless infrastructure extension, not a feature paywall.
         </p>
 
         <div className="h-px bg-brand-border/50 my-2" />
 
-        <div className="space-y-3.5">
-          <div className="text-[10px] font-black uppercase tracking-widest text-brand-grey opacity-60 mb-1">CLOUD EXTENSIONS</div>
+        <div className="space-y-4">
+          <div className="text-[10px] font-bold tracking-widest text-brand-grey opacity-60 mb-2">CLOUD INFRASTRUCTURE</div>
           {[
-            { text: "Free cloud backups", desc: "Save your library to the cloud so you never lose it." },
-            { text: "Sync across phones", desc: "Read on one phone, continue on another without missing a page." },
-            { text: "Chapter alerts", desc: "Get notified as soon as a new chapter is out." },
-            { text: "Reading habits overview", desc: "See how much you read, your active streaks, and reading history." },
+            { text: "Real-time device sync", desc: "Read on your phone, continue on your tablet." },
+            { text: "Encrypted cloud backups", desc: "Safely store a mirrored copy of your library." },
+            { text: "Seamless migration", desc: "Restore your entire setup instantly on a new phone." },
+            { text: "Multi-device identicality", desc: "Keep all your tags, notes, and progress matched." },
           ].map((item, i) => (
             <div key={i} className="flex gap-3">
-              <CheckCircle size={16} className="text-brand-primary shrink-0 mt-0.5" />
+              <CheckCircle size={18} className="text-brand-text/40 shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-xs font-bold text-brand-text leading-tight">{item.text}</h4>
-                <p className="text-[10px] text-brand-grey font-light leading-normal opacity-85">{item.desc}</p>
+                <h4 className="text-sm font-bold text-brand-text/80 leading-tight">{item.text}</h4>
+                <p className="text-[11px] text-brand-grey font-light leading-normal opacity-85">{item.desc}</p>
               </div>
             </div>
           ))}
@@ -1563,11 +1412,11 @@ const StatsDashboardUI = () => (
   <div className="relative z-10 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
     <div className="p-5 rounded-2xl border border-brand-border bg-brand-card flex flex-col gap-4 text-left shadow-sm">
       <div className="flex items-center justify-between">
-        <span className="text-[8px] font-black tracking-widest text-brand-grey uppercase">READING STREAK</span>
+        <span className="text-[8px] font-bold tracking-widest text-brand-grey ">READING STREAK</span>
         <Star size={14} className="text-amber-500 fill-amber-500/20" />
       </div>
       <div>
-        <div className="text-xl font-black text-brand-text">42 DAYS</div>
+        <div className="text-xl font-bold text-brand-text">42 DAYS</div>
         <p className="text-[8px] text-brand-grey opacity-60 font-medium">Consistent daily activity</p>
       </div>
       <div className="grid grid-cols-7 gap-1">
@@ -1581,11 +1430,11 @@ const StatsDashboardUI = () => (
 
     <div className="p-5 rounded-2xl border border-brand-border bg-brand-card flex flex-col gap-4 text-left shadow-sm">
       <div className="flex items-center justify-between">
-        <span className="text-[8px] font-black tracking-widest text-brand-grey uppercase">MONTHLY PROGRESS</span>
+        <span className="text-[8px] font-bold tracking-widest text-brand-grey ">MONTHLY PROGRESS</span>
         <BookOpen size={14} className="text-brand-primary" />
       </div>
       <div>
-        <div className="text-xl font-black text-brand-text">180 CH</div>
+        <div className="text-xl font-bold text-brand-text">180 CH</div>
         <p className="text-[8px] text-brand-grey opacity-60 font-medium">Chapters read this month</p>
       </div>
       <div className="space-y-1 mt-2">
@@ -1601,11 +1450,11 @@ const StatsDashboardUI = () => (
 
     <div className="p-5 rounded-2xl border border-brand-border bg-brand-card flex flex-col gap-4 text-left shadow-sm">
       <div className="flex items-center justify-between">
-        <span className="text-[8px] font-black tracking-widest text-brand-grey uppercase">DISTRIBUTION</span>
+        <span className="text-[8px] font-bold tracking-widest text-brand-grey ">DISTRIBUTION</span>
         <Layers size={14} className="text-brand-primary" />
       </div>
       <div>
-        <div className="text-xl font-black text-brand-text">3 STYLES</div>
+        <div className="text-xl font-bold text-brand-text">3 STYLES</div>
         <p className="text-[8px] text-brand-grey opacity-60 font-medium">Media diversity tracked</p>
       </div>
       <div className="flex flex-col gap-1 text-[7px] font-mono mt-1">
@@ -1617,7 +1466,7 @@ const StatsDashboardUI = () => (
 
     <div className="p-5 rounded-2xl border border-brand-border bg-brand-card flex flex-col gap-3 text-left shadow-sm">
       <div className="flex items-center justify-between">
-        <span className="text-[8px] font-black tracking-widest text-brand-grey uppercase">READING INSIGHTS</span>
+        <span className="text-[8px] font-bold tracking-widest text-brand-grey ">READING INSIGHTS</span>
         <Clock size={14} className="text-brand-primary" />
       </div>
       <div className="text-[7px] text-brand-grey opacity-60 font-medium">Daily contribution mapping</div>
@@ -1644,13 +1493,13 @@ const StatsDashboardUI = () => (
 
 const FeaturesPage = () => {
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen overflow-hidden bg-brand-bg text-brand-text relative isolate">
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen overflow-hidden bg-brand-bg text-brand-text relative isolate">
       <DecorativeOrganic className="top-20 -left-20" size="w-96 h-96" color="fill-brand-primary/5" variant={0} style={{ zIndex: -1 }} />
       <DecorativeOrganic className="top-1/4 -right-32 rotate-12" size="w-64 h-64" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
       <BackgroundBlob
         className="top-0 left-0"
         color="bg-brand-primary/20"
-        size="w-[800px] h-[800px]"
+        size="w-[400px] sm:w-[800px] h-[400px] sm:h-[800px]"
         animateProps={{ x: [-20, 20, -20], y: [-20, 20, -20] }}
         variant={0}
         style={{ zIndex: -1 }}
@@ -1658,7 +1507,7 @@ const FeaturesPage = () => {
       <BackgroundBlob
         className="bottom-0 right-0"
         color="bg-brand-grey/28"
-        size="w-[600px] h-[600px]"
+        size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]"
         animateProps={{ scale: [1, 1.2, 1] }}
         variant={2}
         style={{ zIndex: -1 }}
@@ -1670,19 +1519,20 @@ const FeaturesPage = () => {
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+        
         {/* 1. Hero / Big Vision */}
-        <header className="mb-20 sm:mb-32 text-center max-w-3xl mx-auto">
+        <header className="mb-16 sm:mb-24 md:mb-40 text-center max-w-3xl mx-auto">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-6 block"
+            className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-6 block"
           >
             FREEDOM & FLEXIBILITY
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-black leading-[1] tracking-tighter uppercase mb-8 text-balance text-brand-text"
+            className="text-3xl sm:text-5xl md:text-6xl font-bold leading-[1] tracking-tighter mb-10 text-balance text-brand-text"
           >
             BUILT FOR READERS<br />WHO WANT MORE<br />CONTROL.
           </motion.h1>
@@ -1697,20 +1547,95 @@ const FeaturesPage = () => {
         </header>
 
         <div className="space-y-32 sm:space-y-48">
-          {/* 2. SMART TRACKING (Library) */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-32 relative isolate">
+          
+          {/* 2. READ COMFORTABLY (Browser Features) */}
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
             <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/32"
-              size="w-[500px] h-[500px]"
+              className="-top-20 -right-20"
+              color="bg-brand-primary/20"
+              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
               variant={2}
               style={{ zIndex: -1 }}
             />
+            <div className="w-full lg:w-1/2 relative isolate">
+              <div
+                className="absolute -inset-10 bg-gradient-to-br from-brand-grey/10 to-transparent blur-[100px] opacity-20"
+                style={{ zIndex: -1 }}
+              />
+              <div
+                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+              >
+                <div className="w-full max-w-[240px] sm:max-w-[280px] relative">
+                  <DecorativeOrganic className="-top-12 -right-16 rotate-12" size="w-56 h-56" color="fill-brand-grey/10" variant={0} />
+                  <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-40" size="w-64 h-64" color="fill-brand-primary/5" variant={1} />
+                  
+                  <MobileFrame>
+                    <img
+                      src="/reading-tab-preview.webp"
+                      alt="Reading View Mockup"
+                      className="w-full h-full object-cover"
+                    />
+                  </MobileFrame>
+                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -right-8 sm:-right-12 top-24 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-brand-border flex items-center gap-2 sm:gap-3 z-20">
+                     <Shield size={18} className="text-emerald-500 shrink-0" />
+                     <div className="text-[10px] sm:text-xs font-bold text-brand-text tracking-widest whitespace-nowrap">AD BLOCKED</div>
+                  </motion.div>
+                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -left-8 sm:-left-12 bottom-32 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-brand-border flex items-center gap-2 sm:gap-3 z-20">
+                     <ArrowDown size={18} className="text-brand-primary shrink-0" />
+                     <div className="text-[10px] sm:text-xs font-bold text-brand-text tracking-widest whitespace-nowrap">AUTO-SCROLL</div>
+                  </motion.div>
+                </div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">01</div>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                    <BookOpen size={24} />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">BROWSER FEATURES</div>
+                    <div className="text-xs font-bold text-brand-grey">Zero interruptions.</div>
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
+                  READ COMFORTABLY,<br />EVERY SINGLE TIME.
+                </h2>
+                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
+                  Enjoy hands-free auto-scrolling, powerful ad-blocking, and clean search filters designed specifically for reading novels and manga.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
+                  {["Powerful ad-blocker", "Adjustable auto-scroll", "Block intrusive popups", "Distraction-free mode"].map((pt, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
+                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={handleDownload}
+                  className="h-14 px-8 mx-auto lg:mx-0 rounded-2xl font-bold text-xs tracking-widest flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-brand-bg"
+                >
+                  Get APK <ArrowRight size={16} />
+                </button>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* 3. AUTOMATIC PROGRESS TRACKING (Smart Tracking) */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
             <BackgroundBlob
-              className="-bottom-20 -right-20"
-              color="bg-brand-grey/35"
-              size="w-[400px] h-[400px]"
-              variant={3}
+              className="-top-20 -left-20"
+              color="bg-brand-primary/32"
+              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
+              variant={2}
               style={{ zIndex: -1 }}
             />
             <div className="w-full lg:w-1/2 relative isolate">
@@ -1719,13 +1644,13 @@ const FeaturesPage = () => {
                 style={{ zIndex: -1 }}
               />
               <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
               >
-                <div className="w-full max-w-[240px] sm:max-w-[280px] relative">
+                {/* Scaled the phone UI up by 10% (from max-w-[280px] to max-w-[310px]) */}
+                <div className="w-full max-w-[260px] sm:max-w-[310px] relative">
                   <DecorativeOrganic className="-top-12 -right-16 rotate-12" size="w-56 h-56" color="fill-brand-grey/10" variant={0} />
                   <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-40" size="w-64 h-64" color="fill-brand-primary/5" variant={1} />
-                  <DecorativeOrganic className="top-1/2 -right-20 rotate-90" size="w-40 h-40" color="fill-brand-grey/5" variant={2} />
-
+                  
                   <MobileFrame>
                     <img
                       src="/library-preview.webp"
@@ -1734,7 +1659,64 @@ const FeaturesPage = () => {
                     />
                   </MobileFrame>
                 </div>
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">01</div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">02</div>
+              </div>
+            </div>
+
+            <div className="w-full lg:w-1/2 text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              >
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                    <Clock size={24} />
+                  </div>
+                  <div className="text-left">
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">SMART TRACKING</div>
+                    <div className="text-xs font-bold text-brand-grey">Automatic progress.</div>
+                  </div>
+                </div>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
+                  YOUR ENTIRE LIBRARY,<br />TRACKED EFFORTLESSLY.
+                </h2>
+                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
+                  Spend a minute on a page, and the browser automatically remembers your position. No manual logs, spreadsheets, or forgotten bookmarks.
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
+                  {["Auto-detects chapters", "Smart history logs", "Continue from any device", "Works completely offline"].map((pt, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
+                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* 4. LIBRARY MANAGEMENT (Personalization & Categories) */}
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
+            <BackgroundBlob
+              className="-top-20 -left-20"
+              color="bg-brand-primary/32"
+              size="w-[230px] sm:w-[460px] h-[230px] sm:h-[460px]"
+              variant={2}
+              style={{ zIndex: -1 }}
+            />
+            <div className="w-full lg:w-1/2 relative isolate">
+              <div
+                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
+                style={{ zIndex: -1 }}
+              />
+              <div
+                className="min-h-[400px] sm:min-h-[500px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+              >
+                <DecorativeOrganic className="-top-12 -right-16 rotate-45 opacity-30" size="w-56 h-56" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
+                <CollagePersonalizationUI />
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">03</div>
               </div>
             </div>
 
@@ -1750,83 +1732,40 @@ const FeaturesPage = () => {
                     <Layers size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">SMART TRACKING</div>
-                    <div className="text-xs font-bold text-brand-grey">Stay organized effortlessly.</div>
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">LIBRARY MANAGEMENT</div>
+                    <div className="text-xs font-bold text-brand-grey">Make it feel yours.</div>
                   </div>
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
-                  YOUR ENTIRE LIBRARY,<br />ALL IN ONE PLACE.
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
+                  ORGANIZE EVERYTHING<br />YOUR WAY.
                 </h2>
                 <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Track your reading progress, organize titles, and continue where you left off — without messy tabs, screenshots, or forgotten bookmarks.
+                  Track anything—manga, anime, novels, or movies. Use custom tags, private notes, and personalized posters to build a library that actually feels personal.
                 </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Track chapters and progress", "Organize titles easily", "Create reading lists", "Continue from any device"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
-                      <span>{pt}</span>
-                    </li>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-10">
+                  {[
+                    { icon: BookOpen, text: "Posters" },
+                    { icon: Heart, text: "Playlists" },
+                    { icon: Lock, text: "Notes" },
+                    { icon: Star, text: "Tags" },
+                  ].map((chip, i) => (
+                    <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full border border-brand-border bg-brand-bg shadow-sm text-sm font-bold text-brand-text hover:border-brand-primary transition-colors cursor-pointer">
+                      <chip.icon size={14} className="text-brand-primary" />
+                      {chip.text}
+                    </div>
                   ))}
-                </ul>
-                <button
-                  onClick={handleDownload}
-                  className="h-14 px-8 mx-auto lg:mx-0 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-brand-bg"
-                >
-                  Get APK <ArrowRight size={16} />
-                </button>
+                </div>
               </motion.div>
             </div>
           </div>
 
-          {/* 3. READING INSIGHTS (Statistics, Streaks, Progress Dashboard) */}
-          <div className="flex flex-col gap-12 sm:gap-16 pt-8 relative isolate">
+          {/* 5. DISCOVERY */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
             <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/20"
-              size="w-[500px] h-[500px]"
-              variant={1}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="bottom-0 -right-20"
-              color="bg-brand-grey/28"
-              size="w-[450px] h-[450px]"
-              variant={2}
-              style={{ zIndex: -1 }}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">TRACK YOUR READING LIFE</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">SEE YOUR READING JOURNEY.</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1] text-brand-text mb-6">
-                VISUALIZE YOUR PROGRESS OVER TIME.
-              </h2>
-              <p className="text-lg leading-relaxed text-brand-grey font-light">
-                View your reading activity, completed titles, progress streaks, and personal statistics over time.
-              </p>
-            </motion.div>
-            <StatsDashboardUI />
-          </div>
-
-          {/* 4. INSTANT UPDATES (Notifications) */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -right-20"
+              className="-bottom-24 -right-20"
               color="bg-brand-grey/35"
-              size="w-[500px] h-[500px]"
-              variant={0}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="-bottom-20 -left-12"
-              color="bg-brand-primary/32"
-              size="w-[450px] h-[450px]"
-              variant={1}
+              size="w-[210px] sm:w-[420px] h-[210px] sm:h-[420px]"
+              variant={3}
               style={{ zIndex: -1 }}
             />
             <div className="w-full lg:w-1/2 relative isolate">
@@ -1835,100 +1774,11 @@ const FeaturesPage = () => {
                 style={{ zIndex: -1 }}
               />
               <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
-              >
-                <div className="w-full max-w-[240px] sm:max-w-[280px] relative flex items-center justify-center">
-                  <DecorativeOrganic className="-top-16 -left-20 rotate-45" size="w-64 h-64" color="fill-brand-grey/10" variant={1} />
-                  <DecorativeOrganic className="-bottom-16 -right-20 -rotate-12 opacity-30" size="w-56 h-56" color="fill-brand-primary/5" variant={0} />
-                  <DecorativeOrganic className="top-1/4 -right-16 opacity-10" size="w-48 h-48" color="fill-brand-grey/10" variant={2} />
-
-                  <MobileFrame>
-                    <div className="flex flex-col items-center justify-center h-full gap-6 p-4">
-                      <div className="w-full transform -translate-y-4">
-                        <NotificationMockup isStatic={true} />
-                      </div>
-                      <div className="w-full opacity-40 scale-90 translate-y-2">
-                        <NotificationMockup isStatic={true} />
-                      </div>
-                      <div className="w-full opacity-20 scale-75 translate-y-4">
-                        <NotificationMockup isStatic={true} />
-                      </div>
-                    </div>
-                  </MobileFrame>
-                </div>
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">02</div>
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                    <Zap size={24} />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">INSTANT UPDATES</div>
-                    <div className="text-xs font-bold text-brand-grey">Never miss a release.</div>
-                  </div>
-                </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
-                  GET NEW CHAPTER<br />UPDATES INSTANTLY.
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  The moment a new chapter drops, Atrix Explorer lets you know — so you stay ahead without constantly checking websites.
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Instant chapter alerts", "Fast update tracking", "Spoiler-safe notifications", "Follow multiple series easily"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  onClick={handleDownload}
-                  className="h-14 px-8 mx-auto lg:mx-0 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-brand-bg"
-                >
-                  Get APK <ArrowRight size={16} />
-                </button>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* 5. DISCOVERY (Search & Recommendations) */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-32 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/32"
-              size="w-[460px] h-[460px]"
-              variant={2}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="-bottom-24 -right-20"
-              color="bg-brand-grey/35"
-              size="w-[420px] h-[420px]"
-              variant={3}
-              style={{ zIndex: -1 }}
-            />
-            <div className="w-full lg:w-1/2 relative isolate">
-              <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
               >
                 <div className="w-full max-w-[240px] sm:max-w-[280px] relative">
                   <DecorativeOrganic className="-top-12 -right-20 rotate-12" size="w-60 h-60" color="fill-brand-primary/10" variant={2} />
-                  <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-20" size="w-64 h-64" color="fill-brand-primary/5" variant={0} />
-                  <DecorativeOrganic className="top-1/2 -left-24 opacity-30" size="w-44 h-44" color="fill-brand-grey/10" variant={1} />
-
+                  
                   <MobileFrame>
                     <img
                       src="/discovery-preview.webp"
@@ -1937,7 +1787,7 @@ const FeaturesPage = () => {
                     />
                   </MobileFrame>
                 </div>
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">03</div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">04</div>
               </div>
             </div>
 
@@ -1953,15 +1803,15 @@ const FeaturesPage = () => {
                     <Search size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">DISCOVERY HUB</div>
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">DISCOVERY HUB</div>
                     <div className="text-xs font-bold text-brand-grey">Find something new.</div>
                   </div>
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
-                  DISCOVER YOUR NEXT<br />FAVORITE SERIES.
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
+                  FIND YOUR NEXT<br />FAVORITE READ.
                 </h2>
                 <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Filter trending titles, hidden gems, and community favorites — all from one powerful discovery hub.
+                  Filter trending titles, uncover hidden gems, and explore community favorites — all from one powerful discovery hub.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
                   {["Filter by genre & tags", "Trending recommendations", "Discover hidden gems", "Explore community favorites"].map((pt, i) => (
@@ -1971,31 +1821,87 @@ const FeaturesPage = () => {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={handleDownload}
-                  className="h-14 px-8 mx-auto lg:mx-0 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-brand-bg"
-                >
-                  Get APK <ArrowRight size={16} />
-                </button>
               </motion.div>
             </div>
           </div>
 
-          {/* 6. CLOUD SYNC SYSTEM (Optional Cloud Integration) */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32">
+          {/* 6. READING INSIGHTS (Kept exactly as is) */}
+          <div className="flex flex-col gap-8 sm:gap-16 relative isolate">
+            <BackgroundBlob
+              className="-top-20 -left-20"
+              color="bg-brand-primary/20"
+              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
+              variant={1}
+              style={{ zIndex: -1 }}
+            />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center max-w-3xl mx-auto"
+            >
+              <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">TRACK YOUR READING LIFE</span>
+              <span className="text-xs font-bold text-brand-grey block mb-2">SEE YOUR READING JOURNEY.</span>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter leading-[1] text-brand-text mb-6">
+                VISUALIZE YOUR PROGRESS OVER TIME.
+              </h2>
+              <p className="text-lg leading-relaxed text-brand-grey font-light">
+                View your reading activity, completed titles, progress streaks, and personal statistics over time.
+              </p>
+            </motion.div>
+            <StatsDashboardUI />
+          </div>
+
+          {/* 7. PRIVACY FIRST (New Section) */}
+          <div className="relative py-20 sm:py-32 rounded-[3rem] sm:rounded-[4rem] overflow-hidden text-center border border-brand-primary/20 bg-brand-primary/5">
+            <DecorativeOrganic className="-top-20 -left-20 opacity-30" size="w-64 h-64" color="fill-brand-primary/10" variant={2} />
+            <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-30" size="w-72 h-72" color="fill-brand-primary/10" variant={0} />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-2xl mx-auto relative z-10 px-4"
+            >
+              <div className="w-16 h-16 rounded-3xl bg-brand-primary mx-auto flex items-center justify-center text-brand-bg mb-8 shadow-xl">
+                <ShieldCheck size={32} />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-brand-text">
+                YOUR READING HISTORY<br />BELONGS TO YOU.
+              </h2>
+              <p className="text-brand-grey mb-12 font-light text-lg leading-relaxed">
+                Atrix Explorer is built on a strict privacy-first architecture. We believe your data should stay on your device unless you explicitly choose otherwise.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-lg mx-auto">
+                  {[
+                    "Stored 100% locally", 
+                    "No forced account signups", 
+                    "Zero ads in your library", 
+                    "Sync only if you choose to"
+                  ].map((pt, i) => (
+                    <div key={i} className="flex items-center gap-3 bg-brand-card border border-brand-border px-5 py-4 rounded-2xl shadow-sm">
+                      <Lock size={18} className="text-brand-primary shrink-0" />
+                      <span className="font-bold text-sm text-brand-text">{pt}</span>
+                    </div>
+                  ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* 8. OPTIONAL CLOUD SYNC */}
+          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
                 className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
                 style={{ zIndex: -1 }}
               />
               <div
-                className="min-h-[380px] sm:min-h-[460px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="min-h-[380px] sm:min-h-[460px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
               >
                 <DecorativeOrganic className="-top-12 -right-16 rotate-12 opacity-30" size="w-56 h-56" color="fill-brand-primary/5" variant={0} style={{ zIndex: -1 }} />
-                <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-40" size="w-64 h-64" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
-                <DecorativeOrganic className="top-1/2 -right-20 rotate-90 opacity-20" size="w-40 h-40" color="fill-brand-primary/5" variant={2} style={{ zIndex: -1 }} />
                 <SyncConnectionsUI />
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">04</div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">05</div>
               </div>
             </div>
 
@@ -2008,25 +1914,25 @@ const FeaturesPage = () => {
               >
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                    <Globe size={24} />
+                    <Cloud size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">CLOUD SYNC SYSTEM</div>
-                    <div className="text-xs font-bold text-brand-grey">Continue anywhere.</div>
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">OPTIONAL UPGRADE</div>
+                    <div className="text-xs font-bold text-brand-grey">Sync if you want.</div>
                   </div>
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
                   YOUR LIBRARY, SAFE<br />ACROSS YOUR DEVICES.
                 </h2>
                 <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Your collection, progress, and reminders stay backed up securely when you sign in. Login only if you want cloud features—the choice is completely yours.
+                  Your library already works perfectly on one device. Sign in only if you want to keep everything synchronized across multiple phones.
                 </p>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
                   {[
                     "Secure cloud backup",
-                    "Switch phones without losing progress",
+                    "Switch phones easily",
                     "Sync your library instantly",
-                    "Login only if you want cloud features"
+                    "100% optional choice"
                   ].map((pt, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
                       <CheckCircle size={14} className="text-brand-primary shrink-0" />
@@ -2038,20 +1944,13 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 7. GUEST FREEDOM (Local vs Cloud Comparative Panel) */}
-          <div className="flex flex-col gap-12 sm:gap-16 relative isolate">
+          {/* 9. GUEST FREEDOM VS ACCOUNT MODE */}
+          <div className="flex flex-col gap-8 sm:gap-16 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
               color="bg-brand-primary/20"
-              size="w-[500px] h-[500px]"
+              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
               variant={0}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="bottom-0 -right-20"
-              color="bg-brand-grey/28"
-              size="w-[450px] h-[450px]"
-              variant={1}
               style={{ zIndex: -1 }}
             />
             <motion.div
@@ -2061,118 +1960,31 @@ const FeaturesPage = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">USE IT YOUR WAY</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">No forced accounts. No restrictions.</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1] text-brand-text mb-6">
-                GUEST FREEDOM BY DESIGN.
+              <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">USE IT YOUR WAY</span>
+              <span className="text-xs font-bold text-brand-grey block mb-2">Guest mode is the default.</span>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter leading-[1] text-brand-text mb-6">
+                LOCAL-FIRST BY DESIGN.
               </h2>
               <p className="text-lg leading-relaxed text-brand-grey font-light">
-                Start instantly as a guest, or create an account to unlock cloud sync, notifications, and personalized insights. Here is exactly how they work:
+                You get the complete, unrestricted reading experience without ever creating an account. Cloud sync is simply an optional extension.
               </p>
             </motion.div>
             <GuestFreedomPanelUI />
           </div>
 
-          {/* 8. PERSONALIZATION (Custom covers, journals, counters) */}
-          <div className="flex flex-col lg:flex-row items-center gap-12 sm:gap-16 lg:gap-32">
-            <div className="w-full lg:w-1/2 relative isolate">
-              <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[380px] sm:min-h-[460px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
-              >
-                <DecorativeOrganic className="-top-12 -right-16 rotate-45 opacity-30" size="w-56 h-56" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
-                <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-20" size="w-64 h-64" color="fill-brand-primary/5" variant={2} style={{ zIndex: -1 }} />
-                <CollagePersonalizationUI />
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">05</div>
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                    <Heart size={24} />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">PERSONALIZATION</div>
-                    <div className="text-xs font-bold text-brand-grey">Make it feel yours.</div>
-                  </div>
-                </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
-                  CUSTOMIZE YOUR<br />LIBRARY YOUR WAY.
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  From custom posters to private notes, Atrix Explorer gives you the freedom to build a library that feels personal.
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Upload custom posters", "Add private notes", "Set custom reminders", "Auto-detect while browsing", "Personalize your collection"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* 9. UNLIMITED CATEGORIES (Manga, Anime, Novels...) */}
-          <div className="flex flex-col gap-12 sm:gap-16 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-grey/28"
-              size="w-[450px] h-[450px]"
-              variant={2}
-              style={{ zIndex: -1 }}
-            />
-            <BackgroundBlob
-              className="bottom-0 -right-20"
-              color="bg-brand-primary/20"
-              size="w-[500px] h-[500px]"
-              variant={3}
-              style={{ zIndex: -1 }}
-            />
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">UNLIMITED CATEGORIES</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">Track what you love.</span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[1] text-brand-text mb-6">
-                CREATE YOUR OWN<br />PERSONAL LIBRARY SYSTEM.
-              </h2>
-              <p className="text-lg leading-relaxed text-brand-grey font-light">
-                Atrix Explorer isn’t limited to manhwa. Add anime, novels, manga, movies, or anything else you want to track.
-              </p>
-            </motion.div>
-            <CategoryGridUI />
-          </div>
-
-          {/* 10. IMPORT & EXPORT (CSV / JSON Backups) */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 sm:gap-16 lg:gap-32">
+          {/* 10. IMPORT & EXPORT */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 mt-16 sm:mt-24">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
                 className="absolute -inset-10 bg-gradient-to-br from-brand-grey/10 to-transparent blur-[100px] opacity-20"
                 style={{ zIndex: -1 }}
               />
               <div
-                className="min-h-[360px] sm:min-h-[420px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-6 sm:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="min-h-[360px] sm:min-h-[420px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
               >
-                <DecorativeOrganic className="-top-12 -right-16 rotate-12 opacity-20" size="w-56 h-56" color="fill-brand-primary/5" variant={3} style={{ zIndex: -1 }} />
                 <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-30" size="w-64 h-64" color="fill-brand-grey/5" variant={0} style={{ zIndex: -1 }} />
                 <ExportWorkflowUI />
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-black opacity-[0.03] select-none uppercase tracking-tighter text-brand-text">06</div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">06</div>
               </div>
             </div>
 
@@ -2188,48 +2000,41 @@ const FeaturesPage = () => {
                     <Download size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-black uppercase tracking-widest opacity-40 text-brand-text">IMPORT & EXPORT</div>
-                    <div className="text-xs font-bold text-brand-grey">Your data stays yours.</div>
+                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">IMPORT & EXPORT</div>
+                    <div className="text-xs font-bold text-brand-grey">Export anytime.</div>
                   </div>
                 </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-[1] text-brand-text">
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
                   BACKUP, EXPORT,<br />AND MOVE YOUR<br />LIBRARY ANYTIME.
                 </h2>
                 <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Your reading history should never feel locked. Export your library in one click and import it back whenever you need.
+                  Your reading history should never feel locked into our app. Export your entire library in one click.
                 </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Export in CSV or JSON", "One-click backup system", "Bulk import with templates", "Easy migration from spreadsheets", "Safe cloud storage support"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border-2 border-brand-border bg-brand-card shadow-sm">
+                     <div className="text-xs font-bold text-brand-grey">.CSV</div>
+                     <span className="text-sm font-medium text-brand-text">Spreadsheet Format</span>
+                  </div>
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border-2 border-brand-primary/30 bg-brand-primary/5 shadow-sm">
+                     <div className="text-xs font-bold text-brand-primary">.JSON</div>
+                     <span className="text-sm font-medium text-brand-text">Raw Database Backup</span>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
         </div>
 
-        {/* Large overarching connection flow */}
-        <DottedPath
-          className="-bottom-20 left-0 opacity-[0.03] scale-[3] origin-left"
-          width={500}
-          height={200}
-          viewBox="0 0 500 200"
-          d="M10 180 Q 250 20 490 180"
-        />
-
         {/* Final CTA Section */}
-        <div className="relative isolate mt-32 sm:mt-64">
+        <div className="relative isolate mt-20 sm:mt-32 md:mt-64">
           <BackgroundBlob
             className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"
             color="bg-brand-primary/20"
-            size="w-[600px] h-[600px]"
+            size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]"
             variant={3}
             style={{ zIndex: -1 }}
           />
-          <section className="relative py-20 sm:py-32 rounded-[3rem] sm:rounded-[4rem] overflow-hidden text-center border border-brand-border bg-brand-card">
+          <section className="relative py-20 sm:py-24 rounded-[3rem] sm:rounded-[4rem] overflow-hidden text-center border border-brand-border bg-brand-card">
             <DecorativeOrganic className="-top-20 -left-20 opacity-30" size="w-64 h-64" color="fill-brand-primary/5" variant={2} />
             <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-30" size="w-72 h-72" color="fill-brand-grey/10" variant={0} />
             <motion.div
@@ -2239,13 +2044,12 @@ const FeaturesPage = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="max-w-xl mx-auto relative z-10 px-4"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 text-brand-text">
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter mb-10 text-brand-text">
                 BUILD YOUR PERFECT<br /><span className="text-brand-grey">READING SPACE.</span>
               </h2>
-              <p className="text-brand-grey mb-12 font-light max-w-sm mx-auto leading-relaxed">Join readers who want a cleaner, smarter, and more personal way to manage their library.</p>
               <button
                 onClick={handleDownload}
-                className="h-16 px-12 rounded-2xl font-black text-xs uppercase tracking-widest transition-all hover:scale-105 shadow-2xl bg-brand-primary text-brand-bg flex items-center gap-3 mx-auto"
+                className="h-16 px-12 rounded-2xl font-bold text-xs tracking-widest transition-all hover:scale-105 shadow-2xl bg-brand-primary text-brand-bg flex items-center gap-3 mx-auto"
               >
                 GET ATRIX EXPLORER <ArrowRight size={16} />
               </button>
@@ -2259,15 +2063,15 @@ const FeaturesPage = () => {
 
 const PrivacyPage = () => {
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-10 tracking-tighter uppercase text-brand-text">Privacy Policy</h1>
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Privacy Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: June 15, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. Our Approach to Privacy</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. Our Approach to Privacy</h2>
         <p>Atrix Explorer is built on a local-first principle. Your library data, reading insights, search history, and browsing history live primarily on your device. Cloud sync is optional and only used to back up your library and profile. We do not sell your data, show ads, or track you across the web.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Data We Collect</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. Data We Collect</h2>
         <p>We collect only the data necessary for the app to function and sync:</p>
         <ul>
           <li><strong>Account Data:</strong> When you sign in via Google or GitHub, we receive your email address and a unique user ID. This is used for authentication and cloud sync.</li>
@@ -2277,7 +2081,7 @@ const PrivacyPage = () => {
           <li><strong>Crash Reports:</strong> Anonymous crash diagnostics via Firebase Crashlytics to help us fix bugs.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Data That Stays on Your Device</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. Data That Stays on Your Device</h2>
         <p>The following data is stored locally and never sent to our servers:</p>
         <ul>
           <li>Search history and search result cache</li>
@@ -2287,10 +2091,10 @@ const PrivacyPage = () => {
           <li>Trending and discovery caches</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. How We Handle Images</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. How We Handle Images</h2>
         <p>Custom posters and avatar images that you upload are stored locally on your device. If you have an account, a compressed copy is uploaded to Cloudflare R2 object storage for cross-device sync. These images are private to your account. No other user can see your custom posters or avatar unless we introduce a sharing feature in the future.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">5. Third-Party Services</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services</h2>
         <p>Atrix Explorer uses the following third-party services. Each has its own privacy policy governing data handling:</p>
         <ul>
           <li><strong>Supabase</strong> — Cloud database, authentication, and storage. Stores your account info, library data, and profile data.</li>
@@ -2300,19 +2104,19 @@ const PrivacyPage = () => {
           <li><strong>Google & GitHub</strong> — Authentication providers. Only an ID token is exchanged; no profile data is stored client-side.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">6. No Copyrighted Content Hosting</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. No Copyrighted Content Hosting</h2>
         <p>Atrix Explorer does not host, store, distribute, or stream any copyrighted media files (images, videos, audio, or full-text content). The app exclusively uses text-based metadata — titles, descriptions, author names, genre tags, and user-submitted notes. All comic cover images displayed in the app are sourced from third-party public databases or uploaded by the user as custom posters for personal tracking purposes only.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">7. DMCA & Copyright Concerns</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. DMCA & Copyright Concerns</h2>
         <p>Because we do not host any copyrighted content, DMCA takedown requests for infringing files do not apply to our service. If you believe that any metadata displayed in the app infringes on your intellectual property rights, or that a user-uploaded custom poster violates your copyright, please contact us at <strong>support@atrixexplorer.com</strong> and we will review and address your concern promptly.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">8. Data Security</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">8. Data Security</h2>
         <p>All data transmitted between the app and our servers is encrypted in transit (HTTPS / TLS). Database access is restricted by row-level security — each user can only access their own data. Poster uploads are rate-limited to prevent abuse. We follow industry best practices to protect your information.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">9. Data Retention & Deletion</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Data Retention & Deletion</h2>
         <p>Your library and profile data are retained for as long as your account is active. You can delete your account at any time from the app settings. Upon deletion, all cloud-stored data — library entries, profile info, and uploaded images — are permanently removed. Local data on your device must be deleted manually by clearing app data or uninstalling the app.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">10. Your Rights</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Your Rights</h2>
         <p>You have the right to:</p>
         <ul>
           <li><strong>Access</strong> — View all data associated with your account.</li>
@@ -2321,16 +2125,16 @@ const PrivacyPage = () => {
           <li><strong>Delete</strong> — Delete your account and all associated cloud data.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">11. Children's Privacy</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Children's Privacy</h2>
         <p>Atrix Explorer is not intended for users under the age of 13. We do not knowingly collect data from children. If you believe a child has provided us with personal data, contact us and we will delete it.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">12. International Users</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">12. International Users</h2>
         <p>Your data may be processed on servers located in the United States and Europe, depending on the third-party service provider (Supabase, Google Cloud, Cloudflare). By using the app, you consent to this transfer.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">13. Changes to This Policy</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">13. Changes to This Policy</h2>
         <p>We may update this policy from time to time. Changes will be posted here and reflected in the "Effective" date at the top. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">14. Contact</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">14. Contact</h2>
         <p>For questions, concerns, or data requests, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
@@ -2339,18 +2143,18 @@ const PrivacyPage = () => {
 
 const TermsPage = () => {
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-10 tracking-tighter uppercase text-brand-text">Terms of Service</h1>
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Terms of Service</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: June 15, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. What Atrix Explorer Is</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. What Atrix Explorer Is</h2>
         <p>Atrix Explorer is a personal library tracking application with a built-in browser. It allows users to track their reading progress across manhwa, manga, anime, novels, web series, and custom media types. The app provides text-based metadata (titles, descriptions, genre tags) and does not host, stream, or distribute any copyrighted media files.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. No Copyrighted Content</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. No Copyrighted Content</h2>
         <p>Atrix Explorer does not host, store, or serve any copyrighted images, videos, audio, or full-text content. All metadata displayed in the app is sourced from third-party public databases. User-uploaded custom posters are stored for personal tracking purposes only and are not publicly shared. If you believe any metadata or user content infringes your copyright, contact us at <strong>support@atrixexplorer.com</strong> and we will review the concern promptly.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. User Responsibilities</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. User Responsibilities</h2>
         <p>You agree to:</p>
         <ul>
           <li>Use the app for lawful purposes only.</li>
@@ -2359,13 +2163,13 @@ const TermsPage = () => {
           <li>Not abuse the app's APIs, services, or infrastructure.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. User Content Ownership</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. User Content Ownership</h2>
         <p>Your library data — including titles, progress, notes, ratings, reminders, and custom posters — belongs to you. Atrix Explorer claims no ownership over your personal data. You retain full rights to your content and can export or delete it at any time.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">5. Third-Party Services</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services</h2>
         <p>Atrix Explorer integrates with third-party services to function (Supabase, Firebase, Cloudflare, MeiliSearch, Google, GitHub). We are not responsible for the uptime, security, or data practices of these third parties. Each service operates under its own terms and privacy policy.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">6. Disclaimer of Warranties</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. Disclaimer of Warranties</h2>
         <p>Atrix Explorer is provided "as is" and "as available." We do not guarantee that:</p>
         <ul>
           <li>The metadata (titles, descriptions, genre tags) is 100% accurate or complete.</li>
@@ -2373,19 +2177,19 @@ const TermsPage = () => {
           <li>Third-party databases or APIs will remain accessible.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">7. Limitation of Liability</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. Limitation of Liability</h2>
         <p>To the maximum extent permitted by law, Atrix Explorer and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app — including but not limited to data loss, metadata inaccuracies, or third-party service interruptions.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">8. Account Termination</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">8. Account Termination</h2>
         <p>We reserve the right to suspend or terminate accounts that violate these terms — including abuse of the service, uploading illegal content, or attempting to compromise the platform. You may delete your account at any time from the app settings.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">9. Governing Law</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Governing Law</h2>
         <p>These terms shall be governed by and construed in accordance with the laws applicable to the developer's jurisdiction. Any disputes shall be resolved through informal negotiation before seeking legal remedies.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">10. Changes to These Terms</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Changes to These Terms</h2>
         <p>We may update these terms as the app evolves. Continued use after changes are posted constitutes acceptance of the new terms. We will notify users of significant changes via the app or email.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">11. Contact</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Contact</h2>
         <p>For questions about these terms, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
@@ -2394,21 +2198,21 @@ const TermsPage = () => {
 
 const FreedomPage = () => {
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-10 tracking-tighter uppercase text-brand-text">Freedom Policy</h1>
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Freedom Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">The Library Without Borders</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">1. Neutral Platform</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. Neutral Platform</h2>
         <p>Atrix Explorer does not discriminate against media types. Whether you track a blockbuster movie or an obscure indie webserial, the infrastructure treats them with equal fidelity.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">2. Your Data, Your Rules</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. Your Data, Your Rules</h2>
         <p>You own your library. Every title, note, rating, and custom poster belongs to you. We believe you should never be blocked by a missing database entry — if a title doesn't exist in our metadata search, you have the absolute right to create it yourself with your own titles, notes, and artwork. You can export your data anytime in CSV or JSON format.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">3. Local-First by Default</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. Local-First by Default</h2>
         <p>Your library lives primarily on your device. Search history, reading insights, visit history, and browser history never leave your phone unless you choose to sync. Cloud features are optional and opt-in.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold uppercase text-brand-text">4. No Vendor Lock-In</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. No Vendor Lock-In</h2>
         <p>Your library data belongs to you, not to us. We provide export tools (CSV and JSON) so you can move your data elsewhere at any time. Atrix Explorer is designed to be a tool you control, not a platform that controls you.</p>
       </section>
     </div>
@@ -2417,7 +2221,7 @@ const FreedomPage = () => {
 
 const DownloadPage = () => {
   const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
-  const [expandedVersion, setExpandedVersion] = useState<string | null>("1.1.5");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("v1.1.9");
 
   const toggleExpand = (version: string) => {
     setExpandedVersion(prev => (prev === version ? null : version));
@@ -2425,6 +2229,20 @@ const DownloadPage = () => {
 
   const releases = {
     stable: [
+      {
+        version: "v1.1.9",
+        type: "Stable",
+        date: "July 2026",
+        size: "68.2 MB",
+        reqs: "Android 8.0+",
+        features: [
+          "Update in user interface and design",
+          "Reading tabs where you can easily reach the last chapter you read",
+          "Custom Playlist for you to use and create"
+        ],
+        fixes: [],
+        perf: []
+      },
       {
         version: "v1.1.5",
         type: "Stable",
@@ -2522,15 +2340,15 @@ const DownloadPage = () => {
   const currentVersion = releases.stable[0];
 
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen bg-brand-bg relative overflow-hidden isolate text-brand-text">
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen bg-brand-bg relative overflow-hidden isolate text-brand-text">
       <DecorativeOrganic className="top-10 -left-32 rotate-45 opacity-20" size="w-96 h-96" color="fill-brand-primary/5" variant={1} />
-      <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-20" size="w-[500px] h-[500px]" color="fill-brand-grey/5" variant={2} />
-      <BackgroundBlob className="top-20 -left-20" color="bg-brand-primary/20" size="w-[600px] h-[600px]" variant={3} />
-      <BackgroundBlob className="bottom-20 -right-20" color="bg-brand-grey/28" size="w-[600px] h-[600px]" variant={1} />
+      <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-20" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" color="fill-brand-grey/5" variant={2} />
+      <BackgroundBlob className="top-20 -left-20" color="bg-brand-primary/20" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={3} />
+      <BackgroundBlob className="bottom-20 -right-20" color="bg-brand-grey/28" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={1} />
 
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
-        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.5), view full release notes, changelogs, and download history." />
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.9), view full release notes, changelogs, and download history." />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2539,7 +2357,7 @@ const DownloadPage = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-mono uppercase tracking-[0.5em] mb-6 block text-brand-grey opacity-60"
+            className="text-xs font-mono tracking-[0.5em] mb-6 block text-brand-grey opacity-60"
           >
             ATRIX HUB — RELEASES
           </motion.span>
@@ -2548,7 +2366,7 @@ const DownloadPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tighter mb-8 uppercase"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight tracking-tighter mb-8 "
           >
             Atrix Releases
           </motion.h1>
@@ -2584,7 +2402,7 @@ const DownloadPage = () => {
 
         {/* Current Active Release Showcase */}
         <section className="mb-20">
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight mb-6">Latest Stable Release</h2>
+          <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">Latest Stable Release</h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -2595,35 +2413,35 @@ const DownloadPage = () => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 relative z-10">
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="text-2xl sm:text-3xl font-black tracking-tight">{currentVersion.version}</span>
-                  <span className="px-3.5 py-1 bg-brand-primary text-brand-bg rounded-full text-[10px] font-black uppercase tracking-widest">
+                  <span className="text-2xl sm:text-3xl font-bold tracking-tight">{currentVersion.version}</span>
+                  <span className="px-3.5 py-1 bg-brand-primary text-brand-bg rounded-full text-[10px] font-bold tracking-widest">
                     {currentVersion.type}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-2 text-xs">
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Release Date</span>
+                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Release Date</span>
                     <span className="font-bold">{currentVersion.date}</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">File Size</span>
+                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">File Size</span>
                     <span className="font-bold">{currentVersion.size}</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Platform</span>
+                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Platform</span>
                     <span className="font-bold">Android APK</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] uppercase opacity-60">Target OS</span>
+                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Target OS</span>
                     <span className="font-bold">{currentVersion.reqs}</span>
                   </div>
                 </div>
               </div>
               <div className="shrink-0">
                 <a
-                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.5.apk"
-                  download="atrixexplorer-1.1.5.apk"
-                  className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-black text-sm uppercase tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
+                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.9.apk"
+                  download="atrixexplorer-1.1.9.apk"
+                  className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-bold text-sm tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
                 >
                   Download APK <Download size={20} />
                 </a>
@@ -2635,17 +2453,17 @@ const DownloadPage = () => {
         {/* Accordion Release History (Matching shared example) */}
         <section className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-brand-border pb-4">
-            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">Version Archives</h2>
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Version Archives</h2>
             
             {/* Category Toggle Tabs */}
             <div className="flex p-1 bg-brand-card border border-brand-border rounded-xl w-fit">
               <button
                 onClick={() => {
                   setActiveTab("stable");
-                  setExpandedVersion("1.1.5");
+                  setExpandedVersion("v1.1.9");
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
+                  "px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all",
                   activeTab === "stable" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
                 )}
               >
@@ -2657,7 +2475,7 @@ const DownloadPage = () => {
                   setExpandedVersion("0.9.5-beta");
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all",
+                  "px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all",
                   activeTab === "beta" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
                 )}
               >
@@ -2680,7 +2498,7 @@ const DownloadPage = () => {
                   >
                     <div className="flex items-center gap-4">
                       <span className="font-bold text-sm text-brand-grey">Version</span>
-                      <span className="font-black text-lg text-brand-text">{rel.version}</span>
+                      <span className="font-bold text-lg text-brand-text">{rel.version}</span>
                       <span className="text-[10px] text-brand-grey/60 font-mono">({rel.date})</span>
                     </div>
                     <div className={cn("transition-transform duration-300", isExpanded ? "rotate-180 text-brand-primary" : "text-brand-grey")}>
@@ -2700,21 +2518,21 @@ const DownloadPage = () => {
                         <div className="p-6 sm:p-8 space-y-6">
                           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-xs border-b border-brand-border/40 pb-6">
                             <div>
-                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Size</span>
+                              <span className="text-brand-grey/50 font-mono text-[9px] block">Size</span>
                               <span className="font-bold">{rel.size}</span>
                             </div>
                             <div>
-                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Target OS</span>
+                              <span className="text-brand-grey/50 font-mono text-[9px] block">Target OS</span>
                               <span className="font-bold">{rel.reqs}</span>
                             </div>
                             <div>
-                              <span className="text-brand-grey/50 uppercase font-mono text-[9px] block">Platform</span>
+                              <span className="text-brand-grey/50 font-mono text-[9px] block">Platform</span>
                               <span className="font-bold">Android (APK)</span>
                             </div>
                           </div>
 
                           <div className="space-y-4">
-                            <h4 className="text-xs font-black uppercase tracking-widest text-brand-grey">Changelog</h4>
+                            <h4 className="text-xs font-bold tracking-widest text-brand-grey">Changelog</h4>
                             <ul className="space-y-3 text-sm">
                               {rel.features.map((feat, i) => (
                                 <li key={i} className="flex items-start gap-3">
@@ -2783,20 +2601,20 @@ const BlogPage = () => {
   };
 
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 min-h-screen bg-brand-bg relative overflow-hidden isolate">
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen bg-brand-bg relative overflow-hidden isolate">
       <DecorativeOrganic className="top-10 -left-32 rotate-45 opacity-20" size="w-96 h-96" color="fill-brand-primary/5" variant={1} />
-      <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-20" size="w-[500px] h-[500px]" color="fill-brand-grey/5" variant={2} />
+      <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-20" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" color="fill-brand-grey/5" variant={2} />
       <FloatingDot className="top-1/3 -right-12" delay={0.5} size="w-16 h-16" />
       <BackgroundBlob
         className="top-20 -left-20"
         color="bg-brand-primary/20"
-        size="w-[600px] h-[600px]"
+        size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]"
         variant={3}
       />
       <BackgroundBlob
         className="bottom-20 -right-20"
         color="bg-brand-grey/28"
-        size="w-[600px] h-[600px]"
+        size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]"
         variant={1}
       />
       <Helmet>
@@ -2809,7 +2627,7 @@ const BlogPage = () => {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xs font-mono uppercase tracking-[0.5em] mb-6 block text-brand-grey opacity-60"
+            className="text-xs font-mono tracking-[0.5em] mb-6 block text-brand-grey opacity-60"
           >
             Archive — Issue {new Date().getMonth() + 1}
           </motion.span>
@@ -2818,7 +2636,7 @@ const BlogPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tighter mb-8 uppercase text-brand-text"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight tracking-tighter mb-8 text-brand-text"
           >
             The Catalog
           </motion.h1>
@@ -2843,7 +2661,7 @@ const BlogPage = () => {
                 setVisibleCount(9);
               }}
               className={cn(
-                "px-6 sm:px-8 py-3 rounded-2xl text-[10px] sm:text-xs font-black uppercase tracking-widest transition-all active:scale-95",
+                "px-6 sm:px-8 py-3 rounded-2xl text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all active:scale-95",
                 filter === cat
                   ? "bg-brand-primary text-brand-bg shadow-xl"
                   : "bg-brand-card text-brand-grey hover:bg-brand-primary/10"
@@ -2871,20 +2689,20 @@ const BlogPage = () => {
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute top-4 sm:top-8 left-4 sm:left-8">
-                  <span className="px-4 sm:px-6 py-2 bg-white/90 backdrop-blur-xl rounded-full text-[9px] sm:text-xs font-black text-zinc-950 uppercase tracking-widest border border-white shadow-xl">
+                  <span className="px-4 sm:px-6 py-2 bg-white/90 backdrop-blur-xl rounded-full text-[9px] sm:text-xs font-bold text-zinc-950 tracking-widest border border-white shadow-xl">
                     Featured / {latestPost.category}
                   </span>
                 </div>
               </div>
               <div className="px-2 sm:px-4 text-center lg:text-left">
-                <span className="text-xs font-mono text-brand-grey uppercase tracking-widest block mb-4 sm:mb-6">{latestPost.date} — By {latestPost.author}</span>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-black mb-6 sm:mb-8 leading-[1.1] tracking-tighter uppercase text-brand-text">
+                <span className="text-xs font-mono text-brand-grey tracking-widest block mb-4 sm:mb-6">{latestPost.date} — By {latestPost.author}</span>
+                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 leading-[1.1] tracking-tighter text-brand-text">
                   {latestPost.title}
                 </h2>
                 <p className="text-brand-grey text-lg sm:text-xl font-light leading-relaxed mb-8 sm:mb-10 line-clamp-3">
                   {latestPost.excerpt}
                 </p>
-                <div className="inline-flex items-center gap-4 font-black uppercase text-xs sm:text-sm tracking-widest group-hover:gap-6 transition-all text-brand-text">
+                <div className="inline-flex items-center gap-4 font-bold text-xs sm:text-sm tracking-widest group-hover:gap-6 transition-all text-brand-text">
                   Read the latest <ArrowRight size={20} />
                 </div>
               </div>
@@ -2913,20 +2731,20 @@ const BlogPage = () => {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
+                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
                       {item.category}
                     </span>
                   </div>
                 </div>
                 <div className="flex-1 flex flex-col px-2 pb-2">
-                  <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{item.date}</span>
-                  <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
+                  <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{item.date}</span>
+                  <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
                     {item.title}
                   </h3>
                   <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
                     {item.excerpt}
                   </p>
-                  <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
+                  <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
                     Read Story <ArrowRight size={18} />
                   </div>
                 </div>
@@ -2940,7 +2758,7 @@ const BlogPage = () => {
           <div className="flex justify-center mt-20 sm:mt-32">
             <button
               onClick={loadMore}
-              className="px-12 sm:px-16 py-5 sm:py-6 rounded-2xl font-black text-base sm:text-lg uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center gap-4 bg-brand-primary text-brand-bg"
+              className="px-12 sm:px-16 py-5 sm:py-6 rounded-2xl font-bold text-base sm:text-lg tracking-widest hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center gap-4 bg-brand-primary text-brand-bg"
             >
               Load More Articles
               <ArrowRight size={24} />
@@ -2962,19 +2780,19 @@ const BlogDetail = () => {
   const recommendedPosts = BLOG_POSTS.filter(post => post.category === "Recommendations" && post.id !== item.id).slice(0, 3);
 
   return (
-    <div className="pt-32 sm:pt-48 pb-20 sm:pb-32 bg-brand-bg relative overflow-hidden isolate">
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 bg-brand-bg relative overflow-hidden isolate">
       <DecorativeOrganic className="top-1/4 -right-20 opacity-30 rotate-12" size="w-96 h-96" color="fill-brand-primary/5" variant={0} />
-      <DecorativeOrganic className="bottom-1/3 -left-32 -rotate-12 opacity-20" size="w-[500px] h-[500px]" color="fill-brand-grey/5" variant={1} />
+      <DecorativeOrganic className="bottom-1/3 -left-32 -rotate-12 opacity-20" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" color="fill-brand-grey/5" variant={1} />
       <BackgroundBlob
         className="top-0 right-0"
         color="bg-brand-primary/20"
-        size="w-[700px] h-[700px]"
+        size="w-[350px] sm:w-[700px] h-[350px] sm:h-[700px]"
         variant={2}
       />
       <BackgroundBlob
         className="bottom-0 left-0"
         color="bg-brand-grey/28"
-        size="w-[500px] h-[500px]"
+        size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
         variant={3}
       />
       <Helmet>
@@ -2983,7 +2801,7 @@ const BlogDetail = () => {
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <div className="max-w-3xl mx-auto mb-12">
-          <Link to="/blog" className="inline-flex items-center gap-3 transition-all uppercase font-mono text-[10px] sm:text-xs tracking-widest text-brand-grey hover:text-brand-text">
+          <Link to="/blog" className="inline-flex items-center gap-3 transition-all font-mono text-[10px] sm:text-xs tracking-widest text-brand-grey hover:text-brand-text">
             <ArrowRight size={16} className="rotate-180" /> Back to Blog
           </Link>
         </div>
@@ -2991,25 +2809,25 @@ const BlogDetail = () => {
         <header className="mb-16 md:mb-24">
           <div className="flex flex-col gap-8">
             <div>
-              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6 bg-brand-card text-brand-text border border-brand-border">
+              <span className="inline-block px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] mb-6 bg-brand-card text-brand-text border border-brand-border">
                 {item.category}
               </span>
-              <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter mb-8 leading-[1] uppercase text-brand-text">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-8 leading-[1] text-brand-text">
                 {item.title}
               </h1>
             </div>
 
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] py-6 border-y border-brand-border text-brand-grey">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-[10px] sm:text-xs font-mono tracking-[0.2em] py-6 border-y border-brand-border text-brand-grey">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-brand-border bg-brand-card">
                   <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${item.author}`} alt={item.author} referrerPolicy="no-referrer" />
                 </div>
-                <span className="font-black tracking-normal uppercase text-brand-text">{item.author}</span>
+                <span className="font-bold tracking-normal text-brand-text">{item.author}</span>
               </div>
               <div className="hidden sm:block h-4 w-px bg-brand-border" />
               <span>{item.date}</span>
               <div className="hidden sm:block h-4 w-px bg-brand-border" />
-              <span className="flex items-center gap-2 font-black"><Clock size={12} /> 8 MIN READ</span>
+              <span className="flex items-center gap-2 font-bold"><Clock size={12} /> 8 MIN READ</span>
             </div>
           </div>
         </header>
@@ -3055,15 +2873,15 @@ const BlogDetail = () => {
                                 {item.category !== 'Recommendations' && m.image && (
                                   <div className="w-full sm:w-40 md:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-xl relative flex-shrink-0 z-10">
                                     <img src={m.image} alt={m.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" referrerPolicy="no-referrer" />
-                                    <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-black text-xs sm:text-sm shadow-xl">
+                                    <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-bold text-xs sm:text-sm shadow-xl">
                                       {m.rank}
                                     </div>
                                   </div>
                                 )}
                                 <div className="flex-1 relative z-10">
-                                  <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-3 tracking-tighter uppercase leading-tight text-brand-text flex items-center gap-3">
+                                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tighter leading-tight text-brand-text flex items-center gap-3">
                                     {item.category === 'Recommendations' && (
-                                      <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-black flex-shrink-0">
+                                      <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-bold flex-shrink-0">
                                         {m.rank}
                                       </span>
                                     )}
@@ -3072,7 +2890,7 @@ const BlogDetail = () => {
                                   <p className="text-brand-grey mb-6 leading-relaxed text-sm font-medium opacity-80" style={{ whiteSpace: 'pre-line' }}>{m.desc}</p>
                                   <button
                                     onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(m.title)}`, '_blank')}
-                                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black transition-all uppercase tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
+                                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-bold transition-all tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
                                   >
                                     Search on web <Search size={14} />
                                   </button>
@@ -3092,14 +2910,14 @@ const BlogDetail = () => {
                               <Send size={28} />
                             </div>
                             <div className="flex-1 text-center md:text-left">
-                              <h4 className="text-lg sm:text-xl font-black uppercase tracking-tight mb-2 text-brand-text">Daily Manhwa News Updates on Telegram</h4>
+                              <h4 className="text-lg sm:text-xl font-bold tracking-tight mb-2 text-brand-text">Daily Manhwa News Updates on Telegram</h4>
                               <p className="text-brand-grey text-sm font-medium">
                                 Don't wait for our reports. Get fast updates on chapter drops, season returns, and chat with other readers.
                               </p>
                             </div>
                             <button
                               onClick={() => window.open('https://t.me/manhwa_daily', '_blank')}
-                              className="px-8 py-4 bg-brand-primary text-brand-bg rounded-xl font-black text-[10px] sm:text-xs uppercase tracking-widest hover:scale-105 transition-all shadow-xl active:scale-95 flex-shrink-0"
+                              className="px-8 py-4 bg-brand-primary text-brand-bg rounded-xl font-bold text-[10px] sm:text-xs tracking-widest hover:scale-105 transition-all shadow-xl active:scale-95 flex-shrink-0"
                             >
                               Join Now
                             </button>
@@ -3119,15 +2937,15 @@ const BlogDetail = () => {
                                 {item.category !== 'Recommendations' && m.image && (
                                   <div className="w-full sm:w-40 md:w-48 aspect-[2/3] rounded-xl overflow-hidden shadow-xl relative flex-shrink-0 z-10">
                                     <img src={m.image} alt={m.title} className="w-full h-full object-cover transition-transform duration-700 group-hover/item:scale-110" referrerPolicy="no-referrer" />
-                                    <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-black text-xs sm:text-sm shadow-xl">
+                                    <div className="absolute top-3 left-3 w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-brand-primary text-brand-bg flex items-center justify-center font-bold text-xs sm:text-sm shadow-xl">
                                       {m.rank}
                                     </div>
                                   </div>
                                 )}
                                 <div className="flex-1 relative z-10">
-                                  <h3 className="text-lg sm:text-xl md:text-2xl font-black mb-3 tracking-tighter uppercase leading-tight text-brand-text flex items-center gap-3">
+                                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 tracking-tighter leading-tight text-brand-text flex items-center gap-3">
                                     {item.category === 'Recommendations' && (
-                                      <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-black flex-shrink-0">
+                                      <span className="px-2.5 py-1 rounded-lg bg-brand-primary text-brand-bg text-xs sm:text-sm font-bold flex-shrink-0">
                                         {m.rank}
                                       </span>
                                     )}
@@ -3136,7 +2954,7 @@ const BlogDetail = () => {
                                   <p className="text-brand-grey mb-6 leading-relaxed text-sm font-medium opacity-80" style={{ whiteSpace: 'pre-line' }}>{m.desc}</p>
                                   <button
                                     onClick={() => window.open(`https://www.google.com/search?q=${encodeURIComponent(m.title)}`, '_blank')}
-                                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-black transition-all uppercase tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
+                                    className="inline-flex items-center gap-3 px-5 py-2.5 rounded-lg text-[9px] sm:text-[10px] font-bold transition-all tracking-widest border border-brand-border bg-brand-bg text-brand-text hover:bg-brand-primary hover:text-brand-bg active:scale-95"
                                   >
                                     Search on web <Search size={14} />
                                   </button>
@@ -3157,7 +2975,7 @@ const BlogDetail = () => {
                           viewport={{ once: true }}
                           className="max-w-4xl mr-auto"
                         >
-                          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 tracking-tighter uppercase leading-none text-brand-text">
+                          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-none text-brand-text">
                             {section.heading}
                           </h2>
                           <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-brand-grey font-light mb-12">
@@ -3177,9 +2995,9 @@ const BlogDetail = () => {
                     <div className="p-8 sm:p-12 md:p-16 lg:p-20 rounded-[2.5rem] sm:rounded-[3rem] relative overflow-hidden transition-colors border-2 border-brand-border shadow-2xl bg-brand-primary text-brand-bg">
                       <div className="relative z-10 max-w-3xl">
                         <div>
-                          <span className="text-[10px] font-black uppercase tracking-[0.3em] block mb-8 px-4 py-1.5 border border-brand-bg/20 rounded-full w-fit opacity-60">Atrix App: Better Tracking</span>
+                          <span className="text-[10px] font-bold tracking-[0.3em] block mb-8 px-4 py-1.5 border border-brand-bg/20 rounded-full w-fit opacity-60">Atrix App: Better Tracking</span>
 
-                          <h3 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tighter uppercase mb-6 sm:mb-8 leading-[1]">
+                          <h3 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6 sm:mb-8 leading-[1]">
                             Track With <br />
                             <span className="opacity-50">Atrix Explorer.</span>
                           </h3>
@@ -3189,10 +3007,10 @@ const BlogDetail = () => {
                           </p>
 
                           <div className="flex flex-col sm:flex-row gap-4">
-                            <button onClick={handleDownload} className="h-16 px-10 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-bg text-brand-text">
+                            <button onClick={handleDownload} className="h-16 px-10 rounded-2xl font-bold text-sm tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-bg text-brand-text">
                               Download APK <Download size={18} />
                             </button>
-                            <Link to="/features" className="h-16 px-10 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center justify-center gap-3 border border-brand-bg/20 hover:bg-brand-bg/10 transition-all backdrop-blur-sm">
+                            <Link to="/features" className="h-16 px-10 rounded-2xl font-bold text-sm tracking-widest flex items-center justify-center gap-3 border border-brand-bg/20 hover:bg-brand-bg/10 transition-all backdrop-blur-sm">
                               See Features <ChevronRight size={18} />
                             </Link>
                           </div>
@@ -3215,8 +3033,8 @@ const BlogDetail = () => {
               {latestNews.length > 0 && (
                 <div className="space-y-10">
                   <div className="text-center lg:text-left">
-                    <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">STAY UPDATED</span>
-                    <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-brand-text">LATEST INTEL & NEWS</h3>
+                    <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">STAY UPDATED</span>
+                    <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-brand-text">LATEST INTEL & NEWS</h3>
                   </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
                     {latestNews.map((post, i) => (
@@ -3237,20 +3055,20 @@ const BlogDetail = () => {
                               referrerPolicy="no-referrer"
                             />
                             <div className="absolute top-4 left-4">
-                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
+                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
                                 {post.category}
                               </span>
                             </div>
                           </div>
                           <div className="flex-1 flex flex-col px-2 pb-2">
-                            <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{post.date}</span>
-                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
+                            <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{post.date}</span>
+                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
                               {post.title}
                             </h3>
                             <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
                               {post.excerpt}
                             </p>
-                            <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
+                            <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
                               Read Story <ArrowRight size={18} />
                             </div>
                           </div>
@@ -3265,8 +3083,8 @@ const BlogDetail = () => {
               {recommendedPosts.length > 0 && (
                 <div className="space-y-10">
                   <div className="text-center lg:text-left">
-                    <span className="text-brand-grey text-xs font-black uppercase tracking-[0.4em] mb-4 block">EXPLORE MORE</span>
-                    <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tighter text-brand-text">RECOMMENDED READS</h3>
+                    <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">EXPLORE MORE</span>
+                    <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-brand-text">RECOMMENDED READS</h3>
                   </div>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
                     {recommendedPosts.map((post, i) => (
@@ -3287,20 +3105,20 @@ const BlogDetail = () => {
                               referrerPolicy="no-referrer"
                             />
                             <div className="absolute top-4 left-4">
-                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 uppercase tracking-widest border border-white shadow-md">
+                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
                                 {post.category}
                               </span>
                             </div>
                           </div>
                           <div className="flex-1 flex flex-col px-2 pb-2">
-                            <span className="text-[10px] font-mono text-brand-grey uppercase tracking-widest block mb-3">{post.date}</span>
-                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight uppercase mb-3 text-brand-text group-hover:text-brand-primary">
+                            <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{post.date}</span>
+                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
                               {post.title}
                             </h3>
                             <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
                               {post.excerpt}
                             </p>
-                            <div className="mt-auto flex items-center gap-3 font-bold uppercase text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
+                            <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
                               Read Story <ArrowRight size={18} />
                             </div>
                           </div>
