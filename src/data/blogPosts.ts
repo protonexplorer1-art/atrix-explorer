@@ -40,6 +40,95 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
 
   {
+    id: "swordmasters-youngest-son-season-3-return",
+    title: "Major Manhwa News: Swordmaster's Youngest Son Returns, Serena Season 3 & More",
+    category: "News",
+    date: "July 19, 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week's biggest manhwa news includes the return of Swordmaster's Youngest Son, Serena Season 3, Emperor's Sword comeback, a new donghua adaptation, and several completed series.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMGwNW36-8VJWbpUyIw0CrZcbx70p73yO5WMkL-YCfh2JVKQZ77f9Bd_lIKcBaG52YPLS2Q1KPRXh7EF-xDTnQKGQ7pUnpynitpOTmniRv6VPFI-VGogE6Nn8omU7Ny_GPTUCGj-v302AJ3nDFAB8RRiumOjiWtvvnHg7Gypx0CKnQEp99eZ2IG6Dswuk/s1600/swordmaster%20youngest%20son.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "The latest week delivered some of the biggest updates of the year for manhwa fans. Multiple fan-favorite series have returned with new seasons, several titles reached their finales, and one of the most popular cultivation series officially received its long-awaited donghua adaptation.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Swordmaster's Youngest Son",
+          desc:
+            "• Officially returns with Season 3\n• Released with 2 brand-new chapters\n• Debuts a brand-new cover illustration\n• One of the most anticipated fantasy action manhwa returns after its seasonal break",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMGwNW36-8VJWbpUyIw0CrZcbx70p73yO5WMkL-YCfh2JVKQZ77f9Bd_lIKcBaG52YPLS2Q1KPRXh7EF-xDTnQKGQ7pUnpynitpOTmniRv6VPFI-VGogE6Nn8omU7Ny_GPTUCGj-v302AJ3nDFAB8RRiumOjiWtvvnHg7Gypx0CKnQEp99eZ2IG6Dswuk/s1600/swordmaster%20youngest%20son.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Serena",
+          desc:
+            "• Officially returns with Season 3\n• Launches with 6 brand-new episodes\n• Features an all-new cover artwork\n• Romance fans can continue the story immediately with multiple new chapters",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWoMCMxLd0bXkc1TVfMKNsS1FfeV5cw75Ov_DUIAfEHVwz1gLOdRUTcvwTO3eCBEkrBZdeXyUCG0eRyYYjuoiP5eY6slgf007B9qzCPdktRaEPd1LPYoyIgCxGkQZU42y-SvZD5jOCAYkMEkfXNIelDkbXyANXU1dDKiXXw7AcUtc-qZ9fdJrd_sVHVk4/s1600/serena.webp"
+        },
+
+        {
+          rank: 3,
+          title: "The Villainess Match Is Too Perfect",
+          desc:
+            "• Returns with a brand-new side story\n• Releases 3 new episodes\n• Also known as The Villainess's Blind Date Is Too Perfect\n• Fans can revisit the completed romance through additional stories",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjZmggnt6IN4QbVogzwPijk9Ujl9B3qSH-2QUxFufdNuXYXroLDg_cw1a8gn98OVRK8S0yv63fYsesUc4Kma4zBKQObxXPFQDeq5RhKkremSeQ1bvemb4yZ-dIAmaPcdNXETg2fjsRq4c_DH7ff0q78Cfs59x5FE7hZTxlCBTGuPdh5Gh7uMhNjrl5rXBE/s1600/the%20villainess%20match%20is%20too%20perfect.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Emperor's Sword",
+          desc:
+            "• Officially returning after a long hiatus\n• Scheduled to resume on July 24\n• Marks the end of the lengthy publication break\n• Action fans won't have to wait much longer for new chapters",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhaLv5xV3j9aabLf8ytvkeYSwcEdw8Y-RAh-TBtPpVIOs7-FLmSIZvg3cmYHXzbvkA1xiNdTzD93t-uQbgJ-TCcR88UGQzPo-Vo8_gKZ4Oxmnc5cuOIyfxSAewCLicPpeCMd6XsKn1pTjm2SqKyJbbLQnGbFEVca1M-hSp1-EN-Z15OLoO4EFpKERGhasA/s1600/emperor%20sword.webp"
+        },
+
+        {
+          rank: 5,
+          title: "I Am the Fated Villain",
+          desc:
+            "• Official donghua adaptation has premiered\n• The first 3 episodes are now available\n• Uses a combination of 3D animation and AI-assisted effects\n• The adaptation has already generated significant discussion among fans",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUzw-gMOhk5w6BsmNuCS9D3gg_zg8GhH9D3XkBk6FcKoZub_SJWOlvELow0qO0QXsJGriGzuyH71wVgzKPWdvbnjFzIcnG-6MPbzYIEM_0jgSPo3PD3yCSuOYOdM-PQ84EueFNA2s69pW5_XXGrPrDyRTXohqv6QcuFU4r-MzjIg0QNrKD-qLreGkJU0k/s1600/i%20am%20the%20fated%20villain.webp"
+        },
+
+        {
+          rank: 6,
+          title: "The House Without Time",
+          desc:
+            "• Officially completed\n• Ends with a total of 231 chapters\n• The fantasy series has reached its conclusion\n• Readers can now enjoy the complete story from beginning to end",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiWRue2RTpEZcwxvrXIrks53UvhYlunlyjgBWTmAVudI0jD_w7hppGjY3o6fp-GkU9G4zTHQ6GR2Mbu2E9ErZkwMndf6r4AOnOVGZHip1MHZyMgidSgTvlJhiChzG67VPcBR36QEFtXRgLUXkffuOkWh5tt8EeMznsSM8LMhhUQ_r6UGEDpJ-w2VYTiJ58/s1600/the%20house%20without%20time.webp"
+        },
+
+        {
+          rank: 7,
+          title: "Rookie Employee Kim Cheolsu",
+          desc:
+            "• Officially concludes with Chapter 161\n• The original web novel contains an additional side story\n• No official announcement has been made regarding a side-story adaptation for the manhwa\n• The workplace comedy ends its main serialization",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHX-uHE2AD6Hh8qvNvTJosyA-jpZ8s8Y8M7ZMYhtjSvdMgr5h7BSoBblZaO88ezPzldCwCB9LNqyMCN3BBFIR3a9lEH0E3HUHOpZonHZiSBnMe7hyphenhyphen1OPho8h8tJqecdm0V-zglg0rvNqXgzdvDjaIHXGGiYTPhSN9EW895KEQyGHIgnHUlyeOiSfYOHEE/s1600/Rookie%20employes%20kim%20cheoisu.webp"
+        }
+      ],
+
+      finalThoughts:
+        "This week featured everything from highly anticipated season returns to major series finales and adaptation announcements. Swordmaster's Youngest Son and Serena headline the returning titles, while I Am the Fated Villain enters a new era with its official donghua. Meanwhile, readers can also celebrate the completion of The House Without Time and Rookie Employee Kim Cheolsu or revisit The Villainess Match Is Too Perfect through its newly released side stories."
+    }
+  },
+
+  {
     id: "weekly-manhwa-news-july-17-2026",
     title: "Weekly News: Major Hiatuses, Season Returns & Shadow Slave Webtoon Launch",
     category: "News",
