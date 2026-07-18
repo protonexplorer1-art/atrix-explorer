@@ -571,6 +571,16 @@ const HomePage = () => {
       <Helmet>
         <title>Atrix Explorer | Mobile Web Browser for Manga & Novel Readers</title>
         <meta name="description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <link rel="canonical" href="https://atrixexplorer.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atrixexplorer.com/" />
+        <meta property="og:title" content="Atrix Explorer | Mobile Web Browser for Manga & Novel Readers" />
+        <meta property="og:description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Atrix Explorer | Mobile Web Browser for Manga & Novel Readers" />
+        <meta name="twitter:description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
 
       {/* Global Dotted Connectors */}
@@ -1516,6 +1526,16 @@ const FeaturesPage = () => {
       <Helmet>
         <title>Features | Atrix Explorer Browser</title>
         <meta name="description" content="Explore all features built for reading comfort: auto-save progress, popup blocking, auto-scroll, customizable library, and optional cloud backups." />
+        <link rel="canonical" href="https://atrixexplorer.com/features" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atrixexplorer.com/features" />
+        <meta property="og:title" content="Features | Atrix Explorer Browser" />
+        <meta property="og:description" content="Explore all features built for reading comfort: auto-save progress, popup blocking, auto-scroll, customizable library, and optional cloud backups." />
+        <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Features | Atrix Explorer Browser" />
+        <meta name="twitter:description" content="Explore all features built for reading comfort: auto-save progress, popup blocking, auto-scroll, customizable library, and optional cloud backups." />
+        <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2064,6 +2084,11 @@ const FeaturesPage = () => {
 const PrivacyPage = () => {
   return (
     <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <Helmet>
+        <title>Privacy Policy | Atrix Explorer</title>
+        <meta name="description" content="Atrix Explorer's privacy policy. Local-first by design — your library data stays on your device. Cloud sync is optional and fully opt-in." />
+        <link rel="canonical" href="https://atrixexplorer.com/privacy" />
+      </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Privacy Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: June 15, 2026</p>
@@ -2144,6 +2169,11 @@ const PrivacyPage = () => {
 const TermsPage = () => {
   return (
     <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <Helmet>
+        <title>Terms of Service | Atrix Explorer</title>
+        <meta name="description" content="Atrix Explorer terms of service. No copyrighted content is hosted. Your data belongs to you. Read our usage terms and user responsibilities." />
+        <link rel="canonical" href="https://atrixexplorer.com/terms" />
+      </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Terms of Service</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: June 15, 2026</p>
@@ -2199,6 +2229,11 @@ const TermsPage = () => {
 const FreedomPage = () => {
   return (
     <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <Helmet>
+        <title>Freedom Policy | Atrix Explorer</title>
+        <meta name="description" content="Atrix Explorer's Freedom Policy — track any media, export your data anytime, no vendor lock-in. Your library, your rules." />
+        <link rel="canonical" href="https://atrixexplorer.com/freedom" />
+      </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Freedom Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
         <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">The Library Without Borders</p>
@@ -2349,6 +2384,16 @@ const DownloadPage = () => {
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
         <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.9), view full release notes, changelogs, and download history." />
+        <link rel="canonical" href="https://atrixexplorer.com/download" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atrixexplorer.com/download" />
+        <meta property="og:title" content="Download Atrix Explorer | Releases & Version History" />
+        <meta property="og:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.9), view full release notes, changelogs, and download history." />
+        <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Download Atrix Explorer | Releases & Version History" />
+        <meta name="twitter:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.9), view full release notes, changelogs, and download history." />
+        <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-8 relative z-10">
@@ -2380,28 +2425,10 @@ const DownloadPage = () => {
             Download previous and current Atrix Explorer releases. By default, the application auto-updates to the latest version.
           </motion.p>
 
-          {/* Android & iOS Platform Status Note */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="p-5 rounded-[1.5rem] border border-brand-border bg-brand-card flex flex-col sm:flex-row items-center gap-5 text-left shadow-lg backdrop-blur-md mb-12"
-          >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-brand-primary/10 text-brand-primary shrink-0">
-              <Globe size={24} />
-            </div>
-            <div>
-              <h4 className="font-bold text-sm tracking-tight mb-1">Platform Availability</h4>
-              <p className="text-xs text-brand-grey leading-relaxed">
-                Atrix Explorer is currently fully optimized and available for <span className="font-bold text-brand-text">Android devices</span>. We are actively working on the <span className="font-bold text-brand-text">iOS edition</span>, and it will be released soon. Stay tuned!
-              </p>
-            </div>
-          </motion.div>
         </header>
 
         {/* Current Active Release Showcase */}
-        <section className="mb-20">
+        <section className="mb-12">
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight mb-6">Latest Stable Release</h2>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -2449,6 +2476,25 @@ const DownloadPage = () => {
             </div>
           </motion.div>
         </section>
+
+        {/* Android & iOS Platform Status Note */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="p-5 rounded-[1.5rem] border border-brand-border bg-brand-card flex flex-col sm:flex-row items-center gap-5 text-left shadow-lg backdrop-blur-md mb-20"
+        >
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-brand-primary/10 text-brand-primary shrink-0">
+            <Globe size={24} />
+          </div>
+          <div>
+            <h4 className="font-bold text-sm tracking-tight mb-1">Platform Availability</h4>
+            <p className="text-xs text-brand-grey leading-relaxed">
+              Atrix Explorer is currently fully optimized and available for <span className="font-bold text-brand-text">Android devices</span>. We are actively working on the <span className="font-bold text-brand-text">iOS edition</span>, and it will be released soon. Stay tuned!
+            </p>
+          </div>
+        </motion.div>
 
         {/* Accordion Release History (Matching shared example) */}
         <section className="space-y-8">
@@ -2620,6 +2666,16 @@ const BlogPage = () => {
       <Helmet>
         <title>The Catalog | Curated Manhwa & Manhua Recommendations</title>
         <meta name="description" content="Discover the best Manhwa and Manhua recommendations. Expertly curated lists of badass OP MCs, cultivation, and non-cliché storylines." />
+        <link rel="canonical" href="https://atrixexplorer.com/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://atrixexplorer.com/blog" />
+        <meta property="og:title" content="The Catalog | Curated Manhwa & Manhua Recommendations" />
+        <meta property="og:description" content="Discover the best Manhwa and Manhua recommendations. Expertly curated lists of badass OP MCs, cultivation, and non-cliché storylines." />
+        <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Catalog | Curated Manhwa & Manhua Recommendations" />
+        <meta name="twitter:description" content="Discover the best Manhwa and Manhua recommendations. Expertly curated lists of badass OP MCs, cultivation, and non-cliché storylines." />
+        <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <header className="mb-16 sm:mb-24 flex flex-col items-center text-center">
@@ -2798,6 +2854,27 @@ const BlogDetail = () => {
       <Helmet>
         <title>{item.title} | Atrix Explorer Archive</title>
         <meta name="description" content={item.excerpt} />
+        <link rel="canonical" href={`https://atrixexplorer.com/blog/${item.id}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://atrixexplorer.com/blog/${item.id}`} />
+        <meta property="og:title" content={`${item.title} | Atrix Explorer Archive`} />
+        <meta property="og:description" content={item.excerpt} />
+        <meta property="og:image" content={item.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${item.title} | Atrix Explorer Archive`} />
+        <meta name="twitter:description" content={item.excerpt} />
+        <meta name="twitter:image" content={item.image} />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          "headline": item.title,
+          "description": item.excerpt,
+          "image": item.image,
+          "datePublished": item.date,
+          "author": { "@type": "Person", "name": item.author },
+          "publisher": { "@type": "Organization", "name": "Atrix Explorer", "url": "https://atrixexplorer.com" },
+          "url": `https://atrixexplorer.com/blog/${item.id}`
+        })}</script>
       </Helmet>
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         <div className="max-w-3xl mx-auto mb-12">
@@ -2836,7 +2913,7 @@ const BlogDetail = () => {
           <div className="relative w-full rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden mb-16 lg:mb-24 shadow-2xl bg-brand-card aspect-[16/9] flex items-center justify-center">
             <img
               src={item.image}
-              alt="Article Hero"
+              alt={item.title}
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
             />
