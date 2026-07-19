@@ -40,6 +40,86 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
 
   {
+    id: "manhwa-update-doom-breaker-return-new",
+    title: "Weekly Manhwa News: Doom Breaker Return, New Manhwa Debuts & Major Series Updates",
+    category: "News",
+    date: "July 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week's biggest manhwa news includes a new Doom Breaker update, My Husband's a Possessed Hero Season 2, The Human Table debut, The Baddest Villainess Is Back, Child Actor to World Star, and more.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1Lnb5wrntW7GpTyQ51jZzFoF4rAqsKQoChAuQwjiQbjkd5lxIe5OmZP120sfryiJwCWpWoLoO651XNbyrh02UpVTQfdTpy5aGvt8v7KwnlAXkPqGiiOpVgYBjwptoFRHeqRKPUmWurm9RJNcL41lJbD84fSGWoBpbforMpiCE0_2wKtLfCk9-t9ZE5bk/s1600/Doom%20Breaker.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "Several exciting announcements arrived this week for manhwa readers. Long-awaited comeback updates, brand-new series launches, completed titles, and fresh seasonal returns made this one of the busiest weeks for fantasy, romance, horror, and action fans.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Doom Breaker (Reincarnation of the Suicidal Battle God)",
+          desc:
+            "• The creator shared a long-awaited production update\n• Development is progressing smoothly after the extended hiatus\n• The series is currently expected to return during Q4 2026\n• The team is reportedly building a chapter buffer before serialization resumes",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1Lnb5wrntW7GpTyQ51jZzFoF4rAqsKQoChAuQwjiQbjkd5lxIe5OmZP120sfryiJwCWpWoLoO651XNbyrh02UpVTQfdTpy5aGvt8v7KwnlAXkPqGiiOpVgYBjwptoFRHeqRKPUmWurm9RJNcL41lJbD84fSGWoBpbforMpiCE0_2wKtLfCk9-t9ZE5bk/s1600/Doom%20Breaker.webp"
+        },
+
+        {
+          rank: 2,
+          title: "My Husband's a Possessed Hero",
+          desc:
+            "• Officially returns with Season 2\n• Launches with 3 brand-new episodes\n• Features an updated cover illustration\n• Romance fantasy readers can immediately continue the story",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBkODMpUw52LZ7GYDBHO_ba13Tir-FwP78_i_7Vo6Fisk28fcB3uA-vGB2yZ6pazXoMI6ELhRIn6rJ0BK1C0aGZG8q_WyjSsX-EBJX942UPnqZwA7kWPr6DBomcPX_7SaGSQlVdj2Kt6k1N4UI69iwGcej3tsSeOKYgjZ1KLAn81XKdXVf8HjVOzLI4c8/s1600/My%20Husband%27s%20a%20Possessed%20Hero.webp"
+        },
+
+        {
+          rank: 3,
+          title: "The Human Table",
+          desc:
+            "• Brand-new horror manhwa launches on Naver Webtoon\n• Debuts with its first 7 chapters\n• Created by the author behind Vigilante\n• A promising recommendation for horror and psychological thriller fans",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQZY_YR2XYEHLCazVqBb0JRGln5HQ3uToCFYGM8REmc4FxayLmf25eXAj6ZXq244QRXUQsC5zcCmICwtXFN50UznKTerwxF-oJHTzzaI_ZJc717M9_8tPXNBPoM6yeWr2dR28WZfaSpa_nS-QjmjKKIYsCFTQ44pHqmtOB7LLt7x3RjF54Hl-Zrau4z_M/s1600/The%20Human%20Table.webp"
+        },
+
+        {
+          rank: 4,
+          title: "The Baddest Villainess Is Back",
+          desc:
+            "• New fantasy romance manhwa begins serialization\n• Premieres with 20 chapters\n• Written by the author of A World Without You\n• From the creator of Being Raised by Villains",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvL9bQATKu7f6ieqQ8TO706Vi2rVKDZzmD5xWKhgiy1IsamCIEKpotY0W50zZPVQ06WBYpG7Gfguw1JJDS4LM-oU6dbn4tkCOJK4ABGfLRXVnIof0P0BU594Lx0ZUwyVoYUv_9zrCgz4wyNaAePYdSmidn-WhBfph3hFGuw7Ge38kp2_beFQsm1WeebYA/s1600/The%20Baddest%20Villainess%20Is%20Back.webp"
+        },
+
+        {
+          rank: 5,
+          title: "Child Actor to World Star",
+          desc:
+            "• New drama manhwa officially launches\n• Begins with 20 available chapters\n• Follows the journey from child actor to global superstar\n• One of the week's notable new series releases",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjojUSF3q77rdHCBrMbUrmqfXe6u8Rop9_27195yVDlk73U1gHixYLiSpa_P2nsUJ6xLSM5FpMXdKERqFMNh4RZPFZ3DDdtFBMNn4LjtJa8xz7kd1qeWggZDwlmrqARqTnZts5GnpDSPl_6eLOoYua2pA2CF5rp7q8rOUA0rpbT9ZjYPrAgkcQINTV763Q/s1600/Child%20Actor%20to%20World%20Star.webp"
+        },
+
+        {
+          rank: 6,
+          title: "The Cleaner",
+          desc:
+            "• Officially concludes with Chapter 53\n• The revenge action thriller has reached its finale\n• Readers can now experience the complete story from beginning to end\n• Marks another completed YLAB series",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhPxZUwq2xqbtwMPDnwHzj355YIFGMFIBNUhHnD_BnKsRABeKqKhwZPXBxplO6ZoatIUzCOOCZt5F6cU1oW2ijfdD6xRwk_nFOuu0JZKNvIVEESSfknJY176tRF5x4yNVCS2Tsc7Ifix_HOACWNZao_QiHOkPUDsQyWHrU4c8Q5ZCzuvYR61IPpyrBRuy0/s1600/The%20Cleaner.webp"
+        }
+      ],
+
+      finalThoughts:
+        "The biggest headline remains the encouraging production update for Doom Breaker, giving fans renewed hope for its return later in 2026. Alongside that, readers have plenty of fresh content to explore with new releases like The Human Table, The Baddest Villainess Is Back, and Child Actor to World Star, while My Husband's a Possessed Hero returns for another season and The Cleaner officially closes its story."
+    }
+  },
+
+  {
     id: "swordmasters-youngest-son-season-3-return",
     title: "Major Manhwa News: Swordmaster's Youngest Son Returns, Serena Season 3 & More",
     category: "News",
