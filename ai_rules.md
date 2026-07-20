@@ -28,4 +28,4 @@
 
 ## 5. Post-Implementation Verification
 - **Validate your work:** After completing the code changes, always verify that the application logic remains intact.
-- **Run Diagnostics:** Actively check for errors. Run `flutter analyze` or check your diagnostic tools to ensure no syntax errors, lint warnings, or broken dependencies were introduced.
+- **Run Diagnostics:** Actively check for errors. Run  analyze` or check your diagnostic tools to ensure no syntax errors, lint warnings, or broken dependencies were introduced.
