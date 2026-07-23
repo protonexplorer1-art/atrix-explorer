@@ -2091,7 +2091,7 @@ const PrivacyPage = () => {
       </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Privacy Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: June 15, 2026</p>
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: July 24, 2026</p>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. Our Approach to Privacy</h2>
         <p>Atrix Explorer is built on a local-first principle. Your library data, reading insights, search history, and browsing history live primarily on your device. Cloud sync is optional and only used to back up your library and profile. We do not sell your data, show ads, or track you across the web.</p>
@@ -2103,6 +2103,8 @@ const PrivacyPage = () => {
           <li><strong>Library Data:</strong> Title IDs, reading progress (chapter/season), custom status (plan/reading/completed/dropped), personal ratings (art & story), private notes, and reminder settings. This data syncs to our cloud only if you create an account.</li>
           <li><strong>Profile Data:</strong> Username, bio, and avatar image. Stored locally and synced to cloud for account portability.</li>
           <li><strong>Push Notification Tokens:</strong> Your device token is stored to send chapter alerts via Firebase Cloud Messaging.</li>
+          <li><strong>Analytics & Usage Data:</strong> We collect anonymized usage data (such as screen views, session duration, and feature interactions) via Firebase Analytics to help us understand how the app is used and to improve the overall experience.</li>
+          <li><strong>User Feedback:</strong> When you submit feedback, bug reports, or feature requests through the app, we collect the text you provide, alongside basic device and app version information to help us address the issue.</li>
           <li><strong>Crash Reports:</strong> Anonymous crash diagnostics via Firebase Crashlytics to help us fix bugs.</li>
         </ul>
 
@@ -2123,7 +2125,7 @@ const PrivacyPage = () => {
         <p>Atrix Explorer uses the following third-party services. Each has its own privacy policy governing data handling:</p>
         <ul>
           <li><strong>Supabase</strong> — Cloud database, authentication, and storage. Stores your account info, library data, and profile data.</li>
-          <li><strong>Firebase (Google)</strong> — Crashlytics for error reporting and Cloud Messaging for push notifications.</li>
+          <li><strong>Firebase (Google)</strong> — Analytics for usage data, Crashlytics for error reporting, and Cloud Messaging for push notifications.</li>
           <li><strong>Cloudflare</strong> — R2 object storage for user-uploaded images and Workers for API proxying.</li>
           <li><strong>MeiliSearch</strong> — Search engine for comic metadata. Search queries are sent to return results; no personal data is stored.</li>
           <li><strong>Google & GitHub</strong> — Authentication providers. Only an ID token is exchanged; no profile data is stored client-side.</li>
@@ -2159,7 +2161,10 @@ const PrivacyPage = () => {
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">13. Changes to This Policy</h2>
         <p>We may update this policy from time to time. Changes will be posted here and reflected in the "Effective" date at the top. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">14. Contact</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">14. In-App Browser and External Links</h2>
+        <p>Atrix Explorer features an in-app browser designed for reading tracking. When using this browser, you are accessing third-party websites directly. We are not responsible for the privacy practices, data collection, or content of these external sites. We encourage you to review the privacy policies of any website you visit through the app.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">15. Contact</h2>
         <p>For questions, concerns, or data requests, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
@@ -2176,7 +2181,7 @@ const TermsPage = () => {
       </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Terms of Service</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: June 15, 2026</p>
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: July 24, 2026</p>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. What Atrix Explorer Is</h2>
         <p>Atrix Explorer is a personal library tracking application with a built-in browser. It allows users to track their reading progress across manhwa, manga, anime, novels, web series, and custom media types. The app provides text-based metadata (titles, descriptions, genre tags) and does not host, stream, or distribute any copyrighted media files.</p>
@@ -2191,13 +2196,14 @@ const TermsPage = () => {
           <li>Not upload infringing, abusive, or illegal content as custom posters or notes.</li>
           <li>Not attempt to access another user's account or data.</li>
           <li>Not abuse the app's APIs, services, or infrastructure.</li>
+          <li>Abide by the terms of service of any third-party websites you access via the in-app browser.</li>
         </ul>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. User Content Ownership</h2>
         <p>Your library data — including titles, progress, notes, ratings, reminders, and custom posters — belongs to you. Atrix Explorer claims no ownership over your personal data. You retain full rights to your content and can export or delete it at any time.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services</h2>
-        <p>Atrix Explorer integrates with third-party services to function (Supabase, Firebase, Cloudflare, MeiliSearch, Google, GitHub). We are not responsible for the uptime, security, or data practices of these third parties. Each service operates under its own terms and privacy policy.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services and In-App Browser</h2>
+        <p>Atrix Explorer integrates with third-party services to function (Supabase, Firebase, Cloudflare, MeiliSearch, Google, GitHub). The app also includes an in-app browser for your convenience. We are not responsible for the uptime, security, content, or data practices of any integrated services or external websites you visit. Each service and external website operates under its own terms and privacy policy, which you are responsible for reviewing.</p>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. Disclaimer of Warranties</h2>
         <p>Atrix Explorer is provided "as is" and "as available." We do not guarantee that:</p>
@@ -2219,7 +2225,10 @@ const TermsPage = () => {
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Changes to These Terms</h2>
         <p>We may update these terms as the app evolves. Continued use after changes are posted constitutes acceptance of the new terms. We will notify users of significant changes via the app or email.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Contact</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Feedback & Suggestions</h2>
+        <p>If you choose to provide feedback, bug reports, or suggestions for improving Atrix Explorer, you agree that we are free to use such feedback without any obligation, restriction, or compensation to you.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">12. Contact</h2>
         <p>For questions about these terms, contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>

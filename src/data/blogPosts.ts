@@ -40,6 +40,86 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
 
   {
+    id: "weekly-manhwa-update-damn-reincarnation-return-jungle-juice-finale",
+    title: "Weekly Manhwa News: Damn Reincarnation Return, Jungle Juice Finale & More Major Updates",
+    category: "News",
+    date: "July 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week's biggest manhwa news includes Damn Reincarnation's earlier return, Jungle Juice ending Season 3, A Regressor's Tale of Cultivation Season 2 update, Pick Me Up spoilers, Infinity Mage, and S-Class Hunter's Peaceful Life With Monsters.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjooJuk7fVRgv162p_cijMoztq75JO0b87kbnQg3byYOdOeQXhbpEGJegExU1loTwDBhnZ-lgEb0kKhYSF-JKeRYfHUhO1UVOpUZ4c0787zSa-qAM4Nuk8bbXGcnU67YaiCia5mZrUJKHW56DoIj2ZdUp08W1cV4c9UT7WTwi3hOxbTNZNSpPNrYBHDxFc/s1600/Damn%20reincarnation.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "Fantasy, action, and cultivation fans received several exciting announcements this week. From earlier return dates to season finales and major story developments, here's everything you should know.",
+
+      items: [
+        {
+          rank: 1,
+          title: "Damn Reincarnation",
+          desc:
+            "• Great news for fans as the return schedule has been moved forward.\n• The series is now expected to return in November instead of December.\n• Readers won't have to wait as long for the next season.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjooJuk7fVRgv162p_cijMoztq75JO0b87kbnQg3byYOdOeQXhbpEGJegExU1loTwDBhnZ-lgEb0kKhYSF-JKeRYfHUhO1UVOpUZ4c0787zSa-qAM4Nuk8bbXGcnU67YaiCia5mZrUJKHW56DoIj2ZdUp08W1cV4c9UT7WTwi3hOxbTNZNSpPNrYBHDxFc/s1600/Damn%20reincarnation.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Jungle Juice",
+          desc:
+            "• The main story officially concludes with Season 3 Episode 79.\n• The series is not completely over.\n• A Side Story has already been confirmed and will continue the universe.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiORsT5RuHkpYE7bADE0FcxEdM-B_CrsUZp3ib0Ae5vyZnvPwoc21QnqHliXqAxG15oZ6SZrss_EMbz2PyJlBdbGrGOY_K-UxIdP7NdN1odvsuZvXnhDH3qNBLAj6A_tBSbMVb0_5qmVpt9jeSsF7kLOs77-Fw-gqMqNilb_ximnjp7W-LnLXqgsAV_jg8/s1600/jungle%20juice.webp"
+        },
+
+        {
+          rank: 3,
+          title: "A Regressor's Tale of Cultivation",
+          desc:
+            "• The artist shared a positive production update.\n• Work on Season 2 is progressing well.\n• The current target is a September return if production stays on schedule.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHKIyXL-YrlVknruzvwSXgLoHVfoJg_OHvtzPF-JY1fHjFvYZRgzKPEAaG3tpicQsa4R5oyp1ZN1P1cHobFndJm_bmtokaYGV0i1Sr74wHcwG-thW8vu9jKJYCX5Zq8CJeR1wgL-ghzMCAXFsUHPg_8TTkwhu9yzM6g7ndQDr0Q00xyM6WVqB1UGJ_FT8/s1600/a%20regressor%20tale%20of%20cultivation.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Pick Me Up, Infinite Gacha",
+          desc:
+            "• The latest chapters push the heroes into an almost impossible battle.\n• Han risks everything to protect the princess.\n• The rescue operation falls apart after the enemy mage counters immediately.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcJM10dwQ8Km8WuRdv67AqEqdn396I9Xb_OghYfp7IbU_62sdX6UKlAa3acuRGBKWFAAQcL2r6GCdpRSXL8n5dR0RXTJ4JV4yshDtXOHnVMzLs8QQSwQegc6PKeIuRCNFH7X7x8GFfIqcxlGc_UU0YEsuKU7mdUoxxtZH2MSLwfsd20WEpO9_HQqO9XPs/s1600/pick%20me%20up.webp"
+        },
+
+        {
+          rank: 5,
+          title: "Infinity Mage",
+          desc:
+            "• The story enters one of its most dangerous arcs.\n• Archangel Kariel prepares the ritual to create a Nephilim.\n• Readers also witness the first appearance of the mysterious Supreme Creator, Anke Ra-an.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWCyV-bapZrRxqxYqNdFmBLIbuAU592pIDnJdazMpWk9WpKsPt9kdyQKi1frPquy7D81GyBFOwrduAxSVynHeoyk1Q8V0A2Ig-LuquQ3N5fzRqf4uBBlz1YjjaUoW6Q2eYfIR7xUi-kHkkwvaKtLipNV65qM3_SYndouHXNLGmxIbNqbDnCIfhTpDfuBA/s1600/infinity%20mage%20spoiler.webp"
+        },
+
+        {
+          rank: 6,
+          title: "S-Class Hunter's Peaceful Life With Monsters",
+          desc:
+            "• Season 1 has officially wrapped up.\n• The production team released a Season Review on July 19.\n• Season 2 is expected to begin during the autumn season.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdPpNmBjMMvFo-bbswB-UO3o1yFoAvjACNWAdO5UKO3ZL_2cnPRlYdpMhHvYVb6ZTbRPPxHKSRRTXVPacmHBqBzKlvurymcAAcrpbrrwduDwEKt2MNjxiqGtvLouGobiqYeu6aGTqNSmJo7yWtMwQXSpY9KdfR1tnx7yAOGhdgp6TyVKktNidTD6CYnbg/s1600/s%20class%20hunter%20peaceful%20life%20with%20monster.webp"
+        }
+      ],
+
+      finalThoughts:
+        "The biggest announcement this week is Damn Reincarnation moving its return up to November. Meanwhile, Jungle Juice finishes its main story with a Side Story already planned, A Regressor's Tale of Cultivation inches closer to Season 2, and major developments continue in Pick Me Up and Infinity Mage while S-Class Hunter's Peaceful Life With Monsters prepares for its next season."
+    }
+  },
+
+  {
     id: "manhwa-update-doom-breaker-return-new",
     title: "Weekly Manhwa News: Doom Breaker Return, New Manhwa Debuts & Major Series Updates",
     category: "News",

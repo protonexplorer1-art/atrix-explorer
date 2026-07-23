@@ -29,6 +29,8 @@ export default {
     let metaDescription = 'A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device.';
     let metaImage = `${url.origin}/hero-preview.webp`;
 
+    let schemaInject = '';
+
     if (path === '/features') {
       metaTitle = 'Features | Atrix Explorer Browser';
       metaDescription = 'Explore all features built for reading comfort: auto-save progress, popup blocking, auto-scroll, customizable library, and optional cloud backups.';
@@ -54,6 +56,20 @@ export default {
         metaTitle = `${post.title} | Atrix Explorer Archive`;
         metaDescription = post.excerpt;
         metaImage = post.image;
+        
+        // Generate AI-friendly Schema Markup
+        const articleSchema = {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "headline": post.title,
+          "image": [post.image],
+          "author": [{
+            "@type": "Organization",
+            "name": post.author
+          }],
+          "description": post.excerpt
+        };
+        schemaInject = `\n    <script type="application/ld+json">${JSON.stringify(articleSchema)}</script>\n  `;
       }
     }
 
@@ -66,7 +82,8 @@ export default {
       .replace(/<meta name="twitter:title" content=".*?"\s*\/>/i, `<meta name="twitter:title" content="${metaTitle}" />`)
       .replace(/<meta name="twitter:description" content=".*?"\s*\/>/i, `<meta name="twitter:description" content="${metaDescription}" />`)
       .replace(/<meta name="twitter:image" content=".*?"\s*\/>/i, `<meta name="twitter:image" content="${metaImage}" />`)
-      .replace(/<meta property="og:url" content=".*?"\s*\/>/i, `<meta property="og:url" content="${url.href}" />`);
+      .replace(/<meta property="og:url" content=".*?"\s*\/>/i, `<meta property="og:url" content="${url.href}" />`)
+      .replace(/<\/head>/i, `${schemaInject}</head>`);
 
     return new Response(modifiedHtml, {
       headers: { 'Content-Type': 'text/html;charset=UTF-8' },
