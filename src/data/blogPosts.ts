@@ -40,6 +40,86 @@ export interface BlogPost {
 export const BLOG_POSTS: BlogPost[] = [
 
   {
+    id: "manhwa-update-disaster-class-hero-eternally-regressing-knight",
+    title: "Weekly Manhwa News: Disaster Class Hero Returns, Eternally Regressing Knight Update & More",
+    category: "News",
+    date: "July 2026",
+    author: "Atrix Team",
+
+    excerpt:
+      "This week's biggest manhwa news includes The Return of the Disaster-Class Hero returning from hiatus, Eternally Regressing Knight Part 2 announcement, Emperor's Sword comeback, multiple completed series, and Devil & Ice ending early.",
+
+    image:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFwhFCJqvXyv4jyllhtv7K8jBKmNpbsNQnZK_BRjONJY4hzQ1nsQX_x-yJO1OJBIF7rWIymZPcZWUjCnr0Z45FmKcylDzlKWP2KNUOzNP5rRonP0JU31S6zlGCGX6AprVXdvoOaafP72dRoPQIu1YAfvrOJ5PReBnjZuwVr-Q13hdyBc6vGk_5PH2gPdQ/s1600/the%20return%20of%20the%20disaster%20class%20hero.webp",
+
+    content: {
+      type: "recommendation",
+
+      intro:
+        "Several popular manhwa received major announcements this week. Fans welcomed long-awaited returns, new release windows, completed series, and unfortunate cancellation news.",
+
+      items: [
+        {
+          rank: 1,
+          title: "The Return of the Disaster-Class Hero",
+          desc:
+            "• The series has officially returned from its extended hiatus.\n• Chapter 182 marks the comeback after a four-week break.\n• The hiatus was originally planned for two weeks before being extended.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFwhFCJqvXyv4jyllhtv7K8jBKmNpbsNQnZK_BRjONJY4hzQ1nsQX_x-yJO1OJBIF7rWIymZPcZWUjCnr0Z45FmKcylDzlKWP2KNUOzNP5rRonP0JU31S6zlGCGX6AprVXdvoOaafP72dRoPQIu1YAfvrOJ5PReBnjZuwVr-Q13hdyBc6vGk_5PH2gPdQ/s1600/the%20return%20of%20the%20disaster%20class%20hero.webp"
+        },
+
+        {
+          rank: 2,
+          title: "Eternally Regressing Knight",
+          desc:
+            "• Fans finally received an update on Part 2.\n• The sequel is officially planned for an early 2027 release.\n• Production is currently underway following the first part's success.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiiOolxwrwquwD6ZnnNvk0y4ZUG7E2Rp1-FjpHw7OpSZE-tK6hNMpGNREZDIjT-QF1AG-tIk-rLYr47LYFaT3CUPc9u0wulMijcoWKbGWyTieALN9Ym5eDA912PemcgOtPjv9NdjOjpHgvOW7Y3T43-lxDMQ2Ypg59TebfwVJ7Drtg5CGxVwoQVtcw0br4/s1600/eternally%20regressing%20king.webp"
+        },
+
+        {
+          rank: 3,
+          title: "Emperor's Sword",
+          desc:
+            "• The series has officially returned from hiatus.\n• Readers can immediately enjoy five brand-new chapters.\n• A strong comeback after a lengthy break.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiak4u8PZxnWoX9zJlhXF5AuCnF3XJJtcysmw22iMi2mgXUP0SFNqyGfzTKqdWbzD9DoFYWXprHhbs-X0zXsn-QEP182kpU81Vb6m-dppIjfp7hX8SeDUeEiA7AuNr6JVFrGPa9iznbGaishgjnZSfAdBBlsiv0sosXxhjDWOWN800llABZrlsgyjXjFn4/s1600/emperor%20sword%20%282%29.webp"
+        },
+
+        {
+          rank: 4,
+          title: "Just Read Me Already!",
+          desc:
+            "• The romance series has officially reached its conclusion.\n• It ended with Episode 100.\n• The platform now lists the series as fully completed.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVZwkZizrrfW_UcnHVjTBkRcgT6Wx_thK5fFl2MBtb55s8uRjG_zPgvZXIw46jFoFLf6pF16DXr-mDEr85zvjpWt3HsIt7zs6wbtyphWFl2ndNGYYZpU_CzVUPCewyuUS6F26QVwoShSMFDM5LCh6tCaxJ0K3LUM9duyENdBkalIkgD17TR2dI2GiU-d4/s1600/just%20read%20me%20already.webp"
+        },
+
+        {
+          rank: 5,
+          title: "The Demon King Levels Up",
+          desc:
+            "• The fantasy action series has officially concluded.\n• Its journey ends with Episode 175.\n• The complete story is now available to binge-read.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjboUB3NVDkzy79CsgAK3NDgbaln141I5pFXVbauLtdL9taBeRJTkXfalxcvKiUefuBvcdPzLDcgsmpSqAxwl0uutha0XEFBQRT0osq7foq9c6dCOOvBVS5ZNl6vAPfFzT2JQUEDibRPkr0Mw76ThQpgR9P5EIK4aNajxpNm4t_ZeM57aO3j4H4eamz6ak/s1600/the%20demon%20king%20level%20up.webp"
+        },
+
+        {
+          rank: 6,
+          title: "Devil & Ice",
+          desc:
+            "• The series has ended with Episode 50.\n• Many readers believe the adaptation was cut short.\n• The original web novel contains around 375 chapters, making the ending feel heavily condensed.",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3WEokIm8eluFvN4aDLgIp-mmsu9qApTZz__kv0C_W9kDk4W34iqZYIL7RpR-54lCOuqo70Sqnab_AU3Ps6Un1M5eFhg8nzMDi9Fzf_JzfS1wFFyuOeCWPlOsU8CtI0Zx2CN7oHh0iex_HyrkssWixws4MjITHRznP65LH0L8Y2bHRWO-kXfjsbd-xuEk/s1600/devil%20ice.webp"
+        }
+      ],
+
+      finalThoughts:
+        "This week featured several major developments across the manhwa industry. The Return of the Disaster-Class Hero and Emperor's Sword made their long-awaited comebacks, Eternally Regressing Knight finally received a release window for Part 2, while Just Read Me Already! and The Demon King Levels Up reached their finales. Unfortunately, Devil & Ice appears to have ended much earlier than fans expected."
+    }
+  },
+
+  {
     id: "weekly-manhwa-update-damn-reincarnation-return-jungle-juice-finale",
     title: "Weekly Manhwa News: Damn Reincarnation Return, Jungle Juice Finale & More Major Updates",
     category: "News",

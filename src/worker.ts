@@ -39,7 +39,7 @@ export default {
       metaDescription = 'Discover the best Manhwa and Manhua recommendations. Expertly curated lists of badass OP MCs, cultivation, and non-cliché storylines.';
     } else if (path === '/download') {
       metaTitle = 'Download Atrix Explorer | Releases & Version History';
-      metaDescription = 'Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.9), view full release notes, changelogs, and download history.';
+      metaDescription = 'Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.10), view full release notes, changelogs, and download history.';
     } else if (path === '/privacy') {
       metaTitle = 'Privacy Policy | Atrix Explorer';
       metaDescription = "Atrix Explorer's privacy policy. Local-first by design — your library data stays on your device. Cloud sync is optional and fully opt-in.";
