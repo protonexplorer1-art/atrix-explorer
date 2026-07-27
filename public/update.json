@@ -1,13 +1,12 @@
 {
-  "latest_version": "1.1.10",
-  "build_number": 10,
+  "latest_version": "1.1.11",
+  "build_number": 11,
   "min_version": "1.0.0",
   "force_update": false,
   "update_url": "https://atrixexplorer.com/download",
   "release_notes": [
-    "Solved the reading insight bug in timing",
-    "Improved chapter update notifications",
-    "Fixed feedback error problem",
-    "Improved the title parsing in the browser and add the retry option"
+    "Solved custom playlist Add and Delete bug",
+    "Fixed the reading tab issue",
+    "Fast loading Update"
   ]
 }
