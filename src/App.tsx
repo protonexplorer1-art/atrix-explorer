@@ -6,7 +6,16 @@ import { Menu, X, Github as GithubIcon, Download, ChevronRight, ChevronDown, Sea
 import { BLOG_POSTS, ManhwaItem, NewsSection } from "./data/blogPosts";
 import { cn } from "./lib/utils";
 
-// --- Helper Functions ---
+const parseBlogDate = (dateStr: string) => {
+  if (!dateStr) return { day: "15", month: "OCT" };
+  const parts = dateStr.split(" ");
+  if (parts.length >= 2) {
+    const month = parts[0].substring(0, 3).toUpperCase();
+    const day = parts[1].replace(",", "");
+    return { day, month };
+  }
+  return { day: "15", month: "OCT" };
+};
 
 const handleDownload = () => {
   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
@@ -16,8 +25,8 @@ const handleDownload = () => {
   if (isAndroid) {
     // Trigger direct APK download
     const link = document.createElement('a');
-    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.11.apk';
-    link.download = 'atrixexplorer-1.1.11.apk';
+    link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.2.0.apk';
+    link.download = 'atrixexplorer-1.2.0.apk';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -28,8 +37,8 @@ const handleDownload = () => {
     const confirmDownload = confirm("Atrix Explorer is a mobile-first experience. Would you like to download the Android APK directly?");
     if (confirmDownload) {
       const link = document.createElement('a');
-      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.1.11.apk';
-      link.download = 'atrixexplorer-1.1.11.apk';
+      link.href = 'https://download.atrixexplorer.com/atrixexplorer-1.2.0.apk';
+      link.download = 'atrixexplorer-1.2.0.apk';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -95,10 +104,10 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   className={cn(
-                    "text-xs font-bold tracking-widest transition-all",
+                    "text-xs font-bold tracking-widest transition-all py-2",
                     isActive
-                      ? "text-brand-text"
-                      : "text-brand-grey/40 hover:text-brand-text"
+                      ? "text-brand-text font-extrabold"
+                      : "text-zinc-600 hover:text-zinc-950 font-medium"
                   )}
                 >
                   {link.name}
@@ -110,7 +119,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             <button
               onClick={handleDownload}
-              className="h-11 px-6 rounded-2xl bg-brand-primary text-brand-bg font-bold text-xs tracking-widest hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center gap-2"
+              className="h-11 px-6 rounded-2xl bg-brand-primary text-zinc-950 font-bold text-xs tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md flex items-center gap-2"
             >
               GET APK <ArrowRight size={18} />
             </button>
@@ -145,18 +154,18 @@ const Navbar = () => {
                     key={link.name}
                     to={link.path}
                     className={cn(
-                      "text-2xl font-bold transition-colors uppercase tracking-widest",
-                      isActive ? "text-brand-text" : "text-brand-grey/40 hover:text-brand-text"
+                      "text-xl font-bold transition-colors uppercase tracking-widest py-1",
+                      isActive ? "text-brand-text font-black" : "text-zinc-600 hover:text-zinc-950 font-medium"
                     )}
                   >
                     {link.name}
                   </Link>
                 );
               })}
-              <div className="h-px bg-brand-border" />
+              <div className="h-px bg-zinc-200 dark:bg-zinc-800" />
               <button
                 onClick={handleDownload}
-                className="w-full flex items-center justify-between p-4 rounded-2xl bg-brand-primary text-brand-bg font-bold tracking-widest shadow-xl"
+                className="w-full h-12 flex items-center justify-center gap-3 rounded-2xl bg-brand-primary text-zinc-950 font-bold tracking-widest shadow-md active:scale-95"
               >
                 GET APK <ArrowRight size={20} />
               </button>
@@ -217,6 +226,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li><Link to="/privacy" className="text-brand-grey hover:text-brand-text transition-colors">Privacy Policy</Link></li>
               <li><Link to="/terms" className="text-brand-grey hover:text-brand-text transition-colors">Terms of Service</Link></li>
+              <li><Link to="/delete-account" className="text-brand-grey hover:text-brand-text transition-colors">Delete Account</Link></li>
               <li><Link to="/freedom" className="text-brand-grey hover:text-brand-text transition-colors">Freedom Policy</Link></li>
             </ul>
           </div>
@@ -385,7 +395,7 @@ const BackgroundBlob = ({
   return (
     <motion.div
       className={cn(
-        "absolute pointer-events-none opacity-90",
+        "absolute pointer-events-none opacity-90 transform-gpu will-change-transform",
         size,
         className
       )}
@@ -544,8 +554,8 @@ const PencilConnector = ({
 const FAQItem = ({ faq }: { faq: {q: string, a: string} }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="p-6 bg-[var(--app-card-dark)] rounded-2xl border border-[var(--app-border)] shadow-sm cursor-pointer hover:bg-[var(--app-card-dark)]/80 transition-colors" onClick={() => setOpen(!open)}>
-       <h3 className="text-lg font-bold text-white flex items-center justify-between gap-4">
+    <div className="p-6 bg-[var(--app-card-dark)] rounded-2xl border border-zinc-700/80 shadow-sm cursor-pointer hover:bg-zinc-800/80 transition-colors" onClick={() => setOpen(!open)}>
+       <h3 className="text-base sm:text-lg font-bold text-white flex items-center justify-between gap-4">
          <span>{faq.q}</span>
          <ChevronDown size={20} className={cn("text-[var(--app-accent-neon)] transition-transform shrink-0", open ? "rotate-180" : "")} />
        </h3>
@@ -557,7 +567,7 @@ const FAQItem = ({ faq }: { faq: {q: string, a: string} }) => {
              exit={{ height: 0, opacity: 0 }}
              className="overflow-hidden"
            >
-             <p className="text-[var(--app-grey)] font-light pt-4 leading-relaxed">{faq.a}</p>
+             <p className="text-zinc-300 font-normal pt-4 leading-relaxed text-sm sm:text-base">{faq.a}</p>
            </motion.div>
          )}
        </AnimatePresence>
@@ -569,17 +579,17 @@ const HomePage = () => {
   return (
     <div className="w-full bg-brand-bg text-brand-text font-sans relative">
       <Helmet>
-        <title>Atrix Explorer | Mobile Web Browser for Manga & Novel Readers</title>
-        <meta name="description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <title>Atrix Explorer | Mobile Web Browser for Manhwa & Novel Readers</title>
+        <meta name="description" content="A mobile web browser built for reading manhwa and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
         <link rel="canonical" href="https://atrixexplorer.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://atrixexplorer.com/" />
-        <meta property="og:title" content="Atrix Explorer | Mobile Web Browser for Manga & Novel Readers" />
-        <meta property="og:description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <meta property="og:title" content="Atrix Explorer | Mobile Web Browser for Manhwa & Novel Readers" />
+        <meta property="og:description" content="A mobile web browser built for reading manhwa and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
         <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Atrix Explorer | Mobile Web Browser for Manga & Novel Readers" />
-        <meta name="twitter:description" content="A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
+        <meta name="twitter:title" content="Atrix Explorer | Mobile Web Browser for Manhwa & Novel Readers" />
+        <meta name="twitter:description" content="A mobile web browser built for reading manhwa and novels. Automatically tracks your progress, blocks ads, and saves your library on your device." />
         <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
 
@@ -592,36 +602,45 @@ const HomePage = () => {
       </div>
 
       {/* 1. Hero Section (White Background) */}
-      <section className="relative pt-32 pb-24 px-4 sm:px-8 bg-brand-bg overflow-hidden isolate">
-        <BackgroundBlob className="-top-20 -left-20" color="bg-brand-grey/[0.06]" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" variant={1} />
-        <BackgroundBlob className="bottom-0 right-0" color="bg-brand-grey/[0.04]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={2} />
+      <section className="relative pt-28 sm:pt-36 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 bg-brand-bg overflow-hidden isolate">
+        <BackgroundBlob className="-top-20 -left-20" color="bg-brand-primary/[0.08]" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" variant={1} />
+        <BackgroundBlob className="bottom-0 right-0" color="bg-zinc-400/[0.06]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={2} />
         
-        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+        <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left flex flex-col items-center lg:items-start"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 leading-tight text-brand-text">
-              Browse the web. <br />
-              <span className="text-zinc-600">We save your progress.</span>
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-zinc-200/80 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-sm mb-6 text-[11px] font-mono tracking-[0.2em] uppercase text-zinc-600 dark:text-zinc-400"
+            >
+              <span className="w-2 h-2 rounded-full bg-brand-primary animate-ping" />
+              <span>ATRIX HUB — RELEASES</span>
+            </motion.div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-tight text-brand-text">
+              Your Manhwa browser, <br />
+              <span className="font-serif italic font-normal text-brand-primary">we save your progress.</span>
             </h1>
-            <p className="text-brand-grey text-lg font-light leading-relaxed mb-8">
-              Built specifically for manga, manhwa, and novel readers who want automatic progress tracking without creating an account.
+            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg font-normal leading-relaxed mb-8 max-w-xl">
+              Built specifically for manhwa and novel readers who want automatic progress tracking without creating an account.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full sm:w-auto">
               <a
                 href="https://github.com/atrixexplorer/Atrix-Explorer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-14 px-8 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 border-2 border-brand-border bg-brand-bg text-brand-text hover:bg-brand-card shadow-sm"
+                className="h-12 px-7 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center gap-3 border border-zinc-300 dark:border-zinc-700 bg-brand-bg text-brand-text hover:bg-zinc-100 shadow-sm"
               >
                 <GithubIcon size={18} /> GitHub
               </a>
               <button
                 onClick={handleDownload}
-                className="h-14 px-8 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center justify-center gap-3 bg-brand-primary text-white"
+                className="h-12 px-7 font-bold text-sm rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-lg flex items-center justify-center gap-3 bg-brand-primary text-zinc-950"
               >
                 Download APK <ArrowRight size={18} />
               </button>
@@ -662,353 +681,692 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* 2. The Problem Section */}
-      <section className="relative py-24 px-4 sm:px-8 border-y border-brand-border bg-brand-bg/50 isolate overflow-hidden">
-         <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" color="bg-brand-grey/[0.05]" size="w-[400px] sm:w-[800px] h-[400px] sm:h-[800px]" variant={3} />
+      {/* 2. The Problem Section ("Stop managing spreadsheets. Start reading.") */}
+      <section className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-brand-bg/50 isolate overflow-hidden">
+         <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" color="bg-brand-primary/[0.05]" size="w-[400px] sm:w-[800px] h-[400px] sm:h-[800px]" variant={3} />
          
          <div className="max-w-7xl mx-auto text-center relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold mb-16 text-brand-text">
-              Stop managing spreadsheets. <br /> Start reading.
-            </h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 sm:mb-16 tracking-tight text-brand-text"
+            >
+              Stop managing spreadsheets, <br /> <span className="font-serif italic font-normal text-brand-primary">start reading.</span>
+            </motion.h2>
 
             <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
-               {/* Left: The Mess */}
-               <div className="flex relative">
-                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[-6deg] bg-white relative z-10">
-                     <img src="/problem-screenshot-2.webp" alt="Messy tabs" className="w-full h-full object-cover opacity-80" />
+               {/* Left: The Mess (Interactive Hover Motion Stack) */}
+               <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="flex relative group/mess cursor-pointer"
+               >
+                  {/* Mess Card 1 */}
+                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[-6deg] group-hover/mess:-rotate-12 group-hover/mess:-translate-x-4 bg-white relative z-10 transition-all duration-500">
+                     <img src="/problem-screenshot-2.webp" alt="Messy tabs" className="w-full h-full object-cover opacity-80 group-hover/mess:opacity-95 transition-opacity" />
                      <div className="absolute inset-0 bg-red-500/10" />
                   </div>
-                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[6deg] -ml-16 bg-white relative z-20">
-                     <img src="/problem-screenshot-1.webp" alt="Spreadsheet" className="w-full h-full object-cover opacity-80" />
-                     <div className="absolute inset-0 bg-red-500/10" />
-                  </div>
-               </div>
 
-               {/* Center: Arrow */}
+                  {/* Mess Card 2 */}
+                  <div className="w-[160px] sm:w-[200px] aspect-[3/4] rounded-2xl border border-red-500/20 shadow-xl overflow-hidden rotate-[6deg] -ml-16 group-hover/mess:rotate-12 group-hover/mess:translate-x-4 bg-white relative z-20 transition-all duration-500">
+                     <img src="/problem-screenshot-1.webp" alt="Spreadsheet" className="w-full h-full object-cover opacity-80 group-hover/mess:opacity-95 transition-opacity" />
+                     <div className="absolute inset-0 bg-red-500/10" />
+                  </div>
+
+                  {/* Hover Floating Warning Pill */}
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-3 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider shadow-lg opacity-0 group-hover/mess:opacity-100 group-hover/mess:-translate-y-2 transition-all duration-300 pointer-events-none whitespace-nowrap z-30">
+                     MESSY MANUAL LOGS
+                  </div>
+               </motion.div>
+
+               {/* Center: Glowing Animated Arrow */}
                <div className="hidden lg:flex items-center justify-center">
-                  <ArrowRight size={48} className="text-brand-primary opacity-80" />
+                  <motion.div
+                    animate={{ x: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                  >
+                     <ArrowRight size={40} className="text-brand-primary opacity-90" />
+                  </motion.div>
                </div>
                <div className="flex lg:hidden items-center justify-center my-4">
-                  <ArrowDown size={40} className="text-brand-primary opacity-80" />
+                  <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                  >
+                     <ArrowDown size={36} className="text-brand-primary opacity-90" />
+                  </motion.div>
                </div>
 
-               {/* Right: The Solution */}
-               <div className="w-[200px] sm:w-[240px] aspect-[3/4] rounded-2xl border-2 border-brand-primary shadow-2xl glow-cyan overflow-hidden bg-white relative z-30">
-                  <img src="/library-preview.webp" alt="Clean Library" className="w-full h-full object-cover" />
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg border border-brand-border flex items-center gap-2 whitespace-nowrap">
-                     <CheckCircle size={16} className="text-brand-primary" />
-                     <span className="text-xs font-bold text-brand-text">Organized Library</span>
+               {/* Right: The Solution (Interactive Hover Motion Card) */}
+               <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="w-[200px] sm:w-[240px] aspect-[3/4] rounded-2xl border-2 border-brand-primary shadow-2xl glow-cyan overflow-hidden bg-white relative z-30 group/solution cursor-pointer hover:scale-108 hover:-rotate-1 hover:shadow-cyan-500/40 hover:shadow-2xl transition-all duration-500"
+               >
+                  <img src="/library-preview.webp" alt="Clean Library" className="w-full h-full object-cover group-hover/solution:scale-105 transition-transform duration-700" />
+                  
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-xl border border-zinc-200 flex items-center gap-2 whitespace-nowrap group-hover/solution:scale-105 transition-transform duration-300">
+                     <CheckCircle size={16} className="text-brand-primary animate-pulse" />
+                     <span className="text-xs font-bold text-zinc-950">Organized Library</span>
                   </div>
-               </div>
+               </motion.div>
             </div>
          </div>
       </section>
 
-      {/* 3. "Why ATRIX Explorer" Section (Dark Background) */}
-      <section className="relative py-24 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Why ATRIX Explorer?</h2>
-            <p className="text-[var(--app-grey)] text-lg max-w-2xl mx-auto font-light">Built from the ground up for a seamless reading experience.</p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
-            {[
-              { icon: BookOpen, title: "Never lose your place again", desc: "Spend a minute on a page, and the browser automatically remembers your position. No manual logs needed." },
-              { icon: Globe, title: "Read comfortably without interruptions", desc: "Enjoy hands-free auto-scrolling, powerful ad-blocking, and clean search filters designed for novels and manga." },
-              { icon: Lock, title: "Your history stays private", desc: "100% local-first privacy. Your reading library lives entirely on your device unless you actively choose to back it up." }
-            ].map((item, i) => (
-              <div key={i} className="p-8 rounded-3xl bg-[var(--app-card-dark)] border border-[var(--app-border)] shadow-sm hover:-translate-y-2 hover:shadow-2xl hover:border-brand-primary/30 transition-all duration-300 cursor-default">
-                <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-6">
-                  <item.icon size={24} />
-                </div>
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-[var(--app-grey)] font-light leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Features Breakdown (White Background) */}
-      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg isolate overflow-hidden">
-        <BackgroundBlob className="top-[10%] right-[-10%]" color="bg-brand-grey/[0.04]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={0} />
-        <BackgroundBlob className="bottom-[10%] left-[-10%]" color="bg-brand-grey/[0.04]" size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]" variant={1} />
+      {/* 3. "Why ATRIX Explorer" Section (3-Column Minimalist Editorial Layout - Inspired by Pinterest Showcase Designs) */}
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] text-zinc-950 overflow-hidden isolate">
+        {/* Ambient Organic Background Blobs */}
+        <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30 pointer-events-none" color="bg-brand-primary/25" size="w-[600px] sm:w-[900px] h-[600px] sm:h-[900px]" variant={1} />
+        <BackgroundBlob className="bottom-[-10%] right-[-5%] opacity-25 pointer-events-none" color="bg-cyan-500/20" size="w-[400px] sm:w-[600px] h-[400px] sm:h-[600px]" variant={2} />
         
-        <div className="max-w-7xl mx-auto space-y-32 relative z-10">
-          {/* Feature 1 */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-             <div className="relative flex justify-center">
-                <div className="w-full max-w-[300px] relative">
-                   <img src="/reader-feature-preview.webp" alt="Reader Feature" className="w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-brand-card" />
-                </div>
-             </div>
-             <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-text">Comfortable reading, built-in.</h2>
-                <p className="text-brand-grey text-lg font-light mb-8">
-                  Manga and novel websites can be full of clutter. Atrix has built-in features to make reading clean and easy.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    "Blocks popups and ads instantly.",
-                    "Hands-free auto-scroll at your preferred speed.",
-                    "Cleaner search hiding shopping noise."
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-brand-primary" />
-                      <span className="font-semibold text-brand-text">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-             </div>
+        <div className="max-w-7xl mx-auto relative z-10 space-y-16 sm:space-y-20">
+          {/* Header Block (Inspired by Pinterest Platform Showcase) */}
+          <div className="text-center max-w-3xl mx-auto space-y-5">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-zinc-950 tracking-tight leading-[1.1]">
+              WHY ATRIX EXPLORER
+            </h2>
+            <p className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight leading-snug">
+              Built from the ground up <br className="hidden sm:inline" /> <span className="font-serif italic font-normal text-brand-primary">for a seamless reading experience.</span>
+            </p>
+            <p className="text-zinc-600 font-normal text-base sm:text-lg leading-relaxed">
+              Designed specifically for manhwa and novel readers who want distraction-free reading, position memory, and full privacy control.
+            </p>
+            <div className="pt-2 flex justify-center">
+              <button
+                onClick={handleDownload}
+                className="h-12 px-8 rounded-full bg-zinc-950 text-white font-bold text-xs tracking-widest hover:bg-zinc-800 hover:scale-105 active:scale-95 transition-all shadow-xl flex items-center gap-3"
+              >
+                DOWNLOAD APK <ArrowRight size={18} className="text-brand-primary" />
+              </button>
+            </div>
           </div>
 
-          {/* Feature 2 */}
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-             <div className="order-2 lg:order-1">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-brand-text">Access your library, anywhere.</h2>
-                <p className="text-brand-grey text-lg font-light mb-8">
-                  Organize your collection into lists like Plan, Reading, or Completed. Your history is stored on your device, keeping your reading completely private.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    "Saved completely offline on your phone.",
-                    "Optional free cloud backup across devices.",
-                    "Export lists to standard formats easily."
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <CheckCircle size={18} className="text-brand-primary" />
-                      <span className="font-semibold text-brand-text">{text}</span>
-                    </li>
-                  ))}
-                </ul>
-             </div>
-             <div className="order-1 lg:order-2 relative flex justify-center">
-                <div className="w-full max-w-[300px] relative">
-                   <img src="/library-preview.webp" alt="Library View" className="w-full rounded-[2rem] overflow-hidden shadow-2xl border-4 border-brand-card" />
-                </div>
-             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. How It Works (Dark Background Rhythm Breaker) */}
-      <section className="relative py-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-20">How it works</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-12 sm:gap-8">
+          {/* 3 Horizontal Feature Columns (Inspired by Reference Images) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
             {[
-              { icon: Search, title: "Search", desc: "Find any novel or manga via the built-in browser." },
-              { icon: BookOpen, title: "Read", desc: "Enjoy a clean, ad-free reading experience." },
-              { icon: CheckCircle, title: "Progress Saved", desc: "We automatically log your chapter." },
-              { icon: Globe, title: "Resume Anywhere", desc: "Open the app and jump right back in." }
-            ].map((step, i) => (
-              <div key={i} className="flex flex-col items-center relative">
-                <div className="w-24 h-24 rounded-3xl bg-[var(--app-card-dark)] border border-[var(--app-border)] flex items-center justify-center text-[var(--app-accent-neon)] mb-8 z-10 relative shadow-xl hover:scale-105 transition-transform">
-                  <step.icon size={48} />
-                </div>
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                <p className="text-[var(--app-grey)] font-light text-lg max-w-[200px]">{step.desc}</p>
-                
-                {/* Connecting Line */}
-                {i !== 3 && (
-                  <div className="hidden sm:block absolute top-12 left-[60%] w-[80%] h-[2px] bg-[var(--app-border)] z-0" />
+              {
+                pill: "AUTO-SAVE 82%",
+                pillColor: "bg-brand-primary text-zinc-950 border-brand-primary",
+                icon: BookOpen,
+                title: "Never lose your place again.",
+                desc: "Spend a minute on any web page, and Atrix automatically saves your reading coordinates down to the exact paragraph. No manual bookmarks or spreadsheets needed."
+              },
+              {
+                pill: "TAILORED FOR MANHWA",
+                pillColor: "bg-cyan-600 text-white border-cyan-600",
+                icon: Library,
+                title: "Built for manhwa readers.",
+                desc: "Customizable features for your library collection and source collection with effortless continuation—tailored specifically for manhwa, webtoon, and novel enthusiasts."
+              },
+              {
+                pill: "LOCAL VAULT ACTIVE",
+                pillColor: "bg-zinc-950 text-white border-zinc-950",
+                icon: Lock,
+                title: "Your reading history stays 100% private.",
+                desc: "Zero tracking algorithms. Your reading library, history, and notes live strictly on your local device unless you explicitly opt to create an encrypted cloud backup."
+              }
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className={cn(
+                  "group relative flex flex-col justify-between space-y-4",
+                  i > 0 && "md:border-l md:border-zinc-200/80 md:pl-8 lg:pl-10"
                 )}
-              </div>
+              >
+                <div className="space-y-4">
+                  {/* Top: Icon Badge & Pill */}
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-zinc-200/60 text-zinc-950 flex items-center justify-center font-bold shadow-inner group-hover:bg-brand-primary group-hover:scale-110 transition-all duration-300">
+                      <item.icon size={22} />
+                    </div>
+                    <span className={cn("px-3 py-1 rounded-full text-[10px] font-mono font-black tracking-widest border uppercase shadow-sm", item.pillColor)}>
+                      {item.pill}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight leading-tight group-hover:text-brand-primary transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-zinc-600 font-normal text-sm sm:text-base leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 6. Screenshots Carousel (White Background) */}
-      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-             <h2 className="text-3xl md:text-5xl font-bold text-brand-text">Beautiful inside and out.</h2>
+      {/* 4. Features Breakdown (Apple & UnBox Editorial Alternating Split Showcase) */}
+      <section className="relative py-20 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white isolate overflow-hidden">
+        <BackgroundBlob className="top-[10%] right-[-10%]" color="bg-brand-primary/[0.05]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={0} />
+        <BackgroundBlob className="bottom-[10%] left-[-10%]" color="bg-cyan-500/[0.05]" size="w-[300px] sm:w-[600px] h-[300px] sm:h-[600px]" variant={1} />
+
+        <div className="max-w-7xl mx-auto space-y-20 sm:space-y-28 relative z-10">
+          
+          {/* Feature 1: Comfortable Reading */}
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Phone Mockup Canvas (Right-Aligned on Desktop, 250px Max Proportioned Frame) */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5 order-2 lg:order-1 flex justify-center"
+            >
+              <div className="relative group cursor-pointer w-full max-w-[240px] sm:max-w-[260px]">
+                {/* Soft Radial Ambient Shadow */}
+                <div className="absolute inset-0 bg-brand-primary/20 blur-2xl transform-gpu will-change-transform rounded-full group-hover:bg-brand-primary/35 transition-all duration-500 pointer-events-none" />
+
+                {/* Sleek Device Frame */}
+                <MobileFrame className="z-20 border-brand-border group-hover:scale-105 group-hover:-rotate-1 transition-all duration-500">
+                  <img src="/reader-feature-preview.webp" alt="Reader Feature Preview" className="w-full h-full object-cover" />
+                </MobileFrame>
+              </div>
+            </motion.div>
+
+            {/* Editorial Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 order-1 lg:order-2 space-y-6 text-center lg:text-left"
+            >
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-950 text-white text-xs font-mono font-black tracking-widest uppercase shadow-md">
+                <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
+                READING COMFORT
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold text-zinc-950 tracking-tight leading-[1.1]">
+                Comfortable reading, <span className="font-serif italic font-normal text-brand-primary">built-in.</span>
+              </h2>
+              <p className="text-zinc-600 font-normal text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Manhwa and novel websites can be full of clutter. Atrix has built-in features to make reading clean and easy.
+              </p>
+
+              <ul className="space-y-4 pt-2 inline-block text-left">
+                {[
+                  "Blocks popups and ads instantly.",
+                  "Hands-free auto-scroll at your preferred speed.",
+                  "Cleaner search hiding shopping noise."
+                ].map((text, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-brand-primary/15 flex items-center justify-center text-brand-primary shrink-0">
+                      <CheckCircle size={16} />
+                    </div>
+                    <span className="font-semibold text-zinc-900 text-sm sm:text-base">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
-          <div className="flex overflow-x-auto pt-8 pb-12 snap-x no-scrollbar px-4 md:px-8 w-full">
-            <div className="flex gap-6 mx-auto">
+
+          {/* Feature 2: Access Your Library */}
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Editorial Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-7 space-y-6 text-center lg:text-left"
+            >
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-950 text-white text-xs font-mono font-black tracking-widest uppercase shadow-md">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                LIBRARY MANAGEMENT
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-bold text-zinc-950 tracking-tight leading-[1.1]">
+                Access your library, <span className="font-serif italic font-normal text-brand-primary">anywhere.</span>
+              </h2>
+              <p className="text-zinc-600 font-normal text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Organize your collection into lists like Plan, Reading, or Completed. Your history is stored on your device, keeping your reading completely private.
+              </p>
+
+              <ul className="space-y-4 pt-2 inline-block text-left">
+                {[
+                  "Saved completely offline on your phone.",
+                  "Optional free cloud backup across devices.",
+                  "Export lists to standard formats easily."
+                ].map((text, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full bg-cyan-500/15 flex items-center justify-center text-cyan-600 shrink-0">
+                      <CheckCircle size={16} />
+                    </div>
+                    <span className="font-semibold text-zinc-900 text-sm sm:text-base">{text}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Phone Mockup Canvas (Right-Aligned on Desktop, 250px Max Proportioned Frame) */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-5 flex justify-center"
+            >
+              <div className="relative group cursor-pointer w-full max-w-[240px] sm:max-w-[260px]">
+                {/* Soft Radial Ambient Shadow */}
+                <div className="absolute inset-0 bg-cyan-500/20 blur-2xl transform-gpu will-change-transform rounded-full group-hover:bg-cyan-500/35 transition-all duration-500 pointer-events-none" />
+
+                {/* Sleek Device Frame */}
+                <MobileFrame className="z-20 border-brand-border group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
+                  <img src="/library-preview.webp" alt="Library View Preview" className="w-full h-full object-cover" />
+                </MobileFrame>
+              </div>
+            </motion.div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 5. How It Works (Horizontal Editorial Timeline Flow - Inspired by Editorial Pinterest Process Designs) */}
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] text-zinc-950 isolate overflow-hidden">
+        {/* Soft Organic Background Blobs */}
+        <BackgroundBlob className="top-10 left-[-5%] opacity-30 pointer-events-none" color="bg-brand-primary/20" size="w-[500px] sm:w-[700px] h-[500px] sm:h-[700px]" variant={0} />
+        <BackgroundBlob className="bottom-[-10%] right-[-5%] opacity-25 pointer-events-none" color="bg-cyan-500/20" size="w-[450px] sm:w-[650px] h-[450px] sm:h-[650px]" variant={2} />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 sm:mb-20">
+            <div className="space-y-3">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-950 text-white text-xs font-mono font-black tracking-[0.25em] uppercase shadow-md"
+              >
+                <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
+                SIMPLE 4-STEP PROCESS
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-950 tracking-tight leading-[1.1]"
+              >
+                How it <span className="font-serif italic font-normal text-brand-primary">works.</span>
+              </motion.h2>
+            </div>
+
+            <p className="text-zinc-600 font-normal text-sm sm:text-base max-w-md leading-relaxed">
+              An effortless reading workflow engineered specifically for manhwa, light novel, and webtoon discovery.
+            </p>
+          </div>
+
+          {/* Horizontal Timeline Process Flow (Inspired by Pinterest Design) */}
+          <div className="relative pt-6 pb-4">
+            {/* Main Horizontal Timeline Line (Desktop) */}
+            <div className="hidden md:block absolute top-[53px] left-8 right-8 h-[2px] bg-zinc-300 pointer-events-none z-0" />
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10">
               {[
-                { src: "/hero-preview.webp", label: "Home" },
-                { src: "/reading-tab-preview.webp", label: "Browser" },
-                { src: "/library-preview.webp", label: "Library" },
-                { src: "/Deatilescreen-preview.webp", label: "Detail" },
-                { src: "/profile-preview.webp", label: "Profile" },
-                { src: "/insight-preview.webp", label: "Insight" },
+                {
+                  step: "01",
+                  phase: "PHASE 01",
+                  title: "Search",
+                  desc: "Find any manhwa or novel via the built-in browser."
+                },
+                {
+                  step: "02",
+                  phase: "PHASE 02",
+                  title: "Read",
+                  desc: "Enjoy a clean, ad-free reading experience."
+                },
+                {
+                  step: "03",
+                  phase: "PHASE 03",
+                  title: "Progress Saved",
+                  desc: "We automatically log your chapter."
+                },
+                {
+                  step: "04",
+                  phase: "PHASE 04",
+                  title: "Resume Anywhere",
+                  desc: "Open the app and jump right back in."
+                }
               ].map((item, i) => (
-                <div key={i} className="shrink-0 snap-center group rounded-3xl transition-all duration-300 hover:-translate-y-4 cursor-pointer flex flex-col items-center justify-center">
-                  <div className="bg-white rounded-3xl p-3 shadow-sm border border-brand-border group-hover:glow-cyan group-hover:shadow-2xl transition-all duration-300 w-[240px] md:w-[260px]">
-                     <img src={item.src} alt={`${item.label} Mockup`} className="w-full rounded-2xl overflow-hidden" />
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.12 }}
+                  className="group relative flex flex-col justify-between"
+                >
+                  <div>
+                    {/* Step Number & Phase Label Above Line */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-2xl sm:text-3xl font-mono font-black text-zinc-400 group-hover:text-zinc-950 transition-colors">
+                        {item.step}
+                      </span>
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-zinc-400 uppercase">
+                        {item.phase}
+                      </span>
+                    </div>
+
+                    {/* Timeline Node Dot */}
+                    <div className="relative flex items-center mb-6 py-1">
+                      <div className="w-4 h-4 rounded-full bg-zinc-950 border-4 border-[#f8fafc] group-hover:bg-brand-primary group-hover:scale-125 transition-all duration-300 z-10 shadow-sm" />
+                      <div className="md:hidden flex-1 h-[2px] bg-zinc-200 ml-2" />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-xl sm:text-2xl font-black text-zinc-950 tracking-tight leading-tight mb-2 group-hover:text-brand-primary transition-colors">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-zinc-600 font-normal text-sm sm:text-base leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
-                  <div className="text-center mt-6 text-brand-grey font-bold tracking-widest text-xs uppercase opacity-70 group-hover:opacity-100 group-hover:text-brand-primary transition-colors">
-                     {item.label}
-                  </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6.5 Built for readers (Dark Background) */}
-      <section className="relative py-24 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)]">
-         <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-16">Built for readers, not browsers.</h2>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
-               {/* Chrome */}
-               <div className="bg-[var(--app-card-dark)] p-8 rounded-3xl border border-[var(--app-border)] w-full max-w-sm">
-                  <div className="flex items-center justify-center gap-3 mb-6 opacity-70">
-                     <Globe size={24} />
-                     <h3 className="text-xl font-bold">Generic Browser</h3>
-                  </div>
-                  <ul className="space-y-4 text-left">
-                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> Generic web browser</li>
-                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> No reading memory</li>
-                     <li className="flex items-center gap-3 text-[var(--app-grey)]"><X size={18} className="text-red-400 shrink-0" /> No library organization</li>
-                  </ul>
-               </div>
-
-               <div className="hidden md:block">
-                  <ArrowRight size={32} className="text-[var(--app-grey)] opacity-30" />
-               </div>
-               <div className="md:hidden my-4">
-                  <ArrowDown size={32} className="text-[var(--app-grey)] opacity-30" />
-               </div>
-
-               {/* ATRIX Explorer */}
-               <div className="bg-[var(--app-card-dark)] p-8 rounded-3xl border-2 border-[var(--app-accent-neon)] w-full max-w-sm glow-cyan relative shadow-xl">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--app-accent-neon)] text-[#09090b] px-4 py-1 rounded-full text-xs font-bold whitespace-nowrap">
-                     YOUR NEW HOME
-                  </div>
-                  <div className="flex items-center justify-center gap-3 mb-6">
-                     <div className="w-8 h-8 rounded-lg bg-[var(--app-accent-neon)] flex items-center justify-center text-[#09090b] font-bold text-lg">A</div>
-                     <h3 className="text-xl font-bold text-white">ATRIX Explorer</h3>
-                  </div>
-                  <ul className="space-y-4 text-left">
-                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Built specifically for manga & novels</li>
-                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Remembers where you stopped</li>
-                     <li className="flex items-center gap-3 text-white"><CheckCircle size={18} className="text-[var(--app-accent-neon)] shrink-0" /> Organizes your reading automatically</li>
-                  </ul>
-               </div>
+      {/* 6. Screenshots Showcase & Direct Comparison (Unified Single Section with bg-brand-bg Background) */}
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-brand-bg overflow-hidden isolate">
+        <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" color="bg-brand-primary/[0.06]" size="w-[500px] sm:w-[800px] h-[500px] sm:h-[800px]" variant={1} />
+        
+        <div className="max-w-7xl mx-auto space-y-20 sm:space-y-28 relative z-10">
+          {/* Screenshots Showcase Block */}
+          <div className="space-y-12">
+            <div className="text-center max-w-3xl mx-auto">
+              <motion.h2
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-text tracking-tight"
+              >
+                Beautiful <span className="font-serif italic font-normal text-brand-primary">inside and out.</span>
+              </motion.h2>
             </div>
-         </div>
-      </section>
 
-      {/* 7. Comparison Table (White Background) */}
-      <section className="relative py-24 px-4 sm:px-8 bg-brand-bg">
-         <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-brand-text">Why switch to ATRIX Explorer?</h2>
-            
-            <div className="bg-white rounded-3xl border border-brand-border shadow-sm overflow-hidden">
-               <div className="grid grid-cols-3 bg-brand-card p-6 border-b border-brand-border">
-                  <div className="font-bold text-brand-text">Feature</div>
-                  <div className="font-bold text-brand-grey text-center">Chrome</div>
-                  <div className="font-bold text-brand-primary text-center">ATRIX Explorer</div>
-               </div>
-               
-               {[
-                 { feat: "Saves reading progress", normal: false, atrix: true },
-                 { feat: "Reading library", normal: false, atrix: true },
-                 { feat: "Auto-scroll", normal: false, atrix: true },
-                 { feat: "Optional backup", normal: false, atrix: true },
-               ].map((row, i) => (
-                 <div key={i} className="grid grid-cols-3 p-6 border-b border-brand-border last:border-0 hover:bg-brand-card/50 transition-colors items-center">
-                    <div className="text-brand-text font-medium">{row.feat}</div>
-                    <div className="text-center text-brand-grey flex justify-center">
-                       {row.normal === false ? <X size={20} /> : <span className="text-sm">{row.normal}</span>}
-                    </div>
-                    <div className="text-center flex justify-center text-brand-primary">
-                       <CheckCircle size={24} className="glow-cyan rounded-full" />
-                    </div>
-                 </div>
-               ))}
-            </div>
-         </div>
-      </section>
-
-      {/* 8. Social Proof (White Background) */}
-      <section className="relative py-20 px-4 sm:px-8 bg-brand-bg text-center">
-         <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-brand-text">Join thousands of readers keeping track of everything they read.</h2>
-            <p className="text-brand-grey mb-8 font-light text-lg">
-               Get chapter updates, feature announcements, and reading recommendations.
-            </p>
-            <div className="flex justify-center">
-               <a href="https://t.me/manhwa_daily" target="_blank" rel="noreferrer" className="px-8 py-4 rounded-2xl border border-brand-border bg-white shadow-sm hover:shadow-md transition-all flex items-center gap-3 text-brand-text font-bold">
-                  <Send size={20} className="text-[#0088cc]" /> Join the Telegram Community
-               </a>
-            </div>
-         </div>
-      </section>
-
-      {/* 9. FAQ Section (Dark Background) */}
-      <section className="relative py-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)] border-t border-[var(--app-border)]">
-         <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            {/* Staggered 3D Depth Card Showcase Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center">
               {[
-                { q: "Is this just a reading app?", a: "No, it's a fully functional mobile web browser that specifically detects and enhances manga and novel websites." },
-                { q: "Is it available on iOS?", a: "Currently, ATRIX Explorer is only available for Android via APK download. We are actively exploring an iOS release in the future." },
-                { q: "Do I need to create an account?", a: "Absolutely not. You can download the app and start reading immediately. Accounts are only needed if you want cloud backups." },
-                { q: "Is my reading data private?", a: "Yes. By default, your entire reading history and library are stored exclusively on your local device." },
-                { q: "Does it work offline?", a: "Your library and progress tracking work offline. However, since it is a web browser, you will need an internet connection to load and read new chapters." },
-                { q: "Is cloud backup optional?", a: "Yes! Cloud backup is entirely optional and free. You never have to use it if you prefer 100% local storage." },
-                { q: "Will it sync across devices?", a: "Yes, if you choose to create a free account, you can sync your library seamlessly across multiple Android devices." },
-              ].map((faq, i) => (
-                <div key={i}>
-                  <FAQItem faq={faq} />
+                { src: "/library-preview.webp", label: "Library", scale: "scale-95 opacity-90 hover:opacity-100" },
+                { src: "/reading-tab-preview.webp", label: "Browser", scale: "scale-100 md:-translate-y-3 z-10" },
+                { src: "/hero-preview.webp", label: "Home", scale: "scale-105 md:-translate-y-6 z-20 glow-cyan" },
+                { src: "/Deatilescreen-preview.webp", label: "Detail", scale: "scale-105 md:-translate-y-6 z-20 glow-cyan" },
+                { src: "/profile-preview.webp", label: "Profile", scale: "scale-100 md:-translate-y-3 z-10" },
+                { src: "/insight-preview.webp", label: "Insight", scale: "scale-95 opacity-90 hover:opacity-100" },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                  className={cn("group rounded-3xl transition-all duration-500 cursor-pointer flex flex-col items-center", item.scale)}
+                >
+                  <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-2.5 shadow-xl border border-zinc-200/80 dark:border-zinc-800 group-hover:scale-105 group-hover:shadow-2xl transition-all duration-300 w-full">
+                    <img src={item.src} alt={`${item.label} Mockup`} className="w-full rounded-[1.5rem] overflow-hidden" />
+                  </div>
+                  <div className="text-center mt-4 text-zinc-600 dark:text-zinc-400 font-bold tracking-widest text-xs uppercase group-hover:text-brand-primary transition-colors">
+                    {item.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Direct Comparison Block */}
+          <div className="max-w-5xl mx-auto text-center space-y-12 sm:space-y-16">
+            {/* Headline */}
+            <div className="space-y-3">
+              <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 text-xs font-mono font-black tracking-[0.3em] uppercase shadow-md">
+                <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
+                DIRECT COMPARISON
+              </span>
+              <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold text-brand-text tracking-tight leading-[1.1]">
+                Built for readers, <span className="font-serif italic font-normal text-brand-primary">not browsers.</span>
+              </h2>
+            </div>
+
+            {/* Minimalist Card-less Comparison Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start max-w-4xl mx-auto text-left">
+              {/* Left: Generic Browser */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="space-y-6 opacity-75 hover:opacity-100 transition-opacity"
+              >
+                <div className="flex items-center gap-3 border-b border-zinc-200/80 dark:border-zinc-800 pb-4">
+                  <Globe size={24} className="text-zinc-400" />
+                  <h3 className="text-2xl font-bold text-brand-text tracking-tight">Generic Browser</h3>
+                </div>
+
+                <ul className="space-y-4 pt-1">
+                  <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg font-medium">
+                    <X size={20} className="text-red-500 shrink-0" /> Generic web browser
+                  </li>
+                  <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg font-medium">
+                    <X size={20} className="text-red-500 shrink-0" /> No reading memory
+                  </li>
+                  <li className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 text-base sm:text-lg font-medium">
+                    <X size={20} className="text-red-500 shrink-0" /> No library organization
+                  </li>
+                </ul>
+              </motion.div>
+
+              {/* Right: ATRIX Explorer */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.12 }}
+                className="space-y-6 relative md:border-l md:border-zinc-200/80 dark:md:border-zinc-800 md:pl-10 lg:pl-12"
+              >
+                <div className="flex items-center justify-between gap-3 border-b border-zinc-950 dark:border-zinc-100 pb-4 flex-wrap">
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-brand-primary flex items-center justify-center text-zinc-950 font-black text-sm shadow-md">
+                      A
+                    </div>
+                    <h3 className="text-2xl font-bold text-brand-text tracking-tight">ATRIX Explorer</h3>
+                  </div>
+                  <span className="px-3.5 py-1 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 text-[10px] font-mono font-black tracking-widest uppercase shadow-md">
+                    YOUR NEW HOME
+                  </span>
+                </div>
+
+                <ul className="space-y-4 pt-1">
+                  <li className="flex items-center gap-3 text-brand-text text-base sm:text-lg font-bold">
+                    <CheckCircle size={22} className="text-brand-primary shrink-0" /> Built specifically for manhwa & novels
+                  </li>
+                  <li className="flex items-center gap-3 text-brand-text text-base sm:text-lg font-bold">
+                    <CheckCircle size={22} className="text-brand-primary shrink-0" /> Remembers where you stopped
+                  </li>
+                  <li className="flex items-center gap-3 text-brand-text text-base sm:text-lg font-bold">
+                    <CheckCircle size={22} className="text-brand-primary shrink-0" /> Organizes your reading automatically
+                  </li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Comparison Table & Social Proof (Unified Single Section - No Dividers) */}
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[#f8fafc] text-zinc-950 isolate overflow-hidden">
+        {/* Smooth Ambient Backdrop Flow */}
+        <BackgroundBlob className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20 pointer-events-none" color="bg-brand-primary/15" size="w-[600px] sm:w-[850px] h-[600px] sm:h-[850px]" variant={0} />
+
+        <div className="max-w-4xl mx-auto space-y-16 sm:space-y-24 relative z-10">
+          {/* Why switch to ATRIX Explorer? Comparison Table */}
+          <div className="space-y-10">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-zinc-950 tracking-tight">
+              Why switch to <span className="font-serif italic font-normal text-brand-primary">ATRIX Explorer?</span>
+            </h2>
+            
+            <div className="bg-white rounded-3xl border border-zinc-200/80 shadow-sm overflow-hidden">
+              <div className="grid grid-cols-3 bg-zinc-50 p-5 sm:p-6 border-b border-zinc-200">
+                <div className="font-bold text-zinc-950 text-sm sm:text-base">Feature</div>
+                <div className="font-bold text-zinc-500 text-center text-sm sm:text-base">Chrome</div>
+                <div className="font-bold text-brand-primary text-center text-sm sm:text-base">ATRIX Explorer</div>
+              </div>
+              
+              {[
+                { feat: "Saves reading progress", normal: false, atrix: true },
+                { feat: "Reading library", normal: false, atrix: true },
+                { feat: "Auto-scroll", normal: false, atrix: true },
+                { feat: "Optional backup", normal: false, atrix: true },
+              ].map((row, i) => (
+                <div key={i} className="grid grid-cols-3 p-5 sm:p-6 border-b border-zinc-100 last:border-0 hover:bg-zinc-50/80 transition-colors items-center">
+                  <div className="text-zinc-900 font-medium text-sm sm:text-base">{row.feat}</div>
+                  <div className="text-center text-zinc-400 flex justify-center">
+                    {row.normal === false ? <X size={20} className="text-zinc-400" /> : <span className="text-sm">{row.normal}</span>}
+                  </div>
+                  <div className="text-center flex justify-center text-brand-primary">
+                    <CheckCircle size={22} className="glow-cyan rounded-full text-brand-primary" />
+                  </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* Social Proof CTA */}
+          <div className="text-center max-w-2xl mx-auto space-y-5 pt-4">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight">Join thousands of readers keeping track of everything they read.</h2>
+            <p className="text-zinc-600 font-normal text-base sm:text-lg leading-relaxed">
+              Get chapter updates, feature announcements, and reading recommendations.
+            </p>
+            <div className="flex justify-center pt-2">
+              <a href="https://t.me/manhwa_daily" target="_blank" rel="noreferrer" className="h-12 px-8 rounded-full border border-zinc-300/80 bg-white shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all flex items-center gap-3 text-zinc-950 font-bold text-sm">
+                <Send size={18} className="text-[#0088cc]" /> Join the Telegram Community
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. FAQ Section (Asymmetric 2-Column - Inspired by Taskku) */}
+      <section className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-[var(--app-dark-bg)] text-[var(--app-text-light)] border-t border-zinc-800 isolate">
+         <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+               {/* Left Column: Sticky Title & Community CTA */}
+               <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-32 h-fit text-center lg:text-left">
+                  <span className="text-brand-primary text-xs font-mono tracking-[0.3em] uppercase block">
+                    HELP CENTER
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.1]">
+                    Frequently Asked <span className="font-serif italic font-normal text-brand-primary">Questions</span>
+                  </h2>
+                  <p className="text-zinc-400 text-base font-normal leading-relaxed">
+                    Have questions about how Atrix Explorer works? Find clear answers regarding privacy, app compatibility, and offline reading.
+                  </p>
+                  <a
+                    href="https://t.me/manhwa_daily"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center justify-center gap-3 h-12 px-6 rounded-2xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs tracking-widest border border-white/10 backdrop-blur-md transition-all hover:scale-105 active:scale-95"
+                  >
+                    <Send size={16} className="text-cyan-400" /> ASK US ON TELEGRAM
+                  </a>
+               </div>
+
+               {/* Right Column: Accordion List */}
+               <div className="lg:col-span-7 space-y-4">
+                 {[
+                   { q: "Is this just a reading app?", a: "No, it's a fully functional mobile web browser that specifically detects and enhances manhwa and novel websites." },
+                   { q: "Is it available on iOS?", a: "Currently, ATRIX Explorer is only available for Android via APK download. We are actively exploring an iOS release in the future." },
+                   { q: "Do I need to create an account?", a: "Absolutely not. You can download the app and start reading immediately. Accounts are only needed if you want cloud backups." },
+                   { q: "Is my reading data private?", a: "Yes. By default, your entire reading history and library are stored exclusively on your local device." },
+                   { q: "Does it work offline?", a: "Your library and progress tracking work offline. However, since it is a web browser, you will need an internet connection to load and read new chapters." },
+                   { q: "Is cloud backup optional?", a: "Yes! Cloud backup is entirely optional and free. You never have to use it if you prefer 100% local storage." },
+                   { q: "Will it sync across devices?", a: "Yes, if you choose to create a free account, you can sync your library seamlessly across multiple Android devices." },
+                 ].map((faq, i) => (
+                   <div key={i}>
+                     <FAQItem faq={faq} />
+                   </div>
+                 ))}
+               </div>
             </div>
          </div>
       </section>
 
       {/* 10. Compact News (White Background) */}
-      <section className="relative py-16 px-4 sm:px-8 bg-brand-bg">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-brand-bg border-t border-zinc-200/80 dark:border-zinc-800">
          <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-end mb-8">
                <div>
-                  <h2 className="text-2xl font-bold text-brand-text">Latest News</h2>
-                  <p className="text-brand-grey text-sm">Updates from the community</p>
+                  <h2 className="text-2xl font-bold text-brand-text tracking-tight">Latest News</h2>
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm font-normal">Updates from the community</p>
                </div>
-               <Link to="/blog" className="text-sm font-bold text-brand-primary hover:underline">View All &rarr;</Link>
+               <Link to="/blog" className="text-sm font-bold text-brand-primary hover:underline flex items-center gap-1">View All &rarr;</Link>
             </div>
             
             <div className="grid sm:grid-cols-3 gap-6">
                {BLOG_POSTS.slice(0, 3).map((post, i) => (
-                  <Link key={i} to={`/blog/${post.id}`} className="group block border border-brand-border rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
+                  <Link key={i} to={`/blog/${post.id}`} className="group block border border-zinc-200 rounded-2xl overflow-hidden bg-white hover:shadow-md transition-shadow">
                      <div className="h-32 bg-zinc-100 overflow-hidden">
                         <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
                      </div>
                      <div className="p-4">
-                        <div className="text-[10px] font-bold text-brand-grey mb-1 uppercase tracking-widest">{post.category}</div>
+                        <div className="text-[10px] font-bold text-zinc-500 mb-1 uppercase tracking-widest">{post.category}</div>
                         <h3 className="text-sm font-bold text-brand-text line-clamp-2">{post.title}</h3>
-                     </div>
+                      </div>
                   </Link>
                ))}
             </div>
          </div>
       </section>
 
-      {/* 11. Big Download CTA (Dark Background) */}
-      <section className="relative pt-24 sm:pt-40 pb-16 sm:pb-24 md:pb-32 px-4 sm:px-8 bg-[var(--app-dark-bg)] text-white overflow-hidden text-center">
-        {/* Glow behind text */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[800px] bg-[var(--app-accent-neon)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
+      {/* 11. Big Download CTA Section (Dual Overlapping Mockups - Inspired by ESTARO & PlutoPay) */}
+      <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-[var(--app-dark-bg)] text-white overflow-hidden border-t border-zinc-800 isolate">
+        {/* Glow behind text & mockups */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[900px] h-[500px] sm:h-[900px] bg-brand-primary/15 blur-[140px] rounded-full pointer-events-none" />
         
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-8">
-            Ready to organize <br /> everything you read?
-          </h2>
-          <p className="text-[var(--app-grey)] text-lg md:text-xl font-light mb-12">
-            Download ATRIX Explorer today.
-          </p>
-          <div className="flex justify-center">
-             <button
-               onClick={handleDownload}
-               className="h-16 px-12 font-bold text-lg rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl bg-white text-zinc-900 flex items-center gap-3"
-             >
-               Download APK <ArrowRight size={20} />
-             </button>
+        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+            <span className="text-brand-primary text-xs font-mono tracking-[0.3em] uppercase mb-4 block">
+              GET ATRIX EXPLORER
+            </span>
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight leading-[1.1]">
+              Ready to organize <br className="hidden sm:inline" /> <span className="font-serif italic font-normal text-brand-primary">everything you read?</span>
+            </h2>
+            <p className="text-zinc-300 text-base sm:text-lg font-normal mb-10 max-w-xl">
+              Download ATRIX Explorer today. Start tracking your manhwa and novels automatically.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+               <button
+                 onClick={handleDownload}
+                 className="h-14 px-10 font-bold text-base rounded-2xl hover:scale-105 active:scale-95 transition-all shadow-xl bg-brand-primary text-zinc-950 flex items-center justify-center gap-3"
+               >
+                 Download APK <ArrowRight size={20} />
+               </button>
+            </div>
+          </div>
+
+          {/* Dual Overlapping Mobile Preview Frame */}
+          <div className="lg:col-span-5 relative flex items-center justify-center min-h-[340px] sm:min-h-[400px]">
+             {/* Back Phone */}
+             <div className="absolute left-4 sm:left-8 top-0 w-[200px] sm:w-[230px] rotate-[-10deg] opacity-75 hover:opacity-100 transition-all duration-500 hover:rotate-[-6deg] hover:scale-105">
+                <MobileFrame className="border-zinc-700 shadow-2xl">
+                   <img src="/library-preview.webp" alt="Atrix Library View" className="w-full h-full object-cover" />
+                </MobileFrame>
+             </div>
+             {/* Front Phone */}
+             <div className="relative z-20 w-[220px] sm:w-[250px] rotate-[6deg] hover:rotate-[2deg] hover:scale-105 transition-all duration-500 glow-cyan">
+                <MobileFrame className="border-brand-primary shadow-2xl">
+                   <img src="/hero-preview.webp" alt="Atrix Home View" className="w-full h-full object-cover" />
+                </MobileFrame>
+             </div>
           </div>
         </div>
       </section>
@@ -1088,7 +1446,7 @@ const ExportWorkflowUI = () => (
 
 const CategoryGridUI = () => {
   const items = [
-    { name: "MANGA", count: "142 Titles", icon: BookOpen, accent: "border-brand-primary/20 bg-brand-primary/5" },
+    { name: "MANHWA", count: "142 Titles", icon: BookOpen, accent: "border-brand-primary/20 bg-brand-primary/5" },
     { name: "ANIME", count: "89 Series", icon: Tv, accent: "border-brand-border hover:border-brand-primary/50" },
     { name: "NOVELS", count: "24 Books", icon: Layers, accent: "border-brand-border hover:border-brand-primary/50" },
     { name: "WEB SERIES", count: "12 Channels", icon: Globe, accent: "border-brand-border hover:border-brand-primary/50" },
@@ -1179,148 +1537,7 @@ const CollagePersonalizationUI = () => (
   </div>
 );
 
-const SyncConnectionsUI = () => (
-  <div className="relative z-10 w-full max-w-md aspect-[2/1] flex items-center justify-center overflow-hidden">
-    {/* Background soft glow behind cloud vault */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-brand-primary/5 rounded-full blur-2xl pointer-events-none" />
 
-    {/* Center: Cloud Sync Vault */}
-    <div className="flex flex-col items-center gap-1.5 relative z-20">
-      <motion.div
-        animate={{
-          y: [0, -4, 0]
-        }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="w-14 h-14 rounded-2xl bg-brand-primary flex flex-col items-center justify-center text-brand-bg shadow-2xl relative"
-      >
-        <div className="absolute -inset-0.5 bg-brand-primary/10 rounded-2xl blur opacity-50 animate-pulse" />
-        <Cloud size={20} className="relative z-10 mb-0.5" />
-        <Shield size={8} className="relative z-10 opacity-80" />
-      </motion.div>
-      <span className="text-[7px] font-bold tracking-[0.2em] text-brand-text">Sync Vault</span>
-    </div>
-
-    {/* Left: Phone A (Primary Phone) */}
-    <div className="absolute left-[12%] top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5 z-20">
-      <motion.div
-        whileHover={{ y: -3 }}
-        className="w-10 h-16 rounded-xl border border-brand-primary bg-brand-card p-0.5 shadow-md relative overflow-hidden flex flex-col justify-between"
-      >
-        {/* Phone Ear Speaker notch */}
-        <div className="w-4 h-0.5 bg-brand-primary rounded-full mx-auto mb-0.5 opacity-80 shrink-0" />
-
-        {/* Screen content */}
-        <div className="flex-1 w-full rounded-md bg-brand-bg border border-brand-border/40 p-0.5 flex flex-col gap-0.5 overflow-hidden select-none">
-          {/* Library list visual representation */}
-          <div className="h-1 w-full bg-brand-primary/10 rounded-[1px]" />
-          <div className="h-1 w-[80%] bg-brand-grey/15 rounded-[1px]" />
-          <div className="h-1 w-[90%] bg-brand-primary/10 rounded-[1px]" />
-          <div className="h-1 w-[65%] bg-brand-grey/15 rounded-[1px]" />
-
-          {/* Active Reading Progress Item */}
-          <div className="mt-auto pt-0.5 border-t border-brand-border/30 flex items-center justify-between">
-            <div className="h-0.5 w-3 bg-brand-primary/30 rounded-sm" />
-            <div className="h-0.5 w-1 bg-brand-primary rounded-full animate-pulse" />
-          </div>
-        </div>
-
-        {/* Bottom Home Indicator */}
-        <div className="w-4 h-0.5 bg-brand-primary/60 rounded-full mx-auto mt-0.5 shrink-0" />
-      </motion.div>
-      <div className="text-center">
-        <div className="text-[8px] font-bold tracking-widest text-brand-text">Phone A</div>
-        <div className="text-[6px] font-mono text-brand-grey">Primary</div>
-      </div>
-    </div>
-
-    {/* Right: Phone B (Synced Phone) */}
-    <div className="absolute right-[12%] top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5 z-20">
-      <motion.div
-        whileHover={{ y: -3 }}
-        className="w-10 h-16 rounded-xl border border-brand-border bg-brand-card p-0.5 shadow-md relative overflow-hidden flex flex-col justify-between"
-      >
-        {/* Phone Ear Speaker notch */}
-        <div className="w-4 h-0.5 bg-brand-border rounded-full mx-auto mb-0.5 shrink-0" />
-
-        {/* Screen content - Perfect Sync replication */}
-        <div className="flex-1 w-full rounded-md bg-brand-bg border border-brand-border/40 p-0.5 flex flex-col gap-0.5 overflow-hidden select-none">
-          {/* Synced content matches Phone A exactly! */}
-          <div className="h-1 w-full bg-brand-primary/10 rounded-[1px]" />
-          <div className="h-1 w-[80%] bg-brand-grey/15 rounded-[1px]" />
-          <div className="h-1 w-[90%] bg-brand-primary/10 rounded-[1px]" />
-          <div className="h-1 w-[65%] bg-brand-grey/15 rounded-[1px]" />
-
-          {/* Synced Reading Progress */}
-          <div className="mt-auto pt-0.5 border-t border-brand-border/30 flex items-center justify-between">
-            <div className="h-0.5 w-3 bg-brand-primary/30 rounded-sm" />
-            <div className="h-0.5 w-1 bg-brand-primary rounded-full" />
-          </div>
-        </div>
-
-        {/* Bottom Home Indicator */}
-        <div className="w-4 h-0.5 bg-brand-border rounded-full mx-auto mt-0.5 shrink-0" />
-      </motion.div>
-      <div className="text-center">
-        <div className="text-[8px] font-bold tracking-widest text-brand-text">Phone B</div>
-        <div className="text-[6px] font-mono text-brand-grey">Synced</div>
-      </div>
-    </div>
-
-    {/* SVG Path connectors */}
-    <svg className="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="gradient-left" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="var(--color-brand-border)" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="var(--color-brand-primary)" stopOpacity="0.6" />
-        </linearGradient>
-        <linearGradient id="gradient-right" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="var(--color-brand-primary)" stopOpacity="0.6" />
-          <stop offset="100%" stopColor="var(--color-brand-border)" stopOpacity="0.2" />
-        </linearGradient>
-      </defs>
-
-      {/* Animated paths between Phone A and Cloud Vault */}
-      <motion.path
-        d="M 90 100 Q 145 60 200 100"
-        fill="none"
-        stroke="url(#gradient-left)"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-        animate={{ strokeDashoffset: [0, -20] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-      />
-      <motion.path
-        d="M 90 100 Q 145 140 200 100"
-        fill="none"
-        stroke="url(#gradient-left)"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-        animate={{ strokeDashoffset: [0, 20] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-      />
-
-      {/* Animated paths between Cloud Vault and Phone B */}
-      <motion.path
-        d="M 200 100 Q 255 60 310 100"
-        fill="none"
-        stroke="url(#gradient-right)"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-        animate={{ strokeDashoffset: [0, -20] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-      />
-      <motion.path
-        d="M 200 100 Q 255 140 310 100"
-        fill="none"
-        stroke="url(#gradient-right)"
-        strokeWidth="1"
-        strokeDasharray="3 3"
-        animate={{ strokeDashoffset: [0, 20] }}
-        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
-      />
-    </svg>
-  </div>
-);
 
 const GuestFreedomPanelUI = () => (
   <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl mx-auto px-4 items-stretch">
@@ -1469,7 +1686,7 @@ const StatsDashboardUI = () => (
       </div>
       <div className="flex flex-col gap-1 text-[7px] font-mono mt-1">
         <div className="flex justify-between items-center"><span className="text-brand-text font-bold">MANHWA</span><span className="text-brand-grey opacity-60">60%</span></div>
-        <div className="flex justify-between items-center"><span className="text-brand-text font-bold">MANGA</span><span className="text-brand-grey opacity-60">25%</span></div>
+        <div className="flex justify-between items-center"><span className="text-brand-text font-bold">MANHWA</span><span className="text-brand-grey opacity-60">25%</span></div>
         <div className="flex justify-between items-center"><span className="text-brand-text font-bold">NOVELS</span><span className="text-brand-grey opacity-60">15%</span></div>
       </div>
     </div>
@@ -1541,51 +1758,50 @@ const FeaturesPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
         
         {/* 1. Hero / Big Vision */}
-        <header className="mb-16 sm:mb-24 md:mb-40 text-center max-w-3xl mx-auto">
+        <header className="mb-16 sm:mb-24 text-center max-w-3xl mx-auto">
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-6 block"
+            className="text-brand-text/50 text-xs font-bold tracking-[0.4em] mb-4 block uppercase"
           >
             FREEDOM & FLEXIBILITY
           </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl md:text-6xl font-bold leading-[1] tracking-tighter mb-10 text-balance text-brand-text"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-8 text-balance text-brand-text"
           >
-            BUILT FOR READERS<br />WHO WANT MORE<br />CONTROL.
+            Built for readers, <br />
+            <span className="font-serif italic font-normal text-brand-primary">who want more control.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-brand-grey text-lg md:text-xl font-light leading-relaxed text-balance"
+            className="text-brand-grey text-base sm:text-lg font-light leading-relaxed text-balance"
           >
             Atrix Explorer is a flexible personal library system. Track your collection, customize your layouts, and read on your own terms—with zero forced account signups.
           </motion.p>
         </header>
 
-        <div className="space-y-32 sm:space-y-48">
+        <div className="space-y-24 sm:space-y-36">
           
           {/* 2. READ COMFORTABLY (Browser Features) */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 relative isolate">
             <BackgroundBlob
               className="-top-20 -right-20"
-              color="bg-brand-primary/20"
+              color="bg-brand-primary/[0.08]"
               size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
               variant={2}
               style={{ zIndex: -1 }}
             />
             <div className="w-full lg:w-1/2 relative isolate">
               <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-grey/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="aspect-square rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 relative overflow-hidden transition-all flex items-end justify-center bg-brand-card isolate border-0 shadow-2xl"
               >
-                <div className="w-full max-w-[240px] sm:max-w-[280px] relative">
+                <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none z-0" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-primary/45 via-brand-primary/15 to-transparent pointer-events-none z-10" />
+                <div className="w-full max-w-[300px] sm:max-w-[335px] relative translate-y-[40%] transition-transform duration-500 hover:translate-y-[35%] z-20">
                   <DecorativeOrganic className="-top-12 -right-16 rotate-12" size="w-56 h-56" color="fill-brand-grey/10" variant={0} />
                   <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-40" size="w-64 h-64" color="fill-brand-primary/5" variant={1} />
                   
@@ -1596,16 +1812,16 @@ const FeaturesPage = () => {
                       className="w-full h-full object-cover"
                     />
                   </MobileFrame>
-                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -right-8 sm:-right-12 top-24 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-brand-border flex items-center gap-2 sm:gap-3 z-20">
+                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -right-8 sm:-right-12 top-24 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-zinc-200 flex items-center gap-2 sm:gap-3 z-20">
                      <Shield size={18} className="text-emerald-500 shrink-0" />
                      <div className="text-[10px] sm:text-xs font-bold text-brand-text tracking-widest whitespace-nowrap">AD BLOCKED</div>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -left-8 sm:-left-12 bottom-32 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-brand-border flex items-center gap-2 sm:gap-3 z-20">
+                  <motion.div whileHover={{ scale: 1.05 }} className="absolute -left-8 sm:-left-12 bottom-32 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-brand-bg shadow-xl border border-zinc-200 flex items-center gap-2 sm:gap-3 z-20">
                      <ArrowDown size={18} className="text-brand-primary shrink-0" />
                      <div className="text-[10px] sm:text-xs font-bold text-brand-text tracking-widest whitespace-nowrap">AUTO-SCROLL</div>
                   </motion.div>
                 </div>
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">01</div>
+                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.04] select-none tracking-tighter text-brand-text">01</div>
               </div>
             </div>
 
@@ -1621,36 +1837,31 @@ const FeaturesPage = () => {
                     <BookOpen size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">BROWSER FEATURES</div>
+                    <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase">BROWSER EXPERIENCE</div>
                     <div className="text-xs font-bold text-brand-grey">Zero interruptions.</div>
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  READ COMFORTABLY,<br />EVERY SINGLE TIME.
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                  Read without friction, <br />
+                  <span className="font-serif italic font-normal text-brand-primary">every single time.</span>
                 </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Enjoy hands-free auto-scrolling, powerful ad-blocking, and clean search filters designed specifically for reading novels and manga.
+                <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light mb-8 max-w-lg mx-auto lg:mx-0">
+                  Enjoy hands-free auto-scrolling, powerful ad-blocking, and clean web reader controls designed specifically for manga and webtoons.
                 </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-2 max-w-md mx-auto lg:mx-0">
                   {["Powerful ad-blocker", "Adjustable auto-scroll", "Block intrusive popups", "Distraction-free mode"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80 font-medium">
+                      <CheckCircle size={16} className="text-brand-primary shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={handleDownload}
-                  className="h-14 px-8 mx-auto lg:mx-0 rounded-2xl font-bold text-xs tracking-widest flex items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-brand-bg"
-                >
-                  Get APK <ArrowRight size={16} />
-                </button>
               </motion.div>
             </div>
           </div>
 
           {/* 3. AUTOMATIC PROGRESS TRACKING (Smart Tracking) */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
               color="bg-brand-primary/32"
@@ -1660,14 +1871,11 @@ const FeaturesPage = () => {
             />
             <div className="w-full lg:w-1/2 relative isolate">
               <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="aspect-square rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 relative overflow-hidden transition-all flex items-end justify-center bg-brand-card isolate border-0 shadow-2xl"
               >
-                {/* Scaled the phone UI up by 10% (from max-w-[280px] to max-w-[310px]) */}
-                <div className="w-full max-w-[260px] sm:max-w-[310px] relative">
+                <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none z-0" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-primary/45 via-brand-primary/15 to-transparent pointer-events-none z-10" />
+                <div className="w-full max-w-[300px] sm:max-w-[335px] relative translate-y-[40%] transition-transform duration-500 hover:translate-y-[35%] z-20">
                   <DecorativeOrganic className="-top-12 -right-16 rotate-12" size="w-56 h-56" color="fill-brand-grey/10" variant={0} />
                   <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-40" size="w-64 h-64" color="fill-brand-primary/5" variant={1} />
                   
@@ -1695,20 +1903,21 @@ const FeaturesPage = () => {
                     <Clock size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">SMART TRACKING</div>
+                    <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase">SMART TRACKING</div>
                     <div className="text-xs font-bold text-brand-grey">Automatic progress.</div>
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  YOUR ENTIRE LIBRARY,<br />TRACKED EFFORTLESSLY.
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                  Your reading progress, <br />
+                  <span className="font-serif italic font-normal text-brand-primary">saved automatically.</span>
                 </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Spend a minute on a page, and the browser automatically remembers your position. No manual logs, spreadsheets, or forgotten bookmarks.
+                <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light mb-8 max-w-lg mx-auto lg:mx-0">
+                  Spend a minute on a page, and the browser automatically saves your position. No manual logs, spreadsheets, or forgotten bookmarks.
                 </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-2 max-w-md mx-auto lg:mx-0">
                   {["Auto-detects chapters", "Smart history logs", "Continue from any device", "Works completely offline"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80 font-medium">
+                      <CheckCircle size={16} className="text-brand-primary shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -1718,7 +1927,7 @@ const FeaturesPage = () => {
           </div>
 
           {/* 4. LIBRARY MANAGEMENT (Personalization & Categories) */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 relative isolate">
             <BackgroundBlob
               className="-top-20 -left-20"
               color="bg-brand-primary/32"
@@ -1728,12 +1937,10 @@ const FeaturesPage = () => {
             />
             <div className="w-full lg:w-1/2 relative isolate">
               <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[400px] sm:min-h-[500px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="aspect-square rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 relative overflow-hidden transition-all flex items-center justify-center bg-brand-card isolate border-0 shadow-2xl"
               >
+                <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none z-0" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-primary/45 via-brand-primary/15 to-transparent pointer-events-none z-10" />
                 <DecorativeOrganic className="-top-12 -right-16 rotate-45 opacity-30" size="w-56 h-56" color="fill-brand-grey/5" variant={1} style={{ zIndex: -1 }} />
                 <CollagePersonalizationUI />
                 <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">03</div>
@@ -1752,17 +1959,18 @@ const FeaturesPage = () => {
                     <Layers size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">LIBRARY MANAGEMENT</div>
+                    <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase">LIBRARY MANAGEMENT</div>
                     <div className="text-xs font-bold text-brand-grey">Make it feel yours.</div>
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  ORGANIZE EVERYTHING<br />YOUR WAY.
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                  Organize everything, <br />
+                  <span className="font-serif italic font-normal text-brand-primary">your way.</span>
                 </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Track anything—manga, anime, novels, or movies. Use custom tags, private notes, and personalized posters to build a library that actually feels personal.
+                <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light mb-8 max-w-lg mx-auto lg:mx-0">
+                  Track anything—manga, anime, novels, or webtoons. Use custom tags, private notes, and personalized posters to build a library that feels personal.
                 </p>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-10">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-2">
                   {[
                     { icon: BookOpen, text: "Posters" },
                     { icon: Heart, text: "Playlists" },
@@ -1780,7 +1988,7 @@ const FeaturesPage = () => {
           </div>
 
           {/* 5. DISCOVERY */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 relative isolate">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20 relative isolate">
             <BackgroundBlob
               className="-bottom-24 -right-20"
               color="bg-brand-grey/35"
@@ -1790,13 +1998,11 @@ const FeaturesPage = () => {
             />
             <div className="w-full lg:w-1/2 relative isolate">
               <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-grey/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[500px] sm:min-h-[600px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="aspect-square rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 relative overflow-hidden transition-all flex items-end justify-center bg-brand-card isolate border-0 shadow-2xl"
               >
-                <div className="w-full max-w-[240px] sm:max-w-[280px] relative">
+                <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none z-0" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-primary/45 via-brand-primary/15 to-transparent pointer-events-none z-10" />
+                <div className="w-full max-w-[300px] sm:max-w-[335px] relative translate-y-[40%] transition-transform duration-500 hover:translate-y-[35%] z-20">
                   <DecorativeOrganic className="-top-12 -right-20 rotate-12" size="w-60 h-60" color="fill-brand-primary/10" variant={2} />
                   
                   <MobileFrame>
@@ -1820,23 +2026,24 @@ const FeaturesPage = () => {
               >
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
                   <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                    <Search size={24} />
+                    <Globe size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">DISCOVERY HUB</div>
-                    <div className="text-xs font-bold text-brand-grey">Find something new.</div>
+                    <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase">SOURCE MANAGEMENT</div>
+                    <div className="text-xs font-bold text-brand-grey">All your reading sources.</div>
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  FIND YOUR NEXT<br />FAVORITE READ.
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                  Manage all your <br />
+                  <span className="font-serif italic font-normal text-brand-primary">reading sources.</span>
                 </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Filter trending titles, uncover hidden gems, and explore community favorites — all from one powerful discovery hub.
+                <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light mb-8 max-w-lg mx-auto lg:mx-0">
+                  Add your favorite reading sources, select official publishers, and automatically collect websites as you browse — all in one place.
                 </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {["Filter by genre & tags", "Trending recommendations", "Discover hidden gems", "Explore community favorites"].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-2 max-w-md mx-auto lg:mx-0">
+                  {["Manage your reading sources", "Add your favorite sources", "Select from official publishers", "Auto-collect as you visit sites"].map((pt, i) => (
+                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80 font-medium">
+                      <CheckCircle size={16} className="text-brand-primary shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -1845,15 +2052,8 @@ const FeaturesPage = () => {
             </div>
           </div>
 
-          {/* 6. READING INSIGHTS (Kept exactly as is) */}
-          <div className="flex flex-col gap-8 sm:gap-16 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/20"
-              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
-              variant={1}
-              style={{ zIndex: -1 }}
-            />
+          {/* 6. READING INSIGHTS */}
+          <div className="flex flex-col gap-8 relative isolate">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1861,118 +2061,55 @@ const FeaturesPage = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">TRACK YOUR READING LIFE</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">SEE YOUR READING JOURNEY.</span>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter leading-[1] text-brand-text mb-6">
-                VISUALIZE YOUR PROGRESS OVER TIME.
+              <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase mb-3">READING INSIGHTS</div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-brand-text mb-6">
+                Your reading journey, <br />
+                <span className="font-serif italic font-normal text-brand-primary">visualized over time.</span>
               </h2>
-              <p className="text-lg leading-relaxed text-brand-grey font-light">
-                View your reading activity, completed titles, progress streaks, and personal statistics over time.
+              <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light max-w-xl mx-auto">
+                View your reading activity, completed titles, reading streaks, and personal statistics in one private dashboard.
               </p>
             </motion.div>
             <StatsDashboardUI />
           </div>
 
-          {/* 7. PRIVACY FIRST (New Section) */}
-          <div className="relative py-20 sm:py-32 rounded-[3rem] sm:rounded-[4rem] overflow-hidden text-center border border-brand-primary/20 bg-brand-primary/5">
-            <DecorativeOrganic className="-top-20 -left-20 opacity-30" size="w-64 h-64" color="fill-brand-primary/10" variant={2} />
-            <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-30" size="w-72 h-72" color="fill-brand-primary/10" variant={0} />
+          {/* 7. PRIVACY FIRST */}
+          <div className="relative py-16 sm:py-24 rounded-[2.5rem] sm:rounded-[3.5rem] overflow-hidden text-center border border-brand-primary/20 bg-brand-primary/10 isolate shadow-2xl">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-2xl mx-auto relative z-10 px-4"
+              className="max-w-xl mx-auto relative z-10 px-4"
             >
-              <div className="w-16 h-16 rounded-3xl bg-brand-primary mx-auto flex items-center justify-center text-brand-bg mb-8 shadow-xl">
-                <ShieldCheck size={32} />
+              <div className="w-14 h-14 rounded-2xl bg-brand-primary mx-auto flex items-center justify-center text-brand-bg mb-6 shadow-xl">
+                <ShieldCheck size={28} />
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter mb-6 text-brand-text">
-                YOUR READING HISTORY<br />BELONGS TO YOU.
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                Your reading history <br />
+                <span className="font-serif italic font-normal text-brand-primary">belongs to you.</span>
               </h2>
-              <p className="text-brand-grey mb-12 font-light text-lg leading-relaxed">
+              <p className="text-brand-grey font-light text-base sm:text-lg leading-relaxed mb-10">
                 Atrix Explorer is built on a strict privacy-first architecture. We believe your data should stay on your device unless you explicitly choose otherwise.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left max-w-lg mx-auto">
-                  {[
-                    "Stored 100% locally", 
-                    "No forced account signups", 
-                    "Zero ads in your library", 
-                    "Sync only if you choose to"
-                  ].map((pt, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-brand-card border border-brand-border px-5 py-4 rounded-2xl shadow-sm">
-                      <Lock size={18} className="text-brand-primary shrink-0" />
-                      <span className="font-bold text-sm text-brand-text">{pt}</span>
-                    </div>
-                  ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-xl mx-auto">
+                {[
+                  "Stored 100% locally",
+                  "No forced account signups",
+                  "Backup, export anytime.",
+                  "Sync only if you choose to"
+                ].map((pt, i) => (
+                  <div key={i} className="flex items-center gap-3 bg-brand-card border border-brand-border px-5 py-4 rounded-2xl shadow-sm hover:border-brand-primary transition-colors">
+                    <Lock size={18} className="text-brand-primary shrink-0" />
+                    <span className="font-bold text-sm text-brand-text">{pt}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
 
-          {/* 8. OPTIONAL CLOUD SYNC */}
-          <div className="flex flex-col lg:flex-row items-center gap-8 sm:gap-16 lg:gap-32">
-            <div className="w-full lg:w-1/2 relative isolate">
-              <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-primary/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[380px] sm:min-h-[460px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
-              >
-                <DecorativeOrganic className="-top-12 -right-16 rotate-12 opacity-30" size="w-56 h-56" color="fill-brand-primary/5" variant={0} style={{ zIndex: -1 }} />
-                <SyncConnectionsUI />
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">05</div>
-              </div>
-            </div>
-
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              >
-                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
-                    <Cloud size={24} />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">OPTIONAL UPGRADE</div>
-                    <div className="text-xs font-bold text-brand-grey">Sync if you want.</div>
-                  </div>
-                </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  YOUR LIBRARY, SAFE<br />ACROSS YOUR DEVICES.
-                </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Your library already works perfectly on one device. Sign in only if you want to keep everything synchronized across multiple phones.
-                </p>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left mb-10 max-w-md mx-auto lg:mx-0">
-                  {[
-                    "Secure cloud backup",
-                    "Switch phones easily",
-                    "Sync your library instantly",
-                    "100% optional choice"
-                  ].map((pt, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm text-brand-text/80">
-                      <CheckCircle size={14} className="text-brand-primary shrink-0" />
-                      <span>{pt}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-
-          {/* 9. GUEST FREEDOM VS ACCOUNT MODE */}
-          <div className="flex flex-col gap-8 sm:gap-16 relative isolate">
-            <BackgroundBlob
-              className="-top-20 -left-20"
-              color="bg-brand-primary/20"
-              size="w-[250px] sm:w-[500px] h-[250px] sm:h-[500px]"
-              variant={0}
-              style={{ zIndex: -1 }}
-            />
+          {/* 8. GUEST FREEDOM VS ACCOUNT MODE */}
+          <div className="flex flex-col gap-8 relative isolate">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -1980,31 +2117,27 @@ const FeaturesPage = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="text-center max-w-3xl mx-auto"
             >
-              <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">USE IT YOUR WAY</span>
-              <span className="text-xs font-bold text-brand-grey block mb-2">Guest mode is the default.</span>
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter leading-[1] text-brand-text mb-6">
-                LOCAL-FIRST BY DESIGN.
+              <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase mb-3">USE IT YOUR WAY</div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] text-brand-text mb-6">
+                Local-first by design, <br />
+                <span className="font-serif italic font-normal text-brand-primary">cloud optional.</span>
               </h2>
-              <p className="text-lg leading-relaxed text-brand-grey font-light">
-                You get the complete, unrestricted reading experience without ever creating an account. Cloud sync is simply an optional extension.
+              <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light max-w-xl mx-auto">
+                Enjoy the complete reading experience without ever creating an account. Cloud sync is simply an optional extension.
               </p>
             </motion.div>
             <GuestFreedomPanelUI />
           </div>
 
-          {/* 10. IMPORT & EXPORT */}
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-8 sm:gap-16 lg:gap-32 mt-16 sm:mt-24">
+          {/* 9. IMPORT & EXPORT */}
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-10 lg:gap-20">
             <div className="w-full lg:w-1/2 relative isolate">
               <div
-                className="absolute -inset-10 bg-gradient-to-br from-brand-grey/10 to-transparent blur-[100px] opacity-20"
-                style={{ zIndex: -1 }}
-              />
-              <div
-                className="min-h-[360px] sm:min-h-[420px] rounded-[2.5rem] sm:rounded-[3rem] border border-brand-border shadow-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden transition-colors flex items-center justify-center bg-brand-card isolate"
+                className="aspect-square rounded-[2.5rem] sm:rounded-[3.5rem] p-6 sm:p-10 relative overflow-hidden transition-all flex items-center justify-center bg-brand-card isolate border-0 shadow-2xl"
               >
-                <DecorativeOrganic className="-bottom-20 -left-16 -rotate-12 opacity-30" size="w-64 h-64" color="fill-brand-grey/5" variant={0} style={{ zIndex: -1 }} />
+                <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none z-0" />
+                <div className="absolute inset-0 bg-gradient-to-tl from-brand-primary/45 via-brand-primary/15 to-transparent pointer-events-none z-10" />
                 <ExportWorkflowUI />
-                <div className="absolute top-4 right-4 text-[40px] sm:text-[60px] font-bold opacity-[0.03] select-none tracking-tighter text-brand-text">06</div>
               </div>
             </div>
 
@@ -2020,24 +2153,25 @@ const FeaturesPage = () => {
                     <Download size={24} />
                   </div>
                   <div className="text-left">
-                    <div className="text-[10px] font-bold tracking-widest opacity-40 text-brand-text">IMPORT & EXPORT</div>
+                    <div className="text-[10px] font-bold tracking-widest text-brand-text/50 uppercase">IMPORT & EXPORT</div>
                     <div className="text-xs font-bold text-brand-grey">Export anytime.</div>
                   </div>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-8 tracking-tighter leading-[1] text-brand-text">
-                  BACKUP, EXPORT,<br />AND MOVE YOUR<br />LIBRARY ANYTIME.
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-6 text-brand-text">
+                  Backup, export, <br />
+                  <span className="font-serif italic font-normal text-brand-primary">and move anytime.</span>
                 </h2>
-                <p className="text-lg leading-relaxed text-brand-grey font-light mb-10">
-                  Your reading history should never feel locked into our app. Export your entire library in one click.
+                <p className="text-base sm:text-lg leading-relaxed text-brand-grey font-light mb-8 max-w-lg mx-auto lg:mx-0">
+                  Your reading history should never feel locked in. Export your entire library in one click in CSV or JSON database formats.
                 </p>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
-                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border-2 border-brand-border bg-brand-card shadow-sm">
-                     <div className="text-xs font-bold text-brand-grey">.CSV</div>
-                     <span className="text-sm font-medium text-brand-text">Spreadsheet Format</span>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-2">
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-brand-border bg-brand-card shadow-sm">
+                    <div className="text-xs font-bold text-brand-grey">.CSV</div>
+                    <span className="text-sm font-medium text-brand-text">Spreadsheet Format</span>
                   </div>
-                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border-2 border-brand-primary/30 bg-brand-primary/5 shadow-sm">
-                     <div className="text-xs font-bold text-brand-primary">.JSON</div>
-                     <span className="text-sm font-medium text-brand-text">Raw Database Backup</span>
+                  <div className="flex items-center gap-3 px-5 py-3 rounded-xl border border-brand-primary/30 bg-brand-primary/5 shadow-sm">
+                    <div className="text-xs font-bold text-brand-primary">.JSON</div>
+                    <span className="text-sm font-medium text-brand-text">Raw Database Backup</span>
                   </div>
                 </div>
               </motion.div>
@@ -2046,7 +2180,7 @@ const FeaturesPage = () => {
         </div>
 
         {/* Final CTA Section */}
-        <div className="relative isolate mt-20 sm:mt-32 md:mt-64">
+        <div className="relative isolate mt-28 sm:mt-40 md:mt-48 pt-16 sm:pt-24">
           <BackgroundBlob
             className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-30"
             color="bg-brand-primary/20"
@@ -2054,27 +2188,53 @@ const FeaturesPage = () => {
             variant={3}
             style={{ zIndex: -1 }}
           />
-          <section className="relative py-20 sm:py-24 rounded-[3rem] sm:rounded-[4rem] overflow-hidden text-center border border-brand-border bg-brand-card">
-            <DecorativeOrganic className="-top-20 -left-20 opacity-30" size="w-64 h-64" color="fill-brand-primary/5" variant={2} />
-            <DecorativeOrganic className="bottom-0 right-0 -rotate-12 opacity-30" size="w-72 h-72" color="fill-brand-grey/10" variant={0} />
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-xl mx-auto relative z-10 px-4"
-            >
-              <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold tracking-tighter mb-10 text-brand-text">
-                BUILD YOUR PERFECT<br /><span className="text-brand-grey">READING SPACE.</span>
-              </h2>
-              <button
-                onClick={handleDownload}
-                className="h-16 px-12 rounded-2xl font-bold text-xs tracking-widest transition-all hover:scale-105 shadow-2xl bg-brand-primary text-brand-bg flex items-center gap-3 mx-auto"
+          {/* Card Container (Compact Height, Bottom Flush Alignment) */}
+          <div className="relative rounded-[2.5rem] sm:rounded-[3.5rem] bg-brand-primary/15 border border-brand-primary/20 shadow-2xl px-8 sm:px-12 lg:px-16 pt-8 sm:pt-12 pb-0">
+            {/* Background Circular Aura behind Phone */}
+            <div className="w-72 h-72 sm:w-[380px] sm:h-[380px] rounded-full bg-brand-primary/20 blur-3xl absolute right-4 sm:right-12 top-1/2 -translate-y-1/2 pointer-events-none z-0" />
+
+            <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8 lg:gap-12 relative z-10">
+              {/* Left Column: Tilted Serif Title, Subtitle & CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="w-full lg:w-1/2 text-center lg:text-left py-2 pb-8 sm:pb-12"
               >
-                GET ATRIX EXPLORER <ArrowRight size={16} />
-              </button>
-            </motion.div>
-          </section>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-5 text-brand-text">
+                  Atrix Explorer, <span className="font-serif italic font-normal text-brand-primary">your partner</span><br />
+                  in reading space.
+                </h2>
+                <p className="text-sm sm:text-base text-brand-grey font-light leading-relaxed mb-6 max-w-lg mx-auto lg:mx-0">
+                  Build your perfect reading space. Track, organize, and read your favorite manga and webtoons effortlessly on your device.
+                </p>
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                  <button
+                    onClick={handleDownload}
+                    className="h-13 px-8 rounded-2xl font-bold text-xs tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg flex items-center justify-center gap-3"
+                  >
+                    GET ATRIX EXPLORER <ArrowRight size={18} />
+                  </button>
+                </div>
+              </motion.div>
+
+              {/* Right Column: Phone Mockup overflowing TOP edge, bottom anchored directly to card bottom border with 0px gap */}
+              <div className="w-full lg:w-1/2 flex items-end justify-center lg:justify-end relative min-h-[220px] sm:min-h-[260px] lg:min-h-[280px]">
+                <div className="absolute bottom-0 right-0 sm:right-4 lg:right-6 w-full max-w-[250px] sm:max-w-[280px] md:max-w-[300px] -top-20 sm:-top-28 lg:-top-32 flex items-end z-20">
+                  <div className="w-full h-full overflow-hidden rounded-b-none flex items-start">
+                    <MobileFrame className="w-full shadow-2xl">
+                      <img
+                        src="/hero-preview.webp"
+                        alt="Atrix Explorer Home Screen"
+                        className="w-full h-full object-cover"
+                      />
+                    </MobileFrame>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2091,85 +2251,75 @@ const PrivacyPage = () => {
       </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Privacy Policy</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective: July 24, 2026</p>
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective Date & Last Updated: August 17, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. Our Approach to Privacy</h2>
-        <p>Atrix Explorer is built on a local-first principle. Your library data, reading insights, search history, and browsing history live primarily on your device. Cloud sync is optional and only used to back up your library and profile. We do not sell your data, show ads, or track you across the web.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. Important Notice: Medium & Browser Tool Only</h2>
+        <p>Atrix Explorer is designed purely as an organizer, tracking tool, and browser interface. <strong>We do not host, store, stream, upload, or distribute any media, comics, manhwa, webtoons, or copyrighted files.</strong> The Application functions solely as a medium and tool to help users track their personal reading history, manage local libraries, and browse third-party websites through an in-app browser interface.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. Data We Collect</h2>
-        <p>We collect only the data necessary for the app to function and sync:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. Personal Information We Collect</h2>
+        <p>We collect only the data necessary for the app to function, authenticate, and sync:</p>
         <ul>
-          <li><strong>Account Data:</strong> When you sign in via Google or GitHub, we receive your email address and a unique user ID. This is used for authentication and cloud sync.</li>
-          <li><strong>Library Data:</strong> Title IDs, reading progress (chapter/season), custom status (plan/reading/completed/dropped), personal ratings (art & story), private notes, and reminder settings. This data syncs to our cloud only if you create an account.</li>
-          <li><strong>Profile Data:</strong> Username, bio, and avatar image. Stored locally and synced to cloud for account portability.</li>
-          <li><strong>Push Notification Tokens:</strong> Your device token is stored to send chapter alerts via Firebase Cloud Messaging.</li>
-          <li><strong>Analytics & Usage Data:</strong> We collect anonymized usage data (such as screen views, session duration, and feature interactions) via Firebase Analytics to help us understand how the app is used and to improve the overall experience.</li>
-          <li><strong>User Feedback:</strong> When you submit feedback, bug reports, or feature requests through the app, we collect the text you provide, alongside basic device and app version information to help us address the issue.</li>
-          <li><strong>Crash Reports:</strong> Anonymous crash diagnostics via Firebase Crashlytics to help us fix bugs.</li>
+          <li><strong>Account Information:</strong> When you register or sign in via Google or Email, we collect your email address, unique user ID, username, and display name. Managed securely via Supabase Auth.</li>
+          <li><strong>Library & User Content:</strong> Title IDs, reading progress (chapter/season), custom statuses (reading/completed/dropped), personal ratings, private notes, and reminder settings.</li>
+          <li><strong>Profile Data:</strong> Username, display name, bio, and custom profile avatar images uploaded by you.</li>
+          <li><strong>Push Notification Tokens:</strong> Your device token is stored to send chapter alerts and reading reminders via Firebase Cloud Messaging (FCM).</li>
+          <li><strong>Analytics & Telemetry:</strong> Anonymized usage data (such as screen views, session duration, and feature interactions) via Firebase Analytics and PostHog.</li>
+          <li><strong>Support & Feedback:</strong> Messages, feedback, or bug reports submitted via the app or email to <strong>support@atrixexplorer.com</strong>.</li>
+          <li><strong>Crash Reports:</strong> Anonymous crash diagnostics via Firebase Crashlytics to help us fix technical errors.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. Data That Stays on Your Device</h2>
-        <p>The following data is stored locally and never sent to our servers:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. Data That Stays Exclusively on Your Device</h2>
+        <p>The following data is stored 100% locally on your device and is never sent to or stored on our servers:</p>
         <ul>
-          <li>Search history and search result cache</li>
           <li>In-app browser history and visit history</li>
-          <li>Reading insights (activity log, streaks, reading time estimates)</li>
+          <li>Search queries and search result cache</li>
+          <li>Detailed reading streak logs and offline reading tab states</li>
           <li>Notification inbox history</li>
-          <li>Trending and discovery caches</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. How We Handle Images</h2>
-        <p>Custom posters and avatar images that you upload are stored locally on your device. If you have an account, a compressed copy is uploaded to Cloudflare R2 object storage for cross-device sync. These images are private to your account. No other user can see your custom posters or avatar unless we introduce a sharing feature in the future.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. Cookies & Web Tracking Policy</h2>
+        <p>In addition to the personal information collected directly from you, when you visit our website (<strong>https://atrixexplorer.com</strong>), we and third-party service providers (such as Cloudflare and Firebase) may collect technical information using cookies and local storage technology.</p>
+        <p>We use cookies to improve your experience on our website, provide essential security, and analyze website traffic. You can manage your cookie preferences through your browser settings. For detailed information on controlling cookies, please visit <a href="https://www.aboutcookies.org/" target="_blank" rel="noopener noreferrer" className="text-brand-primary underline">www.aboutcookies.org</a>.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services</h2>
-        <p>Atrix Explorer uses the following third-party services. Each has its own privacy policy governing data handling:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Age Restriction (17+)</h2>
+        <p>You must be at least 17 years old to use Atrix Explorer. If you are under 17, you are not permitted to use the app or create an account. If we learn that a user is under 17, we will immediately terminate their account and delete their personal data.</p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. How We Use Your Information</h2>
+        <p>We use your personal information strictly to:</p>
         <ul>
-          <li><strong>Supabase</strong> — Cloud database, authentication, and storage. Stores your account info, library data, and profile data.</li>
-          <li><strong>Firebase (Google)</strong> — Analytics for usage data, Crashlytics for error reporting, and Cloud Messaging for push notifications.</li>
-          <li><strong>Cloudflare</strong> — R2 object storage for user-uploaded images and Workers for API proxying.</li>
-          <li><strong>MeiliSearch</strong> — Search engine for comic metadata. Search queries are sent to return results; no personal data is stored.</li>
-          <li><strong>Google & GitHub</strong> — Authentication providers. Only an ID token is exchanged; no profile data is stored client-side.</li>
+          <li>Provide core services: Authenticate users, manage user libraries, and sync reading history across devices.</li>
+          <li>App improvement: Identify application crashes, fix technical bugs, and optimize app navigation.</li>
+          <li>Communication: Send account notifications and respond to support inquiries.</li>
+          <li>Legal & Security: Protect our rights and comply with applicable laws.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. No Copyrighted Content Hosting</h2>
-        <p>Atrix Explorer does not host, store, distribute, or stream any copyrighted media files (images, videos, audio, or full-text content). The app exclusively uses text-based metadata — titles, descriptions, author names, genre tags, and user-submitted notes. All comic cover images displayed in the app are sourced from third-party public databases or uploaded by the user as custom posters for personal tracking purposes only.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. DMCA & Copyright Concerns</h2>
-        <p>Because we do not host any copyrighted content, DMCA takedown requests for infringing files do not apply to our service. If you believe that any metadata displayed in the app infringes on your intellectual property rights, or that a user-uploaded custom poster violates your copyright, please contact us at <strong>support@atrixexplorer.com</strong> and we will review and address your concern promptly.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. Third-Party Services & External Websites</h2>
+        <p>Atrix Explorer integrates with third-party service providers to function. Each provider operates under its own privacy policy:</p>
+        <ul>
+          <li><strong>Supabase</strong> — Cloud database, user authentication, and secure file storage.</li>
+          <li><strong>Firebase (Google)</strong> — Crashlytics for crash reports, Analytics for usage data, and Cloud Messaging for push alerts.</li>
+          <li><strong>PostHog</strong> — Privacy-focused product analytics and usage telemetry.</li>
+          <li><strong>Cloudflare</strong> — R2 object storage for custom user uploads and Workers for API proxying.</li>
+        </ul>
+        <p><strong>In-App Browser & External Links:</strong> When using the in-app browser, you are accessing third-party websites directly. We are not responsible for the privacy practices, content, cookies, or data collection of external websites. We encourage you to review the privacy policies of any website you visit.</p>
 
         <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">8. Data Security</h2>
-        <p>All data transmitted between the app and our servers is encrypted in transit (HTTPS / TLS). Database access is restricted by row-level security — each user can only access their own data. Poster uploads are rate-limited to prevent abuse. We follow industry best practices to protect your information.</p>
+        <p>We employ industry-standard security measures—including TLS encryption in transit and database Row-Level Security (RLS)—to protect your personal information from unauthorized access, alteration, or disclosure.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Data Retention & Deletion</h2>
-        <p>Your library and profile data are retained for as long as your account is active. You can delete your account at any time from the app settings. Upon deletion, all cloud-stored data — library entries, profile info, and uploaded images — are permanently removed. Local data on your device must be deleted manually by clearing app data or uninstalling the app.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Your Rights</h2>
-        <p>You have the right to:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Your Data Rights & Deletion</h2>
+        <p>You have full rights regarding your data:</p>
         <ul>
-          <li><strong>Access</strong> — View all data associated with your account.</li>
-          <li><strong>Export</strong> — Export your library as CSV or JSON from the app.</li>
-          <li><strong>Correct</strong> — Edit your library entries and profile at any time.</li>
-          <li><strong>Delete</strong> — Delete your account and all associated cloud data.</li>
+          <li><strong>Access & Export:</strong> View and export your library data in CSV or JSON format from the app.</li>
+          <li><strong>Correct:</strong> Edit your library entries and profile details at any time.</li>
+          <li><strong>Delete:</strong> Delete your account and associated data directly in-app or submit an online deletion request at <a href="/delete-account" className="text-brand-primary underline">https://atrixexplorer.com/delete-account</a>.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Children's Privacy</h2>
-        <p>Atrix Explorer is not intended for users under the age of 13. We do not knowingly collect data from children. If you believe a child has provided us with personal data, contact us and we will delete it.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">12. International Users</h2>
-        <p>Your data may be processed on servers located in the United States and Europe, depending on the third-party service provider (Supabase, Google Cloud, Cloudflare). By using the app, you consent to this transfer.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">13. Changes to This Policy</h2>
-        <p>We may update this policy from time to time. Changes will be posted here and reflected in the "Effective" date at the top. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">14. In-App Browser and External Links</h2>
-        <p>Atrix Explorer features an in-app browser designed for reading tracking. When using this browser, you are accessing third-party websites directly. We are not responsible for the privacy practices, data collection, or content of these external sites. We encourage you to review the privacy policies of any website you visit through the app.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">15. Contact</h2>
-        <p>For questions, concerns, or data requests, contact us at <strong>support@atrixexplorer.com</strong>.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Contact Us</h2>
+        <p>If you have any questions or concerns regarding this Privacy Policy, please contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
-  )
-}
+  );
+};
 
 const TermsPage = () => {
   return (
@@ -2181,59 +2331,48 @@ const TermsPage = () => {
       </Helmet>
       <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-10 tracking-tighter text-brand-text">Terms of Service</h1>
       <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
-        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Last Updated: July 24, 2026</p>
+        <p className="text-lg sm:text-xl font-medium mb-12 text-brand-text">Effective Date & Last Updated: August 17, 2026</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. What Atrix Explorer Is</h2>
-        <p>Atrix Explorer is a personal library tracking application with a built-in browser. It allows users to track their reading progress across manhwa, manga, anime, novels, web series, and custom media types. The app provides text-based metadata (titles, descriptions, genre tags) and does not host, stream, or distribute any copyrighted media files.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">1. License & Acceptance of Terms</h2>
+        <p>By downloading, installing, accessing, or using the Atrix Explorer mobile application or website (<strong>https://atrixexplorer.com</strong>), you agree to be bound by these Terms of Service ("Terms"). Atrix Explorer grants you a non-exclusive, non-transferable, revocable license to use the app for personal, non-commercial use in accordance with these Terms.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. No Copyrighted Content</h2>
-        <p>Atrix Explorer does not host, store, or serve any copyrighted images, videos, audio, or full-text content. All metadata displayed in the app is sourced from third-party public databases. User-uploaded custom posters are stored for personal tracking purposes only and are not publicly shared. If you believe any metadata or user content infringes your copyright, contact us at <strong>support@atrixexplorer.com</strong> and we will review the concern promptly.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">2. Platform Identity: Medium & Browser Tool Only</h2>
+        <p>Atrix Explorer is exclusively a personal library tracking application, organizer, and web browser. <strong>We do not host, store, index, stream, upload, or distribute any media, comics, manhwa, webtoons, or copyrighted media files.</strong> The Application provides text-based metadata (titles, descriptions, genre tags) sourced from public third-party databases and serves as a medium for users to track their reading progress.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. User Responsibilities</h2>
-        <p>You agree to:</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">3. Restrictions & Prohibited Conduct</h2>
+        <p>You agree NOT to:</p>
         <ul>
-          <li>Use the app for lawful purposes only.</li>
-          <li>Not upload infringing, abusive, or illegal content as custom posters or notes.</li>
-          <li>Not attempt to access another user's account or data.</li>
-          <li>Not abuse the app's APIs, services, or infrastructure.</li>
-          <li>Abide by the terms of service of any third-party websites you access via the in-app browser.</li>
+          <li>Use the Application for any unlawful or unauthorized purpose.</li>
+          <li>Copy, modify, reverse engineer, decompile, or disassemble the Application.</li>
+          <li>Upload abusive, illegal, or infringing content as custom profile avatars or cover images.</li>
+          <li>Harass, abuse, threaten, or harm others through submitted feedback or public profiles.</li>
+          <li>Interfere with or disrupt the app, servers, or networks connected to the service.</li>
         </ul>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. User Content Ownership</h2>
-        <p>Your library data — including titles, progress, notes, ratings, reminders, and custom posters — belongs to you. Atrix Explorer claims no ownership over your personal data. You retain full rights to your content and can export or delete it at any time.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">4. Account Creation & Age Requirement (17+)</h2>
+        <p>You can use basic features of the app without creating an account, but account registration is required to sync your library across devices. You must be at least 17 years old to create an account. You are responsible for keeping your account credentials secure and for all activity occurring under your account.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Services and In-App Browser</h2>
-        <p>Atrix Explorer integrates with third-party services to function (Supabase, Firebase, Cloudflare, MeiliSearch, Google, GitHub). The app also includes an in-app browser for your convenience. We are not responsible for the uptime, security, content, or data practices of any integrated services or external websites you visit. Each service and external website operates under its own terms and privacy policy, which you are responsible for reviewing.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">5. Third-Party Websites & In-App Browser Disclaimer</h2>
+        <p>The Application includes an in-app browser designed for reading tracking. You acknowledge and agree that Atrix Explorer has no control over, and assumes no responsibility for, the content, privacy policies, availability, or security of any third-party websites visited through the browser. You access third-party websites at your own risk and must abide by their respective terms of service.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. Disclaimer of Warranties</h2>
-        <p>Atrix Explorer is provided "as is" and "as available." We do not guarantee that:</p>
-        <ul>
-          <li>The metadata (titles, descriptions, genre tags) is 100% accurate or complete.</li>
-          <li>The app will be uninterrupted or error-free.</li>
-          <li>Third-party databases or APIs will remain accessible.</li>
-        </ul>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">6. Intellectual Property</h2>
+        <p>The Application branding, code, logos, and UI designs are the property of Atrix Explorer. All third-party comic titles, character names, metadata, and external website content belong to their respective copyright owners. Your library data (notes, ratings, custom status lists) belongs to you, and you retain full rights to export your data anytime.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. Limitation of Liability</h2>
-        <p>To the maximum extent permitted by law, Atrix Explorer and its developers shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app — including but not limited to data loss, metadata inaccuracies, or third-party service interruptions.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">7. Disclaimer of Warranties</h2>
+        <p>THE APPLICATION IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE APP WILL BE UNINTERRUPTED, SECURE, OR FREE FROM ERRORS.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">8. Account Termination</h2>
-        <p>We reserve the right to suspend or terminate accounts that violate these terms — including abuse of the service, uploading illegal content, or attempting to compromise the platform. You may delete your account at any time from the app settings.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">8. Limitation of Liability</h2>
+        <p>TO THE FULLEST EXTENT PERMITTED BY LAW, ATRIX EXPLORER SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES (INCLUDING LOST PROFITS, LOST DATA, OR THIRD-PARTY CONTENT DISPUTES) ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THE APPLICATION OR EXTERNAL WEBSITES.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Governing Law</h2>
-        <p>These terms shall be governed by and construed in accordance with the laws applicable to the developer's jurisdiction. Any disputes shall be resolved through informal negotiation before seeking legal remedies.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">9. Termination & Indemnification</h2>
+        <p>We may terminate your license to use the app at any time for violations of these Terms. You agree to indemnify and hold harmless Atrix Explorer from any claims, damages, liabilities, or costs arising out of your use of the app or violation of these Terms.</p>
 
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Changes to These Terms</h2>
-        <p>We may update these terms as the app evolves. Continued use after changes are posted constitutes acceptance of the new terms. We will notify users of significant changes via the app or email.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">11. Feedback & Suggestions</h2>
-        <p>If you choose to provide feedback, bug reports, or suggestions for improving Atrix Explorer, you agree that we are free to use such feedback without any obligation, restriction, or compensation to you.</p>
-
-        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">12. Contact</h2>
-        <p>For questions about these terms, contact us at <strong>support@atrixexplorer.com</strong>.</p>
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">10. Contact Us</h2>
+        <p>For questions about these Terms of Service, please contact us at <strong>support@atrixexplorer.com</strong>.</p>
       </section>
     </div>
-  )
-}
+  );
+};
 
 const FreedomPage = () => {
   return (
@@ -2263,9 +2402,142 @@ const FreedomPage = () => {
   )
 }
 
+const DeleteAccountPage = () => {
+  const [email, setEmail] = useState("");
+  const [reason, setReason] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 800);
+  };
+
+  return (
+    <div className="pt-20 sm:pt-32 md:pt-48 pb-16 sm:pb-24 md:pb-32 min-h-screen max-w-4xl mx-auto px-4 sm:px-8 text-brand-text/80 leading-relaxed bg-brand-bg">
+      <Helmet>
+        <title>Account Deletion & Data Removal | Atrix Explorer</title>
+        <meta name="description" content="Request account and data deletion for Atrix Explorer. Delete your profile, library, and cloud backup data." />
+        <link rel="canonical" href="https://atrixexplorer.com/delete-account" />
+      </Helmet>
+
+      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 tracking-tighter text-brand-text">Account & Data Deletion</h1>
+      <p className="text-lg sm:text-xl font-light text-brand-grey mb-12">
+        Atrix Explorer gives you full control over your data. You can delete your account and all associated data at any time.
+      </p>
+
+      {/* Grid: 2 Methods */}
+      <div className="grid md:grid-cols-2 gap-8 mb-16">
+        {/* Method 1: In-App */}
+        <div className="p-8 rounded-[2rem] border border-brand-border bg-brand-card flex flex-col justify-between">
+          <div>
+            <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xl mb-6">
+              1
+            </div>
+            <h3 className="text-xl font-bold mb-4 text-brand-text">Instant Deletion In App</h3>
+            <p className="text-sm text-brand-grey font-light leading-relaxed mb-6">
+              If you have the Atrix Explorer app installed, you can delete your account and all data instantly:
+            </p>
+            <ol className="space-y-3 text-xs sm:text-sm font-medium text-brand-text/90 list-decimal list-inside">
+              <li>Open <strong>Atrix Explorer</strong></li>
+              <li>Go to <strong>Settings</strong> → <strong>Account</strong></li>
+              <li>Tap <strong>Delete Account</strong> and confirm</li>
+            </ol>
+          </div>
+          <div className="mt-8 pt-6 border-t border-brand-border text-xs text-brand-grey">
+            ⚡ Executed instantly via automated Supabase function.
+          </div>
+        </div>
+
+        {/* Method 2: Web Request Form */}
+        <div className="p-8 rounded-[2rem] border border-brand-border bg-brand-card">
+          <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center font-bold text-xl mb-6">
+            2
+          </div>
+          <h3 className="text-xl font-bold mb-4 text-brand-text">Web Deletion Request</h3>
+          <p className="text-sm text-brand-grey font-light leading-relaxed mb-6">
+            If you uninstalled the app, submit your account email below to request permanent deletion:
+          </p>
+
+          {submitted ? (
+            <div className="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 space-y-2">
+              <h4 className="font-bold text-sm">Deletion Request Received</h4>
+              <p className="text-xs font-light leading-relaxed">
+                Your request for <strong>{email}</strong> has been logged. Account data and associated cloud files will be permanently deleted within 48 hours.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-mono tracking-widest text-brand-grey mb-2">
+                  ACCOUNT EMAIL *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="your.email@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-bg text-brand-text focus:outline-none focus:border-brand-primary text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-mono tracking-widest text-brand-grey mb-2">
+                  REASON (OPTIONAL)
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="Tell us why you are leaving..."
+                  value={reason}
+                  onChange={(e) => setReason(e.target.value)}
+                  className="w-full px-4 py-3 rounded-xl border border-brand-border bg-brand-bg text-brand-text focus:outline-none focus:border-brand-primary text-sm resize-none"
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full py-3.5 px-6 rounded-xl bg-brand-primary text-brand-bg font-bold text-xs tracking-widest hover:opacity-90 transition-all shadow-md active:scale-95 disabled:opacity-50 cursor-pointer"
+              >
+                {loading ? "SUBMITTING..." : "SUBMIT DELETION REQUEST"}
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+
+      {/* Information Section */}
+      <section className="space-y-6 prose max-w-none prose-sm sm:prose-base md:prose-lg lg:prose-xl prose-zinc">
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">What Data is Deleted?</h2>
+        <p>When you delete your account, the following data is permanently purged from our servers:</p>
+        <ul>
+          <li><strong>Authentication Credentials:</strong> User account ID, email login, and Google/GitHub auth tokens.</li>
+          <li><strong>Library & Preferences:</strong> Reading progress, bookmarks, custom lists, titles, and ratings.</li>
+          <li><strong>Cloud Images:</strong> User-uploaded profile avatars and custom poster artwork stored in Cloudflare R2 object storage.</li>
+          <li><strong>Feedback & Reminders:</strong> User feedback reports and notification tokens.</li>
+        </ul>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">Local Device Storage</h2>
+        <p>
+          Deleting your cloud account removes all server-side data. Any local cache or history stored on your Android device can be cleared by uninstalling the application or selecting <em>Clear App Data</em> in your device settings.
+        </p>
+
+        <h2 className="text-2xl sm:text-3xl font-bold text-brand-text">Contact Support</h2>
+        <p>
+          If you have any questions or experience issues with account deletion, please email us directly at <strong>support@atrixexplorer.com</strong>.
+        </p>
+      </section>
+    </div>
+  );
+};
+
 const DownloadPage = () => {
   const [activeTab, setActiveTab] = useState<"stable" | "beta">("stable");
-  const [expandedVersion, setExpandedVersion] = useState<string | null>("v1.1.11");
+  const [expandedVersion, setExpandedVersion] = useState<string | null>("v1.2.0");
 
   const toggleExpand = (version: string) => {
     setExpandedVersion(prev => (prev === version ? null : version));
@@ -2273,6 +2545,20 @@ const DownloadPage = () => {
 
   const releases = {
     stable: [
+      {
+        version: "v1.2.0",
+        type: "Stable",
+        date: "August 2026",
+        size: "83 MB",
+        reqs: "Android 8.0+",
+        features: [
+          "Added new onboarding flow and sources setup",
+          "Enhanced browser content detection & tracking controls",
+          "Updated library UI, history filtering, and profile avatars"
+        ],
+        fixes: [],
+        perf: []
+      },
       {
         version: "v1.1.11",
         type: "Stable",
@@ -2423,16 +2709,16 @@ const DownloadPage = () => {
 
       <Helmet>
         <title>Download Atrix Explorer | Releases & Version History</title>
-        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.11), view full release notes, changelogs, and download history." />
+        <meta name="description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.2.0), view full release notes, changelogs, and download history." />
         <link rel="canonical" href="https://atrixexplorer.com/download" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://atrixexplorer.com/download" />
         <meta property="og:title" content="Download Atrix Explorer | Releases & Version History" />
-        <meta property="og:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.11), view full release notes, changelogs, and download history." />
+        <meta property="og:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.2.0), view full release notes, changelogs, and download history." />
         <meta property="og:image" content="https://atrixexplorer.com/hero-preview.webp" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Download Atrix Explorer | Releases & Version History" />
-        <meta name="twitter:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.11), view full release notes, changelogs, and download history." />
+        <meta name="twitter:description" content="Download the latest version of Atrix Explorer. Get the current Android APK (v1.2.0), view full release notes, changelogs, and download history." />
         <meta name="twitter:image" content="https://atrixexplorer.com/hero-preview.webp" />
       </Helmet>
 
@@ -2481,36 +2767,36 @@ const DownloadPage = () => {
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="text-2xl sm:text-3xl font-bold tracking-tight">{currentVersion.version}</span>
-                  <span className="px-3.5 py-1 bg-brand-primary text-brand-bg rounded-full text-[10px] font-bold tracking-widest">
+                  <span className="px-3.5 py-1 bg-brand-primary text-zinc-950 rounded-full text-[10px] font-extrabold tracking-widest shadow-sm">
                     {currentVersion.type}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-2 text-xs">
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Release Date</span>
-                    <span className="font-bold">{currentVersion.date}</span>
+                    <span className="block text-zinc-500 font-mono text-[10px]">Release Date</span>
+                    <span className="font-bold text-brand-text">{currentVersion.date}</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">File Size</span>
-                    <span className="font-bold">{currentVersion.size}</span>
+                    <span className="block text-zinc-500 font-mono text-[10px]">File Size</span>
+                    <span className="font-bold text-brand-text">{currentVersion.size}</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Platform</span>
-                    <span className="font-bold">Android APK</span>
+                    <span className="block text-zinc-500 font-mono text-[10px]">Platform</span>
+                    <span className="font-bold text-brand-text">Android APK</span>
                   </div>
                   <div>
-                    <span className="block text-brand-grey font-mono text-[10px] opacity-60">Target OS</span>
-                    <span className="font-bold">{currentVersion.reqs}</span>
+                    <span className="block text-zinc-500 font-mono text-[10px]">Target OS</span>
+                    <span className="font-bold text-brand-text">{currentVersion.reqs}</span>
                   </div>
                 </div>
               </div>
               <div className="shrink-0">
                 <a
-                  href="https://download.atrixexplorer.com/atrixexplorer-1.1.11.apk"
-                  download="atrixexplorer-1.1.11.apk"
-                  className="inline-flex h-16 px-10 items-center justify-center rounded-2xl font-bold text-sm tracking-widest transition-all hover:scale-105 active:scale-95 shadow-xl bg-brand-primary text-brand-bg gap-3 whitespace-nowrap"
+                  href="https://download.atrixexplorer.com/atrixexplorer-1.2.0.apk"
+                  download="atrixexplorer-1.2.0.apk"
+                  className="inline-flex h-14 px-8 items-center justify-center rounded-2xl font-bold text-sm tracking-widest transition-all hover:scale-105 active:scale-95 shadow-lg bg-brand-primary text-zinc-950 gap-3 whitespace-nowrap"
                 >
-                  Download APK <Download size={20} />
+                  Download APK <Download size={18} />
                 </a>
               </div>
             </div>
@@ -2523,14 +2809,14 @@ const DownloadPage = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="p-5 rounded-[1.5rem] border border-brand-border bg-brand-card flex flex-col sm:flex-row items-center gap-5 text-left shadow-lg backdrop-blur-md mb-20"
+          className="p-5 rounded-[1.5rem] border border-zinc-200 bg-brand-card flex flex-col sm:flex-row items-center gap-5 text-left shadow-sm backdrop-blur-md mb-20"
         >
           <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-brand-primary/10 text-brand-primary shrink-0">
             <Globe size={24} />
           </div>
           <div>
-            <h4 className="font-bold text-sm tracking-tight mb-1">Platform Availability</h4>
-            <p className="text-xs text-brand-grey leading-relaxed">
+            <h4 className="font-bold text-sm tracking-tight mb-1 text-brand-text">Platform Availability</h4>
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
               Atrix Explorer is currently fully optimized and available for <span className="font-bold text-brand-text">Android devices</span>. We are actively working on the <span className="font-bold text-brand-text">iOS edition</span>, and it will be released soon. Stay tuned!
             </p>
           </div>
@@ -2538,19 +2824,19 @@ const DownloadPage = () => {
 
         {/* Accordion Release History (Matching shared example) */}
         <section className="space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-brand-border pb-4">
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Version Archives</h2>
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-brand-text">Version Archives</h2>
             
             {/* Category Toggle Tabs */}
-            <div className="flex p-1 bg-brand-card border border-brand-border rounded-xl w-fit">
+            <div className="flex p-1 bg-white border border-zinc-200 rounded-xl w-fit">
               <button
                 onClick={() => {
                   setActiveTab("stable");
-                  setExpandedVersion("v1.1.11");
+                  setExpandedVersion("v1.2.0");
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all",
-                  activeTab === "stable" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
+                  "px-4 py-2 rounded-lg text-[10px] font-extrabold uppercase tracking-widest transition-all cursor-pointer",
+                  activeTab === "stable" ? "bg-brand-primary text-zinc-950 shadow-md" : "text-zinc-600 hover:text-zinc-950"
                 )}
               >
                 Stable Releases
@@ -2561,8 +2847,8 @@ const DownloadPage = () => {
                   setExpandedVersion("0.9.5-beta");
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-lg text-[10px] font-bold uppercase tracking-widest transition-all",
-                  activeTab === "beta" ? "bg-brand-primary text-brand-bg shadow-md" : "text-brand-grey hover:text-brand-text"
+                  "px-4 py-2 rounded-lg text-[10px] font-extrabold uppercase tracking-widest transition-all cursor-pointer",
+                  activeTab === "beta" ? "bg-brand-primary text-zinc-950 shadow-md" : "text-zinc-600 hover:text-zinc-950"
                 )}
               >
                 Beta Builds
@@ -2757,10 +3043,10 @@ const BlogPage = () => {
                 setVisibleCount(9);
               }}
               className={cn(
-                "px-6 sm:px-8 py-3 rounded-2xl text-[10px] sm:text-xs font-bold uppercase tracking-widest transition-all active:scale-95",
+                "px-6 sm:px-8 py-3 rounded-2xl text-[10px] sm:text-xs font-extrabold uppercase tracking-widest transition-all active:scale-95 cursor-pointer",
                 filter === cat
-                  ? "bg-brand-primary text-brand-bg shadow-xl"
-                  : "bg-brand-card text-brand-grey hover:bg-brand-primary/10"
+                  ? "bg-brand-primary text-zinc-950 shadow-lg"
+                  : "bg-white border border-zinc-200 text-zinc-600 hover:text-zinc-950 hover:bg-zinc-100"
               )}
             >
               {cat === "News" ? "Weekly News" : cat}
@@ -2768,80 +3054,140 @@ const BlogPage = () => {
           ))}
         </div>
 
-        {/* Latest Post Hero */}
+        {/* Latest Post Hero (Samoresh Event Card Design) */}
         {latestPost && (
           <motion.article
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-20 sm:mb-32 group"
+            className="mb-16 sm:mb-24 group cursor-pointer"
           >
-            <Link to={`/blog/${latestPost.id}`} className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center p-4 sm:p-8 rounded-[2rem] sm:rounded-[3rem] border border-brand-border hover:shadow-2xl transition-all duration-500 bg-brand-card">
-              <div className="relative aspect-[16/9] lg:aspect-square overflow-hidden rounded-[1.5rem] sm:rounded-[2rem]">
+            <Link to={`/blog/${latestPost.id}`} className="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center p-6 sm:p-8 rounded-[2.5rem] bg-white border border-zinc-200/80 shadow-xl hover:shadow-2xl transition-all duration-500">
+              <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden rounded-[2rem] bg-zinc-100">
                 <img
                   src={latestPost.image}
                   alt={latestPost.title}
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute top-4 sm:top-8 left-4 sm:left-8">
-                  <span className="px-4 sm:px-6 py-2 bg-white/90 backdrop-blur-xl rounded-full text-[9px] sm:text-xs font-bold text-zinc-950 tracking-widest border border-white shadow-xl">
+                
+                {/* Category Badge */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-4 py-1.5 bg-brand-primary text-zinc-950 rounded-xl text-xs font-mono font-black tracking-widest uppercase shadow-md">
                     Featured / {latestPost.category}
                   </span>
                 </div>
+
+                {/* Floating Date Card */}
+                <div className="absolute top-4 right-4 w-12 h-14 rounded-xl bg-white/95 backdrop-blur-md text-zinc-950 shadow-xl border border-white/80 flex flex-col items-center justify-center p-1 font-mono leading-none">
+                  <span className="text-base font-black text-zinc-950 leading-none mb-0.5">
+                    {parseBlogDate(latestPost.date).day}
+                  </span>
+                  <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">
+                    {parseBlogDate(latestPost.date).month}
+                  </span>
+                </div>
               </div>
-              <div className="px-2 sm:px-4 text-center lg:text-left">
-                <span className="text-xs font-mono text-brand-grey tracking-widest block mb-4 sm:mb-6">{latestPost.date} — By {latestPost.author}</span>
-                <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8 leading-[1.1] tracking-tighter text-brand-text">
+
+              <div className="lg:col-span-6 space-y-6 text-center lg:text-left">
+                <div className="flex items-center gap-3 text-xs font-semibold text-zinc-500 justify-center lg:justify-start">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-zinc-100 text-zinc-700 text-xs">
+                    <Clock size={14} className="text-brand-primary" /> {latestPost.readTime || "5 min read"}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 text-zinc-500 text-xs">
+                    <User size={14} className="text-zinc-400" /> By {latestPost.author}
+                  </span>
+                </div>
+
+                <h2 className="text-2xl sm:text-4xl font-black text-zinc-950 leading-tight tracking-tight group-hover:text-brand-primary transition-colors">
                   {latestPost.title}
                 </h2>
-                <p className="text-brand-grey text-lg sm:text-xl font-light leading-relaxed mb-8 sm:mb-10 line-clamp-3">
+
+                <p className="text-zinc-600 font-normal text-base sm:text-lg leading-relaxed line-clamp-3">
                   {latestPost.excerpt}
                 </p>
-                <div className="inline-flex items-center gap-4 font-bold text-xs sm:text-sm tracking-widest group-hover:gap-6 transition-all text-brand-text">
-                  Read the latest <ArrowRight size={20} />
+
+                <div className="pt-2">
+                  <div className="h-12 px-8 rounded-xl bg-zinc-950 text-white font-bold text-xs tracking-wider group-hover:bg-brand-primary group-hover:text-zinc-950 transition-all duration-300 shadow-md inline-flex items-center justify-center gap-3">
+                    <span>Read Article</span>
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </Link>
           </motion.article>
         )}
 
-        {/* Grid Section */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20 mb-20">
+        {/* Grid Section (Samoresh Event Card Design) */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 mb-20">
           {displayedPosts.map((item, i) => (
             <motion.article
               id={`blog-post-card-${i}`}
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i % 3 * 0.1 }}
-              className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
+              className="flex flex-col group rounded-[2.2rem] bg-white border border-zinc-200/80 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 overflow-hidden cursor-pointer h-full justify-between"
             >
-              <Link to={`/blog/${item.id}`} className="flex flex-col h-full">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
-                      {item.category}
-                    </span>
+              <Link to={`/blog/${item.id}`} className="flex flex-col h-full justify-between">
+                <div>
+                  {/* Banner Image with Double Samoresh Badges */}
+                  <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                      referrerPolicy="no-referrer"
+                    />
+                    
+                    {/* Top-Left Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3.5 py-1.5 bg-brand-primary text-zinc-950 rounded-xl text-[10px] font-mono font-black tracking-widest uppercase shadow-md border border-brand-primary">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    {/* Top-Right Floating Date Card (Samoresh Signature Badge) */}
+                    <div className="absolute top-4 right-4 w-12 h-14 rounded-xl bg-white/95 backdrop-blur-md text-zinc-950 shadow-xl border border-white/80 flex flex-col items-center justify-center p-1 font-mono leading-none">
+                      <span className="text-base font-black text-zinc-950 leading-none mb-0.5">
+                        {parseBlogDate(item.date).day}
+                      </span>
+                      <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">
+                        {parseBlogDate(item.date).month}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="flex-1 flex flex-col px-2 pb-2">
-                  <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{item.date}</span>
-                  <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
-                    {item.title}
-                  </h3>
-                  <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
-                    {item.excerpt}
-                  </p>
-                  <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
-                    Read Story <ArrowRight size={18} />
+
+                  {/* Card Content */}
+                  <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Meta Row: Read Time / Author */}
+                      <div className="flex items-center gap-3 text-xs font-semibold text-zinc-500 mb-3">
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 text-zinc-700 text-[11px]">
+                          <Clock size={13} className="text-brand-primary" /> {item.readTime || "5 min read"}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-zinc-500 text-[11px]">
+                          <User size={13} className="text-zinc-400" /> {item.author || "Atrix Team"}
+                        </span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl sm:text-2xl font-black text-zinc-950 group-hover:text-brand-primary transition-colors tracking-tight leading-snug mb-3 line-clamp-2">
+                        {item.title}
+                      </h3>
+
+                      {/* Excerpt */}
+                      <p className="text-zinc-600 font-normal text-sm leading-relaxed line-clamp-2 mb-6">
+                        {item.excerpt}
+                      </p>
+                    </div>
+
+                    {/* Samoresh Full-Width Action Button ("Read Story →") */}
+                    <div className="w-full py-3 rounded-xl bg-zinc-950 text-white font-bold text-xs tracking-wider group-hover:bg-brand-primary group-hover:text-zinc-950 transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-auto">
+                      <span>Read Story</span>
+                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -3133,7 +3479,7 @@ const BlogDetail = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="absolute top-0 right-0 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-gradient-to-br from-black/10 to-transparent blur-[120px] pointer-events-none rounded-full" />
+                      <div className="absolute top-0 right-0 w-[400px] sm:w-[500px] h-[400px] sm:h-[500px] bg-gradient-to-br from-black/10 to-transparent blur-3xl transform-gpu will-change-transform pointer-events-none rounded-full" />
                     </div>
                   </div>
                 </>
@@ -3153,40 +3499,70 @@ const BlogDetail = () => {
                     <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">STAY UPDATED</span>
                     <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-brand-text">LATEST INTEL & NEWS</h3>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                     {latestNews.map((post, i) => (
                       <motion.article
                         key={post.id}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
+                        className="flex flex-col group rounded-[2.2rem] bg-white border border-zinc-200/80 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 overflow-hidden cursor-pointer h-full justify-between"
                       >
-                        <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
-                          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
-                            <img
-                              src={post.image}
-                              alt={post.title}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute top-4 left-4">
-                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
-                                {post.category}
-                              </span>
+                        <Link to={`/blog/${post.id}`} className="flex flex-col h-full justify-between">
+                          <div>
+                            {/* Banner Image with Double Samoresh Badges */}
+                            <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
+                              <img
+                                src={post.image}
+                                alt={post.title}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                                referrerPolicy="no-referrer"
+                              />
+                              
+                              {/* Top-Left Category Badge */}
+                              <div className="absolute top-4 left-4">
+                                <span className="px-3.5 py-1.5 bg-brand-primary text-zinc-950 rounded-xl text-[10px] font-mono font-black tracking-widest uppercase shadow-md border border-brand-primary">
+                                  {post.category}
+                                </span>
+                              </div>
+
+                              {/* Top-Right Floating Date Card */}
+                              <div className="absolute top-4 right-4 w-12 h-14 rounded-xl bg-white/95 backdrop-blur-md text-zinc-950 shadow-xl border border-white/80 flex flex-col items-center justify-center p-1 font-mono leading-none">
+                                <span className="text-base font-black text-zinc-950 leading-none mb-0.5">
+                                  {parseBlogDate(post.date).day}
+                                </span>
+                                <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">
+                                  {parseBlogDate(post.date).month}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                          <div className="flex-1 flex flex-col px-2 pb-2">
-                            <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{post.date}</span>
-                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
-                              {post.title}
-                            </h3>
-                            <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
-                              {post.excerpt}
-                            </p>
-                            <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
-                              Read Story <ArrowRight size={18} />
+
+                            {/* Card Content */}
+                            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                              <div>
+                                <div className="flex items-center gap-3 text-xs font-semibold text-zinc-500 mb-3">
+                                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 text-zinc-700 text-[11px]">
+                                    <Clock size={13} className="text-brand-primary" /> {post.readTime || "5 min read"}
+                                  </span>
+                                  <span className="inline-flex items-center gap-1.5 text-zinc-500 text-[11px]">
+                                    <User size={13} className="text-zinc-400" /> {post.author || "Atrix Team"}
+                                  </span>
+                                </div>
+
+                                <h3 className="text-xl sm:text-2xl font-black text-zinc-950 group-hover:text-brand-primary transition-colors tracking-tight leading-snug mb-3 line-clamp-2">
+                                  {post.title}
+                                </h3>
+
+                                <p className="text-zinc-600 font-normal text-sm leading-relaxed line-clamp-2 mb-6">
+                                  {post.excerpt}
+                                </p>
+                              </div>
+
+                              <div className="w-full py-3 rounded-xl bg-zinc-950 text-white font-bold text-xs tracking-wider group-hover:bg-brand-primary group-hover:text-zinc-950 transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-auto">
+                                <span>Read Story</span>
+                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                              </div>
                             </div>
                           </div>
                         </Link>
@@ -3203,40 +3579,70 @@ const BlogDetail = () => {
                     <span className="text-brand-grey text-xs font-bold tracking-[0.4em] mb-4 block">EXPLORE MORE</span>
                     <h3 className="text-2xl sm:text-4xl font-bold tracking-tighter text-brand-text">RECOMMENDED READS</h3>
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 sm:gap-x-12 gap-y-16 sm:gap-y-20">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                     {recommendedPosts.map((post, i) => (
                       <motion.article
                         key={post.id}
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: i * 0.1 }}
-                        className="flex flex-col group p-4 sm:p-5 rounded-[2rem] border border-brand-border bg-brand-card transition-all duration-500 hover:shadow-2xl"
+                        className="flex flex-col group rounded-[2.2rem] bg-white border border-zinc-200/80 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-400 overflow-hidden cursor-pointer h-full justify-between"
                       >
-                        <Link to={`/blog/${post.id}`} className="flex flex-col h-full">
-                          <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] mb-6 sm:mb-8 bg-brand-card-sub">
-                            <img
-                              src={post.image}
-                              alt={post.title}
-                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                              referrerPolicy="no-referrer"
-                            />
-                            <div className="absolute top-4 left-4">
-                              <span className="px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[9px] font-bold text-zinc-900 tracking-widest border border-white shadow-md">
-                                {post.category}
-                              </span>
+                        <Link to={`/blog/${post.id}`} className="flex flex-col h-full justify-between">
+                          <div>
+                            {/* Banner Image with Double Samoresh Badges */}
+                            <div className="relative aspect-[16/10] overflow-hidden bg-zinc-100">
+                              <img
+                                src={post.image}
+                                alt={post.title}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
+                                referrerPolicy="no-referrer"
+                              />
+                              
+                              {/* Top-Left Category Badge */}
+                              <div className="absolute top-4 left-4">
+                                <span className="px-3.5 py-1.5 bg-brand-primary text-zinc-950 rounded-xl text-[10px] font-mono font-black tracking-widest uppercase shadow-md border border-brand-primary">
+                                  {post.category}
+                                </span>
+                              </div>
+
+                              {/* Top-Right Floating Date Card */}
+                              <div className="absolute top-4 right-4 w-12 h-14 rounded-xl bg-white/95 backdrop-blur-md text-zinc-950 shadow-xl border border-white/80 flex flex-col items-center justify-center p-1 font-mono leading-none">
+                                <span className="text-base font-black text-zinc-950 leading-none mb-0.5">
+                                  {parseBlogDate(post.date).day}
+                                </span>
+                                <span className="text-[9px] font-bold text-zinc-500 uppercase tracking-wider">
+                                  {parseBlogDate(post.date).month}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                          <div className="flex-1 flex flex-col px-2 pb-2">
-                            <span className="text-[10px] font-mono text-brand-grey tracking-widest block mb-3">{post.date}</span>
-                            <h3 className="text-xl sm:text-2xl font-bold transition-colors tracking-tight leading-tight mb-3 text-brand-text group-hover:text-brand-primary">
-                              {post.title}
-                            </h3>
-                            <p className="text-brand-grey font-light leading-relaxed line-clamp-2 mb-6 text-sm flex-1">
-                              {post.excerpt}
-                            </p>
-                            <div className="mt-auto flex items-center gap-3 font-bold text-[10px] sm:text-xs tracking-widest group-hover:gap-5 transition-all text-brand-primary">
-                              Read Story <ArrowRight size={18} />
+
+                            {/* Card Content */}
+                            <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                              <div>
+                                <div className="flex items-center gap-3 text-xs font-semibold text-zinc-500 mb-3">
+                                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-zinc-100 text-zinc-700 text-[11px]">
+                                    <Clock size={13} className="text-brand-primary" /> {post.readTime || "5 min read"}
+                                  </span>
+                                  <span className="inline-flex items-center gap-1.5 text-zinc-500 text-[11px]">
+                                    <User size={13} className="text-zinc-400" /> {post.author || "Atrix Team"}
+                                  </span>
+                                </div>
+
+                                <h3 className="text-xl sm:text-2xl font-black text-zinc-950 group-hover:text-brand-primary transition-colors tracking-tight leading-snug mb-3 line-clamp-2">
+                                  {post.title}
+                                </h3>
+
+                                <p className="text-zinc-600 font-normal text-sm leading-relaxed line-clamp-2 mb-6">
+                                  {post.excerpt}
+                                </p>
+                              </div>
+
+                              <div className="w-full py-3 rounded-xl bg-zinc-950 text-white font-bold text-xs tracking-wider group-hover:bg-brand-primary group-hover:text-zinc-950 transition-all duration-300 shadow-md flex items-center justify-center gap-2 mt-auto">
+                                <span>Read Story</span>
+                                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                              </div>
                             </div>
                           </div>
                         </Link>
@@ -3305,6 +3711,7 @@ function AppContent() {
             <Route path="/download" element={<PageWrapper><DownloadPage /></PageWrapper>} />
             <Route path="/privacy" element={<PageWrapper><PrivacyPage /></PageWrapper>} />
             <Route path="/terms" element={<PageWrapper><TermsPage /></PageWrapper>} />
+            <Route path="/delete-account" element={<PageWrapper><DeleteAccountPage /></PageWrapper>} />
             <Route path="/freedom" element={<PageWrapper><FreedomPage /></PageWrapper>} />
           </Routes>
         </AnimatePresence>

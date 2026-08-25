@@ -1,9 +1,9 @@
 # Atrix Explorer - Full Context
 
-> Atrix Explorer | Mobile Web Browser for Manga & Novel Readers
+> Atrix Explorer | Mobile Web Browser for Manhwa & Novel Readers
 
 ## About
-Atrix Explorer is a specialized mobile browser built for readers. It solves the problem of fragmented reading experiences by allowing users to track, discover, and organize their library in one place. It is the perfect tool for tracking manhwa, manga, manhua, and webtoons.
+Atrix Explorer is a specialized mobile browser built for readers. It solves the problem of fragmented reading experiences by allowing users to track, discover, and organize their library in one place. It is the perfect tool for tracking manhwa, manhua, and webtoons.
 
 ## Features & Capabilities
 1. **Seamless Tracking**: Automatically or manually track chapters read.
@@ -11,7 +11,7 @@ Atrix Explorer is a specialized mobile browser built for readers. It solves the 
 3. **Discovery**: Find new content efficiently.
 
 ## Target Audience
-Individuals who read serialized graphic novels (Manhwa, Manga) or light novels on their Android mobile devices and struggle with managing bookmarks across multiple different websites.
+Individuals who read serialized graphic novels (Manhwa) or light novels on their Android mobile devices and struggle with managing bookmarks across multiple different websites.
 
 ## Technical Details
 - Platform: Android

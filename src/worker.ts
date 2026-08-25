@@ -25,8 +25,8 @@ export default {
     }
     const html = await indexResponse.text();
 
-    let metaTitle = 'Atrix Explorer | Mobile Web Browser for Manga & Novel Readers';
-    let metaDescription = 'A mobile web browser built for reading manga, manhwa, and novels. Automatically tracks your progress, blocks ads, and saves your library on your device.';
+    let metaTitle = 'Atrix Explorer | Mobile Web Browser for Manhwa & Novel Readers';
+    let metaDescription = 'A mobile web browser built for reading manhwa and novels. Automatically tracks your progress, blocks ads, and saves your library on your device.';
     let metaImage = `${url.origin}/hero-preview.webp`;
 
     let schemaInject = '';
@@ -39,7 +39,7 @@ export default {
       metaDescription = 'Discover the best Manhwa and Manhua recommendations. Expertly curated lists of badass OP MCs, cultivation, and non-cliché storylines.';
     } else if (path === '/download') {
       metaTitle = 'Download Atrix Explorer | Releases & Version History';
-      metaDescription = 'Download the latest version of Atrix Explorer. Get the current Android APK (v1.1.11), view full release notes, changelogs, and download history.';
+      metaDescription = 'Download the latest version of Atrix Explorer. Get the current Android APK (v1.2.0), view full release notes, changelogs, and download history.';
     } else if (path === '/privacy') {
       metaTitle = 'Privacy Policy | Atrix Explorer';
       metaDescription = "Atrix Explorer's privacy policy. Local-first by design — your library data stays on your device. Cloud sync is optional and fully opt-in.";

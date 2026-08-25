@@ -22,6 +22,7 @@ export interface BlogPost {
   author: string;
   excerpt: string;
   image: string;
+  readTime?: string;
   content: {
     type: "recommendation" | "news";
     intro: string;
